@@ -533,10 +533,38 @@ a { color: var(--brass-lt); }
 .footer__inner {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
   flex-wrap: wrap;
 }
 .footer p { margin: 0; }
+
+.footer__brands {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+/* Sized by height, not width: the two marks have very different aspect ratios,
+   so matching their optical weight means matching how tall they read. */
+.footer__mark { width: auto; }
+/* The Real lockup stacks a wordmark above the boxed logo, so it needs real
+   height before that top line is readable at all. */
+.footer__mark--team { height: 4.25rem; }
+.footer__mark--broker { height: 4rem; }
+
+.footer__divider {
+  width: 1px;
+  height: 3rem;
+  background: var(--border);
+}
+
+.footer__legal { text-align: right; }
+.footer__legal p + p { margin-top: 0.35rem; }
+
+@media (max-width: 40rem) {
+  .footer__inner { justify-content: center; }
+  .footer__legal { text-align: center; }
+}
 
 /* ============================ Breakpoints ============================== */
 

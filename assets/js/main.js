@@ -40,6 +40,14 @@ function renderFacts(root) {
   ].join('');
 }
 
+/** Capitalisation these brands actually use — "Tiktok" would be wrong. */
+const SOCIAL_LABELS = {
+  instagram: 'Instagram',
+  tiktok: 'TikTok',
+  facebook: 'Facebook',
+  linkedin: 'LinkedIn',
+};
+
 function renderSocial(root) {
   const links = Object.entries(CONFIG.social).filter(([, url]) => url);
   if (!links.length) {
@@ -47,13 +55,26 @@ function renderSocial(root) {
     return;
   }
   root.innerHTML = links
-    .map(
-      ([name, url]) =>
-        `<li><a class="social__link" href="${url}" rel="me noopener">${
-          name[0].toUpperCase() + name.slice(1)
-        }</a></li>`,
-    )
+    .map(([name, url]) => {
+      const label = SOCIAL_LABELS[name] ?? name;
+      return `<li><a class="social__link" href="${url}"
+        rel="me noopener" target="_blank">${label}</a></li>`;
+    })
     .join('');
+}
+
+/**
+ * The footer's identification line. Pennsylvania requires advertising to name
+ * the broker, so the brokerage and licence number are built from config rather
+ * than typed into the markup where they could drift out of sync with the bio.
+ */
+function renderFooterLegal(el) {
+  const parts = [
+    `${CONFIG.name} — ${CONFIG.role}, ${CONFIG.state}`,
+    CONFIG.license ? `License ${CONFIG.license}` : '',
+    CONFIG.brokerage ? `Brokered by ${CONFIG.brokerage}` : '',
+  ].filter(Boolean);
+  el.textContent = parts.join(' · ');
 }
 
 function renderTopics(select) {
@@ -65,6 +86,14 @@ function renderTopics(select) {
 function renderPortrait(img) {
   if (CONFIG.portrait) img.src = CONFIG.portrait;
   img.alt = `${CONFIG.name}, ${CONFIG.role} in ${CONFIG.state}`;
+}
+
+function renderBrandMarks() {
+  const team = document.querySelector('[data-team-mark]');
+  const broker = document.querySelector('[data-broker-mark]');
+  if (CONFIG.team) team.alt = CONFIG.team; else team.closest('.footer__brand').remove();
+  if (CONFIG.brokerage) broker.alt = CONFIG.brokerage;
+  else broker.closest('.footer__brand').remove();
 }
 
 function renderContactLinks() {
@@ -94,6 +123,8 @@ function boot() {
   renderTopics(document.querySelector('#topic'));
   renderPortrait(document.querySelector('[data-portrait]'));
   renderContactLinks();
+  renderBrandMarks();
+  renderFooterLegal(document.querySelector('[data-footer-legal]'));
 
   initCarousel(document.querySelector('[data-carousel]'));
   initContact(document.querySelector('[data-contact-form]'));

@@ -19,10 +19,16 @@ export const CONFIG = {
     phoneHref: '+19293456838',
   },
 
-  // TODO: fill these in. Any left empty is simply omitted from the page
-  // rather than rendered blank, so partial answers are fine.
-  brokerage: '',
-  license: '',
+  // Pennsylvania requires advertising to identify the broker, so `brokerage`
+  // and `license` are rendered in both the bio and the footer rather than
+  // being optional decoration.
+  brokerage: 'Real of Pennsylvania',
+  license: 'RS380174',
+
+  // The team Ryth works under; its mark sits beside the brokerage's in the footer.
+  team: 'HS Group',
+
+  // TODO: optional — omitted from the page entirely while empty.
   yearsExperience: '',
 
   languages: ['English', 'Español'],
@@ -31,16 +37,17 @@ export const CONFIG = {
   // counties you actually work if you would rather be specific.
   serviceArea: 'Serving buyers and sellers across Pennsylvania',
 
-  // TODO: add any you want linked. Omitted entirely when empty.
+  // Tracking parameters are stripped: the ?stkn / ?_r / ?mibextid strings these
+  // links arrive with are share-session tokens, not part of the profile URL.
+  // Add or remove entries freely — the list renders from whatever is non-empty.
   social: {
-    instagram: '',
-    facebook: '',
+    instagram: 'https://www.instagram.com/ryth_william',
+    tiktok: 'https://www.tiktok.com/@rythvararealtor',
+    facebook: 'https://www.facebook.com/share/1DZJzdaQ4v/',
     linkedin: '',
   },
 
-  // TODO: drop a headshot in assets/img/ and point this at it.
-  // Falls back to the placeholder portrait when empty.
-  portrait: '',
+  portrait: 'assets/img/ryth-vara.jpg',
 
   /**
    * Web3Forms access key (free, no backend, no account server to run).

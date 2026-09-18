@@ -197,8 +197,27 @@
 
 <footer class="footer">
   <div class="wrap footer__inner">
-    <p><span data-name>Ryth Vara</span> — Real Estate Agent, Pennsylvania</p>
-    <p>&copy; <span data-year></span> · English &amp; Español</p>
+    <!-- Team mark beside the brokerage's. Pennsylvania requires advertising to
+         identify the broker, so this pairing is compliance, not decoration —
+         the same details also appear as text in the line below. -->
+    <div class="footer__brands">
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--team" data-team-mark
+             src="assets/img/hs-group.png" alt="HS Group"
+             width="440" height="378" loading="lazy">
+      </span>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--broker" data-broker-mark
+             src="assets/img/real-of-pennsylvania.png" alt="Real of Pennsylvania"
+             width="900" height="460" loading="lazy">
+      </span>
+    </div>
+
+    <div class="footer__legal">
+      <p data-footer-legal></p>
+      <p>&copy; <span data-year></span> · English &amp; Español · Equal Housing Opportunity</p>
+    </div>
   </div>
 </footer>
 </body>

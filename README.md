@@ -10,29 +10,47 @@ through any web server and it runs.
 
 ---
 
-## Fill these in before going live
+## Before going live
 
-Everything personal lives in **`assets/js/config.js`**. Search it for `TODO`:
+Everything personal lives in **`assets/js/config.js`**.
 
 | What | Status |
 |---|---|
-| **Phone number** | done — 929.345.6838 |
-| **Email** | done — `ryth.realtor@gmail.com` |
-| Brokerage name | empty |
-| PA license number | empty |
-| Years of experience | empty |
-| Instagram / Facebook / LinkedIn | empty |
-| Headshot | using a placeholder — see below |
+| Phone | done — 929.345.6838 |
+| Email | done — `ryth.realtor@gmail.com` |
+| Brokerage | done — Real of Pennsylvania |
+| PA license | done — RS380174 |
+| Instagram / TikTok / Facebook | done |
+| Headshot | done — `assets/img/ryth-vara.jpg` |
+| **Listings** | **still placeholders — see below** |
+| **Contact form key** | **not set — see below** |
+| Years of experience | empty (optional) |
 
-Any field left empty is simply left off the page rather than rendered blank, so
+Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.
 
-### Headshot
+### Advertising compliance
 
-Drop the image in `assets/img/` and point `portrait` at it, e.g.
-`portrait: 'assets/img/ryth.jpg'`. Portrait orientation, roughly 4:5. Until
-then a generated placeholder stands in at the right size, so adding the real
-photo will not shift the layout.
+Pennsylvania requires advertising to identify the broker, so the brokerage name
+and licence number are **not** optional decoration here — they render in two
+places, both built from `config.js` so they cannot drift apart:
+
+- the facts list in the bio section
+- the footer line, beside the brokerage and team logos
+
+If your broker has specific requirements about wording, logo size, or the
+placement of the Equal Housing Opportunity mark, those are the two places to
+adjust. The footer currently carries "Equal Housing Opportunity" as text — if
+your broker expects the official HUD logo artwork, drop it in `assets/img/` and
+add it beside the other marks in the footer.
+
+### Logos
+
+`assets/img/real-of-pennsylvania.png` is a **reversed** (white-on-transparent)
+version, generated from the black-on-white original so it reads on the dark
+page. The artwork is unchanged — only its colour is flipped, which is what a
+reversed logo is. If Real's brand portal provides an official reversed asset,
+prefer that file and drop it in at the same path.
 
 ### Contact form
 
@@ -63,8 +81,9 @@ Edit **`assets/js/listings.js`**. Each listing is one object:
 Put photos in `assets/img/listings/`, landscape, ideally 4:3 and at least
 1200px wide. One photo per listing — that is the design.
 
-The six shipped listings are placeholders with generated artwork. Delete them
-as you add real ones.
+The six shipped listings are placeholders with invented addresses and generated
+artwork. **Replace them before sharing the site** — they are the one thing on
+the page that is not real.
 
 ---
 
