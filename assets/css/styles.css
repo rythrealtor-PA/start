@@ -93,8 +93,10 @@ a { color: var(--brass-lt); }
 /* ============================ Scroll stage ============================== */
 
 .stage {
-  /* Set by stage.js — 460 normally, 100 when reduced motion is requested. */
-  height: calc(var(--stage-vh, 460) * 1vh);
+  /* Set by stage.js — 313 normally, 100 when reduced motion is requested.
+     The fallback only applies for the instant before that script runs, but it
+     is kept in step so the page never reflows from a stale value. */
+  height: calc(var(--stage-vh, 313) * 1vh);
   position: relative;
 }
 

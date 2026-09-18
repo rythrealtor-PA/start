@@ -20,11 +20,14 @@ import { FrameSequence, FRAME_COUNT } from './frames.js';
  *
  * Careful with the arithmetic: the sticky panel consumes the first viewport, so
  * the distance actually scrolled is (STAGE_VH - 100) * 1vh, not STAGE_VH * 1vh.
- * Speeding playback up by 30% therefore means 360 / 1.3 = 277 of *scrollable*
- * height, i.e. 377 here — dividing 460 by 1.3 directly would overshoot to 42%.
+ * Speeding playback up by 30% means dividing the *scrollable* height by 1.3,
+ * not the whole value — dividing 460 by 1.3 directly would overshoot to 42%.
  * The viewport height cancels out, so the ratio holds on any screen.
+ *
+ * History: 460 (360 scrollable) -> 377 (277) -> 313 (213), two 30% steps,
+ * so the clip now plays 1.69x faster per scroll than it first shipped.
  */
-const STAGE_VH = 377;
+const STAGE_VH = 313;
 
 /** Frame index easing per rAF tick. Lower is smoother but laggier. */
 const DAMPING = 0.12;
