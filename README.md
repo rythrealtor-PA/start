@@ -24,7 +24,7 @@ Everything personal lives in **`assets/js/config.js`**.
 | Headshot | done — `assets/img/ryth-vara.jpg` |
 | Contact form | done — delivering to the email above |
 | **Listings** | **still placeholders — see below** |
-| **Testimonials** | **sample text — replace with real ones** |
+| Testimonials | done — four real client quotes |
 | Years of experience | empty (optional) |
 
 Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages, `main` branch).

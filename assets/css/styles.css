@@ -473,18 +473,21 @@ a { color: var(--brass-lt); }
   font-size: clamp(1.1rem, 1.7vw, 1.35rem);
   line-height: 1.45;
   color: var(--ivory);
-  flex: 1;
 }
 /* Hanging quote marks, so the first line still aligns with everything else. */
 .quote__text::before { content: '\201C'; }
 .quote__text::after  { content: '\201D'; }
 
+/* The attribution sits directly under the quote rather than being pushed to
+   the bottom of the card. Cards in a row still match height, but a short quote
+   no longer leaves its name stranded below a gap. */
 .quote__by {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border-lit);
+  margin-bottom: auto;
 }
 .quote__name {
   font-size: 0.82rem;
