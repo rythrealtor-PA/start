@@ -15,13 +15,21 @@
  * Photos are resized in the browser before upload — a 12MP phone photo becomes
  * a ~200KB web image, so the repository does not fill up with originals.
  */
-import { card } from './carousel.js';
-import { LISTINGS_URL } from './listings.js';
+import { card, testimonial } from './carousel.js';
 
 const API = 'https://api.github.com';
 const STORE_KEY = 'ryth-admin-settings';
-const DATA_PATH = 'assets/data/listings.json';
 const PHOTO_DIR = 'assets/img/listings';
+
+/**
+ * The two things this page edits. Each is a JSON array in the repo with its own
+ * form, its own list and its own unsaved state; everything else — the token,
+ * the GitHub calls, the Publish button — is shared.
+ */
+const COLLECTIONS = {
+  listings: { path: 'assets/data/listings.json', render: card, hasPhoto: true },
+  testimonials: { path: 'assets/data/testimonials.json', render: testimonial, hasPhoto: false },
+};
 
 /** Photos are cover-fitted into a 4:3 card, so this is ample on any screen. */
 const MAX_PHOTO_EDGE = 1400;
@@ -35,14 +43,20 @@ const state = {
   owner: '',
   repo: '',
   branch: 'main',
-  listings: [],
-  /** Blob SHA of listings.json, needed to update rather than clobber it. */
-  sha: null,
+  /** Which collection the forms are currently editing. */
+  tab: 'listings',
+  /** Per collection: { items, sha, dirty, editingIndex }. */
+  data: {
+    listings: { items: [], sha: null, dirty: false, editingIndex: null },
+    testimonials: { items: [], sha: null, dirty: false, editingIndex: null },
+  },
   /** Photos chosen but not yet uploaded, keyed by their target path. */
   pending: new Map(),
-  editingIndex: null,
-  dirty: false,
+  formPhoto: null,
 };
+
+/** Shorthand for the collection being edited right now. */
+const current = () => state.data[state.tab];
 
 /* ─────────────────────────────── settings ─────────────────────────────── */
 
@@ -96,23 +110,24 @@ async function gh(path, options = {}) {
   return response.status === 204 ? null : response.json();
 }
 
-/** Reads listings.json from the repo, capturing its SHA so it can be updated. */
-async function fetchListings() {
+/** Reads one collection from the repo, capturing its SHA so it can be updated. */
+async function fetchCollection(name) {
+  const slot = state.data[name];
   try {
     const file = await gh(
-      `/repos/${state.owner}/${state.repo}/contents/${DATA_PATH}?ref=${state.branch}`,
+      `/repos/${state.owner}/${state.repo}/contents/${COLLECTIONS[name].path}?ref=${state.branch}`,
     );
-    state.sha = file.sha;
+    slot.sha = file.sha;
     // atob gives Latin-1; this round-trip recovers the original UTF-8 so that
-    // accented place names survive.
+    // accented names and Spanish testimonials survive.
     const text = new TextDecoder().decode(
       Uint8Array.from(atob(file.content.replace(/\s/g, '')), (c) => c.charCodeAt(0)),
     );
-    state.listings = JSON.parse(text);
+    slot.items = JSON.parse(text);
   } catch (error) {
     if (!/not found/i.test(error.message)) throw error;
-    state.sha = null;
-    state.listings = [];
+    slot.sha = null;
+    slot.items = [];
   }
 }
 
@@ -196,10 +211,11 @@ function setStatus(message, tone = '') {
   el.dataset.tone = tone;
 }
 
-function markDirty(dirty = true) {
-  state.dirty = dirty;
-  $('[data-publish]').disabled = !dirty;
-  $('[data-unsaved]').hidden = !dirty;
+function markDirty(dirty = true, name = state.tab) {
+  state.data[name].dirty = dirty;
+  const anyDirty = Object.values(state.data).some((d) => d.dirty);
+  $('[data-publish]').disabled = !anyDirty;
+  $('[data-unsaved]').hidden = !current().dirty;
 }
 
 /** Object URLs for pending photos, so previews work before anything uploads. */
@@ -214,30 +230,33 @@ function previewSrc(listing) {
 }
 
 function renderList() {
+  const { items } = current();
+  const { render, hasPhoto } = COLLECTIONS[state.tab];
   const list = $('[data-list]');
   list.innerHTML = '';
-  $('[data-empty]').hidden = state.listings.length > 0;
+  $('[data-empty]').hidden = items.length > 0;
 
-  state.listings.forEach((listing, index) => {
+  items.forEach((listing, index) => {
     const item = document.createElement('li');
     item.className = 'admin__item';
 
     // The real card component, so this preview cannot drift from the site.
-    const preview = card({ ...listing, photo: previewSrc(listing) });
+    const preview = render(hasPhoto ? { ...listing, photo: previewSrc(listing) } : listing);
     preview.classList.add('admin__card');
 
+    const label = listing.address || listing.name || `item ${index + 1}`;
     const controls = document.createElement('div');
     controls.className = 'admin__controls';
     controls.innerHTML = `
       <button class="admin__ctl" type="button" data-up ${index === 0 ? 'disabled' : ''}
-        aria-label="Move ${listing.address} earlier">↑</button>
+        aria-label="Move ${label} earlier">↑</button>
       <button class="admin__ctl" type="button" data-down
-        ${index === state.listings.length - 1 ? 'disabled' : ''}
-        aria-label="Move ${listing.address} later">↓</button>
+        ${index === items.length - 1 ? 'disabled' : ''}
+        aria-label="Move ${label} later">↓</button>
       <button class="admin__ctl" type="button" data-edit
-        aria-label="Edit ${listing.address}">Edit</button>
+        aria-label="Edit ${label}">Edit</button>
       <button class="admin__ctl admin__ctl--danger" type="button" data-delete
-        aria-label="Remove ${listing.address}">Remove</button>`;
+        aria-label="Remove ${label}">Remove</button>`;
 
     $('[data-up]', controls).onclick = () => move(index, -1);
     $('[data-down]', controls).onclick = () => move(index, 1);
@@ -250,18 +269,19 @@ function renderList() {
 }
 
 function move(index, delta) {
+  const { items } = current();
   const target = index + delta;
-  if (target < 0 || target >= state.listings.length) return;
-  [state.listings[index], state.listings[target]] =
-    [state.listings[target], state.listings[index]];
+  if (target < 0 || target >= items.length) return;
+  [items[index], items[target]] = [items[target], items[index]];
   markDirty();
   renderList();
 }
 
 function remove(index) {
-  const listing = state.listings[index];
-  if (!window.confirm(`Remove ${listing.address}? This cannot be undone once published.`)) return;
-  state.listings.splice(index, 1);
+  const { items } = current();
+  const label = items[index].address || items[index].name || 'this entry';
+  if (!window.confirm(`Remove ${label}? This cannot be undone once published.`)) return;
+  items.splice(index, 1);
   markDirty();
   renderList();
 }
@@ -279,39 +299,64 @@ function clearErrors() {
   $$('[data-error]').forEach((el) => { el.textContent = ''; });
 }
 
+const NOUN = { listings: 'listing', testimonials: 'testimonial' };
+
 function resetForm() {
   form().reset();
   clearErrors();
-  state.editingIndex = null;
+  current().editingIndex = null;
   state.formPhoto = null;
   $('[data-photo-preview]').hidden = true;
   $('[data-photo-preview]').removeAttribute('src');
   $('[data-photo-prompt]').hidden = false;
-  $('[data-form-heading]').textContent = 'Add a listing';
-  $('[data-submit]').textContent = 'Add listing';
+  $('[data-form-heading]').textContent = `Add a ${NOUN[state.tab]}`;
+  $('[data-submit]').textContent = `Add ${NOUN[state.tab]}`;
   $('[data-cancel]').hidden = true;
 }
 
+/** Shows the fields that belong to the collection being edited. */
+function applyTab() {
+  $$('[data-tab]').forEach((b) => {
+    const on = b.dataset.tab === state.tab;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-selected', String(on));
+  });
+  $$('[data-for]').forEach((el) => {
+    el.hidden = el.dataset.for !== state.tab;
+  });
+  $('[data-list-heading]').textContent =
+    state.tab === 'listings' ? 'Your listings' : 'Your testimonials';
+  resetForm();
+  markDirty(current().dirty);
+  renderList();
+}
+
 function startEdit(index) {
-  const listing = state.listings[index];
-  state.editingIndex = index;
+  const item = current().items[index];
+  current().editingIndex = index;
   state.formPhoto = null; // keep the existing photo unless a new one is chosen
 
   const f = form();
-  f.address.value = listing.address ?? '';
-  f.city.value = listing.city ?? '';
-  f.price.value = listing.price ?? '';
-  f.beds.value = listing.beds ?? '';
-  f.baths.value = listing.baths ?? '';
-  f.sqft.value = listing.sqft ?? '';
-  f.status.value = listing.status ?? '';
+  if (state.tab === 'listings') {
+    f.address.value = item.address ?? '';
+    f.city.value = item.city ?? '';
+    f.price.value = item.price ?? '';
+    f.beds.value = item.beds ?? '';
+    f.baths.value = item.baths ?? '';
+    f.sqft.value = item.sqft ?? '';
+    f.status.value = item.status ?? '';
 
-  const preview = $('[data-photo-preview]');
-  preview.src = previewSrc(listing);
-  preview.hidden = false;
-  $('[data-photo-prompt]').hidden = true;
+    const preview = $('[data-photo-preview]');
+    preview.src = previewSrc(item);
+    preview.hidden = false;
+    $('[data-photo-prompt]').hidden = true;
+  } else {
+    f.quote.value = item.quote ?? '';
+    f.person.value = item.name ?? '';
+    f.detail.value = item.detail ?? '';
+  }
 
-  $('[data-form-heading]').textContent = 'Edit listing';
+  $('[data-form-heading]').textContent = `Edit ${NOUN[state.tab]}`;
   $('[data-submit]').textContent = 'Save changes';
   $('[data-cancel]').hidden = false;
   clearErrors();
@@ -334,30 +379,22 @@ async function onPhotoChosen(file) {
   }
 }
 
-function onSubmit(event) {
-  event.preventDefault();
-  clearErrors();
-
-  const f = form();
+function buildListing(f, editing, index) {
   const address = f.address.value.trim();
-  const beds = f.beds.value;
-  const baths = f.baths.value;
-  const editing = state.editingIndex !== null;
-
   let ok = true;
   if (!address) { showError('address', 'An address is required.'); ok = false; }
-  if (beds === '') { showError('beds', 'How many bedrooms?'); ok = false; }
-  if (baths === '') { showError('baths', 'How many bathrooms?'); ok = false; }
+  if (f.beds.value === '') { showError('beds', 'How many bedrooms?'); ok = false; }
+  if (f.baths.value === '') { showError('baths', 'How many bathrooms?'); ok = false; }
   if (!state.formPhoto && !editing) { showError('photo', 'Please choose a photo.'); ok = false; }
-  if (!ok) return;
+  if (!ok) return null;
 
   const listing = {
-    photo: editing ? state.listings[state.editingIndex].photo : '',
+    photo: editing ? current().items[index].photo : '',
     address,
     city: f.city.value.trim(),
     price: f.price.value.trim(),
-    beds: Number(beds),
-    baths: Number(baths),
+    beds: Number(f.beds.value),
+    baths: Number(f.baths.value),
   };
   if (f.sqft.value) listing.sqft = Number(f.sqft.value);
   if (f.status.value) listing.status = f.status.value;
@@ -367,15 +404,44 @@ function onSubmit(event) {
     state.pending.set(path, state.formPhoto);
     listing.photo = path;
   }
+  return listing;
+}
 
-  if (editing) state.listings[state.editingIndex] = listing;
-  else state.listings.push(listing);
+function buildTestimonial(f) {
+  const quote = f.quote.value.trim();
+  const name = f.person.value.trim();
+  let ok = true;
+  if (!quote) { showError('quote', 'Paste what the client said.'); ok = false; }
+  if (!name) { showError('person', 'Whose words are these?'); ok = false; }
+  if (!ok) return null;
 
+  const item = { quote, name };
+  const detail = f.detail.value.trim();
+  if (detail) item.detail = detail;
+  return item;
+}
+
+function onSubmit(event) {
+  event.preventDefault();
+  clearErrors();
+
+  const f = form();
+  const slot = current();
+  const editing = slot.editingIndex !== null;
+  const item = state.tab === 'listings'
+    ? buildListing(f, editing, slot.editingIndex)
+    : buildTestimonial(f);
+  if (!item) return;
+
+  if (editing) slot.items[slot.editingIndex] = item;
+  else slot.items.push(item);
+
+  const noun = NOUN[state.tab];
   resetForm();
   markDirty();
   renderList();
-  setStatus(editing ? 'Listing updated — press Publish to put it live.'
-                    : 'Listing added — press Publish to put it live.');
+  setStatus(`${noun[0].toUpperCase()}${noun.slice(1)} ` +
+            `${editing ? 'updated' : 'added'} — press Publish to put it live.`);
 }
 
 /* ─────────────────────────────── publishing ───────────────────────────── */
@@ -395,19 +461,27 @@ async function publish() {
       await putFile(path, toBase64(bytes), `Add listing photo ${path.split('/').pop()}`);
     }
 
-    setStatus('Saving listings…');
-    const json = `${JSON.stringify(state.listings, null, 2)}\n`;
-    const encoded = toBase64(new TextEncoder().encode(json));
-    const result = await gh(`/repos/${state.owner}/${state.repo}/contents/${DATA_PATH}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        message: `Update listings (${state.listings.length})`,
-        content: encoded,
-        branch: state.branch,
-        ...(state.sha ? { sha: state.sha } : {}),
-      }),
-    });
-    state.sha = result.content.sha;
+    // Then each changed data file. Anything untouched is left alone, so two
+    // people editing different sections never overwrite each other.
+    for (const [name, slot] of Object.entries(state.data)) {
+      if (!slot.dirty) continue;
+      setStatus(`Saving ${name}…`);
+      const json = `${JSON.stringify(slot.items, null, 2)}\n`;
+      const result = await gh(
+        `/repos/${state.owner}/${state.repo}/contents/${COLLECTIONS[name].path}`,
+        {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: `Update ${name} (${slot.items.length})`,
+            content: toBase64(new TextEncoder().encode(json)),
+            branch: state.branch,
+            ...(slot.sha ? { sha: slot.sha } : {}),
+          }),
+        },
+      );
+      slot.sha = result.content.sha;
+      slot.dirty = false;
+    }
 
     state.pending.clear();
     previewUrls.forEach((url) => URL.revokeObjectURL(url));
@@ -425,18 +499,20 @@ async function publish() {
 
 async function connect() {
   setStatus('Connecting…');
-  await fetchListings();
+  await fetchCollection('listings');
+  await fetchCollection('testimonials');
   $('[data-setup]').hidden = true;
   $('[data-editor]').hidden = false;
+  $('[data-editor-tabs]').hidden = false;
   $('[data-signout]').hidden = false;
-  markDirty(false);
-  renderList();
+  applyTab();
   setStatus(`Connected to ${state.owner}/${state.repo}`, 'ok');
 }
 
 function showSetup(message = '') {
   $('[data-setup]').hidden = false;
   $('[data-editor]').hidden = true;
+  $('[data-editor-tabs]').hidden = true;
   $('[data-signout]').hidden = true;
   $('#token').value = state.token ?? '';
   $('#repo').value = state.owner && state.repo ? `${state.owner}/${state.repo}` : '';
@@ -489,18 +565,26 @@ async function init() {
   });
 
   $('[data-signout]').onclick = () => {
-    if (state.dirty &&
+    if (Object.values(state.data).some((d) => d.dirty) &&
         !window.confirm('There are unpublished changes. Sign out and lose them?')) return;
     try { localStorage.removeItem(STORE_KEY); } catch { /* nothing to clear */ }
     location.reload();
   };
+
+  $$('[data-tab]').forEach((button) => {
+    button.onclick = () => {
+      if (state.tab === button.dataset.tab) return;
+      state.tab = button.dataset.tab;
+      applyTab();
+    };
+  });
 
   form().addEventListener('submit', onSubmit);
   $('[data-cancel]').onclick = resetForm;
   $('[data-publish]').onclick = publish;
 
   window.addEventListener('beforeunload', (e) => {
-    if (state.dirty) e.preventDefault();
+    if (Object.values(state.data).some((d) => d.dirty)) e.preventDefault();
   });
 
   if (state.token && state.owner && state.repo) {
@@ -527,6 +611,3 @@ init().catch((error) => {
   console.error(error);
   showSetup(error.message);
 });
-
-// The live site reads the same file this page writes.
-export { LISTINGS_URL };

@@ -1,12 +1,12 @@
 /**
- * Loads the listings shown in the LISTINGS carousel.
+ * Loads the data behind the LISTINGS and TESTIMONIALS carousels.
  *
  * The data lives in assets/data/listings.json — plain JSON, not JavaScript,
  * so the admin page can rewrite it safely. A stray comma in a .js file breaks
  * the whole page; a stray comma in JSON is caught before anything is published.
  *
- * To edit listings, open /admin.html on the site. To edit them by hand, edit the
- * JSON file directly — the shape of one entry is:
+ * To edit either, open /admin.html on the site. To edit them by hand, edit the
+ * JSON files directly. A listing entry looks like:
  *
  *   {
  *     "photo":   "assets/img/listings/my-listing.jpg",
@@ -18,17 +18,33 @@
  *     "sqft":    2840,         // optional — the slot is skipped if omitted
  *     "status":  "For sale"    // optional: For sale | Pending | Sold | For rent
  *   }
+ *
+ * and a testimonial:
+ *
+ *   {
+ *     "quote":  "Ryth sold our place faster than we thought possible.",
+ *     "name":   "Danielle R.",
+ *     "detail": "Seller, Stroudsburg"   // optional
+ *   }
  */
 export const LISTINGS_URL = 'assets/data/listings.json';
+export const TESTIMONIALS_URL = 'assets/data/testimonials.json';
 
-export async function loadListings() {
-  // no-store so a freshly published listing shows up on the next reload
-  // instead of waiting for a cached copy to expire.
-  const response = await fetch(LISTINGS_URL, { cache: 'no-store' });
+/**
+ * Both carousels read their data the same way.
+ *
+ * no-store matters: without it a freshly published listing waits for a cached
+ * copy to expire before anyone sees it.
+ */
+export async function loadCollection(url) {
+  const response = await fetch(url, { cache: 'no-store' });
   if (!response.ok) {
-    throw new Error(`Could not load listings (HTTP ${response.status})`);
+    throw new Error(`Could not load ${url} (HTTP ${response.status})`);
   }
   const data = await response.json();
-  if (!Array.isArray(data)) throw new Error('listings.json must be an array');
+  if (!Array.isArray(data)) throw new Error(`${url} must be an array`);
   return data;
 }
+
+export const loadListings = () => loadCollection(LISTINGS_URL);
+export const loadTestimonials = () => loadCollection(TESTIMONIALS_URL);

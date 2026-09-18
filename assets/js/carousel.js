@@ -1,6 +1,6 @@
 /**
- * The LISTINGS carousel: two cards visible at a time on desktop, one on mobile,
- * paged by the arrow buttons.
+ * The paged carousels — LISTINGS and TESTIMONIALS — showing two cards at a
+ * time on desktop, one on mobile, paged by the arrow buttons.
  *
  * Paging is native scrolling with CSS scroll-snap underneath, so touch swipe,
  * trackpad, and keyboard all work without being reimplemented, and the track
@@ -15,6 +15,7 @@ const fmtBaths = (n) => (Number.isInteger(n) ? n : n.toFixed(1));
 export function card(listing) {
   const el = document.createElement('article');
   el.className = 'listing';
+  el.dataset.carouselItem = '';
 
   const specs = [
     { label: 'Beds', value: listing.beds },
@@ -49,13 +50,32 @@ export function card(listing) {
   return el;
 }
 
-export function initCarousel(root, listings) {
+/** Escapes text coming from the data file before it goes into innerHTML. */
+const esc = (value = '') =>
+  String(value).replace(/[&<>"]/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+/** One testimonial. Same carousel machinery as the listing cards. */
+export function testimonial(item) {
+  const el = document.createElement('figure');
+  el.className = 'quote';
+  el.dataset.carouselItem = '';
+  el.innerHTML = `
+    <blockquote class="quote__text">${esc(item.quote)}</blockquote>
+    <figcaption class="quote__by">
+      <span class="quote__name">${esc(item.name)}</span>
+      ${item.detail ? `<span class="quote__detail">${esc(item.detail)}</span>` : ''}
+    </figcaption>`;
+  return el;
+}
+
+export function initCarousel(root, items, renderItem = card) {
   const track = root.querySelector('[data-track]');
   const prev = root.querySelector('[data-prev]');
   const next = root.querySelector('[data-next]');
   const status = root.querySelector('[data-carousel-status]');
 
-  listings.forEach((l) => track.append(card(l)));
+  items.forEach((item) => track.append(renderItem(item)));
 
   /** Scroll by exactly one visible page, whatever the breakpoint is showing. */
   const page = (dir) => {
@@ -71,12 +91,12 @@ export function initCarousel(root, listings) {
 
     const perPage = Math.max(1, Math.round(track.clientWidth / cardWidth()));
     const current = Math.round(track.scrollLeft / track.clientWidth) + 1;
-    const total = Math.max(1, Math.ceil(listings.length / perPage));
+    const total = Math.max(1, Math.ceil(items.length / perPage));
     status.textContent = `Page ${Math.min(current, total)} of ${total}`;
   };
 
   const cardWidth = () => {
-    const first = track.querySelector('.listing');
+    const first = track.querySelector('[data-carousel-item]');
     return first ? first.getBoundingClientRect().width : track.clientWidth;
   };
 

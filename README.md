@@ -24,6 +24,7 @@ Everything personal lives in **`assets/js/config.js`**.
 | Headshot | done — `assets/img/ryth-vara.jpg` |
 | Contact form | done — delivering to the email above |
 | **Listings** | **still placeholders — see below** |
+| **Testimonials** | **sample text — replace with real ones** |
 | Years of experience | empty (optional) |
 
 Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages, `main` branch).
@@ -70,11 +71,13 @@ form already turns away the routine bots.
 the visitor's email app with everything they typed prefilled, so no enquiry is
 lost either way.
 
-### Listings — the editor at /admin.html
+### Listings and testimonials — the editor at /admin.html
 
-Open **`yoursite.com/admin.html`** to add, edit, reorder and remove listings:
-drag in a photo, fill in the address, beds and baths, press **Publish**. The
-live site updates about a minute later.
+Open **`yoursite.com/admin.html`** to add, edit, reorder and remove both
+**listings** and **testimonials** — the two tabs at the top switch between them.
+Fill in the form and press **Publish**; the live site updates about a minute
+later. Only the section you actually changed is written, so editing
+testimonials never touches listings.
 
 It is a form, not a file. Photos are shrunk to a sensible web size in the
 browser before they upload, so a photo straight off a phone is fine.
@@ -95,9 +98,9 @@ why it is scoped to one repo and to Contents alone — and why **Sign out** is
 there for a shared or borrowed computer. If a token ever leaks, revoke it on the
 same GitHub page and generate a new one.
 
-Listings live in **`assets/data/listings.json`** — plain JSON rather than
-JavaScript precisely so the editor can rewrite it without a stray comma taking
-the page down. Editing it by hand still works:
+Both live in **`assets/data/`** as plain JSON rather than JavaScript, precisely
+so the editor can rewrite them without a stray comma taking the page down.
+Editing by hand still works — `listings.json`:
 
 ```json
 {
@@ -114,6 +117,18 @@ the page down. Editing it by hand still works:
 
 `sqft` and `status` are optional. `status` is one of *For sale*, *Pending*,
 *Sold*, *For rent*.
+
+And `testimonials.json`:
+
+```json
+{
+  "quote":  "Ryth sold our place faster than we thought possible.",
+  "name":   "Danielle R.",
+  "detail": "Seller, Stroudsburg"
+}
+```
+
+`detail` is optional. Quotes in Spanish are fine — the fonts carry the accents.
 
 The six shipped listings are placeholders with invented addresses and generated
 artwork. **Replace them before sharing the site** — they are the one thing on

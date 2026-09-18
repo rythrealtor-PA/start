@@ -74,6 +74,35 @@
 .admin__status[data-tone='ok'] { color: var(--brass-lt); }
 .admin__status[data-tone='error'] { color: #e0785f; }
 
+/* ──────────────────────────────── tabs ────────────────────────────────── */
+
+.admin__tabs {
+  display: flex;
+  gap: 0.5rem;
+  width: min(var(--wrap), 100%);
+  margin: 0 auto clamp(1.5rem, 4vw, 2.5rem);
+  padding-inline: var(--gutter);
+}
+.admin__tab {
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.admin__tab:hover { color: var(--brass-lt); }
+.admin__tab.is-active {
+  color: var(--slate);
+  background: var(--brass);
+  border-color: var(--brass);
+}
+
 /* ─────────────────────────────── layout ───────────────────────────────── */
 
 .admin__main {
@@ -81,6 +110,8 @@
   margin-inline: auto;
   padding: clamp(1.5rem, 4vw, 3rem) var(--gutter) 6rem;
 }
+/* The tab strip sets its own gutter, so it sits outside .admin__main's box. */
+.admin__main { padding-top: clamp(1.5rem, 4vw, 2rem); }
 
 .admin__layout {
   display: grid;

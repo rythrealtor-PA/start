@@ -375,7 +375,7 @@ a { color: var(--brass-lt); }
 }
 .carousel__track::-webkit-scrollbar { display: none; }
 
-.listing {
+[data-carousel-item] {
   scroll-snap-align: start;
   min-width: 0;
 }
@@ -449,13 +449,60 @@ a { color: var(--brass-lt); }
   line-height: 1.1;
 }
 
+/* ============================ Testimonials ============================= */
+
+/* Set as a pull quote rather than a card: the words are the content, so the
+   type carries it and a single brass rule marks where the quote ends and the
+   person begins. */
+.quote {
+  margin: 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.quote__text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 40;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.45;
+  color: var(--ivory);
+  flex: 1;
+}
+/* Hanging quote marks, so the first line still aligns with everything else. */
+.quote__text::before { content: '\201C'; }
+.quote__text::after  { content: '\201D'; }
+
+.quote__by {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-lit);
+}
+.quote__name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-lt);
+}
+.quote__detail {
+  font-size: 0.88rem;
+  color: var(--ivory-dim);
+}
+
 /* ============================== Contact ================================ */
 
-.contact__grid {
-  display: grid;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  grid-template-columns: 1fr;
-}
+/* The form is the whole section now — there is no aside beside it, so it
+   spreads across the full measure instead of sharing the row. */
+.contact__grid { display: block; }
 
 .form {
   display: grid;
@@ -466,7 +513,8 @@ a { color: var(--brass-lt); }
 
 .field__label {
   display: block;
-  font-size: 0.76rem;
+  /* 0.76rem x 1.3 — asked for deliberately, and the fields grew to match. */
+  font-size: 0.99rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -476,9 +524,9 @@ a { color: var(--brass-lt); }
 
 .field__input {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 1rem 1.15rem;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--ivory);
   background: var(--slate-2);
   border: 1px solid var(--border);
@@ -490,7 +538,7 @@ a { color: var(--brass-lt); }
 .field__input:hover { border-color: var(--bluestone); }
 .field__input:focus { border-color: var(--brass); background: var(--slate-3); }
 .field__input[aria-invalid='true'] { border-color: #e0785f; }
-.field__input--area { resize: vertical; min-height: 8rem; }
+.field__input--area { resize: vertical; min-height: 11rem; }
 
 .field__select { position: relative; }
 .field__chevron {
@@ -506,7 +554,7 @@ a { color: var(--brass-lt); }
 .field__select .field__input { padding-right: 2.75rem; }
 
 .field__hint,
-.field__error { margin: 0.45rem 0 0; font-size: 0.84rem; }
+.field__error { margin: 0.5rem 0 0; font-size: 0.92rem; }
 .field__hint { color: var(--ivory-dim); }
 .field__error { color: #e0785f; }
 .field__error:empty { display: none; }
@@ -516,8 +564,15 @@ a { color: var(--brass-lt); }
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
-.form__result { margin: 0; font-size: 0.95rem; }
+/* 0.85rem x 1.3, to sit with the enlarged labels. Scoped to the form so the
+   button in the bio section keeps its original size. */
+.form .button {
+  font-size: 1.1rem;
+  padding: 1.15rem 2.75rem;
+}
+.form__result { margin: 0; font-size: 1.05rem; }
 .form__result[data-state='success'] { color: var(--brass-lt); }
 .form__result[data-state='error'] { color: #e0785f; }
 .form__result[data-state='pending'] { color: var(--ivory-dim); }
@@ -587,10 +642,12 @@ a { color: var(--brass-lt); }
   .carousel__track { grid-auto-columns: calc((100% - clamp(1rem, 2.5vw, 2rem)) / 2); }
 }
 
+@media (min-width: 48rem) {
+  .form { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+}
+
 @media (min-width: 62rem) {
   .discover__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
-  .contact__grid  { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
-  .form { grid-template-columns: 1fr 1fr; }
   .discover__portrait { position: sticky; top: 4rem; }
 }
 

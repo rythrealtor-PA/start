@@ -4,8 +4,8 @@
  */
 import { CONFIG, TOPICS } from './config.js';
 import { Stage } from './stage.js';
-import { initCarousel } from './carousel.js';
-import { loadListings } from './listings.js';
+import { initCarousel, card, testimonial } from './carousel.js';
+import { loadListings, loadTestimonials } from './listings.js';
 import { initContact } from './contact.js';
 
 /** Renders a definition-list row, or nothing at all when the value is empty. */
@@ -21,9 +21,14 @@ function fact(label, value, href) {
     </div>`;
 }
 
+/**
+ * Contact details beside the portrait. Deliberately just these three — the
+ * bio copy already names the brokerage and the service area, and the brokerage
+ * and licence number appear in the footer, which is what Pennsylvania's
+ * advertising rule requires.
+ */
 function renderFacts(root) {
-  const { contact, brokerage, license, languages, serviceArea, yearsExperience } =
-    CONFIG;
+  const { contact, languages } = CONFIG;
 
   root.innerHTML = [
     fact('Email', contact.email, `mailto:${contact.email}`),
@@ -33,11 +38,6 @@ function renderFacts(root) {
       contact.phoneHref ? `tel:${contact.phoneHref}` : null,
     ),
     fact('Languages', languages.join(' · ')),
-    fact('Licensed in', CONFIG.state),
-    fact('Brokerage', brokerage),
-    fact('License', license),
-    fact('Experience', yearsExperience ? `${yearsExperience} years` : ''),
-    fact('Area', serviceArea),
   ].join('');
 }
 
@@ -113,6 +113,17 @@ function renderContactLinks() {
   });
 }
 
+/** Fills one carousel from its data file, or says so in place if it cannot. */
+function hydrate(name, load, renderItem, failureMessage) {
+  const root = document.querySelector(`[data-carousel="${name}"]`);
+  load()
+    .then((items) => initCarousel(root, items, renderItem))
+    .catch((error) => {
+      console.error(`[${name}]`, error);
+      root.querySelector('[data-carousel-status]').textContent = failureMessage;
+    });
+}
+
 function boot() {
   document.querySelectorAll('[data-name]').forEach((el) => {
     el.textContent = CONFIG.name;
@@ -127,15 +138,12 @@ function boot() {
   renderBrandMarks();
   renderFooterLegal(document.querySelector('[data-footer-legal]'));
 
-  // Listings arrive over the network now, so the section fills in a moment
-  // after the rest of the page. Everything else is already rendered.
-  loadListings()
-    .then((listings) => initCarousel(document.querySelector('[data-carousel]'), listings))
-    .catch((error) => {
-      console.error('[listings]', error);
-      document.querySelector('[data-carousel-status]').textContent =
-        'Listings are unavailable right now.';
-    });
+  // Both carousels read their data over the network, so they fill in a moment
+  // after the rest of the page. Everything else is already rendered. They load
+  // independently, so one failing does not take the other down.
+  hydrate('listings', loadListings, card, 'Listings are unavailable right now.');
+  hydrate('testimonials', loadTestimonials, testimonial,
+          'Testimonials are unavailable right now.');
   initContact(document.querySelector('[data-contact-form]'));
 
   document.querySelector('[data-year]').textContent = new Date().getFullYear();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Listings — Ryth Vara</title>
+<title>Site content — Ryth Vara</title>
 
 <!-- Keep this page out of search results. It is not a secret — it does nothing
      without an access key — but there is no reason for it to be indexed. -->
@@ -21,7 +21,7 @@
 
 <header class="admin__bar">
   <div class="admin__bar-inner">
-    <h1 class="admin__title">Listings</h1>
+    <h1 class="admin__title">Site content</h1>
     <div class="admin__bar-actions">
       <span class="admin__status" data-status role="status" aria-live="polite"></span>
       <a class="admin__link" href="./" target="_blank">View site</a>
@@ -80,6 +80,13 @@
   </section>
 
   <!-- ───────────────────────────── The editor ────────────────────────────── -->
+  <div class="admin__tabs" role="tablist" aria-label="What to edit" data-editor-tabs hidden>
+    <button class="admin__tab is-active" type="button" role="tab"
+            data-tab="listings" aria-selected="true">Listings</button>
+    <button class="admin__tab" type="button" role="tab"
+            data-tab="testimonials" aria-selected="false">Testimonials</button>
+  </div>
+
   <div class="admin__layout" data-editor hidden>
 
     <section class="admin__panel">
@@ -87,7 +94,7 @@
 
       <form class="admin__form" data-listing-form novalidate>
         <!-- Photo -->
-        <div class="field field--full">
+        <div class="field field--full" data-for="listings">
           <span class="field__label" id="photo-label">Photo</span>
           <label class="dropzone" data-dropzone tabindex="0"
                  aria-labelledby="photo-label" aria-describedby="photo-hint">
@@ -104,35 +111,35 @@
           <p class="field__error" data-error="photo"></p>
         </div>
 
-        <div class="field field--full">
+        <div class="field field--full" data-for="listings">
           <label class="field__label" for="address">Address</label>
           <input class="field__input" id="address" name="address" type="text"
                  placeholder="412 Chestnut Ridge Road" required>
           <p class="field__error" data-error="address"></p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="city">City</label>
           <input class="field__input" id="city" name="city" type="text"
                  placeholder="Doylestown, PA">
           <p class="field__error" data-error="city"></p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="price">Price</label>
           <input class="field__input" id="price" name="price" type="text"
                  placeholder="$685,000">
           <p class="field__hint">Any text works — "Coming soon" is fine.</p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="beds">Beds</label>
           <input class="field__input" id="beds" name="beds" type="number"
                  min="0" max="50" step="1" placeholder="4" required>
           <p class="field__error" data-error="beds"></p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="baths">Baths</label>
           <input class="field__input" id="baths" name="baths" type="number"
                  min="0" max="50" step="0.5" placeholder="2.5" required>
@@ -140,14 +147,14 @@
           <p class="field__error" data-error="baths"></p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="sqft">Square feet</label>
           <input class="field__input" id="sqft" name="sqft" type="number"
                  min="0" step="1" placeholder="2840">
           <p class="field__hint">Optional — left off the card if blank.</p>
         </div>
 
-        <div class="field">
+        <div class="field" data-for="listings">
           <label class="field__label" for="status">Status</label>
           <div class="field__select">
             <select class="field__input" id="status" name="status">
@@ -161,6 +168,28 @@
           </div>
         </div>
 
+        <div class="field field--full" data-for="testimonials" hidden>
+          <label class="field__label" for="quote">What they said</label>
+          <textarea class="field__input field__input--area" id="quote" name="quote"
+                    rows="5" placeholder="Ryth sold our place faster than we thought possible…"></textarea>
+          <p class="field__hint">Paste it as they wrote it. English or Spanish, either is fine.</p>
+          <p class="field__error" data-error="quote"></p>
+        </div>
+
+        <div class="field" data-for="testimonials" hidden>
+          <label class="field__label" for="person">Their name</label>
+          <input class="field__input" id="person" name="person" type="text"
+                 placeholder="Danielle R.">
+          <p class="field__error" data-error="person"></p>
+        </div>
+
+        <div class="field" data-for="testimonials" hidden>
+          <label class="field__label" for="detail">Who they are</label>
+          <input class="field__input" id="detail" name="detail" type="text"
+                 placeholder="Seller, Stroudsburg">
+          <p class="field__hint">Optional — shown under the name.</p>
+        </div>
+
         <div class="field field--full admin__form-actions">
           <button class="button button--primary" type="submit" data-submit>Add listing</button>
           <button class="button" type="button" data-cancel hidden>Cancel</button>
@@ -170,14 +199,14 @@
 
     <section class="admin__panel">
       <div class="admin__list-head">
-        <h2 class="admin__h2">Your listings</h2>
+        <h2 class="admin__h2" data-list-heading>Your listings</h2>
         <p class="admin__note admin__note--inline" data-unsaved hidden>
           Unpublished changes
         </p>
       </div>
       <p class="admin__note">
-        This is exactly how each one appears on the site. Drag order with the
-        arrows — the first listing shows first.
+        This is exactly how each one appears on the site. Reorder with the
+        arrows — the first one shows first.
       </p>
       <ul class="admin__list" data-list></ul>
       <p class="admin__empty" data-empty hidden>No listings yet.</p>
