@@ -11,13 +11,12 @@ export const CONFIG = {
   state: 'Pennsylvania',
 
   contact: {
-    // Taken from the account this site was built under. Confirm it is the
-    // address you want published, or change it.
     email: 'ryth.realtor@gmail.com',
 
-    // TODO: replace with the real number. Digits only in `phoneHref`.
-    phone: 'TODO — add phone number',
-    phoneHref: '',
+    // `phone` is what visitors read; `phoneHref` is what their dialler gets.
+    // The href carries the +1 country code so the link works from abroad.
+    phone: '929.345.6838',
+    phoneHref: '+19293456838',
   },
 
   // TODO: fill these in. Any left empty is simply omitted from the page

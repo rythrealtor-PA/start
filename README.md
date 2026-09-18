@@ -16,8 +16,8 @@ Everything personal lives in **`assets/js/config.js`**. Search it for `TODO`:
 
 | What | Status |
 |---|---|
-| **Phone number** | placeholder — set `phone` and `phoneHref` |
-| **Email** | prefilled `ryth.realtor@gmail.com` — **confirm this is the address you want published** |
+| **Phone number** | done — 929.345.6838 |
+| **Email** | done — `ryth.realtor@gmail.com` |
 | Brokerage name | empty |
 | PA license number | empty |
 | Years of experience | empty |
