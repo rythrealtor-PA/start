@@ -22,9 +22,11 @@ Everything personal lives in **`assets/js/config.js`**.
 | PA license | done — RS380174 |
 | Instagram / TikTok / Facebook | done |
 | Headshot | done — `assets/img/ryth-vara.jpg` |
+| Contact form | done — delivering to the email above |
 | **Listings** | **still placeholders — see below** |
-| **Contact form key** | **not set — see below** |
 | Years of experience | empty (optional) |
+
+Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages, `main` branch).
 
 Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.
@@ -55,11 +57,18 @@ prefer that file and drop it in at the same path.
 ### Contact form
 
 The form posts to [Web3Forms](https://web3forms.com) — free, and no server to
-run. Sign up with your email, they send you an access key, paste it into
-`web3formsKey` in `config.js`. Submissions then arrive in your inbox.
+run. The access key is set in `config.js` and submissions arrive in the inbox it
+was registered with.
 
-**Until you add a key the form still works**: it opens the visitor's email app
-with everything they typed already filled in. No enquiry is lost either way.
+That key is **public by design**. Every Web3Forms key sits in the page source
+where anyone can read it, and all it can do is deliver mail to the address it
+was registered with — it is not a password. If it ever starts attracting spam,
+generate a new one and replace it. A hidden `botcheck` honeypot field in the
+form already turns away the routine bots.
+
+**If the key is ever removed the form still works**: it falls back to opening
+the visitor's email app with everything they typed prefilled, so no enquiry is
+lost either way.
 
 ### Listings — the editor at /admin.html
 

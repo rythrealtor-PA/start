@@ -177,6 +177,13 @@
           <p class="field__error" id="topic-error"></p>
         </div>
 
+        <!-- Spam trap. Web3Forms discards any submission with `botcheck` set;
+             a person never sees this field, but a bot filling in every input
+             it finds will trip it. aria-hidden and tabindex keep it out of the
+             way of screen readers and the keyboard. -->
+        <input type="checkbox" name="botcheck" class="visually-hidden"
+               tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="field field--full">
           <label class="field__label" for="message">Message</label>
           <textarea class="field__input field__input--area" id="message" name="message"

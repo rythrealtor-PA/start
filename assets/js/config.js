@@ -57,8 +57,14 @@ export const CONFIG = {
    * While this is empty the form still works: it falls back to opening the
    * visitor's email app with everything they typed prefilled, so no enquiry
    * is ever lost.
+   *
+   * This key is public by design — it lives in the page source, as every
+   * Web3Forms key must, and all it can do is deliver mail to the address it
+   * was registered with. It is not a password and does not need hiding. If it
+   * ever attracts spam, generate a new one at web3forms.com and replace it
+   * here; the honeypot field in the form handles the routine bots.
    */
-  web3formsKey: '',
+  web3formsKey: '66dfc7aa-3620-4ee2-a874-faa4bdf31bf2',
 };
 
 /** Topic options for the contact form's "Select a topic" field. */
