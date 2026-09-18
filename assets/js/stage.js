@@ -13,8 +13,18 @@
 import * as THREE from '../vendor/three.module.js';
 import { FrameSequence, FRAME_COUNT } from './frames.js';
 
-/** Scroll distance the animation occupies, as a multiple of viewport height. */
-const STAGE_VH = 460;
+/**
+ * Scroll distance the animation occupies, as a multiple of viewport height.
+ * A shorter runway means the clip advances further per scroll — this is the
+ * knob for how fast the video plays, not the damping below.
+ *
+ * Careful with the arithmetic: the sticky panel consumes the first viewport, so
+ * the distance actually scrolled is (STAGE_VH - 100) * 1vh, not STAGE_VH * 1vh.
+ * Speeding playback up by 30% therefore means 360 / 1.3 = 277 of *scrollable*
+ * height, i.e. 377 here — dividing 460 by 1.3 directly would overshoot to 42%.
+ * The viewport height cancels out, so the ratio holds on any screen.
+ */
+const STAGE_VH = 377;
 
 /** Frame index easing per rAF tick. Lower is smoother but laggier. */
 const DAMPING = 0.12;
