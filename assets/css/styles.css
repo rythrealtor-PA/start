@@ -245,6 +245,11 @@ a { color: var(--brass-lt); }
 
 .discover__portrait img {
   width: 100%;
+  /* height:auto is load-bearing. The width/height attributes on the <img> are
+     there to reserve space, but they also set a presentational height of
+     800px, and aspect-ratio is ignored whenever both dimensions are specified.
+     Without this the portrait rendered 800px tall at every width. */
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   background: var(--slate-2);
@@ -652,6 +657,13 @@ a { color: var(--brass-lt); }
 @media (min-width: 62rem) {
   .discover__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
   .discover__portrait { position: sticky; top: 4rem; }
+}
+
+/* On a phone the portrait was taking well over half the screen, pushing the
+   bio and the contact details below the fold. Shrinking it to 40% of the
+   column — 60% smaller — brings the words up without losing the face. */
+@media (max-width: 47.99rem) {
+  .discover__portrait img { width: 40%; }
 }
 
 /* ========================== Reduced motion ============================= */
