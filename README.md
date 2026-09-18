@@ -61,25 +61,50 @@ run. Sign up with your email, they send you an access key, paste it into
 **Until you add a key the form still works**: it opens the visitor's email app
 with everything they typed already filled in. No enquiry is lost either way.
 
-### Listings
+### Listings — the editor at /admin.html
 
-Edit **`assets/js/listings.js`**. Each listing is one object:
+Open **`yoursite.com/admin.html`** to add, edit, reorder and remove listings:
+drag in a photo, fill in the address, beds and baths, press **Publish**. The
+live site updates about a minute later.
 
-```js
+It is a form, not a file. Photos are shrunk to a sensible web size in the
+browser before they upload, so a photo straight off a phone is fine.
+
+**One-time setup.** The site is static — there is no server to log into — so
+publishing works by committing straight to this repository with a GitHub access
+token you create once:
+
+1. Go to [fine-grained access tokens](https://github.com/settings/personal-access-tokens/new).
+2. **Repository access** → *Only select repositories* → this one.
+3. **Repository permissions** → **Contents** → *Read and write*. Nothing else.
+4. Generate, copy, and paste it into `/admin.html`.
+
+The token is stored only in that browser on that device. It is never part of the
+published site, so a visitor who finds `/admin.html` sees the setup screen and
+can do nothing. Anyone holding the token can write to this repository, which is
+why it is scoped to one repo and to Contents alone — and why **Sign out** is
+there for a shared or borrowed computer. If a token ever leaks, revoke it on the
+same GitHub page and generate a new one.
+
+Listings live in **`assets/data/listings.json`** — plain JSON rather than
+JavaScript precisely so the editor can rewrite it without a stray comma taking
+the page down. Editing it by hand still works:
+
+```json
 {
-  photo:   'assets/img/listings/my-listing.jpg',
-  address: '412 Chestnut Ridge Road',
-  city:    'Doylestown, PA',
-  price:   '$685,000',
-  beds:    4,
-  baths:   2.5,          // halves are fine
-  sqft:    2840,         // optional — the slot is skipped if omitted
-  status:  'For sale',   // optional: For sale | Pending | Sold | For rent
+  "photo":   "assets/img/listings/my-listing.jpg",
+  "address": "412 Chestnut Ridge Road",
+  "city":    "Doylestown, PA",
+  "price":   "$685,000",
+  "beds":    4,
+  "baths":   2.5,
+  "sqft":    2840,
+  "status":  "For sale"
 }
 ```
 
-Put photos in `assets/img/listings/`, landscape, ideally 4:3 and at least
-1200px wide. One photo per listing — that is the design.
+`sqft` and `status` are optional. `status` is one of *For sale*, *Pending*,
+*Sold*, *For rent*.
 
 The six shipped listings are placeholders with invented addresses and generated
 artwork. **Replace them before sharing the site** — they are the one thing on

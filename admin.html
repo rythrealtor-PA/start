@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listings — Ryth Vara</title>
+
+<!-- Keep this page out of search results. It is not a secret — it does nothing
+     without an access key — but there is no reason for it to be indexed. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#12171C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312171C'/%3E%3Cpath d='M6 26V14L16 6l10 8v12z' fill='none' stroke='%23B08D57' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+<script type="module" src="assets/js/admin.js"></script>
+</head>
+
+<body class="admin">
+
+<header class="admin__bar">
+  <div class="admin__bar-inner">
+    <h1 class="admin__title">Listings</h1>
+    <div class="admin__bar-actions">
+      <span class="admin__status" data-status role="status" aria-live="polite"></span>
+      <a class="admin__link" href="./" target="_blank">View site</a>
+      <button class="admin__link admin__signout" type="button" data-signout hidden>
+        Sign out
+      </button>
+      <button class="button button--primary" type="button" data-publish disabled>
+        Publish
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="admin__main">
+
+  <!-- ─────────────────────────── First-run setup ─────────────────────────── -->
+  <section class="admin__panel" data-setup hidden>
+    <h2 class="admin__h2">One-time setup</h2>
+    <p class="admin__note">
+      This page needs a GitHub access key to publish. It is stored only in this
+      browser, on this device — it is never part of the website, so nobody
+      visiting your site can see or use it.
+    </p>
+    <ol class="admin__steps">
+      <li>
+        Open
+        <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">
+          github.com → fine-grained access token</a>.
+      </li>
+      <li>Under <strong>Repository access</strong>, choose <strong>Only select repositories</strong> and pick this site's repository.</li>
+      <li>Under <strong>Repository permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong>. Leave everything else alone.</li>
+      <li>Click <strong>Generate token</strong>, copy it, and paste it below.</li>
+    </ol>
+
+    <div class="admin__grid">
+      <div class="field">
+        <label class="field__label" for="token">Access key</label>
+        <input class="field__input" id="token" type="password" autocomplete="off"
+               placeholder="github_pat_…">
+      </div>
+      <div class="field">
+        <label class="field__label" for="repo">Repository</label>
+        <input class="field__input" id="repo" type="text" autocomplete="off"
+               placeholder="owner/repo">
+      </div>
+      <div class="field">
+        <label class="field__label" for="branch">Branch</label>
+        <input class="field__input" id="branch" type="text" autocomplete="off"
+               placeholder="main">
+      </div>
+    </div>
+    <div class="admin__setup-actions">
+      <button class="button button--primary" type="button" data-save-token>Save and connect</button>
+      <p class="admin__note admin__note--inline" data-setup-error></p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────── The editor ────────────────────────────── -->
+  <div class="admin__layout" data-editor hidden>
+
+    <section class="admin__panel">
+      <h2 class="admin__h2" data-form-heading>Add a listing</h2>
+
+      <form class="admin__form" data-listing-form novalidate>
+        <!-- Photo -->
+        <div class="field field--full">
+          <span class="field__label" id="photo-label">Photo</span>
+          <label class="dropzone" data-dropzone tabindex="0"
+                 aria-labelledby="photo-label" aria-describedby="photo-hint">
+            <input class="dropzone__input" type="file" accept="image/*" data-photo hidden>
+            <img class="dropzone__preview" data-photo-preview alt="" hidden>
+            <span class="dropzone__prompt" data-photo-prompt>
+              Drag a photo here, or click to choose one
+            </span>
+          </label>
+          <p class="field__hint" id="photo-hint">
+            One photo per listing. Landscape works best. Big files are fine —
+            they are resized here before publishing.
+          </p>
+          <p class="field__error" data-error="photo"></p>
+        </div>
+
+        <div class="field field--full">
+          <label class="field__label" for="address">Address</label>
+          <input class="field__input" id="address" name="address" type="text"
+                 placeholder="412 Chestnut Ridge Road" required>
+          <p class="field__error" data-error="address"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="city">City</label>
+          <input class="field__input" id="city" name="city" type="text"
+                 placeholder="Doylestown, PA">
+          <p class="field__error" data-error="city"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="price">Price</label>
+          <input class="field__input" id="price" name="price" type="text"
+                 placeholder="$685,000">
+          <p class="field__hint">Any text works — "Coming soon" is fine.</p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="beds">Beds</label>
+          <input class="field__input" id="beds" name="beds" type="number"
+                 min="0" max="50" step="1" placeholder="4" required>
+          <p class="field__error" data-error="beds"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="baths">Baths</label>
+          <input class="field__input" id="baths" name="baths" type="number"
+                 min="0" max="50" step="0.5" placeholder="2.5" required>
+          <p class="field__hint">Halves are fine.</p>
+          <p class="field__error" data-error="baths"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="sqft">Square feet</label>
+          <input class="field__input" id="sqft" name="sqft" type="number"
+                 min="0" step="1" placeholder="2840">
+          <p class="field__hint">Optional — left off the card if blank.</p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="status">Status</label>
+          <div class="field__select">
+            <select class="field__input" id="status" name="status">
+              <option value="">None</option>
+              <option>For sale</option>
+              <option>Pending</option>
+              <option>Sold</option>
+              <option>For rent</option>
+            </select>
+            <svg class="field__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="field field--full admin__form-actions">
+          <button class="button button--primary" type="submit" data-submit>Add listing</button>
+          <button class="button" type="button" data-cancel hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin__panel">
+      <div class="admin__list-head">
+        <h2 class="admin__h2">Your listings</h2>
+        <p class="admin__note admin__note--inline" data-unsaved hidden>
+          Unpublished changes
+        </p>
+      </div>
+      <p class="admin__note">
+        This is exactly how each one appears on the site. Drag order with the
+        arrows — the first listing shows first.
+      </p>
+      <ul class="admin__list" data-list></ul>
+      <p class="admin__empty" data-empty hidden>No listings yet.</p>
+    </section>
+
+  </div>
+</main>
+
+</body>
+</html>

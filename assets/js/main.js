@@ -5,6 +5,7 @@
 import { CONFIG, TOPICS } from './config.js';
 import { Stage } from './stage.js';
 import { initCarousel } from './carousel.js';
+import { loadListings } from './listings.js';
 import { initContact } from './contact.js';
 
 /** Renders a definition-list row, or nothing at all when the value is empty. */
@@ -126,7 +127,15 @@ function boot() {
   renderBrandMarks();
   renderFooterLegal(document.querySelector('[data-footer-legal]'));
 
-  initCarousel(document.querySelector('[data-carousel]'));
+  // Listings arrive over the network now, so the section fills in a moment
+  // after the rest of the page. Everything else is already rendered.
+  loadListings()
+    .then((listings) => initCarousel(document.querySelector('[data-carousel]'), listings))
+    .catch((error) => {
+      console.error('[listings]', error);
+      document.querySelector('[data-carousel-status]').textContent =
+        'Listings are unavailable right now.';
+    });
   initContact(document.querySelector('[data-contact-form]'));
 
   document.querySelector('[data-year]').textContent = new Date().getFullYear();

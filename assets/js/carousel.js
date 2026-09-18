@@ -6,11 +6,13 @@
  * trackpad, and keyboard all work without being reimplemented, and the track
  * stays a usable scroller if this script never runs.
  */
-import { LISTINGS } from './listings.js';
-
 const fmtBaths = (n) => (Number.isInteger(n) ? n : n.toFixed(1));
 
-function card(listing) {
+/**
+ * One listing card. Exported so the admin page previews a listing with exactly
+ * the markup the real site uses, rather than an approximation that can drift.
+ */
+export function card(listing) {
   const el = document.createElement('article');
   el.className = 'listing';
 
@@ -47,13 +49,13 @@ function card(listing) {
   return el;
 }
 
-export function initCarousel(root) {
+export function initCarousel(root, listings) {
   const track = root.querySelector('[data-track]');
   const prev = root.querySelector('[data-prev]');
   const next = root.querySelector('[data-next]');
   const status = root.querySelector('[data-carousel-status]');
 
-  LISTINGS.forEach((l) => track.append(card(l)));
+  listings.forEach((l) => track.append(card(l)));
 
   /** Scroll by exactly one visible page, whatever the breakpoint is showing. */
   const page = (dir) => {
@@ -69,7 +71,7 @@ export function initCarousel(root) {
 
     const perPage = Math.max(1, Math.round(track.clientWidth / cardWidth()));
     const current = Math.round(track.scrollLeft / track.clientWidth) + 1;
-    const total = Math.max(1, Math.ceil(LISTINGS.length / perPage));
+    const total = Math.max(1, Math.ceil(listings.length / perPage));
     status.textContent = `Page ${Math.min(current, total)} of ${total}`;
   };
 
