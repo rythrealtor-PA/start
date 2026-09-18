@@ -190,9 +190,28 @@ A visitor downloads exactly one:
 
 | Set | Size | Served to |
 |---|---|---|
-| `assets/frames/desktop/` | 1440px AVIF | wide viewports with AVIF support |
-| `assets/frames/mobile/` | 900px AVIF | narrow viewports with AVIF support |
-| `assets/frames/fallback/` | 900px WebP | anything without AVIF (Safari < 16.4, older Android) |
+| `assets/frames/desktop/` | 1728px AVIF, ~17MB | wide viewports with AVIF support |
+| `assets/frames/mobile/` | 1170px AVIF, ~7MB | narrow viewports with AVIF support |
+| `assets/frames/fallback/` | 1000px WebP, ~10MB | anything without AVIF (Safari < 16.4, older Android) |
+
+### A note on the quality settings
+
+These were measured against the source frame rather than guessed, because the
+first pass shipped visibly soft:
+
+| | PSNR vs source |
+|---|---|
+| Downscaling 1928px → 1440px, no compression | 40.2 dB — invisible |
+| Compressing at crf 44, no downscale | 30.3 dB — the real loss |
+| What shipped first (1440px, crf 44) | 28.7 dB — smeared stone and foliage |
+| What ships now (1728px, crf 30) | 34.1 dB — near-indistinguishable at 1:1 |
+
+The lesson: for this footage **resolution is cheap and compression is
+expensive**. If the sequence ever needs to shrink, take pixels off the width
+before taking quality off the encoder.
+
+The source video is 1928×1072, so 34 dB is close to the ceiling. Going higher
+means a better source, not better settings.
 
 ### Replacing the video
 

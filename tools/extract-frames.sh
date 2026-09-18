@@ -30,10 +30,12 @@ set -euo pipefail
 SRC="${1:?usage: extract-frames.sh <source.mp4>}"
 OUT="$(cd "$(dirname "$0")/.." && pwd)/assets/frames"
 
-# Widths are deliberate: the canvas is cover-fit and always in motion under a
-# vignette and grain, so 1440px upscaled to a 1920px viewport is indistinguishable.
-DESKTOP_W=1440
-MOBILE_W=900
+# Widths are deliberate. A 390px phone at 3x is 1170 real pixels, so that is the
+# phone set's native size; 1728px covers a 1440px laptop at 1.2x and anything
+# wider is a mild upscale that motion hides.
+DESKTOP_W=1728
+MOBILE_W=1170
+FALLBACK_W=1000
 
 # Frame count is NOT reducible here. Consecutive frames measure ~18 dB PSNR
 # apart, which is substantial motion — dropping every other frame judders.
@@ -71,16 +73,19 @@ build_avif_set() {
 }
 
 echo "desktop/ (${DESKTOP_W}px AVIF, ${JOBS} jobs) ..."
-build_avif_set "$DESKTOP_W" 44 "$OUT/desktop"
+build_avif_set "$DESKTOP_W" 30 "$OUT/desktop"
 
 echo "mobile/ (${MOBILE_W}px AVIF) ..."
-build_avif_set "$MOBILE_W" 46 "$OUT/mobile"
+build_avif_set "$MOBILE_W" 36 "$OUT/mobile"
 
 # WebP through image2 is fine — the muxer problem above is AVIF-specific.
-echo "fallback/ (${MOBILE_W}px WebP) ..."
+# WebP is far less efficient than AVIF at this content, so the fallback is
+# improved but not matched — it serves a few percent of visitors, on older
+# devices, and a 16MB WebP set would cost them more than the sharpness is worth.
+echo "fallback/ (${FALLBACK_W}px WebP) ..."
 ffmpeg -hide_banner -loglevel error -i "$SRC" \
-  -vf "scale=$MOBILE_W:-2:flags=lanczos" \
-  -c:v libwebp -quality 40 -compression_level 6 -preset photo \
+  -vf "scale=$FALLBACK_W:-2:flags=lanczos" \
+  -c:v libwebp -quality 55 -compression_level 6 -preset photo \
   -start_number 1 "$OUT/fallback/f_%03d.webp"
 
 echo
