@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ryth Vara — Pennsylvania Real Estate</title>
+<meta name="description" content="Ryth Vara is a real estate agent serving buyers and sellers across Pennsylvania, in English and Spanish.">
+<meta name="theme-color" content="#12171C">
+
+<!-- Inline so there is no extra request and no stray 404 for /favicon.ico:
+     a brass roofline on slate. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312171C'/%3E%3Cpath d='M6 26V14L16 6l10 8v12z' fill='none' stroke='%23B08D57' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<meta property="og:title" content="Ryth Vara — Pennsylvania Real Estate">
+<meta property="og:description" content="Buying, selling and renting across Pennsylvania. English and Spanish.">
+<meta property="og:type" content="website">
+
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- The first frame is the static hero behind the title, so it decides how
+     soon the page stops looking empty. Both candidates are listed because the
+     runtime picks a set by AVIF support; the unused one is never fetched. -->
+<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif" type="image/avif" fetchpriority="high">
+<link rel="preload" as="font" href="assets/fonts/fraunces-latin.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/archivo-latin.woff2" type="font/woff2" crossorigin>
+
+<script type="module" src="assets/js/main.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#discover">Skip to content</a>
+
+<!-- ───────────────────────── Hero / scroll stage ───────────────────────── -->
+<!-- The tall section is the scroll runway; the sticky child inside it is what
+     stays on screen while the frames advance. -->
+<section class="stage" data-stage aria-label="Introduction">
+  <div class="stage__sticky">
+    <canvas class="stage__canvas" data-stage-canvas aria-hidden="true"></canvas>
+
+    <div class="stage__title" data-stage-title>
+      <h1 class="stage__name" data-name>Ryth Vara</h1>
+      <p class="stage__tagline">Pennsylvania Real&nbsp;Estate</p>
+      <!-- Doubles as the frame-loading indicator: it fills as the sequence
+           arrives, then fades once the clip is fully scrubbable. -->
+      <div class="stage__rule">
+        <span class="stage__rule-fill" data-stage-progress></span>
+      </div>
+    </div>
+
+    <p class="stage__cue" data-stage-cue aria-hidden="true">Scroll</p>
+  </div>
+</section>
+
+<main>
+<!-- ─────────────────────────────── Discover ─────────────────────────────── -->
+<section class="section discover" id="discover">
+  <div class="wrap">
+    <h2 class="section__title">Discover Pennsylvania real estate with <span data-name>Ryth Vara</span></h2>
+
+    <div class="discover__grid">
+      <div class="discover__portrait">
+        <img data-portrait src="assets/img/portrait-placeholder.svg" alt="" width="640" height="800">
+      </div>
+
+      <div class="discover__body">
+        <p class="lede">
+          A house keeps most of itself hidden. What the rooms feel like in
+          February, what the inspection will turn up, what the street is like
+          at 7am — none of it is in the listing.
+        </p>
+        <p>
+          My job is to open all of that up before you commit to it. I work with
+          buyers and sellers across Pennsylvania, from first-time buyers
+          working out what they can actually afford, to owners who want a
+          clear-eyed read on what their home is worth right now.
+        </p>
+        <p>
+          I work in <strong>English and Spanish</strong> — every step, every
+          document, every negotiation, in whichever language you would rather
+          be doing this in.
+        </p>
+
+        <dl class="facts" data-facts></dl>
+
+        <ul class="social" data-social></ul>
+
+        <a class="button button--primary" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────── Listings ─────────────────────────────── -->
+<section class="section listings" id="listings" data-carousel>
+  <div class="wrap">
+    <div class="listings__head">
+      <h2 class="section__title">Listings</h2>
+      <div class="carousel__nav">
+        <p class="carousel__status" data-carousel-status aria-live="polite"></p>
+        <button class="carousel__button" type="button" data-prev aria-label="Previous listings" aria-controls="listings-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel__button" type="button" data-next aria-label="More listings" aria-controls="listings-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel">
+      <!-- tabindex makes the scroller reachable by keyboard, which a plain
+           overflow container is not. -->
+      <div class="carousel__track" id="listings-track" data-track tabindex="0" role="group" aria-label="Listings, scrollable">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────── Get in touch ──────────────────────────── -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <h2 class="section__title">Get in touch</h2>
+
+    <div class="contact__grid">
+      <div class="contact__aside">
+        <p class="lede">
+          Tell me what you are trying to do and I will tell you, honestly,
+          what it will take.
+        </p>
+        <dl class="facts facts--compact">
+          <div class="facts__row">
+            <dt class="facts__label">Email</dt>
+            <dd class="facts__value"><a class="facts__link" data-email-link href="#"></a></dd>
+          </div>
+          <div class="facts__row">
+            <dt class="facts__label">Phone</dt>
+            <dd class="facts__value"><a class="facts__link" data-phone-link href="#"></a></dd>
+          </div>
+        </dl>
+      </div>
+
+      <form class="form" data-contact-form novalidate>
+        <div class="field">
+          <label class="field__label" for="name">Name</label>
+          <input class="field__input" id="name" name="name" type="text"
+                 autocomplete="name" required data-label="Name"
+                 aria-describedby="name-error">
+          <p class="field__error" id="name-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">Email</label>
+          <input class="field__input" id="email" name="email" type="email"
+                 autocomplete="email" required data-label="Email"
+                 aria-describedby="email-error">
+          <p class="field__error" id="email-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="phone">Phone</label>
+          <input class="field__input" id="phone" name="phone" type="tel"
+                 autocomplete="tel" data-label="Phone"
+                 aria-describedby="phone-error phone-hint">
+          <p class="field__hint" id="phone-hint">Optional</p>
+          <p class="field__error" id="phone-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="topic">Select a topic</label>
+          <div class="field__select">
+            <select class="field__input" id="topic" name="topic" required
+                    data-label="Topic" aria-describedby="topic-error">
+              <option value="">Choose one…</option>
+            </select>
+            <svg class="field__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="field__error" id="topic-error"></p>
+        </div>
+
+        <div class="field field--full">
+          <label class="field__label" for="message">Message</label>
+          <textarea class="field__input field__input--area" id="message" name="message"
+                    rows="5" required data-label="Message"
+                    aria-describedby="message-error"></textarea>
+          <p class="field__error" id="message-error"></p>
+        </div>
+
+        <div class="field field--full form__actions">
+          <button class="button button--primary" type="submit">Send message</button>
+          <p class="form__result" data-result role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p><span data-name>Ryth Vara</span> — Real Estate Agent, Pennsylvania</p>
+    <p>&copy; <span data-year></span> · English &amp; Español</p>
+  </div>
+</footer>
+</body>
+</html>

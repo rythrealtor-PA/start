@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240"
+     width="320" height="240" role="img"
+     aria-label="Placeholder image for listing 5">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#2C3E4A"/>
+      <stop offset="1" stop-color="#12171C"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="240" fill="url(#g5)"/>
+  <!-- horizon -->
+  <path d="M0,190 H320" stroke="#B08D57" stroke-opacity="0.35" stroke-width="1"/>
+  <!-- house silhouette -->
+  <path d="M66,190 L160,48 L254,190 Z" fill="#191F26" fill-opacity="0.75"
+        stroke="#B08D57" stroke-opacity="0.5" stroke-width="1.5"
+        stroke-linejoin="round"/>
+  <path d="M126,190 L126,142 L194,142 L194,190 Z" fill="none"
+        stroke="#B08D57" stroke-opacity="0.4" stroke-width="1.25"
+        stroke-linejoin="round"/>
+  <text x="160" y="222" text-anchor="middle"
+        font-family="Archivo, system-ui, sans-serif" font-size="9"
+        letter-spacing="2.4" fill="#F2EEE7" fill-opacity="0.42">
+    PLACEHOLDER — ADD PHOTO
+  </text>
+</svg>

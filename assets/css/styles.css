@@ -1,0 +1,573 @@
+/* ===========================================================================
+   Ryth Vara — Pennsylvania Real Estate
+
+   The palette comes from Pennsylvania building materials rather than from the
+   usual luxury-realtor kit: bluestone, slate roofs, fieldstone, and the aged
+   brass on old front doors. A dark page lets the hero footage be the light
+   source — the house glows out of the slate instead of sitting on white.
+
+   Type is Fraunces for display and Archivo for everything else. Fraunces
+   carries an optical-size axis, so headings get the chiselled, high-contrast
+   cut and small text stays readable, from one file.
+   ======================================================================== */
+
+:root {
+  --slate:      #12171c;
+  --slate-2:    #191f26;
+  --slate-3:    #222a33;
+  --bluestone:  #2c3e4a;
+  --brass:      #b08d57;
+  --brass-lt:   #d4b483;
+  --ivory:      #f2eee7;
+  --ivory-dim:  #a8afb6;
+
+  --border:     rgba(242, 238, 231, 0.12);
+  --border-lit: rgba(176, 141, 87, 0.42);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --wrap: 78rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  /* Vertical rhythm. Sections share one scale so spacing never drifts. */
+  --space-section: clamp(5rem, 11vw, 10rem);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* The stage is position:sticky; a scroll-padding keeps in-page anchors from
+     landing under it. */
+  scroll-padding-top: 2rem;
+}
+
+body {
+  margin: 0;
+  background: var(--slate);
+  color: var(--ivory);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--brass-lt); }
+
+::selection { background: var(--brass); color: var(--slate); }
+
+/* One focus treatment everywhere, and it is never removed. */
+:focus-visible {
+  outline: 2px solid var(--brass-lt);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 50;
+  padding: 0.75rem 1.25rem;
+  background: var(--brass);
+  color: var(--slate);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.18s var(--ease);
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+.wrap {
+  width: min(var(--wrap), 100%);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ============================ Scroll stage ============================== */
+
+.stage {
+  /* Set by stage.js — 460 normally, 100 when reduced motion is requested. */
+  height: calc(var(--stage-vh, 460) * 1vh);
+  position: relative;
+}
+
+.stage__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  /* Visible before the first frame lands, and behind the feathered bottom edge
+     of the footage. */
+  background:
+    radial-gradient(120% 90% at 50% 18%, var(--slate-3) 0%, var(--slate) 62%);
+}
+
+.stage__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease);
+}
+.stage__canvas.is-ready { opacity: 1; }
+
+.stage__title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-inline: var(--gutter);
+  /* Sits in the upper third, over the dark treeline rather than across the
+     lit facade: better contrast for the type, and it stops covering the
+     subject of the shot. */
+  transform: translateY(-15vh);
+  will-change: opacity, transform;
+}
+
+.stage__name {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 144;
+  font-weight: 400;
+  font-size: clamp(3rem, 13vw, 10.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--ivory);
+  text-shadow: 0 0.15em 1.2em rgba(0, 0, 0, 0.55);
+}
+
+.stage__tagline {
+  font-size: clamp(0.72rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em; /* offsets the trailing letter-space so it stays centred */
+  text-transform: uppercase;
+  color: var(--ivory);
+  margin: 1.1rem 0 0;
+  text-shadow: 0 0.1em 0.8em rgba(0, 0, 0, 0.6);
+}
+
+/* Hairline that fills as the frame sequence loads, so the one decorative-
+   looking element on the hero is actually reporting something. */
+.stage__rule {
+  width: min(22rem, 60vw);
+  height: 1px;
+  margin: 2.1rem auto 0;
+  background: rgba(242, 238, 231, 0.22);
+  overflow: hidden;
+}
+.stage__rule-fill {
+  display: block;
+  height: 100%;
+  background: var(--brass-lt);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s linear, opacity 0.8s var(--ease) 0.3s;
+}
+.stage__rule-fill.is-complete { opacity: 0; }
+
+.stage__cue {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(1.5rem, 4vh, 3rem);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  /* Opacity is driven by stage.js alongside the title. */
+  will-change: opacity;
+}
+
+/* Without WebGL the canvas is the raw frame buffer at its native size and the
+   shader's work has to be done in CSS: cover-fit so the footage is not
+   stretched to the viewport's aspect, and a scrim so the title stays legible
+   over the bright facade. Opacity tracks --title-opacity, set by stage.js, so
+   it fades in step with the title exactly as the shader version does. */
+.no-webgl .stage__canvas {
+  object-fit: cover;
+}
+.no-webgl .stage__sticky::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: var(--title-opacity, 1);
+  background:
+    radial-gradient(58% 34% at 50% 34%, rgba(6, 9, 12, 0.82) 0%, rgba(6, 9, 12, 0) 100%),
+    linear-gradient(rgba(6, 9, 12, 0.38), rgba(6, 9, 12, 0.38));
+}
+
+/* ============================== Sections =============================== */
+
+.section { padding-block: var(--space-section); }
+
+.section__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 96;
+  font-weight: 400;
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+
+.lede {
+  font-size: clamp(1.1rem, 1.9vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--ivory);
+}
+
+.discover p { max-width: 62ch; color: var(--ivory-dim); }
+.discover p strong { color: var(--ivory); font-weight: 600; }
+
+.discover__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: 1fr;
+}
+
+.discover__portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+}
+
+/* Facts read as a record of verifiable details, so they are marked up and
+   styled as one — ruled rows, not decorative cards. */
+.facts {
+  margin: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--border);
+}
+.facts__row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 9rem) 1fr;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.facts__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  margin: 0;
+}
+.facts__value { margin: 0; color: var(--ivory); }
+.facts__link { color: var(--brass-lt); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+.facts--compact { margin-top: 1.75rem; }
+
+.social {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.social__link {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =============================== Button ================================ */
+
+.button {
+  display: inline-block;
+  padding: 0.95rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--brass);
+  background: transparent;
+  color: var(--brass-lt);
+  cursor: pointer;
+  transition: background-color 0.22s var(--ease), color 0.22s var(--ease);
+}
+.button--primary:hover,
+.button--primary:focus-visible {
+  background: var(--brass);
+  color: var(--slate);
+}
+.button[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+/* ============================== Listings =============================== */
+
+.listings__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.listings .section__title { margin-bottom: 0; }
+
+.carousel__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.carousel__status {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  margin: 0 0.5rem 0 0;
+}
+.carousel__button {
+  /* 44px minimum, so it is a real touch target. */
+  width: 2.875rem;
+  height: 2.875rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-lit);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--brass-lt);
+  cursor: pointer;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease),
+              opacity 0.2s var(--ease);
+}
+.carousel__button svg { width: 1.25rem; height: 1.25rem; }
+.carousel__button:hover:not([disabled]),
+.carousel__button:focus-visible:not([disabled]) {
+  background: var(--brass);
+  color: var(--slate);
+}
+.carousel__button[disabled] { opacity: 0.3; cursor: default; }
+
+.carousel { margin-top: clamp(2rem, 5vw, 3.5rem); }
+
+.carousel__track {
+  display: grid;
+  grid-auto-flow: column;
+  /* Two cards per view on desktop, one on mobile — set in the media query. */
+  grid-auto-columns: 100%;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  /* The gap must not count toward a page, or paging drifts out of alignment. */
+  padding-bottom: 0.5rem;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+
+.listing {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.listing__frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+}
+.listing__photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.listing__status {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--slate);
+  color: var(--brass-lt);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.listing__body { padding-top: 1.25rem; }
+
+.listing__address {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.2;
+  margin: 0;
+}
+.listing__city {
+  margin: 0.3rem 0 0;
+  color: var(--ivory-dim);
+  font-size: 0.95rem;
+}
+.listing__price {
+  margin: 0.9rem 0 0;
+  color: var(--brass-lt);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.specs {
+  display: flex;
+  gap: 2rem;
+  margin: 1.1rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.specs__item { display: flex; flex-direction: column-reverse; gap: 0.15rem; }
+.specs__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+.specs__value {
+  margin: 0;
+  font-size: 1.35rem;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  line-height: 1.1;
+}
+
+/* ============================== Contact ================================ */
+
+.contact__grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: 1fr;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.field--full { grid-column: 1 / -1; }
+
+.field__label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+  margin-bottom: 0.55rem;
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ivory);
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field__input:hover { border-color: var(--bluestone); }
+.field__input:focus { border-color: var(--brass); background: var(--slate-3); }
+.field__input[aria-invalid='true'] { border-color: #e0785f; }
+.field__input--area { resize: vertical; min-height: 8rem; }
+
+.field__select { position: relative; }
+.field__chevron {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--ivory-dim);
+  pointer-events: none;
+}
+.field__select .field__input { padding-right: 2.75rem; }
+
+.field__hint,
+.field__error { margin: 0.45rem 0 0; font-size: 0.84rem; }
+.field__hint { color: var(--ivory-dim); }
+.field__error { color: #e0785f; }
+.field__error:empty { display: none; }
+
+.form__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.form__result { margin: 0; font-size: 0.95rem; }
+.form__result[data-state='success'] { color: var(--brass-lt); }
+.form__result[data-state='error'] { color: #e0785f; }
+.form__result[data-state='pending'] { color: var(--ivory-dim); }
+
+/* =============================== Footer ================================ */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2.5rem;
+  color: var(--ivory-dim);
+  font-size: 0.88rem;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer p { margin: 0; }
+
+/* ============================ Breakpoints ============================== */
+
+@media (min-width: 48rem) {
+  /* Two listings side by side. The calc accounts for the gap so a page scroll
+     lands exactly on the next pair. */
+  .carousel__track { grid-auto-columns: calc((100% - clamp(1rem, 2.5vw, 2rem)) / 2); }
+}
+
+@media (min-width: 62rem) {
+  .discover__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .contact__grid  { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+  .form { grid-template-columns: 1fr 1fr; }
+  .discover__portrait { position: sticky; top: 4rem; }
+}
+
+/* ========================== Reduced motion ============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  /* stage.js also collapses the runway to one viewport and holds a single
+     frame, so the page reads as an ordinary site. */
+  .stage__cue { display: none; }
+}
+
+/* Without JS the carousel is still a scroller and the stage still shows its
+   gradient, but the frame sequence never starts — so hide the load indicator
+   rather than leave it stuck at zero. */
+.no-js .stage__rule { display: none; }
