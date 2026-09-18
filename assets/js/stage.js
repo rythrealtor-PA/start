@@ -24,10 +24,11 @@ import { FrameSequence, FRAME_COUNT } from './frames.js';
  * not the whole value — dividing 460 by 1.3 directly would overshoot to 42%.
  * The viewport height cancels out, so the ratio holds on any screen.
  *
- * History: 460 (360 scrollable) -> 377 (277) -> 313 (213), two 30% steps,
- * so the clip now plays 1.69x faster per scroll than it first shipped.
+ * History: 460 (360 scrollable) -> 377 (277) -> 313 (213) -> 252 (152), so the
+ * clip now plays 2.37x faster per scroll than it first shipped. The whole
+ * 145-frame sequence takes about 1.5 screen-heights of scrolling.
  */
-const STAGE_VH = 313;
+const STAGE_VH = 252;
 
 /** Frame index easing per rAF tick. Lower is smoother but laggier. */
 const DAMPING = 0.12;
