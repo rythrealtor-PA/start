@@ -27,7 +27,12 @@ Everything personal lives in **`assets/js/config.js`**.
 | Testimonials | done — four real client quotes |
 | Years of experience | empty (optional) |
 
-Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages, `main` branch).
+Live at **https://rythvara.com** (GitHub Pages from `main`, custom domain).
+
+The `CNAME` file at the repo root is what tells GitHub Pages which domain to
+serve — deleting it reverts the site to rythrealtor-pa.github.io/start/. DNS is
+at Namecheap: four A records on `@` pointing at GitHub's Pages addresses, and a
+CNAME on `www` pointing at `rythrealtor-pa.github.io.`
 
 Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.
