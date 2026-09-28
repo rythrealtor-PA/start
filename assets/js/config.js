@@ -65,6 +65,17 @@ export const CONFIG = {
    * here; the honeypot field in the form handles the routine bots.
    */
   web3formsKey: '66dfc7aa-3620-4ee2-a874-faa4bdf31bf2',
+
+  /**
+   * Visitor statistics, via Cloudflare Web Analytics (free). It uses no
+   * cookies and stores nothing on the visitor's device, so no cookie banner is
+   * needed. To switch it on: dash.cloudflare.com → Analytics & Logs → Web
+   * Analytics → Add a site → rythvara.com → copy the token from the snippet it
+   * shows (the value after "token":) and paste it here. Empty = off.
+   */
+  analytics: {
+    cloudflareToken: '',
+  },
 };
 
 /** Topic options for the contact form's "Select a topic" field. */

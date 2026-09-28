@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- GitHub Pages serves this file for a missing path at ANY depth, so relative
+     URLs would resolve against the wrong folder. A <base> pins them to the site
+     root — "/" on rythvara.com, "/start/" on the github.io preview address.
+     (Chrome's preload scanner guesses the three URLs below before this runs
+     and wastes a small request on each; the page itself still loads right.) -->
+<script>
+  (function () {
+    var b = document.createElement('base');
+    b.href = location.hostname.endsWith('github.io') ? '/start/' : '/';
+    document.head.appendChild(b);
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Ryth Vara, REALTOR®</title>
+<meta name="description" content="This page could not be found.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12171C">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script type="module" src="assets/js/page.js"></script>
+</head>
+
+<body>
+
+<header class="page-header">
+  <div class="wrap">
+    <a class="page-header__name" href="./">Ryth Vara</a>
+    <a class="page-header__back" href="./">&larr; Back to home</a>
+  </div>
+</header>
+
+<main id="main" class="doc notfound">
+  <div class="wrap">
+    <p class="doc__meta">Error 404</p>
+    <h1 class="section__title">This page has moved out.</h1>
+    <p>The address you followed doesn&rsquo;t lead anywhere — it may have been
+    mistyped, or the page may no longer exist. <span lang="es">Esta página no
+    existe.</span></p>
+    <div class="notfound__actions">
+      <a class="button button--primary" href="./">Go to the home page</a>
+      <a class="button" href="./#contact">Contact Ryth</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div class="footer__brands">
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--team" src="assets/img/hs-group.png"
+             alt="HS Group" width="440" height="378" loading="lazy">
+      </span>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--broker" src="assets/img/real-of-pennsylvania.png"
+             alt="Real of Pennsylvania" width="900" height="460" loading="lazy">
+      </span>
+    </div>
+
+    <div class="footer__legal">
+      <p data-footer-legal>Ryth Vara — Real Estate Agent, Pennsylvania · License RS380174 · Brokered by Real of Pennsylvania</p>
+      <p>&copy; <span data-year>2026</span> · English &amp; Español · Equal Housing Opportunity</p>
+      <p class="footer__links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -3,35 +3,76 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ryth Vara — Pennsylvania Real Estate</title>
-<meta name="description" content="Ryth Vara is a real estate agent serving buyers and sellers across Pennsylvania, in English and Spanish.">
+<title>Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA</title>
+<meta name="description" content="Ryth Vara, bilingual REALTOR® with Real of Pennsylvania, helps buyers, sellers and investors in Monroe County and the Poconos — in English and Spanish.">
 <meta name="theme-color" content="#12171C">
 
-<!-- Inline so there is no extra request and no stray 404 for /favicon.ico:
-     a brass roofline on slate. -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2312171C'/%3E%3Cpath d='M6 26V14L16 6l10 8v12z' fill='none' stroke='%23B08D57' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <link rel="canonical" href="https://rythvara.com/">
 
 <!-- What Instagram, Facebook, WhatsApp and iMessage show when the link is
      shared. Without og:image they render a blank grey box, which is the one
      moment this site most needs to look like something. -->
-<meta property="og:title" content="Ryth Vara — Pennsylvania Real Estate">
+<meta property="og:site_name" content="Ryth Vara Real Estate">
+<meta property="og:title" content="Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA">
 <meta property="og:description" content="Bilingual REALTOR® serving Monroe County and the Poconos. Buying, selling and investing, in English and Spanish.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://rythvara.com/">
 <meta property="og:image" content="https://rythvara.com/assets/img/social-card.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ryth Vara, REALTOR® — Pennsylvania real estate">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA">
+<meta name="twitter:description" content="Bilingual REALTOR® serving Monroe County and the Poconos. Buying, selling and investing, in English and Spanish.">
+<meta name="twitter:image" content="https://rythvara.com/assets/img/social-card.jpg">
+
+<!-- Tells Google who this page is about, so a search for the name can show
+     the phone, area served and languages directly. Keep in step with config.js. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Ryth Vara",
+  "url": "https://rythvara.com/",
+  "image": "https://rythvara.com/assets/img/ryth-vara.jpg",
+  "telephone": "+1-929-345-6838",
+  "email": "ryth.realtor@gmail.com",
+  "knowsLanguage": ["en", "es"],
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Monroe County, Pennsylvania" },
+    { "@type": "Place", "name": "Pocono Mountains, Pennsylvania" },
+    { "@type": "City", "name": "Stroudsburg, PA" },
+    { "@type": "City", "name": "Tannersville, PA" },
+    { "@type": "City", "name": "Pocono Pines, PA" },
+    { "@type": "City", "name": "Saylorsburg, PA" },
+    { "@type": "City", "name": "Bethlehem, PA" },
+    { "@type": "City", "name": "Nazareth, PA" },
+    { "@type": "City", "name": "Bath, PA" }
+  ],
+  "parentOrganization": { "@type": "RealEstateAgent", "name": "Real of Pennsylvania" },
+  "sameAs": [
+    "https://www.instagram.com/ryth_william",
+    "https://www.tiktok.com/@rythvararealtor",
+    "https://www.facebook.com/share/1DZJzdaQ4v/"
+  ]
+}
+</script>
 
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <!-- The first frame is the static hero behind the title, so it decides how
-     soon the page stops looking empty. Both candidates are listed because the
-     runtime picks a set by AVIF support; the unused one is never fetched. -->
-<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif" type="image/avif" fetchpriority="high">
+     soon the page stops looking empty. frames.js picks the set by width at
+     768px; the media queries mirror that so each visitor preloads only the one
+     they will use, and type="image/avif" makes browsers without AVIF skip both
+     (they get the WebP fallback set instead). -->
+<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif" type="image/avif" media="(min-width: 768px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/frames/mobile/f_001.avif" type="image/avif" media="(max-width: 767.98px)" fetchpriority="high">
 <link rel="preload" as="font" href="assets/fonts/fraunces-latin.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="assets/fonts/archivo-latin.woff2" type="font/woff2" crossorigin>
 
@@ -70,7 +111,7 @@
 
     <div class="discover__grid">
       <div class="discover__portrait">
-        <img data-portrait src="assets/img/portrait-placeholder.svg" alt="" width="640" height="800">
+        <img data-portrait src="assets/img/ryth-vara.jpg" alt="Ryth Vara, REALTOR® in Pennsylvania" width="640" height="800">
       </div>
 
       <div class="discover__body">
@@ -153,6 +194,84 @@
   </div>
 </section>
 
+<!-- ──────────────────────────────── FAQ ─────────────────────────────────── -->
+<!-- <details> gives an accordion that works with keyboard, screen readers and
+     no JavaScript at all, and the answers stay in the page for search engines. -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <h2 class="section__title">Questions</h2>
+
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary class="faq__q">What areas does Ryth serve?</summary>
+        <div class="faq__a">
+          <p>Monroe County and the Poconos, including Stroudsburg, Tannersville,
+          Pocono Pines, Saylorsburg, Bethlehem, Nazareth and Bath. If you are
+          looking just outside those towns, ask — Ryth will tell you honestly
+          whether he is the right agent for it.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">¿Habla español? Can we work in Spanish?</summary>
+        <div class="faq__a">
+          <p>Yes. Ryth works in English and Spanish, so every call, showing and
+          explanation of the process can happen in whichever language you are
+          most comfortable with. <span lang="es">Sí — puede trabajar con Ryth
+          completamente en español.</span></p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">How will my home be marketed if I sell with Ryth?</summary>
+        <div class="faq__a">
+          <p>Professional photography, social media, targeted advertising,
+          multiple MLS exposure and AI-powered property visualizations that help
+          buyers picture the home — combined with local knowledge of what
+          Pocono-area buyers are actually looking for.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Do you work with investors and luxury buyers?</summary>
+        <div class="faq__a">
+          <p>Yes. Sellers, luxury properties and real estate investors are Ryth's
+          specialties. Tell him what you are looking for — or what you own — and
+          he will talk you through the numbers.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Can you help me with a rental?</summary>
+        <div class="faq__a">
+          <p>Yes. Choose <strong>Rental</strong> in the form below and tell Ryth
+          what you are looking for, and he will get back to you.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">What does it cost to work with Ryth as a buyer?</summary>
+        <div class="faq__a">
+          <p>Agent compensation is always negotiable, and nothing is decided
+          without you. Before touring homes together you will sign a written
+          buyer agreement that states exactly how, and how much, your agent is
+          paid — Ryth walks you through it line by line before you commit to
+          anything.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">How do I get started?</summary>
+        <div class="faq__a">
+          <p>Send a message with the form below, call or text
+          <a data-phone-link href="tel:+19293456838">929.345.6838</a>, or email
+          <a data-email-link href="mailto:ryth.realtor@gmail.com">ryth.realtor@gmail.com</a>.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ────────────────────────────── Get in touch ──────────────────────────── -->
 <section class="section contact" id="contact">
   <div class="wrap">
@@ -222,6 +341,17 @@
 </section>
 </main>
 
+<!-- Floating call to action. Hidden over the hero (the video stays clean) and
+     over the contact form itself (where it would point at what you are already
+     looking at); cta.js toggles it. It is an ordinary link, so without
+     JavaScript it simply never appears and the page loses nothing. -->
+<div class="cta" data-cta hidden>
+  <a class="cta__call" data-phone-href href="tel:+19293456838" aria-label="Call Ryth">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </a>
+  <a class="cta__main" href="#contact">Contact Ryth</a>
+</div>
+
 <footer class="footer">
   <div class="wrap footer__inner">
     <!-- Team mark beside the brokerage's. Pennsylvania requires advertising to
@@ -244,6 +374,10 @@
     <div class="footer__legal">
       <p data-footer-legal></p>
       <p>&copy; <span data-year></span> · English &amp; Español · Equal Housing Opportunity</p>
+      <p class="footer__links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </p>
     </div>
   </div>
 </footer>

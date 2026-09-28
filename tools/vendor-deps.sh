@@ -14,13 +14,22 @@ UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrom
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
-echo "three.js $THREE_VERSION"
-(cd "$tmp" && npm pack "three@$THREE_VERSION" --silent >/dev/null)
-tar xzf "$tmp"/three-*.tgz -C "$tmp" package/build/three.module.js package/build/three.core.js package/LICENSE
+# three.js ships ~2.1MB of unminified ES modules, of which the hero uses eleven
+# classes. esbuild bundles just those (tree-shaken, minified) into one ~520KB file
+# — about 130KB over the wire once the host gzips it. If stage.js starts using
+# another THREE class, add it to the export list below and re-run.
+echo "three.js $THREE_VERSION (tree-shaken)"
+(cd "$tmp" && npm init -y >/dev/null && npm install --silent "three@$THREE_VERSION" "esbuild@0.24.2")
+cat > "$tmp/entry.js" <<'JS'
+export {
+  CanvasTexture, Color, LinearFilter, Mesh, OrthographicCamera, PlaneGeometry,
+  SRGBColorSpace, Scene, ShaderMaterial, Vector2, WebGLRenderer,
+} from 'three';
+JS
 mkdir -p "$ROOT/assets/vendor"
-cp "$tmp/package/build/three.module.js" "$ROOT/assets/vendor/three.module.js"
-cp "$tmp/package/build/three.core.js"   "$ROOT/assets/vendor/three.core.js"
-cp "$tmp/package/LICENSE"               "$ROOT/assets/vendor/THREE-LICENSE.txt"
+(cd "$tmp" && npx esbuild entry.js --bundle --minify --format=esm \
+  --legal-comments=inline --outfile="$ROOT/assets/vendor/three.min.js" --log-level=warning)
+cp "$tmp/node_modules/three/LICENSE" "$ROOT/assets/vendor/THREE-LICENSE.txt"
 
 # Fraunces carries an optical-size axis, so display sizes get the chiselled,
 # high-contrast cut while small sizes stay readable — one variable file covers both.

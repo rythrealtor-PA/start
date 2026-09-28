@@ -7,6 +7,8 @@ import { Stage } from './stage.js';
 import { initCarousel, card, testimonial } from './carousel.js';
 import { loadListings, loadTestimonials } from './listings.js';
 import { initContact } from './contact.js';
+import { renderFooter, loadAnalytics } from './footer.js';
+import { initCta } from './cta.js';
 
 /** Renders a definition-list row, or nothing at all when the value is empty. */
 function fact(label, value, href) {
@@ -64,20 +66,6 @@ function renderSocial(root) {
     .join('');
 }
 
-/**
- * The footer's identification line. Pennsylvania requires advertising to name
- * the broker, so the brokerage and licence number are built from config rather
- * than typed into the markup where they could drift out of sync with the bio.
- */
-function renderFooterLegal(el) {
-  const parts = [
-    `${CONFIG.name} — ${CONFIG.role}, ${CONFIG.state}`,
-    CONFIG.license ? `License ${CONFIG.license}` : '',
-    CONFIG.brokerage ? `Brokered by ${CONFIG.brokerage}` : '',
-  ].filter(Boolean);
-  el.textContent = parts.join(' · ');
-}
-
 function renderTopics(select) {
   select.append(
     ...TOPICS.map((topic) => new Option(topic, topic)),
@@ -111,13 +99,26 @@ function renderContactLinks() {
       el.removeAttribute('href');
     }
   });
+  // Icon-only links (the floating call button) keep their contents.
+  document.querySelectorAll('[data-phone-href]').forEach((el) => {
+    if (CONFIG.contact.phoneHref) el.href = `tel:${CONFIG.contact.phoneHref}`;
+    else el.remove();
+  });
 }
 
 /** Fills one carousel from its data file, or says so in place if it cannot. */
 function hydrate(name, load, renderItem, failureMessage) {
   const root = document.querySelector(`[data-carousel="${name}"]`);
   load()
-    .then((items) => initCarousel(root, items, renderItem))
+    .then((items) => {
+      // Nothing to show (e.g. between listings): drop the whole section rather
+      // than leave a heading over an empty row.
+      if (!items.length) {
+        root.hidden = true;
+        return;
+      }
+      initCarousel(root, items, renderItem);
+    })
     .catch((error) => {
       console.error(`[${name}]`, error);
       root.querySelector('[data-carousel-status]').textContent = failureMessage;
@@ -136,7 +137,7 @@ function boot() {
   renderPortrait(document.querySelector('[data-portrait]'));
   renderContactLinks();
   renderBrandMarks();
-  renderFooterLegal(document.querySelector('[data-footer-legal]'));
+  renderFooter();
 
   // Both carousels read their data over the network, so they fill in a moment
   // after the rest of the page. Everything else is already rendered. They load
@@ -146,7 +147,8 @@ function boot() {
           'Testimonials are unavailable right now.');
   initContact(document.querySelector('[data-contact-form]'));
 
-  document.querySelector('[data-year]').textContent = new Date().getFullYear();
+  initCta(document.querySelector('[data-cta]'));
+  loadAnalytics();
 
   const stage = new Stage({
     section: document.querySelector('[data-stage]'),

@@ -10,7 +10,7 @@
  * grades it toward the page palette, and feathers the bottom edge so the footage
  * dissolves into the section below instead of ending at a hard line.
  */
-import * as THREE from '../vendor/three.module.js';
+import * as THREE from '../vendor/three.min.js';
 import { FrameSequence, FRAME_COUNT } from './frames.js';
 
 /**

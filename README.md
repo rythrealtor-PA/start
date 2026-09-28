@@ -26,13 +26,32 @@ Everything personal lives in **`assets/js/config.js`**.
 | **Listings** | **still placeholders — see below** |
 | Testimonials | done — four real client quotes |
 | Years of experience | empty (optional) |
+| Privacy Policy / Terms of Use | drafted — `privacy.html`, `terms.html`; have your broker review |
+| FAQ | drafted in `index.html` — check the buyer-agreement answer with your broker |
+| Visitor analytics | off until a Cloudflare Web Analytics token is set in `config.js` |
+| Custom domain | **not connected — see below** |
 
-Live at **https://rythvara.com** (GitHub Pages from `main`, custom domain).
+Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages from `main`).
 
-The `CNAME` file at the repo root is what tells GitHub Pages which domain to
-serve — deleting it reverts the site to rythrealtor-pa.github.io/start/. DNS is
-at Namecheap: four A records on `@` pointing at GitHub's Pages addresses, and a
-CNAME on `www` pointing at `rythrealtor-pa.github.io.`
+**Custom domain — not connected yet.** On 2026-09-28 the .com registry had no
+record of `rythvara.com` (DNS answered NXDOMAIN and the Verisign RDAP lookup
+returned 404) — the registration had not gone through, whether unpaid, still
+processing, or bought under a different spelling. The `CNAME` file was
+removed because with it in place GitHub redirected every visitor to a domain
+that does not exist, taking the whole site offline. Once the domain shows as
+active in Namecheap:
+
+1. Namecheap → Domain List → rythvara.com → Advanced DNS. Add four **A**
+   records on host `@`: `185.199.108.153`, `185.199.109.153`,
+   `185.199.110.153`, `185.199.111.153`; and a **CNAME** on host `www` pointing
+   to `rythrealtor-pa.github.io.` Delete Namecheap's default parking records.
+2. Put a file named `CNAME` containing the single line `rythvara.com` back at
+   the repo root (or type the domain into Settings → Pages → Custom domain,
+   which writes the same file).
+3. When the DNS check turns green, tick **Enforce HTTPS** in Settings → Pages.
+
+The canonical URLs, sitemap, robots.txt and social-share tags already point at
+`https://rythvara.com`, so nothing else needs to change on the day.
 
 Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.
@@ -235,10 +254,26 @@ picks planar RGB and doubles the file size for no visible gain.
 
 ---
 
+## Launch plumbing
+
+| File | What it is for |
+|---|---|
+| `robots.txt` | lets search engines crawl everything and points them to the sitemap |
+| `sitemap.xml` | the three public pages; bump `<lastmod>` when a page changes materially |
+| `404.html` | GitHub Pages serves it for any missing address, on either host |
+| `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` | browser tab, bookmarks, iPhone home screen |
+| JSON-LD in `index.html` | tells Google this is a real estate agent: phone, area, languages. Keep in step with `config.js` |
+
+**No cookie banner, on purpose.** The site sets no cookies and stores nothing in
+the visitor's browser; fonts are self-hosted, social links are plain links, and
+Cloudflare Web Analytics is cookieless. A banner would be asking consent for
+nothing. If you ever add Google Analytics, a Facebook pixel, or an embedded map
+or video, that changes — add consent at the same time.
+
 ## Regenerating assets
 
 ```bash
-tools/vendor-deps.sh        # three.js + the two typefaces, into the repo
+tools/vendor-deps.sh        # three.js (tree-shaken, minified) + the two typefaces
 tools/make-placeholders.py  # placeholder listing and portrait artwork
 ```
 

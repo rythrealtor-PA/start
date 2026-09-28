@@ -8,6 +8,11 @@
  */
 const fmtBaths = (n) => (Number.isInteger(n) ? n : n.toFixed(1));
 
+/** Escapes text coming from the data file before it goes into innerHTML. */
+const esc = (value = '') =>
+  String(value).replace(/[&<>"]/g, (c) =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
 /**
  * One listing card. Exported so the admin page previews a listing with exactly
  * the markup the real site uses, rather than an approximation that can drift.
@@ -27,14 +32,14 @@ export function card(listing) {
 
   el.innerHTML = `
     <div class="listing__frame">
-      <img class="listing__photo" src="${listing.photo}"
-           alt="${listing.address}, ${listing.city}" loading="lazy" decoding="async">
-      ${listing.status ? `<span class="listing__status">${listing.status}</span>` : ''}
+      <img class="listing__photo" src="${esc(listing.photo)}"
+           alt="${esc(listing.address)}, ${esc(listing.city)}" loading="lazy" decoding="async">
+      ${listing.status ? `<span class="listing__status">${esc(listing.status)}</span>` : ''}
     </div>
     <div class="listing__body">
-      <h3 class="listing__address">${listing.address}</h3>
-      <p class="listing__city">${listing.city}</p>
-      <p class="listing__price">${listing.price}</p>
+      <h3 class="listing__address">${esc(listing.address)}</h3>
+      <p class="listing__city">${esc(listing.city)}</p>
+      <p class="listing__price">${esc(listing.price)}</p>
       <dl class="specs">
         ${specs
           .map(
@@ -49,11 +54,6 @@ export function card(listing) {
     </div>`;
   return el;
 }
-
-/** Escapes text coming from the data file before it goes into innerHTML. */
-const esc = (value = '') =>
-  String(value).replace(/[&<>"]/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 /** One testimonial. Same carousel machinery as the listing cards. */
 export function testimonial(item) {

@@ -686,3 +686,144 @@ a { color: var(--brass-lt); }
    gradient, but the frame sequence never starts — so hide the load indicator
    rather than leave it stuck at zero. */
 .no-js .stage__rule { display: none; }
+
+/* ================================ FAQ ================================== */
+
+.faq__list {
+  max-width: 52rem;
+  border-top: 1px solid var(--border);
+}
+.faq__item { border-bottom: 1px solid var(--border); }
+
+.faq__q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.35rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  line-height: 1.35;
+}
+.faq__q::-webkit-details-marker { display: none; }
+/* A plus that turns into a minus: two hairlines, the vertical one folds away. */
+.faq__q::after {
+  content: '';
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  background:
+    linear-gradient(var(--brass-lt), var(--brass-lt)) center / 100% 1.5px no-repeat,
+    linear-gradient(var(--brass-lt), var(--brass-lt)) center / 1.5px 100% no-repeat;
+  transition: background-size 0.25s var(--ease);
+}
+.faq__item[open] > .faq__q::after {
+  background-size: 100% 1.5px, 1.5px 0;
+}
+.faq__q:hover { color: var(--brass-lt); }
+
+.faq__a { padding: 0 0 1.5rem; max-width: 62ch; color: var(--ivory-dim); }
+.faq__a p { margin: 0; }
+.faq__a strong { color: var(--ivory); font-weight: 600; }
+
+/* ======================== Floating call to action ====================== */
+
+.cta {
+  position: fixed;
+  z-index: 40;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.cta[hidden] { display: none; }
+.cta.is-shown { opacity: 1; transform: none; pointer-events: auto; }
+
+.cta__main,
+.cta__call {
+  display: grid;
+  place-items: center;
+  min-height: 3rem;
+  background: var(--brass);
+  color: var(--slate);
+  text-decoration: none;
+  box-shadow: 0 0.5rem 1.75rem rgba(0, 0, 0, 0.45);
+  transition: background-color 0.2s var(--ease);
+}
+.cta__main {
+  padding: 0 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.cta__call { width: 3rem; border-radius: 50%; }
+.cta__call svg { width: 1.3rem; height: 1.3rem; }
+.cta__main { border-radius: 1.5rem; }
+.cta__main:hover, .cta__call:hover,
+.cta__main:focus-visible, .cta__call:focus-visible { background: var(--brass-lt); }
+
+/* The call button is for phones; on a desktop the tel: link has nowhere to go. */
+@media (hover: hover) and (pointer: fine) {
+  .cta__call { display: none; }
+}
+
+/* ============================= Footer links ============================ */
+
+.footer__links { display: flex; gap: 1.25rem; justify-content: flex-end; flex-wrap: wrap; }
+.footer__links a { color: var(--ivory-dim); text-underline-offset: 0.2em; }
+.footer__links a:hover { color: var(--brass-lt); }
+@media (max-width: 40rem) {
+  .footer__links { justify-content: center; }
+}
+
+/* ======================= Secondary pages (legal, 404) ================== */
+
+.page-header {
+  border-bottom: 1px solid var(--border);
+  padding-block: 1.25rem;
+}
+.page-header .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.page-header__name {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  text-decoration: none;
+}
+.page-header__back { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.doc { padding-block: clamp(3rem, 8vw, 6rem); }
+.doc .section__title { margin-bottom: 1rem; }
+.doc__meta { color: var(--ivory-dim); margin: 0 0 clamp(2rem, 5vw, 3rem); }
+.doc__body { max-width: 68ch; color: var(--ivory-dim); }
+.doc__body h2 {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  color: var(--ivory);
+  margin: 2.5rem 0 0.75rem;
+}
+.doc__body p, .doc__body ul { margin: 0 0 1rem; }
+.doc__body li { margin-bottom: 0.4rem; }
+.doc__body strong { color: var(--ivory); font-weight: 600; }
+
+.notfound { min-height: 70vh; display: grid; align-content: center; }
+.notfound p { color: var(--ivory-dim); max-width: 46ch; margin: 0 0 2rem; }
+.notfound__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
