@@ -184,7 +184,7 @@ Any static host works, with no build configuration:
 
 The clip is **not** a `<video>` element. Scrubbing `video.currentTime` is
 unreliable — seeks snap to keyframes, reverse playback stutters, and iOS Safari
-throttles it. Instead the video is decoded ahead of time into 145 still frames,
+throttles it. Instead the video is decoded ahead of time into 193 still frames,
 and scroll position picks one. Playing in reverse is then just a decreasing
 array index, which is why scrolling up is as smooth as scrolling down.
 
@@ -196,7 +196,7 @@ on screen. Scroll progress maps to a frame index, eased over time so fast
 scrolling reads as motion rather than as a slideshow. The render loop stops
 itself once the frame catches up with the scroll, so an idle page uses no GPU.
 
-Three things keep it fluid with only 145 frames (the source is 24fps):
+Three things keep it fluid with 193 frames (the source is 8s at 24fps):
 
 - **Blending.** The playhead is fractional; the shader crossfades the two
   frames either side of it, so the picture moves continuously instead of
@@ -247,8 +247,17 @@ The lesson: for this footage **resolution is cheap and compression is
 expensive**. If the sequence ever needs to shrink, take pixels off the width
 before taking quality off the encoder.
 
-The source video is 1928×1072, so 34 dB is close to the ceiling. Going higher
-means a better source, not better settings.
+The first source video was 1928×1072, so 34 dB was close to its ceiling. It
+has since been replaced by a 4K version of the clip (3856×2148, 8 seconds, 193
+frames), which is the better source that note called for: scaled down to
+1920px it carries visibly crisper stone, siding and shingles, and the extra
+two seconds give 33% more real frames over the same scroll distance. Measured
+on a 13-frame sample, against the 4K source scaled to the same width:
+
+| Set | Setting | SSIM | PSNR |
+|---|---|---|---|
+| desktop | 1920px, crf 30 | 0.972 | 38.9 dB |
+| mobile | 1170px, crf 34 | 0.959 | 36.1 dB |
 
 ### Replacing the video
 

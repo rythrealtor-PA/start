@@ -6,14 +6,14 @@
 # With a still sequence, playing in reverse is just a decreasing array index.
 #
 # Three sets are produced, and a visitor downloads exactly one:
-#   desktop/   1440px AVIF   wide viewports on browsers with AVIF
-#   mobile/     900px AVIF   narrow viewports on browsers with AVIF
-#   fallback/   900px WebP   anything without AVIF (Safari < 16.4, old Android)
+#   desktop/   1920px AVIF   wide viewports on browsers with AVIF
+#   mobile/    1170px AVIF   narrow viewports on browsers with AVIF
+#   fallback/  1000px WebP   anything without AVIF (Safari < 16.4, old Android)
 #
-# The fallback is deliberately the 900px set rather than a second 1440px one:
-# AVIF covers ~95% of browsers, and a full-size WebP twin would have added ~15MB
-# to the repo to serve a slightly sharper image to the remaining few percent —
-# who are on older, slower devices anyway.
+# The fallback is deliberately smaller than the desktop set: AVIF covers ~95%
+# of browsers, and a full-size WebP twin would add ~30MB to the repo to serve a
+# slightly sharper image to the remaining few percent — who are on older,
+# slower devices anyway.
 #
 # TWO ENCODER GOTCHAS, both found the hard way by loading the output in Chrome:
 #
@@ -28,15 +28,23 @@
 set -euo pipefail
 
 SRC="${1:?usage: extract-frames.sh <source.mp4>}"
-OUT="$(cd "$(dirname "$0")/.." && pwd)/assets/frames"
+# OUT can be overridden to encode into a staging folder and compare first.
+OUT="${OUT:-$(cd "$(dirname "$0")/.." && pwd)/assets/frames}"
 
 # Widths are deliberate. A 390px phone at 3x is 1170 real pixels, so that is the
-# phone set's native size; 1728px covers a 1440px laptop at 1.2x and anything
-# wider is a mild upscale that motion hides.
-DESKTOP_W=1728
+# phone set's native size; 1920px is a full-HD screen 1:1 and a 1440px laptop
+# at 1.33x. Wider was measured and not worth it: 2048px bought +0.16dB for 7%
+# more bytes, and every decoded frame held in memory grows with the square.
+DESKTOP_W=1920
 MOBILE_W=1170
 FALLBACK_W=1000
 
+# Quality settings were measured on a 13-frame sample of the 4K source, against
+# the source scaled to the same width (so this is compression loss only):
+#   desktop 1920px crf 30 -> SSIM 0.972, 38.9 dB, ~150KB/frame
+#   mobile  1170px crf 34 -> SSIM 0.959, 36.1 dB,  ~65KB/frame
+# -cpu-used 3 (slower, more careful) gains ~0.4dB over 6 at the same size.
+#
 # Frame count is NOT reducible here. Consecutive frames measure ~18 dB PSNR
 # apart, which is substantial motion — dropping every other frame judders.
 # If you swap the video, update FRAME_COUNT in assets/js/frames.js to match.
@@ -54,7 +62,7 @@ done
 # One AVIF encode. Exported so the xargs workers below can call it.
 encode_one() {
   ffmpeg -hide_banner -loglevel error -i "$1" \
-    -pix_fmt yuv420p -c:v libaom-av1 -crf "$3" -cpu-used 6 -still-picture 1 \
+    -pix_fmt yuv420p -c:v libaom-av1 -crf "$3" -cpu-used 3 -still-picture 1 \
     -f avif -y "$2"
 }
 export -f encode_one
@@ -76,7 +84,7 @@ echo "desktop/ (${DESKTOP_W}px AVIF, ${JOBS} jobs) ..."
 build_avif_set "$DESKTOP_W" 30 "$OUT/desktop"
 
 echo "mobile/ (${MOBILE_W}px AVIF) ..."
-build_avif_set "$MOBILE_W" 36 "$OUT/mobile"
+build_avif_set "$MOBILE_W" 34 "$OUT/mobile"
 
 # WebP through image2 is fine — the muxer problem above is AVIF-specific.
 # WebP is far less efficient than AVIF at this content, so the fallback is

@@ -26,7 +26,7 @@ import { FrameSequence, FRAME_COUNT } from './frames.js';
  *
  * History: 460 (360 scrollable) -> 377 (277) -> 313 (213) -> 252 (152), so the
  * clip now plays 2.37x faster per scroll than it first shipped. The whole
- * 145-frame sequence takes about 1.5 screen-heights of scrolling.
+ * 193-frame sequence takes about 1.5 screen-heights of scrolling.
  */
 const STAGE_VH = 252;
 
@@ -77,7 +77,7 @@ const fragmentShader = /* glsl */ `
     // it anyway), so flip here instead.
     uv.y = 1.0 - uv.y;
 
-    // The clip has 145 pictures and the scroll can land between any two.
+    // The clip has 193 pictures and the scroll can land between any two.
     // Blending the neighbours by the fractional position turns a sequence of
     // jumps into continuous motion; at rest the playhead sits exactly on a
     // frame, so a still image is never a blend.
@@ -144,7 +144,7 @@ export class Stage {
 
     // Only used without WebGL: frames are composited here and the canvas is
     // shown directly. With WebGL, frames go straight to two GPU textures —
-    // two, not 145, which is the difference between ~13MB and ~960MB.
+    // two, not 193, which is the difference between ~16MB and ~1.6GB.
     this.buffer = document.createElement('canvas');
     this.bufferCtx = this.buffer.getContext('2d', { alpha: false });
   }

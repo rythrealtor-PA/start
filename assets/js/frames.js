@@ -6,13 +6,13 @@
  * stutters, and iOS Safari throttles it. With stills, playing backwards is just
  * a decreasing index.
  *
- * All 145 frames are kept compressed (as <img>, ~16MB). Only a small window
- * around the playhead is kept decoded, as ImageBitmaps — decoding all of them
- * would take ~960MB of memory. See warm().
+ * All 193 frames are kept compressed (as <img>, ~29MB on desktop). Only a
+ * small window around the playhead is kept decoded, as ImageBitmaps — decoding
+ * all of them would take ~1.6GB of memory. See warm().
  */
 
 /** Must match the number of files tools/extract-frames.sh produced. */
-export const FRAME_COUNT = 145;
+export const FRAME_COUNT = 193;
 
 /** How many frames to have in flight at once. */
 const CONCURRENCY = 6;
@@ -63,8 +63,8 @@ const pad = (n) => String(n).padStart(3, '0');
  * thread and costs the page nothing.
  *
  * More room ahead than behind, because that is where the scroll is going.
- * Memory is the ceiling: one decoded desktop frame is ~6.6MB, so this window
- * holds ~100MB on desktop and ~45MB on a phone, and frames leaving it are
+ * Memory is the ceiling: one decoded desktop frame is ~8.2MB, so this window
+ * holds ~130MB on desktop and ~45MB on a phone, and frames leaving it are
  * released straight away.
  */
 const AHEAD = 10;
