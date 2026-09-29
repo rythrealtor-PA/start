@@ -192,9 +192,22 @@ array index, which is why scrolling up is as smooth as scrolling down.
 - **`assets/js/stage.js`** — the three.js scene, shader, and scroll driver
 
 A tall section acts as the scroll runway while a sticky canvas inside it stays
-on screen. Scroll progress maps to a frame index, eased each animation frame so
-fast scrolling reads as motion rather than as a slideshow. The render loop stops
+on screen. Scroll progress maps to a frame index, eased over time so fast
+scrolling reads as motion rather than as a slideshow. The render loop stops
 itself once the frame catches up with the scroll, so an idle page uses no GPU.
+
+Three things keep it fluid with only 145 frames (the source is 24fps):
+
+- **Blending.** The playhead is fractional; the shader crossfades the two
+  frames either side of it, so the picture moves continuously instead of
+  holding and jumping. At rest it always lands exactly on one frame, so a
+  paused image is never a blend.
+- **Decoding ahead.** A small window of frames around the playhead (more ahead
+  than behind) is decoded in advance on a background thread, from the
+  downloaded file rather than the `<img>`, so the page never stops mid-scroll
+  to decode one. If a frame is not ready, a decoded neighbour stands in rather
+  than stalling.
+- **Time-based easing,** so 60Hz, 90Hz and 120Hz screens all feel the same.
 
 three.js draws the frame through a shader that cover-fits it to any viewport,
 grades it toward the page palette, adds a vignette and grain, and feathers the

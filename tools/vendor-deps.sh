@@ -22,8 +22,8 @@ echo "three.js $THREE_VERSION (tree-shaken)"
 (cd "$tmp" && npm init -y >/dev/null && npm install --silent "three@$THREE_VERSION" "esbuild@0.24.2")
 cat > "$tmp/entry.js" <<'JS'
 export {
-  CanvasTexture, Color, LinearFilter, Mesh, OrthographicCamera, PlaneGeometry,
-  SRGBColorSpace, Scene, ShaderMaterial, Vector2, WebGLRenderer,
+  Color, LinearFilter, Mesh, OrthographicCamera, PlaneGeometry,
+  SRGBColorSpace, Scene, ShaderMaterial, Texture, Vector2, WebGLRenderer,
 } from 'three';
 JS
 mkdir -p "$ROOT/assets/vendor"

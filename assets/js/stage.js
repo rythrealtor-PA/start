@@ -30,7 +30,12 @@ import { FrameSequence, FRAME_COUNT } from './frames.js';
  */
 const STAGE_VH = 252;
 
-/** Frame index easing per rAF tick. Lower is smoother but laggier. */
+/**
+ * How far the playhead closes the gap to the scroll position each 1/60s.
+ * Lower is smoother but laggier. Applied per unit of *time*, not per animation
+ * frame, so a 120Hz phone or monitor eases at the same speed as a 60Hz one
+ * instead of twice as fast.
+ */
 const DAMPING = 0.12;
 
 /** Fraction of the scroll over which the title fades out. */
@@ -47,7 +52,9 @@ const vertexShader = /* glsl */ `
 const fragmentShader = /* glsl */ `
   precision highp float;
 
-  uniform sampler2D uTex;
+  uniform sampler2D uTexA;  // frame floor(playhead)
+  uniform sampler2D uTexB;  // the frame after it
+  uniform float uMix;       // how far between the two, 0..1
   uniform vec2  uRes;       // canvas size, px
   uniform vec2  uTexSize;   // frame native size, px
   uniform vec3  uBase;      // page background, for the edge dissolve
@@ -66,8 +73,15 @@ const fragmentShader = /* glsl */ `
     } else {
       uv.x = (uv.x - 0.5) * (canvasAspect / texAspect) + 0.5;
     }
+    // Frames are uploaded top row first (flipY off — decoded bitmaps ignore
+    // it anyway), so flip here instead.
+    uv.y = 1.0 - uv.y;
 
-    vec3 col = texture2D(uTex, uv).rgb;
+    // The clip has 145 pictures and the scroll can land between any two.
+    // Blending the neighbours by the fractional position turns a sequence of
+    // jumps into continuous motion; at rest the playhead sits exactly on a
+    // frame, so a still image is never a blend.
+    vec3 col = mix(texture2D(uTexA, uv).rgb, texture2D(uTexB, uv).rgb, uMix);
     float luma = dot(col, vec3(0.2126, 0.7152, 0.0722));
 
     // Grade toward the page palette: lift the darks to slate so they read as
@@ -118,6 +132,8 @@ export class Stage {
     this.frames = new FrameSequence();
     this.currentIndex = 0;
     this.targetIndex = 0;
+    this.direction = 1;
+    this.lastTime = 0;
     this.titleOpacity = 1;
     this.dirty = true;
     this.running = false;
@@ -126,9 +142,9 @@ export class Stage {
       '(prefers-reduced-motion: reduce)',
     ).matches;
 
-    // Frames are drawn here first, then uploaded as a single texture. Holding
-    // one texture instead of 145 is the difference between ~5MB and ~660MB of
-    // GPU memory.
+    // Only used without WebGL: frames are composited here and the canvas is
+    // shown directly. With WebGL, frames go straight to two GPU textures —
+    // two, not 145, which is the difference between ~13MB and ~960MB.
     this.buffer = document.createElement('canvas');
     this.bufferCtx = this.buffer.getContext('2d', { alpha: false });
   }
@@ -143,9 +159,17 @@ export class Stage {
       if (this.progressBar) this.progressBar.style.transform = `scaleX(${p})`;
       if (p >= 1) this.progressBar?.classList.add('is-complete');
     };
+    // The frame on screen was a stand-in for one still downloading or
+    // decoding: redraw once more frames are ready.
+    this.frames.onReady = () => {
+      if (this.pendingExact && !this.running && !this.reducedMotion) {
+        this.shownIndex = NaN;
+        this.startLoop();
+      }
+    };
     this.frames.onFirstFrame = () => {
       this.setupRenderer();
-      this.drawFrame(0);
+      this.showFrame(0);
       this.canvas.classList.add('is-ready');
       if (!this.reducedMotion) this.startLoop();
     };
@@ -184,17 +208,25 @@ export class Stage {
     // camera is a formality kept for readability.
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    this.texture = new THREE.CanvasTexture(this.buffer);
-    this.texture.colorSpace = THREE.SRGBColorSpace;
-    this.texture.minFilter = THREE.LinearFilter;
-    this.texture.magFilter = THREE.LinearFilter;
-    this.texture.generateMipmaps = false;
+    const makeTexture = () => {
+      const t = new THREE.Texture(this.frames.pick(0).image);
+      t.colorSpace = THREE.SRGBColorSpace;
+      t.minFilter = THREE.LinearFilter;
+      t.magFilter = THREE.LinearFilter;
+      t.generateMipmaps = false;
+      t.flipY = false;
+      return t;
+    };
+    this.texA = makeTexture();
+    this.texB = makeTexture();
 
     this.material = new THREE.ShaderMaterial({
       vertexShader,
       fragmentShader,
       uniforms: {
-        uTex: { value: this.texture },
+        uTexA: { value: this.texA },
+        uTexB: { value: this.texB },
+        uMix: { value: 0 },
         uRes: { value: new THREE.Vector2(1, 1) },
         uTexSize: {
           value: new THREE.Vector2(this.frames.width, this.frames.height),
@@ -238,11 +270,68 @@ export class Stage {
     return clamp01(-rect.top / scrollable);
   }
 
-  drawFrame(index) {
-    const img = this.frames.nearest(index);
-    if (!img) return;
-    this.bufferCtx.drawImage(img, 0, 0, this.buffer.width, this.buffer.height);
-    if (this.texture) this.texture.needsUpdate = true;
+  /**
+   * Puts the playhead at `position` (fractional frame index): frame
+   * floor(position) in one texture, the next frame in the other, blended by
+   * the remainder. Moving forward one frame reuses the texture that already
+   * holds it, so a step costs one upload, not two.
+   */
+  showFrame(position) {
+    const last = FRAME_COUNT - 1;
+    const p = Math.max(0, Math.min(last, position));
+    const a = Math.floor(p);
+    const b = Math.min(a + 1, last);
+    const mix = b === a ? 0 : p - a;
+
+    if (!this.renderer) {
+      this.draw2D(a, b, mix);
+      return;
+    }
+
+    const held = (t) => t.userData.index;
+    if (held(this.texA) !== a && (held(this.texB) === a || held(this.texA) === b)) {
+      [this.texA, this.texB] = [this.texB, this.texA];
+      this.material.uniforms.uTexA.value = this.texA;
+      this.material.uniforms.uTexB.value = this.texB;
+    }
+    this.pendingExact = false;
+    this.upload(this.texA, a);
+    // Skip the second frame while it would be invisible anyway.
+    if (mix > 0.001) this.upload(this.texB, b);
+    this.material.uniforms.uMix.value = mix > 0.001 ? mix : 0;
+    this.dirty = true;
+  }
+
+  /** Uploads frame `index` into `texture` unless it already holds it. */
+  upload(texture, index) {
+    const { image, exact } = this.frames.pick(index);
+    const held = texture.userData;
+    if (!exact) this.pendingExact = true;
+    // Already there — or already showing this same stand-in.
+    if (held.index === index && (held.exact || held.image === image)) return;
+    texture.image = image;
+    texture.needsUpdate = true;
+    held.index = index;
+    held.exact = exact;
+    held.image = image;
+  }
+
+  /** The same blend without WebGL, composited on the 2D buffer. */
+  draw2D(a, b, mix) {
+    const ctx = this.bufferCtx;
+    const { width, height } = this.buffer;
+    const first = this.frames.pick(a).image;
+    if (!first) return;
+    ctx.globalAlpha = 1;
+    ctx.drawImage(first, 0, 0, width, height);
+    if (mix > 0.001) {
+      const second = this.frames.pick(b).image;
+      if (second) {
+        ctx.globalAlpha = mix;
+        ctx.drawImage(second, 0, 0, width, height);
+        ctx.globalAlpha = 1;
+      }
+    }
     this.dirty = true;
   }
 
@@ -262,18 +351,31 @@ export class Stage {
     this.dirty = false;
   }
 
-  tick = () => {
-    this.targetIndex = this.progress() * (FRAME_COUNT - 1);
+  tick = (now) => {
+    // The target is always a whole frame. The playhead glides between frames
+    // on the way there (that is what the blend is for) but always comes to
+    // rest exactly on one, so a paused image is as sharp as the source.
+    const target = Math.round(this.progress() * (FRAME_COUNT - 1));
+    if (target !== this.targetIndex) {
+      this.direction = target > this.targetIndex ? 1 : -1;
+      this.targetIndex = target;
+    }
 
-    // Ease toward the target rather than snapping to it. This is what makes
-    // fast scrolling read as motion instead of as a slideshow, and it costs
-    // nothing in reverse.
+    // Frame-rate independent easing: the same fraction of the gap per 1/60s
+    // whether the display runs at 60Hz, 90Hz or 120Hz. dt is capped so a tab
+    // coming back from the background does not leap.
+    const dt = this.lastTime ? Math.min(now - this.lastTime, 64) : 16.67;
+    this.lastTime = now;
+    const ease = 1 - Math.pow(1 - DAMPING, dt / 16.67);
+
     const delta = this.targetIndex - this.currentIndex;
-    this.currentIndex += delta * DAMPING;
+    const settled = Math.abs(delta) < 0.01;
+    this.currentIndex = settled ? this.targetIndex : this.currentIndex + delta * ease;
 
-    if (Math.round(this.currentIndex) !== this.lastDrawn) {
-      this.lastDrawn = Math.round(this.currentIndex);
-      this.drawFrame(this.currentIndex);
+    this.frames.warm(this.currentIndex, this.direction);
+    if (this.currentIndex !== this.shownIndex) {
+      this.shownIndex = this.currentIndex;
+      this.showFrame(this.currentIndex);
     }
 
     this.updateTitle();
@@ -281,8 +383,9 @@ export class Stage {
 
     // Stop once the frame has caught up with the scroll, so an idle page uses
     // no GPU at all. A scroll event restarts the loop.
-    if (Math.abs(delta) < 0.01) {
+    if (settled) {
       this.running = false;
+      this.lastTime = 0;
       return;
     }
     requestAnimationFrame(this.tick);

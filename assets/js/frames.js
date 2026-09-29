@@ -6,9 +6,9 @@
  * stutters, and iOS Safari throttles it. With stills, playing backwards is just
  * a decreasing index.
  *
- * Frames are kept as HTMLImageElements, not ImageBitmaps. Decoded bitmaps for
- * 145 frames at 1440x800 would be ~660MB of RAM; as <img> the browser holds
- * them compressed and manages its own decode cache.
+ * All 145 frames are kept compressed (as <img>, ~16MB). Only a small window
+ * around the playhead is kept decoded, as ImageBitmaps — decoding all of them
+ * would take ~960MB of memory. See warm().
  */
 
 /** Must match the number of files tools/extract-frames.sh produced. */
@@ -52,6 +52,33 @@ async function chooseSet() {
 
 const pad = (n) => String(n).padStart(3, '0');
 
+/**
+ * Frames kept decoded around the current position. A downloaded AVIF is still
+ * compressed; drawing it for the first time makes the browser decode it on the
+ * spot, on the main thread, mid-scroll — 10-30ms that shows up as a hitch.
+ * Decoding the next few frames ahead of time means every frame is ready before
+ * it is needed. It has to be decoded from the downloaded file (a Blob), not
+ * from the <img>: measured in Chromium, createImageBitmap(img) blocks the main
+ * thread ~75ms per frame, while createImageBitmap(blob) runs on a background
+ * thread and costs the page nothing.
+ *
+ * More room ahead than behind, because that is where the scroll is going.
+ * Memory is the ceiling: one decoded desktop frame is ~6.6MB, so this window
+ * holds ~100MB on desktop and ~45MB on a phone, and frames leaving it are
+ * released straight away.
+ */
+const AHEAD = 10;
+const BEHIND = 4;
+/**
+ * When the exact frame is not decoded yet, a decoded neighbour up to this many
+ * frames away is shown instead of stalling to decode the exact one — at scroll
+ * speed a frame or two of difference is invisible, a hitch is not.
+ */
+const STAND_IN_REACH = 3;
+/** Decodes in flight at once, so the nearest frames are never queued behind far ones. */
+const MAX_DECODING = 4;
+const CAN_PREDECODE = typeof createImageBitmap === 'function';
+
 export class FrameSequence {
   constructor() {
     this.images = new Array(FRAME_COUNT);
@@ -62,6 +89,16 @@ export class FrameSequence {
     this.onProgress = null;
     /** Called once the first frame is ready to draw. */
     this.onFirstFrame = null;
+
+    /** The downloaded files, which is what decoding works from. */
+    this.blobs = new Array(FRAME_COUNT);
+    /** Called when a frame arrives or finishes decoding. */
+    this.onReady = null;
+    /** index -> decoded ImageBitmap, for the window around the playhead. */
+    this.decoded = new Map();
+    this.decoding = new Set();
+    this.windowLo = 0;
+    this.windowHi = AHEAD;
   }
 
   /** True once every frame has landed. */
@@ -69,7 +106,27 @@ export class FrameSequence {
     return this.loadedCount === FRAME_COUNT;
   }
 
+  /**
+   * Frame 1 comes in through an <img>, so it can use the preload in
+   * index.html. The rest are fetched as files, so they can be decoded off the
+   * main thread later; each also gets an <img> as a fallback drawable.
+   */
   load(index) {
+    const url = `${this.basePath}/f_${pad(index + 1)}.${this.ext}`;
+    if (index === 0 || !CAN_PREDECODE) return this.loadImage(index, url);
+    return fetch(url)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.blob();
+      })
+      .then((blob) => {
+        this.blobs[index] = blob;
+        return this.loadImage(index, URL.createObjectURL(blob));
+      })
+      .catch(() => this.failed());
+  }
+
+  loadImage(index, src) {
     return new Promise((resolve) => {
       const img = new Image();
       img.decoding = 'async';
@@ -86,17 +143,20 @@ export class FrameSequence {
           this.onFirstFrame?.();
         }
         this.onProgress?.(this.loadedCount / FRAME_COUNT);
+        this.onReady?.();
         resolve(img);
       };
       // A missing frame must not stall the sequence — nearest() will simply
       // reach past the gap.
-      img.onerror = () => {
-        this.loadedCount += 1;
-        this.onProgress?.(this.loadedCount / FRAME_COUNT);
-        resolve(null);
-      };
-      img.src = `${this.basePath}/f_${pad(index + 1)}.${this.ext}`;
+      img.onerror = () => resolve(this.failed());
+      img.src = src;
     });
+  }
+
+  failed() {
+    this.loadedCount += 1;
+    this.onProgress?.(this.loadedCount / FRAME_COUNT);
+    return null;
   }
 
   async start() {
@@ -129,6 +189,73 @@ export class FrameSequence {
         'one this browser can decode.',
       );
     }
+  }
+
+  /**
+   * What to draw for frame `index`, as { image, exact }. In order of
+   * preference: its decoded bitmap; a decoded neighbour within
+   * STAND_IN_REACH (no stall, and invisible at scroll speed); the frame's own
+   * <img>, which the browser decodes on the spot; or, while the sequence is
+   * still downloading, the nearest frame that has arrived.
+   */
+  pick(index) {
+    const own = this.decoded.get(index);
+    if (own) return { image: own, exact: true };
+    for (let d = 1; d <= STAND_IN_REACH; d += 1) {
+      const near = this.decoded.get(index - d) ?? this.decoded.get(index + d);
+      if (near) return { image: near, exact: false };
+    }
+    return { image: this.nearest(index), exact: !!this.images[index] };
+  }
+
+  /**
+   * Keeps the frames around `center` decoded, weighted toward `direction`
+   * (+1 scrolling down, -1 up), and releases everything outside that window.
+   * Cheap enough to call every animation frame.
+   */
+  warm(center, direction = 1) {
+    if (!CAN_PREDECODE) return;
+    const c = Math.round(center);
+    const lo = Math.max(0, c - (direction >= 0 ? BEHIND : AHEAD));
+    const hi = Math.min(FRAME_COUNT - 1, c + (direction >= 0 ? AHEAD : BEHIND));
+    this.windowLo = lo;
+    this.windowHi = hi;
+
+    for (const [i, bitmap] of this.decoded) {
+      // Frame 1 stays decoded for good: it is the resting hero image, and it
+      // is the one frame that only exists as an <img> (see load()).
+      if (i !== 0 && (i < lo || i > hi)) {
+        bitmap.close();
+        this.decoded.delete(i);
+      }
+    }
+
+    // Nearest first, alternating ahead and behind.
+    const sign = direction >= 0 ? 1 : -1;
+    for (let d = 0; d <= AHEAD && this.decoding.size < MAX_DECODING; d += 1) {
+      for (const i of d === 0 ? [c] : [c + d * sign, c - d * sign]) {
+        if (i < lo || i > hi) continue;
+        if (this.decoded.has(i) || this.decoding.has(i) || !this.images[i]) continue;
+        if (this.decoding.size >= MAX_DECODING) break;
+        this.decode(i);
+      }
+    }
+  }
+
+  decode(i) {
+    this.decoding.add(i);
+    createImageBitmap(this.blobs[i] ?? this.images[i])
+      .then((bitmap) => {
+        // The playhead may have moved on while this was decoding.
+        if (i === 0 || (i >= this.windowLo && i <= this.windowHi)) {
+          this.decoded.set(i, bitmap);
+          this.onReady?.();
+        } else {
+          bitmap.close();
+        }
+      })
+      .catch(() => {}) // the plain image still works; this was only a head start
+      .finally(() => this.decoding.delete(i));
   }
 
   /**
