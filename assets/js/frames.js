@@ -53,6 +53,15 @@ async function chooseSet() {
 const pad = (n) => String(n).padStart(3, '0');
 
 /**
+ * Bump this whenever the frames are re-encoded. The files keep the same names
+ * across versions, and GitHub Pages lets browsers reuse a cached copy for 10
+ * minutes — without a new version a returning visitor could get the new code
+ * with a mix of old and new pictures. Must match the ?v= on the preload in
+ * index.html, or that preload is wasted.
+ */
+export const FRAMES_VERSION = '2';
+
+/**
  * Frames kept decoded around the current position. A downloaded AVIF is still
  * compressed; drawing it for the first time makes the browser decode it on the
  * spot, on the main thread, mid-scroll — 10-30ms that shows up as a hitch.
@@ -112,7 +121,7 @@ export class FrameSequence {
    * main thread later; each also gets an <img> as a fallback drawable.
    */
   load(index) {
-    const url = `${this.basePath}/f_${pad(index + 1)}.${this.ext}`;
+    const url = `${this.basePath}/f_${pad(index + 1)}.${this.ext}?v=${FRAMES_VERSION}`;
     if (index === 0 || !CAN_PREDECODE) return this.loadImage(index, url);
     return fetch(url)
       .then((response) => {

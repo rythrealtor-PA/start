@@ -72,9 +72,10 @@
      soon the page stops looking empty. frames.js picks the set by width at
      768px; the media queries mirror that so each visitor preloads only the one
      they will use, and type="image/avif" makes browsers without AVIF skip both
-     (they get the WebP fallback set instead). -->
-<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif" type="image/avif" media="(min-width: 768px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/frames/mobile/f_001.avif" type="image/avif" media="(max-width: 767.98px)" fetchpriority="high">
+     (they get the WebP fallback set instead). The ?v= must match
+     FRAMES_VERSION in frames.js. -->
+<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif?v=2" type="image/avif" media="(min-width: 768px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/frames/mobile/f_001.avif?v=2" type="image/avif" media="(max-width: 767.98px)" fetchpriority="high">
 <link rel="preload" as="font" href="assets/fonts/fraunces-latin.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="assets/fonts/archivo-latin.woff2" type="font/woff2" crossorigin>
 
