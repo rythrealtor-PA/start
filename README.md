@@ -202,11 +202,16 @@ Three things keep it fluid with 193 frames (the source is 8s at 24fps):
   frames either side of it, so the picture moves continuously instead of
   holding and jumping. At rest it always lands exactly on one frame, so a
   paused image is never a blend.
-- **Decoding ahead.** A small window of frames around the playhead (more ahead
-  than behind) is decoded in advance on a background thread, from the
-  downloaded file rather than the `<img>`, so the page never stops mid-scroll
-  to decode one. If a frame is not ready, a decoded neighbour stands in rather
-  than stalling.
+- **Decoding ahead.** Frames from the playhead toward where the scroll is
+  heading (a flick moves the target ~20 frames at once) are decoded in advance,
+  several in parallel on background threads, from the downloaded file rather
+  than the `<img>`. Decoded frames are capped at ~160MB and released as soon as
+  they fall out of that window.
+- **Never skipping.** The playhead is not allowed to pass a frame that is
+  downloaded but not yet decoded. A flick that outruns the device therefore
+  plays through every frame a moment late instead of jumping to a stand-in —
+  on a phone-sized test that took wrong-frame displays from 11 per flick
+  sequence to 0.
 - **Time-based easing,** so 60Hz, 90Hz and 120Hz screens all feel the same.
 
 three.js draws the frame through a shader that cover-fits it to any viewport,

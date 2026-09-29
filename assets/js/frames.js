@@ -62,7 +62,7 @@ const pad = (n) => String(n).padStart(3, '0');
 export const FRAMES_VERSION = '2';
 
 /**
- * Frames kept decoded around the current position. A downloaded AVIF is still
+ * Frames kept decoded around the playhead. A downloaded AVIF is still
  * compressed; drawing it for the first time makes the browser decode it on the
  * spot, on the main thread, mid-scroll — 10-30ms that shows up as a hitch.
  * Decoding the next few frames ahead of time means every frame is ready before
@@ -71,21 +71,29 @@ export const FRAMES_VERSION = '2';
  * thread ~75ms per frame, while createImageBitmap(blob) runs on a background
  * thread and costs the page nothing.
  *
- * More room ahead than behind, because that is where the scroll is going.
- * Memory is the ceiling: one decoded desktop frame is ~8.2MB, so this window
- * holds ~130MB on desktop and ~45MB on a phone, and frames leaving it are
- * released straight away.
+ * The window reaches from the playhead toward where the scroll is heading —
+ * a single flick moves the target ~20 frames at once, and those are exactly
+ * the frames the next half-second needs. Memory is the ceiling: decoded
+ * frames are held to DECODE_BUDGET bytes, which is ~19 frames of the 1920px
+ * desktop set and the 40-frame cap of the phone set (~120MB). Frames leaving
+ * the window are released straight away.
  */
-const AHEAD = 10;
-const BEHIND = 4;
+const DECODE_BUDGET = 160 * 1024 * 1024;
+const MIN_KEEP = 12;
+const MAX_KEEP = 40;
+const BEHIND = 3;
 /**
  * When the exact frame is not decoded yet, a decoded neighbour up to this many
  * frames away is shown instead of stalling to decode the exact one — at scroll
  * speed a frame or two of difference is invisible, a hitch is not.
  */
 const STAND_IN_REACH = 3;
-/** Decodes in flight at once, so the nearest frames are never queued behind far ones. */
-const MAX_DECODING = 4;
+/**
+ * Decodes in flight at once: one per core, within reason, so a multi-core
+ * phone or laptop decodes several frames in parallel — but never so many that
+ * the nearest frames queue behind far ones.
+ */
+const MAX_DECODING = Math.max(3, Math.min(8, navigator.hardwareConcurrency || 4));
 const CAN_PREDECODE = typeof createImageBitmap === 'function';
 
 export class FrameSequence {
@@ -106,8 +114,10 @@ export class FrameSequence {
     /** index -> decoded ImageBitmap, for the window around the playhead. */
     this.decoded = new Map();
     this.decoding = new Set();
+    /** Frames whose decode failed; the plain <img> is used and never waited for. */
+    this.undecodable = new Set();
     this.windowLo = 0;
-    this.windowHi = AHEAD;
+    this.windowHi = MIN_KEEP;
   }
 
   /** True once every frame has landed. */
@@ -217,16 +227,24 @@ export class FrameSequence {
     return { image: this.nearest(index), exact: !!this.images[index] };
   }
 
+  /** How many decoded frames fit in DECODE_BUDGET for this set. */
+  get keep() {
+    const bytes = this.width * this.height * 4 || 1;
+    return Math.max(MIN_KEEP, Math.min(MAX_KEEP, Math.floor(DECODE_BUDGET / bytes)));
+  }
+
   /**
-   * Keeps the frames around `center` decoded, weighted toward `direction`
-   * (+1 scrolling down, -1 up), and releases everything outside that window.
-   * Cheap enough to call every animation frame.
+   * Keeps the frames from the playhead (`center`) toward where the scroll is
+   * heading (`target`) decoded, plus a few behind, and releases everything
+   * else. Nearest frames are decoded first. Cheap enough to call every frame.
    */
-  warm(center, direction = 1) {
-    if (!CAN_PREDECODE) return;
+  warm(center, target = center) {
+    if (!CAN_PREDECODE || !this.width) return;
+    const dir = target >= center ? 1 : -1;
+    const ahead = this.keep - BEHIND;
     const c = Math.round(center);
-    const lo = Math.max(0, c - (direction >= 0 ? BEHIND : AHEAD));
-    const hi = Math.min(FRAME_COUNT - 1, c + (direction >= 0 ? AHEAD : BEHIND));
+    const lo = Math.max(0, dir > 0 ? c - BEHIND : c - ahead);
+    const hi = Math.min(FRAME_COUNT - 1, dir > 0 ? c + ahead : c + BEHIND);
     this.windowLo = lo;
     this.windowHi = hi;
 
@@ -239,14 +257,40 @@ export class FrameSequence {
       }
     }
 
-    // Nearest first, alternating ahead and behind.
-    const sign = direction >= 0 ? 1 : -1;
-    for (let d = 0; d <= AHEAD && this.decoding.size < MAX_DECODING; d += 1) {
-      for (const i of d === 0 ? [c] : [c + d * sign, c - d * sign]) {
-        if (i < lo || i > hi) continue;
-        if (this.decoded.has(i) || this.decoding.has(i) || !this.images[i]) continue;
-        if (this.decoding.size >= MAX_DECODING) break;
-        this.decode(i);
+    // Along the direction of travel first, nearest first; then behind.
+    const order = [];
+    for (let d = 0; d <= ahead; d += 1) order.push(c + d * dir);
+    for (let d = 1; d <= BEHIND; d += 1) order.push(c - d * dir);
+    for (const i of order) {
+      if (this.decoding.size >= MAX_DECODING) break;
+      if (i < lo || i > hi) continue;
+      if (this.decoded.has(i) || this.decoding.has(i) || this.undecodable.has(i)) continue;
+      if (!this.images[i]) continue;
+      this.decode(i);
+    }
+  }
+
+  /**
+   * How far the playhead can travel from `from` in direction `dir` (+1/-1)
+   * while showing only real, already-decoded frames. The stage never moves
+   * past this edge, so a flick that outruns the decoder plays through every
+   * frame a moment late instead of skipping ahead to a stand-in — lag reads as
+   * smooth, skips read as stutter. Frames that have not downloaded yet do not
+   * hold the playhead: waiting on the network would freeze the video.
+   */
+  readyEdge(from, dir) {
+    const last = FRAME_COUNT - 1;
+    if (!CAN_PREDECODE) return dir > 0 ? last : 0;
+    let i = dir > 0 ? Math.floor(from) : Math.ceil(from);
+    for (;;) {
+      const next = i + dir;
+      if (next < 0 || next > last) return i;
+      if (this.decoded.has(next) || this.undecodable.has(next)) {
+        i = next;
+      } else if (!this.images[next]) {
+        return dir > 0 ? last : 0;
+      } else {
+        return i;
       }
     }
   }
@@ -263,7 +307,9 @@ export class FrameSequence {
           bitmap.close();
         }
       })
-      .catch(() => {}) // the plain image still works; this was only a head start
+      // The plain image still works; this was only a head start. Recorded so
+      // readyEdge() never waits on a decode that is not coming.
+      .catch(() => this.undecodable.add(i))
       .finally(() => this.decoding.delete(i));
   }
 

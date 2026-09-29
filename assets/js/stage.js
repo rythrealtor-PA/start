@@ -24,11 +24,12 @@ import { FrameSequence, FRAME_COUNT } from './frames.js';
  * not the whole value — dividing 460 by 1.3 directly would overshoot to 42%.
  * The viewport height cancels out, so the ratio holds on any screen.
  *
- * History: 460 (360 scrollable) -> 377 (277) -> 313 (213) -> 252 (152), so the
- * clip now plays 2.37x faster per scroll than it first shipped. The whole
- * 193-frame sequence takes about 1.5 screen-heights of scrolling.
+ * History: 460 (360 scrollable) -> 377 (277) -> 313 (213) -> 252 (152) ->
+ * 209 (109, another 40%), so the clip now plays 3.3x faster per scroll than
+ * it first shipped. The whole 193-frame sequence takes about 1.1
+ * screen-heights of scrolling.
  */
-const STAGE_VH = 252;
+const STAGE_VH = 209;
 
 /**
  * How far the playhead closes the gap to the scroll position each 1/60s.
@@ -37,6 +38,12 @@ const STAGE_VH = 252;
  * instead of twice as fast.
  */
 const DAMPING = 0.12;
+
+/**
+ * A jump bigger than this many frames (a link to a section, a page restored
+ * mid-scroll) is allowed to skip ahead instead of playing every frame.
+ */
+const MAX_GATED_JUMP = 60;
 
 /** Fraction of the scroll over which the title fades out. */
 const TITLE_FADE = 0.12;
@@ -132,7 +139,6 @@ export class Stage {
     this.frames = new FrameSequence();
     this.currentIndex = 0;
     this.targetIndex = 0;
-    this.direction = 1;
     this.lastTime = 0;
     this.titleOpacity = 1;
     this.dirty = true;
@@ -356,10 +362,7 @@ export class Stage {
     // on the way there (that is what the blend is for) but always comes to
     // rest exactly on one, so a paused image is as sharp as the source.
     const target = Math.round(this.progress() * (FRAME_COUNT - 1));
-    if (target !== this.targetIndex) {
-      this.direction = target > this.targetIndex ? 1 : -1;
-      this.targetIndex = target;
-    }
+    this.targetIndex = target;
 
     // Frame-rate independent easing: the same fraction of the gap per 1/60s
     // whether the display runs at 60Hz, 90Hz or 120Hz. dt is capped so a tab
@@ -370,9 +373,16 @@ export class Stage {
 
     const delta = this.targetIndex - this.currentIndex;
     const settled = Math.abs(delta) < 0.01;
-    this.currentIndex = settled ? this.targetIndex : this.currentIndex + delta * ease;
+    let next = settled ? this.targetIndex : this.currentIndex + delta * ease;
+    // Never run ahead of the decoder: play every frame, a moment late if need
+    // be, rather than skip. See FrameSequence.readyEdge().
+    if (!settled && Math.abs(delta) < MAX_GATED_JUMP) {
+      const edge = this.frames.readyEdge(this.currentIndex, Math.sign(delta));
+      next = delta > 0 ? Math.min(next, edge) : Math.max(next, edge);
+    }
+    this.currentIndex = next;
 
-    this.frames.warm(this.currentIndex, this.direction);
+    this.frames.warm(this.currentIndex, this.targetIndex);
     if (this.currentIndex !== this.shownIndex) {
       this.shownIndex = this.currentIndex;
       this.showFrame(this.currentIndex);
