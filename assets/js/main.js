@@ -158,9 +158,9 @@ function boot() {
     title: document.querySelector('[data-stage-title]'),
     cue: document.querySelector('[data-stage-cue]'),
     progressBar: document.querySelector('[data-stage-progress]'),
-    // Laptops and desktops scrub a real video; phones keep the stills. Only on
-    // pages that opt in (preview.html) until it has been tried on real
-    // hardware.
+    // Laptops and desktops scrub a real video (decoded by the GPU's video
+    // engine); phones keep the stills. The page opts in with data-hero="video"
+    // on <html> — remove it to put every visitor back on the stills.
     useVideo:
       document.documentElement.dataset.hero === 'video' &&
       window.matchMedia('(min-width: 768px)').matches &&

@@ -188,7 +188,12 @@ throttles it. Instead the video is decoded ahead of time into 193 still frames,
 and scroll position picks one. Playing in reverse is then just a decreasing
 array index, which is why scrolling up is as smooth as scrolling down.
 
-- **`assets/js/frames.js`** — loads the sequence and picks a set per visitor
+- **`assets/js/video-sequence.js`** — laptops and desktops: scrubs
+  `assets/video/hero-1920.mp4` (H.264, decoded by the GPU's video engine).
+  Rebuild it with `tools/encode-hero-video.sh`. Falls back to the stills if
+  the browser cannot play it.
+- **`assets/js/frames.js`** — phones (and the fallback): loads the still
+  sequence and picks a set per visitor
 - **`assets/js/stage.js`** — the three.js scene, shader, and scroll driver
 
 A tall section acts as the scroll runway while a sticky canvas inside it stays
@@ -280,6 +285,9 @@ Chromium refuses to decode), and `-pix_fmt yuv420p` must be explicit or libaom
 picks planar RGB and doubles the file size for no visible gain.
 
 ---
+
+Add `?debug` to the address to see the real redraw and picture rates on any
+machine.
 
 ## Launch plumbing
 
