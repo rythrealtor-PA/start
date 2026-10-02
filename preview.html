@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en" class="no-js" data-hero="video">
+<head>
+<!-- TEST COPY of index.html: the hero plays as a real video on laptops and
+     desktops. Not linked from anywhere and not indexed; delete once decided. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA</title>
+<meta name="description" content="Ryth Vara, bilingual REALTOR® with Real of Pennsylvania, helps buyers, sellers and investors in Monroe County and the Poconos — in English and Spanish.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12171C">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="canonical" href="https://rythvara.com/">
+
+<!-- What Instagram, Facebook, WhatsApp and iMessage show when the link is
+     shared. Without og:image they render a blank grey box, which is the one
+     moment this site most needs to look like something. -->
+<meta property="og:site_name" content="Ryth Vara Real Estate">
+<meta property="og:title" content="Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA">
+<meta property="og:description" content="Bilingual REALTOR® serving Monroe County and the Poconos. Buying, selling and investing, in English and Spanish.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://rythvara.com/">
+<meta property="og:image" content="https://rythvara.com/assets/img/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ryth Vara, REALTOR® — Pennsylvania real estate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ryth Vara — REALTOR® in the Poconos &amp; Monroe County, PA">
+<meta name="twitter:description" content="Bilingual REALTOR® serving Monroe County and the Poconos. Buying, selling and investing, in English and Spanish.">
+<meta name="twitter:image" content="https://rythvara.com/assets/img/social-card.jpg">
+
+<!-- Tells Google who this page is about, so a search for the name can show
+     the phone, area served and languages directly. Keep in step with config.js. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Ryth Vara",
+  "url": "https://rythvara.com/",
+  "image": "https://rythvara.com/assets/img/ryth-vara.jpg",
+  "telephone": "+1-929-345-6838",
+  "email": "ryth.realtor@gmail.com",
+  "knowsLanguage": ["en", "es"],
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Monroe County, Pennsylvania" },
+    { "@type": "AdministrativeArea", "name": "Northampton County, Pennsylvania" },
+    { "@type": "Place", "name": "Pocono Mountains, Pennsylvania" },
+    { "@type": "City", "name": "Stroudsburg, PA" },
+    { "@type": "City", "name": "Tannersville, PA" },
+    { "@type": "City", "name": "Pocono Pines, PA" },
+    { "@type": "City", "name": "Saylorsburg, PA" },
+    { "@type": "City", "name": "Bethlehem, PA" },
+    { "@type": "City", "name": "Nazareth, PA" },
+    { "@type": "City", "name": "Easton, PA" },
+    { "@type": "City", "name": "Bath, PA" }
+  ],
+  "parentOrganization": { "@type": "RealEstateAgent", "name": "Real of Pennsylvania" },
+  "sameAs": [
+    "https://www.instagram.com/ryth_william",
+    "https://www.tiktok.com/@rythvararealtor",
+    "https://www.facebook.com/share/1DZJzdaQ4v/"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- The first frame is the static hero behind the title, so it decides how
+     soon the page stops looking empty. frames.js picks the set by width at
+     768px; the media queries mirror that so each visitor preloads only the one
+     they will use, and type="image/avif" makes browsers without AVIF skip both
+     (they get the WebP fallback set instead). The ?v= must match
+     FRAMES_VERSION in frames.js. -->
+<link rel="preload" as="image" href="assets/frames/desktop/f_001.avif?v=2" type="image/avif" media="(min-width: 768px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/frames/mobile/f_001.avif?v=2" type="image/avif" media="(max-width: 767.98px)" fetchpriority="high">
+<link rel="preload" as="font" href="assets/fonts/fraunces-latin.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/archivo-latin.woff2" type="font/woff2" crossorigin>
+
+<script type="module" src="assets/js/main.js"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#discover">Skip to content</a>
+
+<!-- ───────────────────────── Hero / scroll stage ───────────────────────── -->
+<!-- The tall section is the scroll runway; the sticky child inside it is what
+     stays on screen while the frames advance. -->
+<section class="stage" data-stage aria-label="Introduction">
+  <div class="stage__sticky">
+    <canvas class="stage__canvas" data-stage-canvas aria-hidden="true"></canvas>
+
+    <div class="stage__title" data-stage-title>
+      <h1 class="stage__name" data-name>Ryth Vara</h1>
+      <p class="stage__tagline">Pennsylvania Real&nbsp;Estate</p>
+      <!-- Doubles as the frame-loading indicator: it fills as the sequence
+           arrives, then fades once the clip is fully scrubbable. -->
+      <div class="stage__rule">
+        <span class="stage__rule-fill" data-stage-progress></span>
+      </div>
+    </div>
+
+    <p class="stage__cue" data-stage-cue aria-hidden="true">Scroll</p>
+  </div>
+</section>
+
+<main>
+<!-- ─────────────────────────────── Discover ─────────────────────────────── -->
+<section class="section discover" id="discover">
+  <div class="wrap">
+    <h2 class="section__title">Discover Pennsylvania real estate with <span data-name>Ryth Vara</span></h2>
+
+    <div class="discover__grid">
+      <div class="discover__portrait">
+        <img data-portrait src="assets/img/ryth-vara.jpg" alt="Ryth Vara, REALTOR® in Pennsylvania" width="640" height="800">
+      </div>
+
+      <div class="discover__body">
+        <p class="lede">
+          Ryth Vara is a bilingual REALTOR<sup>&reg;</sup> with Real Brokerage,
+          serving Monroe County and the Poconos of Pennsylvania, including
+          Stroudsburg, Tannersville, Pocono Pines, Saylorsburg, Bethlehem,
+          Nazareth, and Bath.
+        </p>
+        <p>
+          He specializes in sellers, luxury properties, and real estate
+          investors, combining local market knowledge with modern marketing
+          strategies.
+        </p>
+        <p>
+          Ryth uses professional photography, social media, targeted
+          advertising, multiple MLS exposure, and AI-powered property
+          visualizations to market homes effectively.
+        </p>
+        <p>
+          Known for his honesty and competitive approach, he is committed to
+          protecting his clients&rsquo; interests and getting the deal done.
+        </p>
+
+        <dl class="facts" data-facts></dl>
+
+        <ul class="social" data-social></ul>
+
+        <a class="button button--primary" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────── Listings ─────────────────────────────── -->
+<section class="section listings" id="listings" data-carousel="listings">
+  <div class="wrap">
+    <div class="listings__head">
+      <h2 class="section__title">Listings</h2>
+      <div class="carousel__nav">
+        <p class="carousel__status" data-carousel-status aria-live="polite"></p>
+        <button class="carousel__button" type="button" data-prev aria-label="Previous listings" aria-controls="listings-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel__button" type="button" data-next aria-label="More listings" aria-controls="listings-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel">
+      <!-- tabindex makes the scroller reachable by keyboard, which a plain
+           overflow container is not. -->
+      <div class="carousel__track" id="listings-track" data-track tabindex="0" role="group" aria-label="Listings, scrollable">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────── Testimonials ──────────────────────────── -->
+<section class="section testimonials" id="testimonials" data-carousel="testimonials">
+  <div class="wrap">
+    <div class="listings__head">
+      <h2 class="section__title">Testimonials</h2>
+      <div class="carousel__nav">
+        <p class="carousel__status" data-carousel-status aria-live="polite"></p>
+        <button class="carousel__button" type="button" data-prev aria-label="Previous testimonials" aria-controls="testimonials-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel__button" type="button" data-next aria-label="More testimonials" aria-controls="testimonials-track">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel__track" id="testimonials-track" data-track tabindex="0" role="group" aria-label="Testimonials, scrollable">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────────────────────── FAQ ─────────────────────────────────── -->
+<!-- <details> gives an accordion that works with keyboard, screen readers and
+     no JavaScript at all, and the answers stay in the page for search engines. -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <h2 class="section__title">Questions</h2>
+
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary class="faq__q">What areas does Ryth serve?</summary>
+        <div class="faq__a">
+          <p>Monroe County and Northampton County, including Stroudsburg,
+          Tannersville, Pocono Pines, Saylorsburg, Bethlehem, Nazareth, Easton
+          and Bath. If you are looking just outside those towns, ask — Ryth will
+          tell you honestly whether he is the right agent for it.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">¿Habla español? Can we work in Spanish?</summary>
+        <div class="faq__a">
+          <p>Yes. Ryth works in English and Spanish, so every call, showing and
+          explanation of the process can happen in whichever language you are
+          most comfortable with. <span lang="es">Sí — puede trabajar con Ryth
+          completamente en español.</span></p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">How will my home be marketed if I sell with Ryth?</summary>
+        <div class="faq__a">
+          <p>Professional photography, social media, targeted advertising,
+          multiple MLS exposure and AI-powered property visualizations that help
+          buyers picture the home — combined with local knowledge of what
+          Pocono-area buyers are actually looking for.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Do you work with investors and luxury buyers?</summary>
+        <div class="faq__a">
+          <p>Yes. Sellers, luxury properties and real estate investors are Ryth's
+          specialties. Tell him what you are looking for — or what you own — and
+          he will talk you through the numbers.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">Can you help me with a rental?</summary>
+        <div class="faq__a">
+          <p>Yes. Choose <strong>Rental</strong> in the form below and tell Ryth
+          what you are looking for, and he will get back to you.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">What does it cost to work with Ryth as a buyer?</summary>
+        <div class="faq__a">
+          <p>Agent compensation is always negotiable, and nothing is decided
+          without you. Before touring homes together you will sign a written
+          buyer agreement that states exactly how, and how much, your agent is
+          paid — Ryth walks you through it line by line before you commit to
+          anything.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__q">How do I get started?</summary>
+        <div class="faq__a">
+          <p>Send a message with the form below, call or text
+          <a data-phone-link href="tel:+19293456838">929.345.6838</a>, or email
+          <a data-email-link href="mailto:ryth.realtor@gmail.com">ryth.realtor@gmail.com</a>.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────── Get in touch ──────────────────────────── -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <h2 class="section__title">Get in touch</h2>
+
+    <div class="contact__grid">
+      <form class="form" data-contact-form novalidate>
+        <div class="field">
+          <label class="field__label" for="name">Name</label>
+          <input class="field__input" id="name" name="name" type="text"
+                 autocomplete="name" required data-label="Name"
+                 aria-describedby="name-error">
+          <p class="field__error" id="name-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">Email</label>
+          <input class="field__input" id="email" name="email" type="email"
+                 autocomplete="email" required data-label="Email"
+                 aria-describedby="email-error">
+          <p class="field__error" id="email-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="phone">Phone</label>
+          <input class="field__input" id="phone" name="phone" type="tel"
+                 autocomplete="tel" data-label="Phone"
+                 aria-describedby="phone-error phone-hint">
+          <p class="field__hint" id="phone-hint">Optional</p>
+          <p class="field__error" id="phone-error"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="topic">Select a topic</label>
+          <div class="field__select">
+            <select class="field__input" id="topic" name="topic" required
+                    data-label="Topic" aria-describedby="topic-error">
+              <option value="">Choose one…</option>
+            </select>
+            <svg class="field__chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <p class="field__error" id="topic-error"></p>
+        </div>
+
+        <!-- Spam trap. Web3Forms discards any submission with `botcheck` set;
+             a person never sees this field, but a bot filling in every input
+             it finds will trip it. aria-hidden and tabindex keep it out of the
+             way of screen readers and the keyboard. -->
+        <input type="checkbox" name="botcheck" class="visually-hidden"
+               tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="field field--full">
+          <label class="field__label" for="message">Message</label>
+          <textarea class="field__input field__input--area" id="message" name="message"
+                    rows="5" required data-label="Message"
+                    aria-describedby="message-error"></textarea>
+          <p class="field__error" id="message-error"></p>
+        </div>
+
+        <div class="field field--full form__actions">
+          <button class="button button--primary" type="submit">Send message</button>
+          <p class="form__result" data-result role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Floating call to action. Hidden over the hero (the video stays clean) and
+     over the contact form itself (where it would point at what you are already
+     looking at); cta.js toggles it. It is an ordinary link, so without
+     JavaScript it simply never appears and the page loses nothing. -->
+<div class="cta" data-cta hidden>
+  <a class="cta__call" data-phone-href href="tel:+19293456838" aria-label="Call Ryth">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </a>
+  <a class="cta__main" href="#contact">Contact Ryth</a>
+</div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <!-- Team mark beside the brokerage's. Pennsylvania requires advertising to
+         identify the broker, so this pairing is compliance, not decoration —
+         the same details also appear as text in the line below. -->
+    <div class="footer__brands">
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--team" data-team-mark
+             src="assets/img/hs-group.png" alt="HS Group"
+             width="440" height="378" loading="lazy">
+      </span>
+      <span class="footer__divider" aria-hidden="true"></span>
+      <span class="footer__brand">
+        <img class="footer__mark footer__mark--broker" data-broker-mark
+             src="assets/img/real-of-pennsylvania.png" alt="Real of Pennsylvania"
+             width="900" height="460" loading="lazy">
+      </span>
+    </div>
+
+    <div class="footer__legal">
+      <p data-footer-legal></p>
+      <p>&copy; <span data-year></span> · English &amp; Español · Equal Housing Opportunity</p>
+      <p class="footer__links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

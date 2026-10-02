@@ -12,6 +12,7 @@
  */
 import * as THREE from '../vendor/three.min.js';
 import { FrameSequence, FRAME_COUNT } from './frames.js';
+import { VideoSequence } from './video-sequence.js';
 
 /**
  * Scroll distance the animation occupies, as a multiple of viewport height.
@@ -129,14 +130,18 @@ const fragmentShader = /* glsl */ `
 const clamp01 = (v) => Math.max(0, Math.min(1, v));
 
 export class Stage {
-  constructor({ section, canvas, title, cue, progressBar }) {
+  constructor({ section, canvas, title, cue, progressBar, useVideo = false }) {
     this.section = section;
     this.canvas = canvas;
     this.title = title;
     this.cue = cue;
     this.progressBar = progressBar;
 
-    this.frames = new FrameSequence();
+    // Wide screens can scrub a real video (decoded by the GPU's video engine);
+    // everything else, and any browser where the video fails, uses stills.
+    this.frames = useVideo ? new VideoSequence() : new FrameSequence();
+    /** Counters for the ?debug overlay. */
+    this.stats = { renders: 0, newFrames: 0 };
     this.currentIndex = 0;
     this.targetIndex = 0;
     this.lastTime = 0;
@@ -161,32 +166,46 @@ export class Stage {
       this.reducedMotion ? '100' : String(STAGE_VH),
     );
 
-    this.frames.onProgress = (p) => {
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize, { passive: true });
+
+    this.wire(this.frames);
+    try {
+      await this.frames.start();
+    } catch (error) {
+      if (!this.frames.isVideo) throw error;
+      // The video could not load or play here. The stills always can.
+      console.warn('[stage] video unavailable, using stills:', error);
+      this.frames = new FrameSequence();
+      this.wire(this.frames);
+      this.shownIndex = NaN;
+      await this.frames.start();
+    }
+  }
+
+  wire(frames) {
+    frames.onProgress = (p) => {
       if (this.progressBar) this.progressBar.style.transform = `scaleX(${p})`;
       if (p >= 1) this.progressBar?.classList.add('is-complete');
     };
-    // The frame on screen was a stand-in for one still downloading or
-    // decoding: redraw once more frames are ready.
-    this.frames.onReady = () => {
+    // The frame on screen was a stand-in for one still downloading, decoding
+    // or seeking: redraw once it is ready.
+    frames.onReady = () => {
       if (this.pendingExact && !this.running && !this.reducedMotion) {
         this.shownIndex = NaN;
         this.startLoop();
       }
     };
-    this.frames.onFirstFrame = () => {
-      this.setupRenderer();
-      this.showFrame(0);
+    frames.onFirstFrame = () => {
+      if (!this.rendererReady) this.setupRenderer();
+      this.showFrame(this.currentIndex);
       this.canvas.classList.add('is-ready');
       if (!this.reducedMotion) this.startLoop();
     };
-
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    window.addEventListener('resize', this.onResize, { passive: true });
-
-    await this.frames.start();
   }
 
   setupRenderer() {
+    this.rendererReady = true;
     this.buffer.width = this.frames.width;
     this.buffer.height = this.frames.height;
 
@@ -289,6 +308,11 @@ export class Stage {
     const b = Math.min(a + 1, last);
     const mix = b === a ? 0 : p - a;
 
+    if (this.frames.isVideo) {
+      this.showVideoFrame(p);
+      return;
+    }
+
     if (!this.renderer) {
       this.draw2D(a, b, mix);
       return;
@@ -308,6 +332,36 @@ export class Stage {
     this.dirty = true;
   }
 
+  /**
+   * Video mode: one frame at a time (a video element holds one), so no blend —
+   * the seek rate is high enough not to need it. Re-uploads only when a seek
+   * has actually landed a new frame.
+   */
+  showVideoFrame(position) {
+    const { image, exact } = this.frames.pick(position);
+    this.pendingExact = !exact;
+    if (!image) return;
+    const key = `${this.frames.version}:${image === this.frames.video}`;
+    if (!this.renderer) {
+      if (key !== this.videoKey) {
+        this.videoKey = key;
+        this.bufferCtx.drawImage(image, 0, 0, this.buffer.width, this.buffer.height);
+        this.stats.newFrames += 1;
+      }
+      this.dirty = true;
+      return;
+    }
+    const held = this.texA.userData;
+    if (held.key !== key) {
+      held.key = key;
+      this.texA.image = image;
+      this.texA.needsUpdate = true;
+      this.stats.newFrames += 1;
+    }
+    this.material.uniforms.uMix.value = 0;
+    this.dirty = true;
+  }
+
   /** Uploads frame `index` into `texture` unless it already holds it. */
   upload(texture, index) {
     const { image, exact } = this.frames.pick(index);
@@ -317,6 +371,7 @@ export class Stage {
     if (held.index === index && (held.exact || held.image === image)) return;
     texture.image = image;
     texture.needsUpdate = true;
+    this.stats.newFrames += 1;
     held.index = index;
     held.exact = exact;
     held.image = image;
@@ -343,6 +398,7 @@ export class Stage {
 
   render() {
     if (!this.dirty) return;
+    this.stats.renders += 1;
     if (this.renderer) {
       this.material.uniforms.uScrim.value = this.titleOpacity;
       this.renderer.render(this.scene, this.camera);

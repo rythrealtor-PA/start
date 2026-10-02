@@ -4,6 +4,8 @@
  */
 import { CONFIG, TOPICS } from './config.js';
 import { Stage } from './stage.js';
+import { VideoSequence } from './video-sequence.js';
+import { initDebug } from './debug.js';
 import { initCarousel, card, testimonial } from './carousel.js';
 import { loadListings, loadTestimonials } from './listings.js';
 import { initContact } from './contact.js';
@@ -156,12 +158,21 @@ function boot() {
     title: document.querySelector('[data-stage-title]'),
     cue: document.querySelector('[data-stage-cue]'),
     progressBar: document.querySelector('[data-stage-progress]'),
+    // Laptops and desktops scrub a real video; phones keep the stills. Only on
+    // pages that opt in (preview.html) until it has been tried on real
+    // hardware.
+    useVideo:
+      document.documentElement.dataset.hero === 'video' &&
+      window.matchMedia('(min-width: 768px)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+      VideoSequence.pickSource() !== null,
   });
   stage.init();
 
   // Exposed so the scroll animation can be driven and inspected from a test
   // harness (and from the console when tuning the pacing).
   window.__stage = stage;
+  initDebug(stage);
 }
 
 if (document.readyState === 'loading') {
