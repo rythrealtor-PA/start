@@ -8,8 +8,8 @@
  * every laptop has and which turns out a 1080p H.264 frame in a few ms.
  *
  * The file is encoded for scrubbing, not playback: no B-frames and a keyframe
- * every 6 frames (see tools/encode-hero-video.sh), so any seek decodes at most
- * 6 frames — forward or backward. It is downloaded whole and played from a
+ * every 3 frames (see tools/encode-hero-video.sh), so any seek decodes at most
+ * 3 frames — forward or backward. It is downloaded whole and played from a
  * Blob, because a seek into a range that is not buffered yet would wait on
  * the network.
  *
