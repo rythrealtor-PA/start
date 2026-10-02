@@ -233,17 +233,8 @@ export class Stage {
     // camera is a formality kept for readability.
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
-    const makeTexture = () => {
-      const t = new THREE.Texture(this.frames.pick(0).image);
-      t.colorSpace = THREE.SRGBColorSpace;
-      t.minFilter = THREE.LinearFilter;
-      t.magFilter = THREE.LinearFilter;
-      t.generateMipmaps = false;
-      t.flipY = false;
-      return t;
-    };
-    this.texA = makeTexture();
-    this.texB = makeTexture();
+    this.texA = this.makeTexture(this.frames.pick(0).image);
+    this.texB = this.makeTexture(this.frames.pick(0).image);
 
     this.material = new THREE.ShaderMaterial({
       vertexShader,
@@ -263,6 +254,16 @@ export class Stage {
 
     this.scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), this.material));
     this.resize();
+  }
+
+  makeTexture(image) {
+    const t = new THREE.Texture(image);
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.minFilter = THREE.LinearFilter;
+    t.magFilter = THREE.LinearFilter;
+    t.generateMipmaps = false;
+    t.flipY = false;
+    return t;
   }
 
   resize() {
@@ -351,9 +352,19 @@ export class Stage {
       this.dirty = true;
       return;
     }
+    // A texture's size is fixed once uploaded, and the poster, the light
+    // copy and the sharp copy are three different sizes — so a change of size
+    // gets a fresh texture rather than a resized upload.
+    const width = image.videoWidth || image.naturalWidth || image.width;
+    if (this.texA.userData.width && this.texA.userData.width !== width) {
+      this.texA.dispose();
+      this.texA = this.makeTexture(image);
+      this.material.uniforms.uTexA.value = this.texA;
+    }
     const held = this.texA.userData;
     if (held.key !== key) {
       held.key = key;
+      held.width = width;
       this.texA.image = image;
       this.texA.needsUpdate = true;
       this.stats.newFrames += 1;

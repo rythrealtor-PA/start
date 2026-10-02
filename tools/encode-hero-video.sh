@@ -32,7 +32,19 @@ ffmpeg -hide_banner -loglevel error -y -i "$SRC" \
   -profile:v high -level:v 4.0 -pix_fmt yuv420p -movflags +faststart -an \
   "$OUT/hero-1920.mp4"
 
-ffprobe -v error -select_streams v:0 -count_frames \
-  -show_entries stream=width,height,nb_read_frames -of csv=p=0 "$OUT/hero-1920.mp4"
-du -h "$OUT/hero-1920.mp4"
+# The light copy, fetched first so the scrub works within about a second while
+# the sharp one downloads behind it (see video-sequence.js). It is on screen
+# only for those first seconds, so it trades detail for size: 960px, crf 28,
+# keyframe every 6 — 2.9MB, against 6.8MB at crf 24 / -g 3.
+ffmpeg -hide_banner -loglevel error -y -i "$SRC" \
+  -vf "scale=960:-2:flags=lanczos" \
+  -c:v libx264 -preset slow -crf 28 -g 6 -bf 0 \
+  -profile:v high -level:v 4.0 -pix_fmt yuv420p -movflags +faststart -an \
+  "$OUT/hero-960.mp4"
+
+for f in "$OUT/hero-1920.mp4" "$OUT/hero-960.mp4"; do
+  ffprobe -v error -select_streams v:0 -count_frames \
+    -show_entries stream=width,height,nb_read_frames -of csv=p=0 "$f"
+  du -h "$f"
+done
 echo "If the frame count changed, update FRAME_COUNT in assets/js/frames.js."

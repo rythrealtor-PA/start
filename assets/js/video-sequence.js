@@ -13,6 +13,12 @@
  * Blob, because a seek into a range that is not buffered yet would wait on
  * the network.
  *
+ * Two copies, so it moves almost at once: a light 960px one (2.9MB) is
+ * fetched first and scrubs within about a second, then the sharp 1920px one
+ * (23MB) downloads behind it and is swapped in on the frame already showing.
+ * Both are hardware-decoded, so the scrub is equally fluid on either; only the
+ * detail changes, and only once.
+ *
  * Same interface as FrameSequence, so Stage drives either one. Until the
  * video has arrived, the first still frame stands in so the hero is never
  * blank; if the video cannot play at all, start() rejects and Stage falls
@@ -28,8 +34,15 @@ const FPS = 24;
  * still frames instead, which is why there is no second format here.
  */
 const SOURCES = [
-  { type: 'video/mp4; codecs="avc1.640028"', url: 'assets/video/hero-1920.mp4' },
+  {
+    type: 'video/mp4; codecs="avc1.640028"',
+    quick: 'assets/video/hero-960.mp4',
+    full: 'assets/video/hero-1920.mp4',
+  },
 ];
+
+/** Share of the loading hairline given to the light copy. */
+const QUICK_SHARE = 0.15;
 
 export class VideoSequence {
   constructor() {
@@ -81,7 +94,17 @@ export class VideoSequence {
       img.src = `assets/frames/desktop/f_001.avif?v=${FRAMES_VERSION}`;
     });
 
-    const blob = await this.download(source.url);
+    const video = await this.makeVideo(await this.download(source.quick, 0, QUICK_SHARE));
+    video.addEventListener('seeked', this.onSeeked);
+    this.video = video;
+    this.playable = true;
+    this.seek(this.wanted);
+
+    // Not awaited: the scrub already works; this only sharpens it.
+    this.upgrade(source.full);
+  }
+
+  async makeVideo(blob) {
     const video = document.createElement('video');
     video.muted = true;
     video.playsInline = true;
@@ -91,19 +114,59 @@ export class VideoSequence {
       video.addEventListener('loadeddata', resolve, { once: true });
       video.addEventListener('error', () => reject(video.error), { once: true });
     });
-    video.addEventListener('seeked', this.onSeeked);
-
-    this.video = video;
-    this.playable = true;
-    this.seek(this.wanted);
+    // three.js sizes a texture from an element's width/height properties,
+    // which on a <video> are the (unset, so zero) attributes, not the
+    // picture's size. Without these a fresh texture is allocated 0x0.
+    video.width = video.videoWidth;
+    video.height = video.videoHeight;
+    return video;
   }
 
-  /** Fetches the whole file, reporting progress for the hairline under the title. */
-  async download(url) {
+  /**
+   * Swaps in the sharp copy. It is first brought to the frame on screen, so
+   * the only visible change is the extra detail. If it fails to arrive, the
+   * light copy simply stays.
+   */
+  async upgrade(url) {
+    try {
+      const sharp = await this.makeVideo(await this.download(url, QUICK_SHARE, 1));
+      const frame = this.wanted;
+      await new Promise((resolve) => {
+        sharp.addEventListener('seeked', resolve, { once: true });
+        sharp.currentTime = (frame + 0.5) / FPS;
+      });
+      const light = this.video;
+      light.removeEventListener('seeked', this.onSeeked);
+      sharp.addEventListener('seeked', this.onSeeked);
+      this.video = sharp;
+      this.seeking = false;
+      this.shown = frame;
+      this.version += 1;
+      URL.revokeObjectURL(light.src);
+      light.removeAttribute('src');
+      light.load();
+      if (this.wanted !== this.shown) this.seek(this.wanted);
+      this.onReady?.();
+    } catch (error) {
+      this.onProgress?.(1);
+      console.warn('[video] sharp copy unavailable, keeping the light one:', error);
+    }
+  }
+
+  /**
+   * Fetches a whole file, reporting progress for the hairline under the title
+   * as the span `from`..`to` of the full bar.
+   */
+  async download(url, from = 0, to = 1) {
+    const report = (p) => this.onProgress?.(from + (to - from) * p);
     const response = await fetch(`${url}?v=${FRAMES_VERSION}`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const total = Number(response.headers.get('content-length')) || 0;
-    if (!total || !response.body) return response.blob();
+    if (!total || !response.body) {
+      const blob = await response.blob();
+      report(1);
+      return blob;
+    }
 
     const reader = response.body.getReader();
     const chunks = [];
@@ -113,9 +176,9 @@ export class VideoSequence {
       if (done) break;
       chunks.push(value);
       received += value.length;
-      this.onProgress?.(Math.min(0.99, received / total));
+      report(Math.min(0.99, received / total));
     }
-    this.onProgress?.(1);
+    report(1);
     return new Blob(chunks, { type: response.headers.get('content-type') || '' });
   }
 
