@@ -80,10 +80,10 @@ export function legalLine(config) {
 
 /** One listing card, as its outer HTML. */
 export function cardHTML(listing) {
-  const specs = [
-    { label: 'Beds', value: listing.beds },
-    { label: 'Baths', value: fmtBaths(listing.baths) },
-  ];
+  // Zero beds and baths means land (a lot): say nothing rather than "0 Beds".
+  const specs = [];
+  if (Number(listing.beds) > 0) specs.push({ label: 'Beds', value: listing.beds });
+  if (Number(listing.baths) > 0) specs.push({ label: 'Baths', value: fmtBaths(Number(listing.baths)) });
   if (listing.sqft) {
     specs.push({ label: 'Sq ft', value: Number(listing.sqft).toLocaleString('en-US') });
   }
@@ -99,12 +99,12 @@ export function cardHTML(listing) {
             <h3 class="listing__address">${esc(listing.address)}</h3>
             ${listing.city ? `<p class="listing__city">${esc(listing.city)}</p>` : ''}
             ${listing.price ? `<p class="listing__price">${esc(listing.price)}</p>` : ''}
-            <dl class="specs">${specs.map((s) => `
+            ${specs.length ? `<dl class="specs">${specs.map((s) => `
               <div class="specs__item">
                 <dt class="specs__label">${s.label}</dt>
                 <dd class="specs__value">${esc(s.value)}</dd>
               </div>`).join('')}
-            </dl>
+            </dl>` : ''}
           </div>
         </article>`;
 }
