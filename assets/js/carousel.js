@@ -6,76 +6,38 @@
  * trackpad, and keyboard all work without being reimplemented, and the track
  * stays a usable scroller if this script never runs.
  */
-const fmtBaths = (n) => (Number.isInteger(n) ? n : n.toFixed(1));
+import { cardHTML, testimonialHTML } from './render.js';
 
-/** Escapes text coming from the data file before it goes into innerHTML. */
-const esc = (value = '') =>
-  String(value).replace(/[&<>"]/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+/** Builds an element from one of render.js's HTML strings. */
+const fromHTML = (html) => {
+  const t = document.createElement('template');
+  t.innerHTML = html.trim();
+  return t.content.firstElementChild;
+};
 
 /**
  * One listing card. Exported so the admin page previews a listing with exactly
- * the markup the real site uses, rather than an approximation that can drift.
+ * the markup the real site uses — the same render.js function that writes the
+ * card into index.html — rather than an approximation that can drift.
  */
-export function card(listing) {
-  const el = document.createElement('article');
-  el.className = 'listing';
-  el.dataset.carouselItem = '';
-
-  const specs = [
-    { label: 'Beds', value: listing.beds },
-    { label: 'Baths', value: fmtBaths(listing.baths) },
-  ];
-  if (listing.sqft) {
-    specs.push({ label: 'Sq ft', value: listing.sqft.toLocaleString('en-US') });
-  }
-
-  el.innerHTML = `
-    <div class="listing__frame">
-      <img class="listing__photo" src="${esc(listing.photo)}"
-           alt="${esc(listing.address)}, ${esc(listing.city)}" loading="lazy" decoding="async">
-      ${listing.status ? `<span class="listing__status">${esc(listing.status)}</span>` : ''}
-    </div>
-    <div class="listing__body">
-      <h3 class="listing__address">${esc(listing.address)}</h3>
-      <p class="listing__city">${esc(listing.city)}</p>
-      <p class="listing__price">${esc(listing.price)}</p>
-      <dl class="specs">
-        ${specs
-          .map(
-            (s) => `
-          <div class="specs__item">
-            <dt class="specs__label">${s.label}</dt>
-            <dd class="specs__value">${s.value}</dd>
-          </div>`,
-          )
-          .join('')}
-      </dl>
-    </div>`;
-  return el;
-}
+export const card = (listing) => fromHTML(cardHTML(listing));
 
 /** One testimonial. Same carousel machinery as the listing cards. */
-export function testimonial(item) {
-  const el = document.createElement('figure');
-  el.className = 'quote';
-  el.dataset.carouselItem = '';
-  el.innerHTML = `
-    <blockquote class="quote__text">${esc(item.quote)}</blockquote>
-    <figcaption class="quote__by">
-      <span class="quote__name">${esc(item.name)}</span>
-      ${item.detail ? `<span class="quote__detail">${esc(item.detail)}</span>` : ''}
-    </figcaption>`;
-  return el;
-}
+export const testimonial = (item) => fromHTML(testimonialHTML(item));
 
+/**
+ * Wires up a carousel. The cards are normally already in the HTML (written by
+ * tools/prerender.mjs or by Publish); `items`, when given, are appended —
+ * the fallback for a page whose HTML has not been regenerated yet.
+ */
 export function initCarousel(root, items, renderItem = card) {
   const track = root.querySelector('[data-track]');
   const prev = root.querySelector('[data-prev]');
   const next = root.querySelector('[data-next]');
   const status = root.querySelector('[data-carousel-status]');
 
-  items.forEach((item) => track.append(renderItem(item)));
+  (items ?? []).forEach((item) => track.append(renderItem(item)));
+  const count = track.querySelectorAll('[data-carousel-item]').length;
 
   /** Scroll by exactly one visible page, whatever the breakpoint is showing. */
   const page = (dir) => {
@@ -91,7 +53,7 @@ export function initCarousel(root, items, renderItem = card) {
 
     const perPage = Math.max(1, Math.round(track.clientWidth / cardWidth()));
     const current = Math.round(track.scrollLeft / track.clientWidth) + 1;
-    const total = Math.max(1, Math.ceil(items.length / perPage));
+    const total = Math.max(1, Math.ceil(count / perPage));
     status.textContent = `Page ${Math.min(current, total)} of ${total}`;
   };
 

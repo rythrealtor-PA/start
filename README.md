@@ -122,6 +122,15 @@ why it is scoped to one repo and to Contents alone — and why **Sign out** is
 there for a shared or borrowed computer. If a token ever leaks, revoke it on the
 same GitHub page and generate a new one.
 
+**Everything that matters for credibility is in the HTML source**, not only
+loaded by JavaScript: reviews, listings, contact details, social links and the
+licence/brokerage line are written into `index.html` between
+`<!-- prerender:… -->` markers, so search engines and link previews read them
+even when they do not run scripts. **Publish** in the editor rewrites those
+blocks automatically. If you edit `assets/js/config.js` or the JSON files by
+hand, run `node tools/prerender.mjs` afterwards to do the same. Keep it that
+way for anything added later — bios, FAQs, resources: write it into the HTML.
+
 Both live in **`assets/data/`** as plain JSON rather than JavaScript, precisely
 so the editor can rewrite them without a stray comma taking the page down.
 Editing by hand still works — `listings.json`:

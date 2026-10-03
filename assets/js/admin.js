@@ -16,6 +16,8 @@
  * a ~200KB web image, so the repository does not fill up with originals.
  */
 import { card, testimonial } from './carousel.js';
+import { CONFIG } from './config.js';
+import { renderAllBlocks } from './render.js';
 
 const API = 'https://api.github.com';
 const STORE_KEY = 'ryth-admin-settings';
@@ -118,17 +120,23 @@ async function fetchCollection(name) {
       `/repos/${state.owner}/${state.repo}/contents/${COLLECTIONS[name].path}?ref=${state.branch}`,
     );
     slot.sha = file.sha;
-    // atob gives Latin-1; this round-trip recovers the original UTF-8 so that
-    // accented names and Spanish testimonials survive.
-    const text = new TextDecoder().decode(
-      Uint8Array.from(atob(file.content.replace(/\s/g, '')), (c) => c.charCodeAt(0)),
-    );
-    slot.items = JSON.parse(text);
+    slot.items = JSON.parse(decodeContent(file.content));
   } catch (error) {
     if (!/not found/i.test(error.message)) throw error;
     slot.sha = null;
     slot.items = [];
   }
+}
+
+/**
+ * GitHub returns file contents as base64. atob gives Latin-1; this round-trip
+ * recovers the original UTF-8 so accented names and Spanish testimonials
+ * survive.
+ */
+function decodeContent(base64) {
+  return new TextDecoder().decode(
+    Uint8Array.from(atob(base64.replace(/\s/g, '')), (c) => c.charCodeAt(0)),
+  );
 }
 
 function toBase64(bytes) {
@@ -463,6 +471,7 @@ async function publish() {
 
     // Then each changed data file. Anything untouched is left alone, so two
     // people editing different sections never overwrite each other.
+    const changed = Object.values(state.data).some((slot) => slot.dirty);
     for (const [name, slot] of Object.entries(state.data)) {
       if (!slot.dirty) continue;
       setStatus(`Saving ${name}…`);
@@ -481,6 +490,34 @@ async function publish() {
       );
       slot.sha = result.content.sha;
       slot.dirty = false;
+    }
+
+    // Last, the page itself: listings and testimonials are written into
+    // index.html (not only loaded by script) so search engines and link
+    // previews can read them. Done after the data files, so the page never
+    // shows a listing whose photo or data is not live yet.
+    if (changed) {
+      setStatus('Updating the page…');
+      const file = await gh(
+        `/repos/${state.owner}/${state.repo}/contents/index.html?ref=${state.branch}`,
+      );
+      const html = decodeContent(file.content);
+      const updated = renderAllBlocks(html, {
+        config: CONFIG,
+        listings: state.data.listings.items,
+        testimonials: state.data.testimonials.items,
+      });
+      if (updated !== html) {
+        await gh(`/repos/${state.owner}/${state.repo}/contents/index.html`, {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: 'Update listings and testimonials on the page',
+            content: toBase64(new TextEncoder().encode(updated)),
+            branch: state.branch,
+            sha: file.sha,
+          }),
+        });
+      }
     }
 
     state.pending.clear();

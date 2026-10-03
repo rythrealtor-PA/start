@@ -12,60 +12,13 @@ import { initContact } from './contact.js';
 import { renderFooter, loadAnalytics } from './footer.js';
 import { initCta } from './cta.js';
 
-/** Renders a definition-list row, or nothing at all when the value is empty. */
-function fact(label, value, href) {
-  if (!value) return '';
-  const body = href
-    ? `<a class="facts__link" href="${href}">${value}</a>`
-    : value;
-  return `
-    <div class="facts__row">
-      <dt class="facts__label">${label}</dt>
-      <dd class="facts__value">${body}</dd>
-    </div>`;
-}
-
 /**
- * Contact details beside the portrait. Deliberately just these three — the
- * bio copy already names the brokerage and the service area, and the brokerage
- * and licence number appear in the footer, which is what Pennsylvania's
- * advertising rule requires.
+ * The contact facts, social links and footer licence line are written into
+ * index.html by tools/prerender.mjs (so they are in the HTML source, not only
+ * injected here). Nothing to render; only drop the social list if it is empty.
  */
-function renderFacts(root) {
-  const { contact, languages } = CONFIG;
-
-  root.innerHTML = [
-    fact('Email', contact.email, `mailto:${contact.email}`),
-    fact(
-      'Phone',
-      contact.phone,
-      contact.phoneHref ? `tel:${contact.phoneHref}` : null,
-    ),
-    fact('Languages', languages.join(' · ')),
-  ].join('');
-}
-
-/** Capitalisation these brands actually use — "Tiktok" would be wrong. */
-const SOCIAL_LABELS = {
-  instagram: 'Instagram',
-  tiktok: 'TikTok',
-  facebook: 'Facebook',
-  linkedin: 'LinkedIn',
-};
-
-function renderSocial(root) {
-  const links = Object.entries(CONFIG.social).filter(([, url]) => url);
-  if (!links.length) {
-    root.remove();
-    return;
-  }
-  root.innerHTML = links
-    .map(([name, url]) => {
-      const label = SOCIAL_LABELS[name] ?? name;
-      return `<li><a class="social__link" href="${url}"
-        rel="me noopener" target="_blank">${label}</a></li>`;
-    })
-    .join('');
+function tidySocial(root) {
+  if (root && !root.querySelector('li')) root.remove();
 }
 
 function renderTopics(select) {
@@ -111,6 +64,12 @@ function renderContactLinks() {
 /** Fills one carousel from its data file, or says so in place if it cannot. */
 function hydrate(name, load, renderItem, failureMessage) {
   const root = document.querySelector(`[data-carousel="${name}"]`);
+  // The usual case: the cards are already in the HTML. Use them as they are.
+  if (root.querySelector('[data-carousel-item]')) {
+    initCarousel(root, null, renderItem);
+    return;
+  }
+  // Fallback for HTML that has not been regenerated: load the data file.
   load()
     .then((items) => {
       // Nothing to show (e.g. between listings): drop the whole section rather
@@ -133,8 +92,7 @@ function boot() {
   });
   document.documentElement.classList.remove('no-js');
 
-  renderFacts(document.querySelector('[data-facts]'));
-  renderSocial(document.querySelector('[data-social]'));
+  tidySocial(document.querySelector('[data-social]'));
   renderTopics(document.querySelector('#topic'));
   renderPortrait(document.querySelector('[data-portrait]'));
   renderContactLinks();
