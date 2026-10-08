@@ -298,6 +298,25 @@ picks planar RGB and doubles the file size for no visible gain.
 Add `?debug` to the address to see the real redraw and picture rates on any
 machine.
 
+## Guide pages
+
+The `guides/` pages (one question per page, the format AI search cites) are
+built from plain text files in **`content/guides/`**. To add or edit a guide,
+copy an existing `.md` file, change the text, and run:
+
+```bash
+node tools/prerender.mjs
+```
+
+That rebuilds every guide, the guides index, the homepage's "Local guides"
+links and `sitemap.xml`. The format is documented at the top of
+`tools/build-guides.mjs`. Facts that still need Ryth's confirmation are listed
+in `content/REVIEW-CHECKLIST.md`.
+
+Fair-housing rule for anything written here: describe places, homes and
+amenities, never the people. No "safe", "family-friendly", school rankings or
+demographics.
+
 ## Launch plumbing
 
 | File | What it is for |

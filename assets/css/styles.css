@@ -827,3 +827,139 @@ a { color: var(--brass-lt); }
 .notfound { min-height: 70vh; display: grid; align-content: center; }
 .notfound p { color: var(--ivory-dim); max-width: 46ch; margin: 0 0 2rem; }
 .notfound__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* ================================ Guides =============================== */
+
+.page-header__nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+.guides__intro { max-width: 62ch; color: var(--ivory-dim); margin: -1.5rem 0 2.5rem; }
+.guide .guides__intro { margin: 0 0 1rem; }
+.guides__more { margin: 2.5rem 0 0; }
+.guides__group {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  margin: 3rem 0 1.25rem;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 1rem;
+}
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--ivory);
+  transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+.guide-card:hover,
+.guide-card:focus-visible { border-color: var(--border-lit); background: var(--slate-3); }
+.guide-card__kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-lt);
+}
+.guide-card__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+.guide-card__text { font-size: 0.92rem; color: var(--ivory-dim); }
+
+/* A guide page reads as a document: the body column is narrow for reading,
+   the cards and boxes inside it use the full column. */
+.guide .doc__body { max-width: 46rem; }
+.guide .doc__body h3 {
+  font-size: 1.05rem;
+  color: var(--ivory);
+  margin: 1.75rem 0 0.5rem;
+}
+.guide .doc__body ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.guide .doc__body a { text-underline-offset: 0.2em; }
+
+.crumbs {
+  font-size: 0.82rem;
+  color: var(--ivory-dim);
+  margin: 0 0 1.5rem;
+}
+.crumbs a { color: var(--ivory-dim); }
+.crumbs a:hover { color: var(--brass-lt); }
+
+/* The direct answer, first on the page: what AI answers quote. */
+.guide__answer {
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--brass);
+  background: var(--slate-2);
+  color: var(--ivory);
+  font-size: 1.05rem;
+}
+
+.guide-quote {
+  margin: 0 0 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+}
+.guide-quote blockquote {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 30;
+  color: var(--ivory);
+  line-height: 1.5;
+}
+.guide-quote blockquote::before { content: '\201C'; }
+.guide-quote blockquote::after { content: '\201D'; }
+.guide-quote figcaption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-lt);
+}
+
+.guide .faq__list { margin-bottom: 1rem; }
+
+.guide-cta {
+  margin: 2.5rem 0;
+  padding: 1.75rem;
+  background: var(--slate-2);
+  border: 1px solid var(--border-lit);
+}
+.guide-cta__title {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: 1.35rem;
+  color: var(--ivory);
+}
+.guide-cta .button { margin-top: 0.5rem; }
+
+.guide-author {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+.guide-author__photo {
+  width: 96px;
+  height: 120px;
+  object-fit: cover;
+  flex: none;
+  border: 1px solid var(--border);
+}
+.guide-author__name { color: var(--ivory); font-weight: 600; margin-bottom: 0.35rem !important; }
+.guide-author p { margin: 0 0 0.6rem; }
+@media (max-width: 30rem) {
+  .guide-author { flex-direction: column; }
+}

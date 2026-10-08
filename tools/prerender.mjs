@@ -15,24 +15,31 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { CONFIG } from '../assets/js/config.js';
-import { renderAllBlocks, renderFooterBlocks } from '../assets/js/render.js';
+import { renderAllBlocks, renderFooterBlocks, replaceBlock } from '../assets/js/render.js';
+import { buildGuides, homepageGuidesHTML, sitemapXML } from './build-guides.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => readFile(root + p, 'utf8');
 
+// The guide pages first: the homepage links to them and the sitemap lists them.
+const guides = await buildGuides(root);
+console.log(`guides/: ${guides.length} guides + index built`);
+await writeFile(root + 'sitemap.xml', sitemapXML(guides));
+
 const html = await read('index.html');
-const out = renderAllBlocks(html, {
+let out = renderAllBlocks(html, {
   config: CONFIG,
   listings: JSON.parse(await read('assets/data/listings.json')),
   testimonials: JSON.parse(await read('assets/data/testimonials.json')),
 });
+out = replaceBlock(out, 'guides', homepageGuidesHTML(guides));
 await writeFile(root + 'index.html', out);
 console.log(out === html ? 'index.html already up to date' : 'index.html updated');
 
 // Every absolute URL — canonical links, link-preview tags, sitemap, robots —
 // follows config.siteUrl, so connecting the domain later is a one-line change.
 const HOSTS = ['https://rythvara.com/', 'https://rythrealtor-pa.github.io/start/'];
-for (const file of ['index.html', 'privacy.html', 'terms.html', 'preview.html', 'sitemap.xml', 'robots.txt']) {
+for (const file of ['index.html', 'privacy.html', 'terms.html', 'preview.html', 'robots.txt']) {
   const before = await read(file);
   let after = before;
   for (const host of HOSTS) if (host !== CONFIG.siteUrl) after = after.split(host).join(CONFIG.siteUrl);

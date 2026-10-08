@@ -93,7 +93,7 @@ export const CONFIG = {
     instagram: 'https://www.instagram.com/ryth_william',
     tiktok: 'https://www.tiktok.com/@rythvararealtor',
     facebook: 'https://www.facebook.com/share/1DZJzdaQ4v/',
-    linkedin: '',
+    linkedin: 'https://www.linkedin.com/in/ryth-vara-a6b87b3a2/',
   },
 
   portrait: 'assets/img/ryth-vara.jpg',
