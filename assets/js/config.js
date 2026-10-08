@@ -33,9 +33,34 @@ export const CONFIG = {
 
   languages: ['English', 'Español'],
 
-  // Shown as the service-area line. Broad by default; narrow it to the
-  // counties you actually work if you would rather be specific.
-  serviceArea: 'Serving buyers and sellers across Pennsylvania',
+  /**
+   * The public address of the site. Every absolute URL — link previews
+   * (og:image), canonical links, the sitemap and the schema data — is built
+   * from this. Switch it to 'https://rythvara.com/' the day that domain is
+   * registered and connected, then run `node tools/prerender.mjs`.
+   */
+  siteUrl: 'https://rythrealtor-pa.github.io/start/',
+
+  /**
+   * Office address. Shown beside the contact details and in the footer, and
+   * given to search engines as the business address. Keep it character for
+   * character the same as on Google Business Profile, Zillow and Realtor.com —
+   * consistent name/address/phone across listings is what local search trusts.
+   */
+  office: {
+    street: '1636 US 209, Suite 106',
+    city: 'Brodheadsville',
+    region: 'PA',
+    postalCode: '18322',
+    country: 'US',
+  },
+
+  /** Counties and towns served — the schema's areaServed, in this order. */
+  serviceAreas: {
+    counties: ['Monroe County', 'Northampton County'],
+    towns: ['Stroudsburg', 'Tannersville', 'Pocono Pines', 'Saylorsburg',
+            'Bethlehem', 'Nazareth', 'Easton', 'Bath'],
+  },
 
   // Tracking parameters are stripped: the ?stkn / ?_r / ?mibextid strings these
   // links arrive with are share-session tokens, not part of the profile URL.

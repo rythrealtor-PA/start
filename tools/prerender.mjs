@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Writes the data-driven text into index.html — contact facts, social links,
- * the licence line, listings and testimonials — so it is in the HTML source
+ * Writes the data-driven text into index.html — contact facts, office
+ * address, social links, the licence line, listings, testimonials and the
+ * schema data search engines read — so it is in the HTML source
  * that search engines and link previews read, not only injected by JavaScript.
  *
  * Run after editing assets/js/config.js or the files in assets/data/ by hand:
@@ -14,7 +15,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { CONFIG } from '../assets/js/config.js';
-import { renderAllBlocks } from '../assets/js/render.js';
+import { renderAllBlocks, renderFooterBlocks } from '../assets/js/render.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => readFile(root + p, 'utf8');
@@ -27,3 +28,24 @@ const out = renderAllBlocks(html, {
 });
 await writeFile(root + 'index.html', out);
 console.log(out === html ? 'index.html already up to date' : 'index.html updated');
+
+// Every absolute URL — canonical links, link-preview tags, sitemap, robots —
+// follows config.siteUrl, so connecting the domain later is a one-line change.
+const HOSTS = ['https://rythvara.com/', 'https://rythrealtor-pa.github.io/start/'];
+for (const file of ['index.html', 'privacy.html', 'terms.html', 'preview.html', 'sitemap.xml', 'robots.txt']) {
+  const before = await read(file);
+  let after = before;
+  for (const host of HOSTS) if (host !== CONFIG.siteUrl) after = after.split(host).join(CONFIG.siteUrl);
+  if (after !== before) {
+    await writeFile(root + file, after);
+    console.log(`${file}: addresses now point at ${CONFIG.siteUrl}`);
+  }
+}
+
+// The other pages share the footer: licence line and office address.
+for (const page of ['privacy.html', 'terms.html', '404.html']) {
+  const before = await read(page);
+  const after = renderFooterBlocks(before, CONFIG);
+  await writeFile(root + page, after);
+  console.log(after === before ? `${page} already up to date` : `${page} updated`);
+}

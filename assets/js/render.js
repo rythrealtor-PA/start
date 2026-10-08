@@ -44,9 +44,22 @@ export function factsHTML(config) {
   return [
     fact('Email', contact.email, `mailto:${contact.email}`),
     fact('Phone', contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
+    fact('Office', officeLine(config), mapsUrl(config)),
     fact('Languages', languages.join(' · ')),
   ].join('');
 }
+
+/** "1636 US 209, Suite 106, Brodheadsville, PA 18322" — or '' if unset. */
+export function officeLine(config) {
+  const o = config.office;
+  if (!o?.street) return '';
+  return `${o.street}, ${o.city}, ${o.region} ${o.postalCode}`.trim();
+}
+
+const mapsUrl = (config) =>
+  officeLine(config)
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeLine(config))}`
+    : null;
 
 /** Capitalisation these brands actually use — "Tiktok" would be wrong. */
 const SOCIAL_LABELS = {
@@ -121,6 +134,80 @@ export function testimonialHTML(item) {
         </figure>`;
 }
 
+/* ─────────────────────────────── schema ──────────────────────────────── */
+
+/**
+ * The structured data search engines read: who Ryth is (a RealEstateAgent),
+ * licence, brokerage, team, office address, languages, the areas served,
+ * social profiles, and every testimonial as a Review — all built from the same
+ * config and data as the visible page, so the two can never disagree.
+ *
+ * No star rating is given: the testimonials do not carry one, and inventing
+ * one would be both false and against Google's review guidelines.
+ */
+export function schemaJSON(config, testimonials) {
+  const site = config.siteUrl;
+  const o = config.office;
+  const social = Object.values(config.social).filter(Boolean);
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    '@id': `${site}#agent`,
+    name: config.name,
+    url: site,
+    image: `${site}${config.portrait}`,
+    telephone: `+1-${config.contact.phoneHref.replace(/^\+1/, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}`,
+    email: config.contact.email,
+    knowsLanguage: ['en', 'es'],
+    ...(o?.street && {
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: o.street,
+        addressLocality: o.city,
+        addressRegion: o.region,
+        postalCode: o.postalCode,
+        addressCountry: o.country,
+      },
+    }),
+    areaServed: [
+      ...config.serviceAreas.counties.map((c) => ({ '@type': 'AdministrativeArea', name: `${c}, Pennsylvania` })),
+      ...config.serviceAreas.towns.map((t) => ({ '@type': 'City', name: `${t}, PA` })),
+    ],
+    ...(config.license && {
+      hasCredential: {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'license',
+        name: 'Pennsylvania Real Estate Salesperson License',
+        identifier: config.license,
+        recognizedBy: {
+          '@type': 'GovernmentOrganization',
+          name: 'Pennsylvania State Real Estate Commission',
+        },
+      },
+    }),
+    ...(config.brokerage && {
+      parentOrganization: { '@type': 'RealEstateAgent', name: config.brokerage },
+    }),
+    ...(config.team && { memberOf: { '@type': 'Organization', name: config.team } }),
+    ...(social.length && { sameAs: social }),
+    ...(testimonials.length && {
+      review: testimonials.map((t) => ({
+        '@type': 'Review',
+        author: { '@type': 'Person', name: t.name },
+        reviewBody: t.quote,
+        itemReviewed: { '@id': `${site}#agent` },
+      })),
+    }),
+  };
+  return data;
+}
+
+/** The schema as a <script> tag. "<" is escaped so no text can close it early. */
+export function schemaHTML(config, testimonials) {
+  const json = JSON.stringify(schemaJSON(config, testimonials), null, 2).replace(/</g, '\\u003c');
+  return `\n<script type="application/ld+json">\n${json}\n</script>`;
+}
+
 /* ──────────────────────────────── blocks ─────────────────────────────── */
 
 /**
@@ -137,9 +224,24 @@ export function replaceBlock(html, name, inner) {
   return html.slice(0, start + open.length) + inner + '\n        ' + html.slice(end);
 }
 
+/**
+ * The footer blocks every page shares — the licence line and the office
+ * address. Unlike renderAllBlocks, missing markers are skipped, since not
+ * every page has every block.
+ */
+export function renderFooterBlocks(html, config) {
+  let out = html;
+  for (const [name, inner] of [['legal', esc(legalLine(config))], ['office', esc(officeLine(config))]]) {
+    if (out.includes(`<!-- prerender:${name} -->`)) out = replaceBlock(out, name, inner);
+  }
+  return out;
+}
+
 /** Every data-driven block, rendered from config and the two data files. */
 export function renderAllBlocks(html, { config, listings, testimonials }) {
   let out = html;
+  out = replaceBlock(out, 'schema', schemaHTML(config, testimonials));
+  out = replaceBlock(out, 'office', esc(officeLine(config)));
   out = replaceBlock(out, 'facts', factsHTML(config));
   out = replaceBlock(out, 'social', socialHTML(config));
   out = replaceBlock(out, 'legal', esc(legalLine(config)));
