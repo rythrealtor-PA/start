@@ -6,19 +6,11 @@
 import { CONFIG } from './config.js';
 
 /**
- * The footer's identification line. Pennsylvania requires advertising to name
- * the broker, so the brokerage and licence number are built from config rather
- * than typed into the markup where they could drift out of sync with the bio.
+ * The licence line and office address are written into each page's HTML by
+ * tools/prerender.mjs (from the same render.js functions), so they are already
+ * there for search engines. Only the year is filled in here.
  */
 export function renderFooter(root = document) {
-  const legal = root.querySelector('[data-footer-legal]');
-  if (legal) {
-    legal.textContent = [
-      `${CONFIG.name} — ${CONFIG.role}, ${CONFIG.state}`,
-      CONFIG.license ? `License ${CONFIG.license}` : '',
-      CONFIG.brokerage ? `Brokered by ${CONFIG.brokerage}` : '',
-    ].filter(Boolean).join(' · ');
-  }
   const year = root.querySelector('[data-year]');
   if (year) year.textContent = new Date().getFullYear();
 }

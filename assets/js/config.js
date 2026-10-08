@@ -7,6 +7,10 @@
  */
 export const CONFIG = {
   name: 'Ryth Vara',
+  // The name on the licence and the MLS ("Ryth Vara Verastegui"). Given to
+  // search engines as an alternate name so MLS listings, Realtor.com and this
+  // site are recognised as the same person.
+  legalName: 'Ryth Vara Verastegui',
   role: 'Real Estate Agent',
   state: 'Pennsylvania',
 
@@ -17,6 +21,11 @@ export const CONFIG = {
     // The href carries the +1 country code so the link works from abroad.
     phone: '929.345.6838',
     phoneHref: '+19293456838',
+
+    // The brokerage office line, shown beside the brokerage name in the
+    // footer (Pennsylvania advertising rules expect the broker's number).
+    officePhone: '570.801.7441',
+    officePhoneHref: '+15708017441',
   },
 
   // Pennsylvania requires advertising to identify the broker, so `brokerage`
@@ -54,6 +63,21 @@ export const CONFIG = {
     postalCode: '18322',
     country: 'US',
   },
+
+  /** Hours, as shown on Google Business Profile. */
+  hours: 'Open 24/7',
+  open24h: true,
+
+  /** What Ryth specialises in — shown to search engines as his expertise. */
+  specialties: ['Luxury real estate', 'Real estate investors', 'Spanish-speaking families'],
+
+  /**
+   * Other profiles that describe Ryth (beyond the social links): search
+   * engines use them to confirm this site, the MLS and these are one person.
+   */
+  profiles: [
+    'https://www.realtor.com/realestateagents/694acaadf16e5b22934e2f8a',
+  ],
 
   /** Counties and towns served — the schema's areaServed, in this order. */
   serviceAreas: {

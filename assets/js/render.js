@@ -45,8 +45,21 @@ export function factsHTML(config) {
     fact('Email', contact.email, `mailto:${contact.email}`),
     fact('Phone', contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
     fact('Office', officeLine(config), mapsUrl(config)),
+    fact('Hours', config.hours),
     fact('Languages', languages.join(' · ')),
   ].join('');
+}
+
+/**
+ * The footer's office line: address, hours and the area served — the three
+ * things local search looks for in a footer.
+ */
+export function footerOfficeLine(config) {
+  return [
+    officeLine(config),
+    config.hours,
+    `Serving ${config.serviceAreas.counties.join(' & ')}`,
+  ].filter(Boolean).join(' · ');
 }
 
 /** "1636 US 209, Suite 106, Brodheadsville, PA 18322" — or '' if unset. */
@@ -86,6 +99,7 @@ export function legalLine(config) {
     `${config.name} — ${config.role}, ${config.state}`,
     config.license ? `License ${config.license}` : '',
     config.brokerage ? `Brokered by ${config.brokerage}` : '',
+    config.contact.officePhone ? `Office ${config.contact.officePhone}` : '',
   ].filter(Boolean).join(' · ');
 }
 
@@ -136,6 +150,11 @@ export function testimonialHTML(item) {
 
 /* ─────────────────────────────── schema ──────────────────────────────── */
 
+/** "Luxury real estate" -> "luxury real estate"; "Spanish-…" stays capitalised. */
+const sentenceCase = (x) => (/^(Spanish|English)/.test(x) ? x : x[0].toLowerCase() + x.slice(1));
+/** ["a", "b", "c"] -> "a, b, and c". */
+const listSentence = (xs) => (xs.length < 3 ? xs.join(' and ') : `${xs.slice(0, -1).join(', ')}, and ${xs.at(-1)}`);
+
 /**
  * The structured data search engines read: who Ryth is (a RealEstateAgent),
  * licence, brokerage, team, office address, languages, the areas served,
@@ -148,17 +167,31 @@ export function testimonialHTML(item) {
 export function schemaJSON(config, testimonials) {
   const site = config.siteUrl;
   const o = config.office;
-  const social = Object.values(config.social).filter(Boolean);
+  const social = [...Object.values(config.social), ...(config.profiles ?? [])].filter(Boolean);
   const data = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     '@id': `${site}#agent`,
     name: config.name,
+    ...(config.legalName && { alternateName: config.legalName }),
+    description:
+      `Bilingual (English and Spanish) REALTOR® with ${config.brokerage}, serving ` +
+      `${config.serviceAreas.counties.join(' and ')}, Pennsylvania. ` +
+      `Specializes in ${listSentence(config.specialties.map(sentenceCase))}.`,
+    knowsAbout: config.specialties,
     url: site,
     image: `${site}${config.portrait}`,
     telephone: `+1-${config.contact.phoneHref.replace(/^\+1/, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}`,
     email: config.contact.email,
     knowsLanguage: ['en', 'es'],
+    ...(config.open24h && {
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    }),
     ...(o?.street && {
       address: {
         '@type': 'PostalAddress',
@@ -186,7 +219,13 @@ export function schemaJSON(config, testimonials) {
       },
     }),
     ...(config.brokerage && {
-      parentOrganization: { '@type': 'RealEstateAgent', name: config.brokerage },
+      parentOrganization: {
+        '@type': 'RealEstateAgent',
+        name: config.brokerage,
+        ...(config.contact.officePhoneHref && {
+          telephone: `+1-${config.contact.officePhoneHref.replace(/^\+1/, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}`,
+        }),
+      },
     }),
     ...(config.team && { memberOf: { '@type': 'Organization', name: config.team } }),
     ...(social.length && { sameAs: social }),
@@ -231,7 +270,7 @@ export function replaceBlock(html, name, inner) {
  */
 export function renderFooterBlocks(html, config) {
   let out = html;
-  for (const [name, inner] of [['legal', esc(legalLine(config))], ['office', esc(officeLine(config))]]) {
+  for (const [name, inner] of [['legal', esc(legalLine(config))], ['office', esc(footerOfficeLine(config))]]) {
     if (out.includes(`<!-- prerender:${name} -->`)) out = replaceBlock(out, name, inner);
   }
   return out;
@@ -241,7 +280,7 @@ export function renderFooterBlocks(html, config) {
 export function renderAllBlocks(html, { config, listings, testimonials }) {
   let out = html;
   out = replaceBlock(out, 'schema', schemaHTML(config, testimonials));
-  out = replaceBlock(out, 'office', esc(officeLine(config)));
+  out = replaceBlock(out, 'office', esc(footerOfficeLine(config)));
   out = replaceBlock(out, 'facts', factsHTML(config));
   out = replaceBlock(out, 'social', socialHTML(config));
   out = replaceBlock(out, 'legal', esc(legalLine(config)));
