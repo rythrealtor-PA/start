@@ -963,3 +963,176 @@ a { color: var(--brass-lt); }
 @media (max-width: 30rem) {
   .guide-author { flex-direction: column; }
 }
+
+/* County maps (tools/maps.mjs): inline SVG, so they take the page's colors.
+   Sizes are in map units; the map is 800 units wide and never drawn narrower
+   than 600px, so names stay readable. On a phone it scrolls sideways in its
+   own box (page.js starts it at the highlighted town). */
+.cmap { margin: 1.5rem 0 2rem; }
+.cmap__scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 1px solid var(--border);
+  background: var(--slate);
+}
+.cmap__svg { display: block; width: 100%; min-width: 600px; height: auto; }
+.cmap__scroll:focus-visible,
+.table-wrap:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.cmap__area {
+  fill: var(--slate-3);
+  stroke: rgba(242, 238, 231, 0.32);
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.cmap__area.is-hl { fill: var(--brass); }
+.cmap__area.str-green { fill: #63a777; }
+.cmap__area.str-yellow { fill: #d8b64e; }
+.cmap__area.str-red { fill: #cf6a5f; }
+.cmap__label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  fill: var(--ivory-dim);
+  text-anchor: middle;
+}
+.cmap__label--sm { font-size: 13.5px; }
+.cmap__label.is-hl,
+.cmap__svg--str .cmap__label { fill: var(--slate); font-weight: 600; }
+.cmap__num circle { fill: var(--slate); stroke: var(--ivory-dim); stroke-width: 1.2; }
+.cmap__num text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--ivory);
+  text-anchor: middle;
+}
+.cmap__leader { stroke: var(--ivory-dim); stroke-width: 1.2; }
+.cmap__pin { fill: var(--ivory-dim); }
+.cmap__mark circle { fill: var(--ivory); stroke: var(--slate); stroke-width: 2.5; }
+.cmap__mlabel {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 600;
+  fill: var(--ivory);
+  stroke: var(--slate);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  paint-order: stroke;
+}
+.cmap figcaption { font-size: 0.88rem; color: var(--ivory-dim); margin-top: 0.75rem; }
+.cmap__hint { display: none; }
+@media (max-width: 40rem) { .cmap__hint { display: inline; } }
+.cmap__list { font-size: 0.92rem; margin: 0 0 1.5rem; }
+.cmap__list p { margin: 0 0 0.5rem; }
+
+/* Short-term rental colors, shared by the map, its legend and the table. */
+.str-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.6rem;
+  color: var(--ivory);
+}
+.str-legend li { margin: 0; }
+.str-swatch {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.45em;
+  vertical-align: -0.05em;
+  border-radius: 2px;
+}
+.str-swatch--green { background: #63a777; }
+.str-swatch--yellow { background: #d8b64e; }
+.str-swatch--red { background: #cf6a5f; }
+
+/* Tables: scroll sideways on a phone instead of squeezing the columns. */
+.table-wrap { overflow-x: auto; margin: 0 0 1.5rem; border: 1px solid var(--border); }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 34rem; }
+.table-wrap caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: var(--ivory);
+  font-weight: 600;
+}
+.table-wrap th,
+.table-wrap td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--border);
+}
+.table-wrap thead th {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brass-lt);
+  font-weight: 600;
+  background: var(--slate-2);
+}
+.table-wrap tbody th { color: var(--ivory); font-weight: 600; }
+.str-table td:nth-child(2) { white-space: nowrap; }
+
+/* Market numbers. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 1rem;
+  margin: 0 0 0.75rem;
+}
+.doc__body .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--slate-2);
+  border: 1px solid var(--border);
+}
+.stat__value {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 36;
+  font-size: 1.6rem;
+  color: var(--ivory);
+}
+.stat__label { font-size: 0.85rem; }
+.stats__note { font-size: 0.85rem; }
+
+/* Photos. */
+.guide-photo { margin: 0 0 1.75rem; }
+.guide-photo img { width: 100%; height: auto; border: 1px solid var(--border); }
+.guide-photo figcaption { font-size: 0.85rem; margin-top: 0.6rem; }
+.guide-photo__credit { opacity: 0.75; }
+.guide-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+}
+.guide-photos .guide-photo { margin: 0; }
+
+/* Ryth's take: his own words, set apart from the rest of the guide. */
+.guide-take {
+  margin: 0 0 1.5rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--slate-2);
+  border-left: 2px solid var(--brass);
+}
+.guide-take blockquote { margin: 0 0 0.75rem; }
+.guide-take blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 30;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--ivory);
+}
+.guide-take figcaption {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-lt);
+}

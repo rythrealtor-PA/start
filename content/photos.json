@@ -1,0 +1,3 @@
+{
+  "_about": "Photos for the guides. Put the image in assets/img/guides/ (about 1600px wide, WebP or JPG, under 300 KB) and add it under the guide's name: { \"src\": \"assets/img/guides/stroudsburg-main-street.webp\", \"alt\": \"what the photo shows\", \"caption\": \"one line under the photo\", \"credit\": \"Photo: Ryth Vara\", \"width\": 1600, \"height\": 1067 }. The first photo shows under the short answer; the investing guide shows all of them in Step 4."
+}

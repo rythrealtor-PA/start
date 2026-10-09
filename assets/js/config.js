@@ -82,8 +82,8 @@ export const CONFIG = {
   /** Counties and towns served — the schema's areaServed, in this order. */
   serviceAreas: {
     counties: ['Monroe County', 'Northampton County'],
-    towns: ['Stroudsburg', 'Tannersville', 'Pocono Pines', 'Saylorsburg',
-            'Bethlehem', 'Nazareth', 'Easton', 'Bath'],
+    towns: ['Stroudsburg', 'East Stroudsburg', 'Tannersville', 'Pocono Pines',
+            'Saylorsburg', 'Bethlehem', 'Nazareth', 'Easton', 'Bath'],
   },
 
   // Tracking parameters are stripped: the ?stkn / ?_r / ?mibextid strings these

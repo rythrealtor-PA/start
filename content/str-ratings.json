@@ -1,0 +1,27 @@
+{
+  "_about": "Ryth's short-term rental rating for each Monroe County municipality, shown as the colored map and the table on the investing guide. green = easier, yellow = possible, with limits, red = very difficult. 'why' is the one-line reason shown in the table. Change asOf whenever a rating changes.",
+  "county": "monroe",
+  "asOf": "October 2026",
+  "ratings": {
+    "Barrett township": { "color": "green", "why": "Allowed with a township permit. The township is reviewing its ordinance, so check for changes before you buy." },
+    "Middle Smithfield township": { "color": "green", "why": "Allowed with a township permit and occupancy limits. Close to Shawnee Mountain, the Delaware Water Gap and Bushkill Falls." },
+    "Tobyhanna township": { "color": "green", "why": "Allowed with a township license, for up to 2 people per bedroom plus 2. The township lifted its cap on licenses in 2025." },
+    "Tunkhannock township": { "color": "green", "why": "Allowed with a permit and inspection, including in residential communities such as parts of Emerald Lakes and Indian Mountain Lakes." },
+    "Eldred township": { "color": "yellow", "why": "Allowed only in some zoning districts, and only with a conditional use the township approves case by case." },
+    "Jackson township": { "color": "yellow", "why": "New licenses only in the recreation/commercial, commercial, conservation and village districts, not in residential areas." },
+    "Polk township": { "color": "yellow", "why": "The revised ordinance keeps rentals out of residential neighborhoods. Confirm any existing license with the township before you buy." },
+    "Price township": { "color": "yellow", "why": "No short-term rental ordinance yet, so the rules are unsettled. A zoning approval protects you if limits come later." },
+    "Stroud township": { "color": "yellow", "why": "Allowed only in the C-3 district, with exceptions for the Penn Estates and Blue Mountain Lake communities. Permit and inspection required." },
+    "Chestnuthill township": { "color": "red", "why": "Allowed only on properties in a general commercial zone, with a permit." },
+    "Coolbaugh township": { "color": "red", "why": "The township tightened its rules in 2025, including where rentals are allowed and septic requirements, and many homes are in private communities with their own rental rules." },
+    "Delaware Water Gap borough": { "color": "red", "why": "Allowed only in a very small section of the borough, with a license." },
+    "East Stroudsburg borough": { "color": "red", "why": "Licenses are limited to commercial and industrial zones. A home in a residential area needs a variance or conditional use." },
+    "Hamilton township": { "color": "red", "why": "Not allowed in the township's residential areas. In a commercial zone it needs zoning board approval as a hotel or motel use." },
+    "Mount Pocono borough": { "color": "red", "why": "Allowed only in the C-1 and C-2 commercial districts. New licenses in the R-2 district ended in 2023." },
+    "Paradise township": { "color": "red", "why": "Allowed only in the business (resort development) districts, not in residential areas." },
+    "Pocono township": { "color": "red", "why": "Allowed only in the Commercial and Recreational districts, with an annual license, an inspection and $500,000 in liability insurance." },
+    "Ross township": { "color": "red", "why": "Allowed only in general commercial and village commercial zones, not in residential areas." },
+    "Smithfield township": { "color": "red", "why": "Allowed only in the resort district, which is mostly Shawnee Mountain and the former Shawnee Village." },
+    "Stroudsburg borough": { "color": "red", "why": "Not allowed in the residential districts (R-1, R-2 and R-3). Elsewhere a license and a yearly inspection are required." }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "_about": "Market numbers for each area guide, from Ryth's MLS. Leave a guide at null and its 'Market numbers' section stays hidden. To fill one, replace null with: { \"median\": 315000, \"sold\": 412, \"dom\": 45, \"scope\": \"Single-family homes and condos sold in Stroud Township, Stroudsburg and East Stroudsburg\", \"period\": \"October 2025 to September 2026\", \"source\": \"Pocono Mountains MLS, pulled October 2026\" } (median = median sale price, sold = homes sold in the last 12 months, dom = average days on market).",
+  "monroe-county": null,
+  "northampton-county": null,
+  "stroudsburg-east-stroudsburg": null,
+  "tannersville": null,
+  "pocono-pines": null,
+  "bethlehem": null
+}

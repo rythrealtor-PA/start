@@ -39,10 +39,35 @@
  *   Its answer.
  *
  * "## Questions" is special: each "###" under it becomes a question.
+ *
+ * ── Slots ─────────────────────────────────────────────────────────────────
+ *
+ * A line holding only {{name}} drops in a block built from data:
+ *
+ *   {{photo}}      the guide's first photo        content/photos.json
+ *   {{photos}}     all of the guide's photos      content/photos.json
+ *   {{map}}        the county map                 front matter: map, highlight, marker
+ *   {{market}}     median price, sales, days      content/market.json
+ *   {{take}}       Ryth's own words               front matter: take
+ *   {{str-map}}    rental rules map, by color     content/str-ratings.json
+ *   {{str-table}}  the same, as a table           content/str-ratings.json
+ *
+ *   map: monroe                        (monroe or northampton)
+ *   highlight: Pocono township         (Census names, comma separated)
+ *   marker: Tannersville @ 41.0401, -75.3057
+ *   aliases: old-slug                  (old addresses that redirect here)
+ *
+ * A slot with no data yet renders nothing, and a "##" section left empty
+ * is dropped, so a page never shows an empty box. Pipe tables work too:
+ *
+ *   | Column | Column |
+ *   | --- | --- |
+ *   | cell | cell |
  */
-import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, readdir, mkdir, unlink, access } from 'node:fs/promises';
 import { CONFIG } from '../assets/js/config.js';
 import { esc, legalLine, footerOfficeLine } from '../assets/js/render.js';
+import { countyMap } from './maps.mjs';
 
 const CATEGORY_ORDER = ['Counties', 'Towns', 'Buying', 'Selling', 'Investing'];
 
@@ -63,11 +88,21 @@ function parseFrontMatter(text, file) {
     throw new Error(`${file}: category must be one of ${CATEGORY_ORDER.join(', ')}`);
   }
   const list = (v) => (v ? v.split(',').map((s) => s.trim()).filter(Boolean) : []);
+  let marker = null;
+  if (meta.marker) {
+    const mk = meta.marker.match(/^(.+?)\s*@\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)$/);
+    if (!mk) throw new Error(`${file}: marker must look like "Town @ 41.04, -75.30"`);
+    marker = { label: mk[1], lat: Number(mk[2]), lon: Number(mk[3]) };
+  }
   return {
     ...meta,
     published: meta.published || meta.updated,
+    places: meta.place ? meta.place.split(';').map((p) => p.trim()) : [],
     reviews: list(meta.reviews),
     related: list(meta.related),
+    aliases: list(meta.aliases),
+    highlight: list(meta.highlight),
+    marker,
     featured: /^(yes|true)$/i.test(meta.featured || ''),
     order: Number(meta.order || 100),
     body: m[2],
@@ -84,10 +119,14 @@ function inline(text) {
 
 const slugify = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-/** Splits the body into blocks and renders them; "## Questions" is collected separately. */
-function renderBody(md) {
+/**
+ * Splits the body into blocks and renders them; "## Questions" is collected
+ * separately. slot(name) renders a {{name}} line; a section whose blocks all
+ * render empty is left out, heading and all.
+ */
+function renderBody(md, slot) {
   const blocks = md.trim().split(/\n\s*\n/);
-  const html = [];
+  const sections = [{ heading: null, html: [] }];
   const faqs = [];
   let inQuestions = false;
   let current = null; // the FAQ being filled
@@ -100,12 +139,12 @@ function renderBody(md) {
       const heading = lines[0].slice(3).trim();
       inQuestions = /^questions$/i.test(heading);
       current = null;
-      if (!inQuestions) html.push(`<h2 id="${slugify(heading)}">${inline(heading)}</h2>`);
+      if (!inQuestions) sections.push({ heading, html: [] });
       // A heading may be followed directly by text in the same block.
       const rest = lines.slice(1).join('\n').trim();
       if (rest) {
         if (inQuestions) throw new Error('Put a blank line after "## Questions"');
-        html.push(renderBlock(rest));
+        sections.at(-1).html.push(renderBlock(rest, slot));
       }
       continue;
     }
@@ -122,15 +161,37 @@ function renderBody(md) {
       continue;
     }
 
-    html.push(renderBlock(block));
+    sections.at(-1).html.push(renderBlock(block, slot));
   }
-  return { html: html.join('\n'), faqs };
+
+  const html = sections
+    .filter((sec) => sec.html.some(Boolean))
+    .map((sec) => [sec.heading && `<h2 id="${slugify(sec.heading)}">${inline(sec.heading)}</h2>`, ...sec.html.filter(Boolean)]
+      .filter(Boolean).join('\n'))
+    .join('\n');
+  return { html, faqs };
 }
 
-function renderBlock(block) {
+function renderTable(lines) {
+  const cells = (l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+  const [head, , ...rows] = lines;
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="Table: ${esc(cells(head).join(', '))}"><table>
+  <thead><tr>${cells(head).map((c) => `<th scope="col">${inline(c)}</th>`).join('')}</tr></thead>
+  <tbody>
+${rows.map((r) => `    <tr>${cells(r).map((c, i) => (i === 0 ? `<th scope="row">${inline(c)}</th>` : `<td>${inline(c)}</td>`)).join('')}</tr>`).join('\n')}
+  </tbody>
+</table></div>`;
+}
+
+function renderBlock(block, slot) {
   const lines = block.split('\n');
+  const slotMatch = block.match(/^\{\{([\w-]+)\}\}$/);
+  if (slotMatch) return slot(slotMatch[1]);
   if (/^### /.test(block)) {
-    return `<h3>${inline(lines[0].slice(4))}</h3>` + (lines.length > 1 ? `\n${renderBlock(lines.slice(1).join('\n'))}` : '');
+    return `<h3>${inline(lines[0].slice(4))}</h3>` + (lines.length > 1 ? `\n${renderBlock(lines.slice(1).join('\n'), slot)}` : '');
+  }
+  if (lines.length > 2 && lines.every((l) => /^\|.*\|$/.test(l)) && /^\|[\s:|-]+\|$/.test(lines[1])) {
+    return renderTable(lines);
   }
   if (lines.every((l) => /^- /.test(l))) {
     return `<ul>\n${lines.map((l) => `  <li>${inline(l.slice(2))}</li>`).join('\n')}\n</ul>`;
@@ -262,12 +323,137 @@ function authorBox(prefix) {
     </aside>`;
 }
 
+/* ──────────────────────────────── slots ──────────────────────────────── */
+
+const listSentence = (items) =>
+  (items.length < 3 ? items.join(' and ') : `${items.slice(0, -1).join(', ')} and ${items.at(-1)}`);
+
+/** "Numbers on the map: 1 Delaware Water Gap Borough, ..." */
+function mapKey(items) {
+  const nums = items.filter((i) => i.num).sort((a, b) => a.num - b.num);
+  return nums.length ? ` Numbers on the map: ${nums.map((i) => `${i.num} ${esc(i.full)}`).join(', ')}.` : '';
+}
+
+const HINT = ' <span class="cmap__hint">Swipe sideways to see the whole county.</span>';
+
+function mapSlot(g) {
+  if (!g.map) return '';
+  const m = countyMap(g.map, { highlight: g.highlight, marker: g.marker, idPrefix: `map-${g.slug}` });
+  const hl = m.items.filter((i) => i.hl).map((i) => i.full);
+  const caption = g.mapCaption
+    ? esc(g.mapCaption)
+    : hl.length
+      ? `${esc(listSentence(hl))} ${hl.length > 1 ? 'are' : 'is'} highlighted on this map of ${esc(m.county)}${g.marker ? `; the dot marks ${esc(g.marker.label)}` : ''}.`
+      : `The municipalities of ${esc(m.county)}, from US Census boundaries.`;
+  // A county page lists every municipality under the map, in text.
+  const list = hl.length ? '' : `\n<div class="cmap__list">${[['city', 'Cities'], ['borough', 'Boroughs'], ['township', 'Townships']]
+    .map(([kind, label]) => {
+      const of = m.items.filter((i) => i.kind === kind);
+      return of.length ? `<p>${label} (${of.length}): ${of.map((i) => `${esc(i.base)}${i.num ? ` (${i.num})` : ''}`).join(', ')}.</p>` : '';
+    }).join('')}</div>`;
+  return `<figure class="cmap">
+  <div class="cmap__scroll" tabindex="0" role="region" aria-label="Map of ${esc(m.county)}">${m.svg}</div>
+  <figcaption>${caption}${mapKey(m.items)}${HINT}</figcaption>
+</figure>${list}`;
+}
+
+const STR = {
+  green: 'Easier',
+  yellow: 'Possible, with limits',
+  red: 'Very difficult',
+};
+const STR_ORDER = Object.keys(STR);
+
+function strMapSlot(data) {
+  if (!data) return '';
+  const ratings = Object.fromEntries(Object.entries(data.ratings).map(([name, r]) => [name, r.color]));
+  const m = countyMap(data.county, {
+    ratings,
+    idPrefix: 'map-str',
+    title: `Short-term rental rules by municipality in ${data.county === 'monroe' ? 'Monroe County' : 'Northampton County'}: green, yellow or red`,
+  });
+  return `<figure class="cmap">
+  <div class="cmap__scroll" tabindex="0" role="region" aria-label="Short-term rental map of ${esc(m.county)}">${m.svg}</div>
+  <figcaption>
+    <ul class="str-legend">${STR_ORDER.map((c) => `<li><span class="str-swatch str-swatch--${c}" aria-hidden="true"></span>${c[0].toUpperCase()}${c.slice(1)}: ${STR[c].toLowerCase()}</li>`).join('')}</ul>
+    Ryth's assessment as of ${esc(data.asOf)}. Rules change; confirm with the township before you buy.${mapKey(m.items)}${HINT}
+  </figcaption>
+</figure>`;
+}
+
+function strTableSlot(data) {
+  if (!data) return '';
+  const full = (name) => name.replace(/^(.*) (township|borough)$/, (_, b, k) => `${b} ${k === 'township' ? 'Township' : 'Borough'}`);
+  const rows = Object.entries(data.ratings)
+    .sort(([a, ra], [b, rb]) => STR_ORDER.indexOf(ra.color) - STR_ORDER.indexOf(rb.color) || a.localeCompare(b));
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="Short-term rentals by municipality"><table class="str-table">
+  <caption>Short-term rentals by municipality, ${data.county === 'monroe' ? 'Monroe County' : 'Northampton County'}: Ryth's assessment as of ${esc(data.asOf)}</caption>
+  <thead><tr><th scope="col">Municipality</th><th scope="col">Rating</th><th scope="col">Why</th></tr></thead>
+  <tbody>
+${rows.map(([name, r]) => `    <tr><th scope="row">${esc(full(name))}</th><td><span class="str-swatch str-swatch--${r.color}" aria-hidden="true"></span>${r.color[0].toUpperCase()}${r.color.slice(1)}: ${STR[r.color].toLowerCase()}</td><td>${inline(r.why)}</td></tr>`).join('\n')}
+  </tbody>
+</table></div>`;
+}
+
+function marketSlot(m) {
+  if (!m) return '';
+  const n = (v) => Number(v).toLocaleString('en-US');
+  return `<div class="stats">
+  <p class="stat"><span class="stat__value">$${n(m.median)}</span><span class="stat__label">Median sale price</span></p>
+  <p class="stat"><span class="stat__value">${n(m.sold)}</span><span class="stat__label">Homes sold in the last 12 months</span></p>
+  <p class="stat"><span class="stat__value">${n(m.dom)}</span><span class="stat__label">Average days on market</span></p>
+</div>
+<p class="stats__note">${esc(m.scope)}, ${esc(m.period)}. Source: ${esc(m.source)}.</p>`;
+}
+
+function photoFigure(p, eager) {
+  const caption = [p.caption && esc(p.caption), p.credit && `<span class="guide-photo__credit">${esc(p.credit)}</span>`]
+    .filter(Boolean).join(' ');
+  return `<figure class="guide-photo">
+  <img src="../${esc(p.src)}" alt="${esc(p.alt)}" width="${p.width}" height="${p.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async">${caption ? `
+  <figcaption>${caption}</figcaption>` : ''}
+</figure>`;
+}
+
+function takeSlot(text) {
+  if (!text) return '';
+  return `<figure class="guide-take">
+  <blockquote><p>${inline(text)}</p></blockquote>
+  <figcaption>${esc(CONFIG.name)}, REALTOR&reg;</figcaption>
+</figure>`;
+}
+
+/** What each slot needs, for the placeholders in a draft build. */
+const PENDING = {
+  photo: "Ryth's photo of the town",
+  photos: 'Three photos (Lake Harmony, Lake Naomi, Emerald Lakes)',
+  market: 'Market numbers from the MLS: median sale price, homes sold in the last 12 months, average days on market',
+  take: "Ryth's take, in his own words",
+};
+
 /* ──────────────────────────────── pages ──────────────────────────────── */
 
-function guidePage(g, all, testimonials) {
+function guidePage(g, all, testimonials, data, { drafts = false } = {}) {
   const prefix = '../';
   const url = `${CONFIG.siteUrl}guides/${g.slug}.html`;
-  const { html: bodyHTML, faqs } = renderBody(g.body);
+  const photos = data.photos[g.slug] || [];
+  const slots = {
+    photo: () => (photos[0] ? photoFigure(photos[0], true) : ''),
+    photos: () => (photos.length ? `<div class="guide-photos">\n${photos.map((p) => photoFigure(p, false)).join('\n')}\n</div>` : ''),
+    map: () => mapSlot(g),
+    market: () => marketSlot(data.market[g.slug]),
+    take: () => takeSlot(g.take),
+    'str-map': () => strMapSlot(data.str),
+    'str-table': () => strTableSlot(data.str),
+  };
+  const slot = (name) => {
+    if (!slots[name]) throw new Error(`${g.slug}: unknown slot {{${name}}}`);
+    const html = slots[name]();
+    return html || (drafts && PENDING[name]
+      ? `<p style="border:1px dashed #b08d57;padding:1.25rem;color:#d4b483">Pending: ${esc(PENDING[name])}</p>`
+      : '');
+  };
+  const { html: bodyHTML, faqs } = renderBody(g.body, slot);
   const agentId = `${CONFIG.siteUrl}#agent`;
 
   const reviews = g.reviews.map((name) => {
@@ -292,10 +478,14 @@ function guidePage(g, all, testimonials) {
         datePublished: g.published,
         dateModified: g.updated,
         mainEntityOfPage: url,
-        image: `${CONFIG.siteUrl}assets/img/social-card.jpg`,
+        image: `${CONFIG.siteUrl}${photos[0] ? photos[0].src : 'assets/img/social-card.jpg'}`,
         author: { '@type': 'RealEstateAgent', '@id': agentId, name: CONFIG.name, url: CONFIG.siteUrl },
         publisher: { '@type': 'RealEstateAgent', '@id': agentId, name: CONFIG.name, url: CONFIG.siteUrl },
-        ...(g.place && { about: { '@type': 'Place', name: g.place } }),
+        ...(g.places.length && {
+          about: g.places.length === 1
+            ? { '@type': 'Place', name: g.places[0] }
+            : g.places.map((name) => ({ '@type': 'Place', name })),
+        }),
       },
       {
         '@type': 'BreadcrumbList',
@@ -357,7 +547,7 @@ ${faqs.map((f) => `        <details class="faq__item">
       </div>` : ''}
 
       <div class="guide-cta">
-        <p class="guide-cta__title">Questions about ${esc(g.place ? g.place.replace(/, Pennsylvania$/, '') : 'your move')}?</p>
+        <p class="guide-cta__title">Questions about ${esc(g.places.length ? listSentence(g.places.map((p) => p.replace(/, Pennsylvania$/, ''))) : 'your move')}?</p>
         <p>Ryth answers in English or Spanish — call or text
         <a href="tel:${CONFIG.contact.phoneHref}">${esc(CONFIG.contact.phone)}</a>, or send a message.</p>
         <a class="button button--primary" href="${prefix}./#contact">Contact Ryth</a>
@@ -454,13 +644,75 @@ ${urls.map(([p, d]) => `  <url>
 `;
 }
 
-export async function buildGuides(root) {
+/** An old address that moved: send people (and search engines) to the new one. */
+function redirectPage(alias, g) {
+  const url = `${CONFIG.siteUrl}guides/${g.slug}.html`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>${esc(g.title)}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="${url}">
+<meta http-equiv="refresh" content="0; url=${g.slug}.html">
+</head>
+<body>
+<p>This guide has moved: <a href="${g.slug}.html">${esc(g.title)}</a>.</p>
+</body>
+</html>
+`;
+}
+
+const readJSON = async (path, fallback) => {
+  try {
+    return JSON.parse(await readFile(path, 'utf8'));
+  } catch (e) {
+    if (e.code === 'ENOENT') return fallback;
+    throw new Error(`${path}: ${e.message}`);
+  }
+};
+
+/** Loads the data the slots draw from, and checks every photo file exists. */
+async function loadData(root) {
+  const data = {
+    photos: await readJSON(`${root}content/photos.json`, {}),
+    market: await readJSON(`${root}content/market.json`, {}),
+    str: await readJSON(`${root}content/str-ratings.json`, null),
+  };
+  delete data.photos._about;
+  delete data.market._about;
+  for (const [slug, list] of Object.entries(data.photos)) {
+    for (const p of list) {
+      for (const key of ['src', 'alt', 'width', 'height']) {
+        if (!p[key]) throw new Error(`content/photos.json: ${slug} photo needs "${key}"`);
+      }
+      await access(`${root}${p.src}`).catch(() => { throw new Error(`content/photos.json: ${p.src} not found`); });
+    }
+  }
+  return data;
+}
+
+export async function buildGuides(root, { drafts = false } = {}) {
   const guides = await loadGuides(root);
   const testimonials = JSON.parse(await readFile(`${root}assets/data/testimonials.json`, 'utf8'));
+  const data = await loadData(root);
   await mkdir(`${root}guides`, { recursive: true });
+  const written = new Set(['index.html']);
   for (const g of guides) {
-    await writeFile(`${root}guides/${g.slug}.html`, guidePage(g, guides, testimonials));
+    await writeFile(`${root}guides/${g.slug}.html`, guidePage(g, guides, testimonials, data, { drafts }));
+    written.add(`${g.slug}.html`);
+    for (const alias of g.aliases) {
+      if (written.has(`${alias}.html`) || guides.some((o) => o.slug === alias)) {
+        throw new Error(`${g.slug}: alias "${alias}" is already a page`);
+      }
+      await writeFile(`${root}guides/${alias}.html`, redirectPage(alias, g));
+      written.add(`${alias}.html`);
+    }
   }
   await writeFile(`${root}guides/index.html`, indexPage(guides));
+  // guides/ holds only built pages: remove any left from a guide since deleted.
+  for (const f of await readdir(`${root}guides`)) {
+    if (f.endsWith('.html') && !written.has(f)) await unlink(`${root}guides/${f}`);
+  }
   return guides;
 }
