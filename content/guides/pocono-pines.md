@@ -6,7 +6,7 @@ answer: Living in Pocono Pines means lake life in the higher part of the Poconos
 category: Towns
 place: Pocono Pines, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-09
+updated: 2026-10-11
 order: 3
 reviews: Flor B., Ike A.
 related: monroe-county, tannersville, pocono-vacation-rental-investing
@@ -21,7 +21,7 @@ take: Of course, check the rules of the HOA. Each community has different rules,
 
 {{map}}
 
-Pocono Pines is a village in Tobyhanna Township, on Route 940 between Mount Pocono and Blakeslee. A Pocono Pines mailing address (ZIP 18350) can also be in Coolbaugh Township, to the north.
+Pocono Pines is a village in Tobyhanna Township, where Route 423 meets Route 940, between Mount Pocono and Blakeslee. A Pocono Pines mailing address (ZIP 18350) can also be in Coolbaugh Township, to the north.
 
 ## Market numbers
 

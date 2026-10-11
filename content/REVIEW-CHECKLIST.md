@@ -1,26 +1,33 @@
 # Guide pages: facts for Ryth to confirm
 
-Updated October 9, 2026, after the restructure (county maps, merged
-Stroudsburg and East Stroudsburg page, short-term rental map). Items are
-ordered from most to least important.
+Updated October 11, 2026. Items are ordered from most to least important.
 
 ## Questions only Ryth can answer
 
-- [ ] Coolbaugh Township is red on the short-term rental map, as Ryth set it.
-      Public sources say Coolbaugh allows rentals in residential zones with a
-      license (roughly 800 to 1,000 licenses), and A Pocono Country Place and
-      Pocono Summit, both in Coolbaugh, allow them. Keep red, or change to
-      yellow or green?
-- [ ] "Ryth's take" for Tannersville and Bethlehem (2 to 4 sentences each, in
-      his own words). Those sections stay hidden until then.
-- [ ] Photos: one per town page (Stroudsburg/East Stroudsburg, Tannersville,
-      Pocono Pines, Bethlehem) and three for the investing page (Lake Harmony,
-      Lake Naomi, Emerald Lakes). Ryth's own photos are best.
+- [ ] Photos still needed: Tannersville, Bethlehem, and three for the
+      investing page (Lake Harmony, Lake Naomi, Emerald Lakes). Use your own
+      photos, photos you have written permission to use, or free-license
+      photos (Creative Commons, with the credit line). Not photos copied from
+      other websites, listings or photographers, and not AI images of real
+      places.
 - [ ] Market numbers from the MLS for each area page (median sale price,
       homes sold in the last 12 months, average days on market). They go in
       content/market.json; the prompt for Claude Cowork is in the chat.
-- [ ] Which phone is on the Google Business Profile: 570-801-7441 or the
-      855-450-0442 the MLS shows for the brokerage.
+
+## Settled with Ryth (October 11, 2026)
+
+- Coolbaugh Township is green on the short-term rental map.
+- Ryth's takes for Tannersville and Bethlehem are on the pages (Bethlehem's
+  reworded without "families", school quality or crime, for fair housing).
+- Bethlehem: the seller's resale inspection is no longer in the buyer
+  checklist; added the water line map, the city's homebuyer program and the
+  homestead exclusion.
+- The phone on the Google Business Profile is Ryth's: 929-345-6838.
+- Only the license number (RS380174) goes on the site, not the MLS ID or the
+  NRDS ID.
+- Photos in use, with their required credit lines: downtown Stroudsburg
+  (Quintin Soloviev, CC BY 4.0) and Pocono Pines (Mark Luethi, CC BY-SA
+  4.0), both from Wikimedia Commons.
 
 ## Compliance (check with your broker)
 
@@ -61,6 +68,15 @@ ordered from most to least important.
   July 2026; historic district exterior changes go through HARB and City
   Council; rental units licensed yearly and inspected every three years.
 - Historic Moravian Bethlehem: UNESCO World Heritage Site since 2024.
+- Communities table (investing guide): Indian Mountain Lakes from its 2026
+  rental form ($60 per stay, $100 yearly permit, $10 wristbands, gates admit
+  only registered guests); Lake Harmony Estates from its own beach page;
+  Lake Naomi from the club's 2026 fee sheet. Emerald Lakes, Penn Estates,
+  A Pocono Country Place and Stillwater Lake Estates from rental listings
+  and agent sites; confirm with each association.
+- Bethlehem: the city's Service Line Inventory map (water line material) and
+  the Bethlehem Homebuyer Assistance Program (up to 10% down payment plus
+  closing costs, 0% loan forgiven over 10 years, income limits apply).
 - Village townships, from Census and USGS place data: Tannersville and
   Bartonsville (Pocono), Pocono Pines and Blakeslee (Tobyhanna), Tobyhanna
   village (Coolbaugh), Long Pond (Tunkhannock), Effort (Chestnuthill),

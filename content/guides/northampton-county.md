@@ -5,7 +5,7 @@ description: Northampton County, PA: the Lehigh Valley next to New Jersey, I-78 
 answer: Northampton County is the eastern half of the Lehigh Valley, on the New Jersey border. Life here is more suburban than in the Poconos, with a bigger job market, colleges and universities, and downtowns in Bethlehem and Easton full of restaurants, parks and public art. The history is still there too: Bethlehem's Moravian district is a UNESCO World Heritage Site. I-78 and Route 22 lead into New Jersey, Route 33 goes north to the Poconos, and the county seat is Easton.
 category: Counties
 published: 2026-10-08
-updated: 2026-10-09
+updated: 2026-10-11
 featured: yes
 order: 2
 reviews: Steven B., Cesar A.
@@ -58,7 +58,7 @@ The county is also home to Lehigh University and Moravian University in Bethlehe
 ## What to check before you buy
 
 - The municipality. A "Bethlehem" or "Easton" mailing address can be in the city or in a neighboring township, with different taxes and services.
-- The resale or use and occupancy (U&O) inspection. Many municipalities here, including the City of Bethlehem, require one before a home is sold.
+- The resale or use and occupancy (U&O) inspection report. Many municipalities here require one before a home is sold. Read it before you sign, and agree in writing on who fixes any violations it lists.
 - Older homes. Homes built before 1978 come with a lead-based paint disclosure, and older wiring, plumbing and foundations deserve a careful inspection.
 - Flood zones near the Lehigh and Delaware rivers and their creeks.
 - HOA rules and fees in newer communities.

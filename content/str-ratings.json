@@ -3,6 +3,7 @@
   "county": "monroe",
   "asOf": "October 2026",
   "ratings": {
+    "Coolbaugh township": { "color": "green", "why": "Allowed in residential zones with a township license and a yearly inspection, for up to 14 guests. Communities such as A Pocono Country Place and Stillwater Lake Estates allow rentals." },
     "Barrett township": { "color": "green", "why": "Allowed with a township permit. The township is reviewing its ordinance, so check for changes before you buy." },
     "Middle Smithfield township": { "color": "green", "why": "Allowed with a township permit and occupancy limits. Close to Shawnee Mountain, the Delaware Water Gap and Bushkill Falls." },
     "Tobyhanna township": { "color": "green", "why": "Allowed with a township license, for up to 2 people per bedroom plus 2. The township lifted its cap on licenses in 2025." },
@@ -13,7 +14,6 @@
     "Price township": { "color": "yellow", "why": "No short-term rental ordinance yet, so the rules are unsettled. A zoning approval protects you if limits come later." },
     "Stroud township": { "color": "yellow", "why": "Allowed only in the C-3 district, with exceptions for the Penn Estates and Blue Mountain Lake communities. Permit and inspection required." },
     "Chestnuthill township": { "color": "red", "why": "Allowed only on properties in a general commercial zone, with a permit." },
-    "Coolbaugh township": { "color": "red", "why": "The township tightened its rules in 2025, including where rentals are allowed and septic requirements, and many homes are in private communities with their own rental rules." },
     "Delaware Water Gap borough": { "color": "red", "why": "Allowed only in a very small section of the borough, with a license." },
     "East Stroudsburg borough": { "color": "red", "why": "Licenses are limited to commercial and industrial zones. A home in a residential area needs a variance or conditional use." },
     "Hamilton township": { "color": "red", "why": "Not allowed in the township's residential areas. In a commercial zone it needs zoning board approval as a hotel or motel use." },

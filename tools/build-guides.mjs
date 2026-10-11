@@ -407,7 +407,7 @@ function marketSlot(m) {
 }
 
 function photoFigure(p, eager) {
-  const caption = [p.caption && esc(p.caption), p.credit && `<span class="guide-photo__credit">${esc(p.credit)}</span>`]
+  const caption = [p.caption && esc(p.caption), p.credit && `<span class="guide-photo__credit">${inline(p.credit)}</span>`]
     .filter(Boolean).join(' ');
   return `<figure class="guide-photo">
   <img src="../${esc(p.src)}" alt="${esc(p.alt)}" width="${p.width}" height="${p.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async">${caption ? `
