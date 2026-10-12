@@ -6,7 +6,7 @@ answer: Living in Tannersville means having the mountain at your door. Camelback
 category: Towns
 place: Tannersville, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-11
+updated: 2026-10-12
 order: 2
 reviews: Ike A., Steven B.
 related: monroe-county, stroudsburg-east-stroudsburg, pocono-pines, pocono-vacation-rental-investing

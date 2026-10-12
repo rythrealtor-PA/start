@@ -6,7 +6,7 @@ answer: Living in Stroudsburg and East Stroudsburg means being close to everythi
 category: Towns
 place: Stroudsburg, Pennsylvania; East Stroudsburg, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-11
+updated: 2026-10-12
 order: 1
 reviews: Steven B.
 related: monroe-county, tannersville, pocono-vacation-rental-investing

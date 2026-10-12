@@ -6,7 +6,7 @@ answer: Living in Pocono Pines means lake life in the higher part of the Poconos
 category: Towns
 place: Pocono Pines, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-11
+updated: 2026-10-12
 order: 3
 reviews: Flor B., Ike A.
 related: monroe-county, tannersville, pocono-vacation-rental-investing

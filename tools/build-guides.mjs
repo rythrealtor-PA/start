@@ -123,6 +123,10 @@ const countyEs = (name) => `el condado de ${name.replace(/ County$/, '')}`;
 const de = (name) => `de ${name}`.replace(/^de el /, 'del ');
 const countiesEs = () => listEs(CONFIG.serviceAreas.counties.map((c) => c.replace(/ County$/, '')));
 
+const num = (v) => Number(v).toLocaleString('en-US');
+/** "Single-family homes…" -> "single-family homes…", to sit mid-sentence. */
+const lower = (s) => s[0].toLowerCase() + s.slice(1);
+
 /**
  * Everything the page templates say, per language. `dir` is where the pages
  * go; `root` leads from a guide back to the site root, `home` to that
@@ -199,6 +203,13 @@ const L = {
     why: (r) => r.why,
     market: ['Median sale price', 'Homes sold in the last 12 months', 'Average days on market', 'Source'],
     marketText: (m) => [m.scope, m.period, m.source],
+    // The question people ask about these numbers, answered from them.
+    marketFaq: (m) => m.place && {
+      q: `What is the median home price in ${m.place}?`,
+      a: [`The median sale price was $${num(m.median)} for ${lower(m.scope)}, from ${m.period}. `
+        + `In that time, ${num(m.sold)} homes sold, and they spent an average of ${num(m.dom)} days `
+        + `on the market. Source: ${m.source}.`],
+    },
     photo: (p) => ({ alt: p.alt, caption: p.caption }),
     moved: 'This guide has moved:',
   },
@@ -275,6 +286,12 @@ const L = {
     },
     market: ['Precio de venta mediano', 'Casas vendidas en los últimos 12 meses', 'Días promedio en el mercado', 'Fuente'],
     marketText: (m) => [m.scopeEs || m.scope, m.periodEs || m.period, m.sourceEs || m.source],
+    marketFaq: (m) => m.placeEs && m.scopeEs && m.periodEs && m.sourceEs && {
+      q: `¿Cuál es el precio mediano de una casa en ${m.placeEs}?`,
+      a: [`El precio de venta mediano fue de $${num(m.median)} para ${lower(m.scopeEs)}, de ${m.periodEs}. `
+        + `En ese tiempo se vendieron ${num(m.sold)} casas, que pasaron un promedio de ${num(m.dom)} días `
+        + `en el mercado. Fuente: ${m.sourceEs}.`],
+    },
     photo: (p) => ({ alt: p.altEs || p.alt, caption: p.captionEs || p.caption }),
     moved: 'Esta guía cambió de dirección:',
   },
@@ -621,12 +638,11 @@ ${rows.map(([name, r]) => `    <tr><th scope="row">${esc(full(name))}</th><td><s
 
 function marketSlot(m, t) {
   if (!m) return '';
-  const n = (v) => Number(v).toLocaleString('en-US');
   const [scope, period, source] = t.marketText(m);
   return `<div class="stats">
-  <p class="stat"><span class="stat__value">$${n(m.median)}</span><span class="stat__label">${t.market[0]}</span></p>
-  <p class="stat"><span class="stat__value">${n(m.sold)}</span><span class="stat__label">${t.market[1]}</span></p>
-  <p class="stat"><span class="stat__value">${n(m.dom)}</span><span class="stat__label">${t.market[2]}</span></p>
+  <p class="stat"><span class="stat__value">$${num(m.median)}</span><span class="stat__label">${t.market[0]}</span></p>
+  <p class="stat"><span class="stat__value">${num(m.sold)}</span><span class="stat__label">${t.market[1]}</span></p>
+  <p class="stat"><span class="stat__value">${num(m.dom)}</span><span class="stat__label">${t.market[2]}</span></p>
 </div>
 <p class="stats__note">${esc(scope)}, ${esc(period)}. ${t.market[3]}: ${esc(source)}.</p>`;
 }
@@ -689,6 +705,9 @@ function guidePage(g, all, testimonials, data, { drafts = false } = {}) {
       : '');
   };
   const { html: bodyHTML, faqs } = renderBody(g.body, slot, t);
+  // With market numbers, the page also answers the price question first.
+  const marketQuestion = data.market[key] && t.marketFaq(data.market[key]);
+  if (marketQuestion) faqs.unshift(marketQuestion);
   const agentId = `${CONFIG.siteUrl}#agent`;
 
   const reviews = g.reviews.map((name) => {

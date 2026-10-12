@@ -5,7 +5,7 @@ description: Northampton County, PA: the Lehigh Valley next to New Jersey, I-78 
 answer: Northampton County is the eastern half of the Lehigh Valley, on the New Jersey border. Life here is more suburban than in the Poconos, with a bigger job market, colleges and universities, and downtowns in Bethlehem and Easton full of restaurants, parks and public art. The history is still there too: Bethlehem's Moravian district is a UNESCO World Heritage Site. I-78 and Route 22 lead into New Jersey, Route 33 goes north to the Poconos, and the county seat is Easton.
 category: Counties
 published: 2026-10-08
-updated: 2026-10-11
+updated: 2026-10-12
 featured: yes
 order: 2
 reviews: Steven B., Cesar A.

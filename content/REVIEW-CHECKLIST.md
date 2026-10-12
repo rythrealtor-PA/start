@@ -9,9 +9,12 @@ Updated October 12, 2026. Items are ordered from most to least important.
       use, or free-license photos with their credit line, never photos
       copied from other websites, listings or photographers, and not AI
       images of real places. They go in content/photos.json.
-- [ ] Market numbers from the MLS for each area page (median sale price,
-      homes sold in the last 12 months, average days on market). They go in
-      content/market.json; the prompt for Claude Cowork is in the chat.
+- [ ] Market numbers: on all six area pages since October 12 (Pocono
+      Mountains Association of REALTORS® MLS and Greater Lehigh Valley
+      REALTORS® MLS, October 2025 to September 2026). Still to confirm:
+      whether "days on market" is DOM or cumulative DOM (CDOM), and whether
+      either MLS requires its own wording for statistics published on a
+      website. Refresh the numbers every few months in content/market.json.
 
 ## Spanish site (added October 12, 2026)
 

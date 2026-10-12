@@ -1,9 +1,81 @@
 {
-  "_about": "Market numbers for each area guide, from Ryth's MLS. Leave a guide at null and its 'Market numbers' section stays hidden. To fill one, replace null with: { \"median\": 315000, \"sold\": 412, \"dom\": 45, \"scope\": \"Single-family homes and condos sold in Stroud Township, Stroudsburg and East Stroudsburg\", \"period\": \"October 2025 to September 2026\", \"source\": \"Pocono Mountains MLS, pulled October 2026\" } (median = median sale price, sold = homes sold in the last 12 months, dom = average days on market). The Spanish page shows the same numbers; add \"scopeEs\", \"periodEs\" and \"sourceEs\" to give those three lines in Spanish (without them the English text is used).",
-  "monroe-county": null,
-  "northampton-county": null,
-  "stroudsburg-east-stroudsburg": null,
-  "tannersville": null,
-  "pocono-pines": null,
-  "bethlehem": null
+  "_about": "Market numbers for each area guide, from Ryth's MLS. Leave a guide at null and its 'Market numbers' section stays hidden. To fill one, replace null with: { \"median\": 315000, \"sold\": 412, \"dom\": 45, \"scope\": \"Single-family homes and condos sold in Stroud Township, Stroudsburg and East Stroudsburg\", \"period\": \"October 2025 to September 2026\", \"source\": \"Pocono Mountains MLS, pulled October 2026\" } (median = median sale price, sold = homes sold in the last 12 months, dom = average days on market). The Spanish page shows the same numbers; add \"scopeEs\", \"periodEs\" and \"sourceEs\" to give those three lines in Spanish (without them the English text is used). \"place\" and \"placeEs\" name the area in the automatic question \"What is the median home price in …?\" that the page adds to its Questions when it has numbers.",
+  "monroe-county": {
+    "median": 337000,
+    "sold": 2317,
+    "dom": 55,
+    "scope": "Single-family homes, townhouses and condos sold in Monroe County",
+    "scopeEs": "Casas unifamiliares, casas adosadas y condominios vendidos en el condado de Monroe",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Pocono Mountains Association of REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de la Pocono Mountains Association of REALTORS®, consultado en octubre de 2026",
+    "place": "Monroe County, PA",
+    "placeEs": "el condado de Monroe, PA"
+  },
+  "northampton-county": {
+    "median": 375000,
+    "sold": 2744,
+    "dom": 65,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in Northampton County",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en el condado de Northampton",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Northampton County, PA",
+    "placeEs": "el condado de Northampton, PA"
+  },
+  "stroudsburg-east-stroudsburg": {
+    "median": 282500,
+    "sold": 107,
+    "dom": 36,
+    "scope": "Single-family homes, townhouses and condos sold in the boroughs of Stroudsburg and East Stroudsburg",
+    "scopeEs": "Casas unifamiliares, casas adosadas y condominios vendidos en los boroughs de Stroudsburg y East Stroudsburg",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Pocono Mountains Association of REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de la Pocono Mountains Association of REALTORS®, consultado en octubre de 2026",
+    "place": "Stroudsburg and East Stroudsburg, PA",
+    "placeEs": "Stroudsburg y East Stroudsburg, PA"
+  },
+  "tannersville": {
+    "median": 360000,
+    "sold": 83,
+    "dom": 130,
+    "scope": "Single-family homes, townhouses and condos sold in Tannersville (ZIP 18372)",
+    "scopeEs": "Casas unifamiliares, casas adosadas y condominios vendidos en Tannersville (código postal 18372)",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Pocono Mountains Association of REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de la Pocono Mountains Association of REALTORS®, consultado en octubre de 2026",
+    "place": "Tannersville, PA",
+    "placeEs": "Tannersville, PA"
+  },
+  "pocono-pines": {
+    "median": 458750,
+    "sold": 112,
+    "dom": 69,
+    "scope": "Single-family homes, townhouses and condos sold in Pocono Pines (ZIP 18350)",
+    "scopeEs": "Casas unifamiliares, casas adosadas y condominios vendidos en Pocono Pines (código postal 18350)",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Pocono Mountains Association of REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de la Pocono Mountains Association of REALTORS®, consultado en octubre de 2026",
+    "place": "Pocono Pines, PA",
+    "placeEs": "Pocono Pines, PA"
+  },
+  "bethlehem": {
+    "median": 315000,
+    "sold": 557,
+    "dom": 57,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in the City of Bethlehem (Northampton and Lehigh County parts)",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en la ciudad de Bethlehem (partes de los condados de Northampton y Lehigh)",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Bethlehem, PA",
+    "placeEs": "Bethlehem, PA"
+  }
 }
