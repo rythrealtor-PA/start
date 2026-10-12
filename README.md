@@ -162,6 +162,10 @@ And `testimonials.json`:
 ```
 
 `detail` is optional. Quotes in Spanish are fine — the fonts carry the accents.
+Mark one written in Spanish with `"lang": "es"`. An optional `translation`
+holds the same words in the other language: the other version of the site shows
+it, labeled as a translation ("Traducido del inglés"), while the schema data
+keeps the client's own words. The editor has fields for both.
 
 The six shipped listings are placeholders with invented addresses and generated
 artwork. **Replace them before sharing the site** — they are the one thing on

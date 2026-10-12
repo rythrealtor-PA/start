@@ -89,7 +89,7 @@
  */
 import { readFile, writeFile, readdir, mkdir, unlink, access } from 'node:fs/promises';
 import { CONFIG } from '../assets/js/config.js';
-import { esc, legalLine, footerOfficeLine } from '../assets/js/render.js';
+import { esc, legalLine, footerOfficeLine, quoteFor } from '../assets/js/render.js';
 import { COUNTIES, countyMap } from './maps.mjs';
 
 /** Category keys, in page order, with their Spanish names. */
@@ -283,9 +283,6 @@ const L = {
 /** Where a guide is published, from the site root. */
 const pagePath = (g) => `${L[g.lang].dir}${g.slug}.html`;
 const urlOf = (g) => `${CONFIG.siteUrl}${pagePath(g)}`;
-
-/** A quote in English on a page in another language is marked as English. */
-const quoteLang = (t, quote) => (t.lang !== 'en' && !/[¿¡áéíóúñ]/i.test(quote) ? ' lang="en"' : '');
 
 /* ───────────────────────────── text → HTML ───────────────────────────── */
 
@@ -777,9 +774,9 @@ function guidePage(g, all, testimonials, data, { drafts = false } = {}) {
 ${bodyHTML.split('\n').map((l) => `      ${l}`).join('\n')}
 ${reviews.length ? `
       <h2 id="${t.clientsSay[0]}">${t.clientsSay[1]}</h2>
-${reviews.map((r) => `      <figure class="guide-quote">
-        <blockquote${quoteLang(t, r.quote)}>${esc(r.quote)}</blockquote>
-        <figcaption>${esc(r.name)}</figcaption>
+${reviews.map((r) => quoteFor(r, t.lang)).map((q, i) => `      <figure class="guide-quote">
+        <blockquote${q.lang !== t.lang ? ` lang="${q.lang}"` : ''}>${esc(q.text)}</blockquote>
+        <figcaption>${esc(reviews[i].name)}${q.note ? ` <span class="guide-quote__note">(${q.note})</span>` : ''}</figcaption>
       </figure>`).join('\n')}` : ''}
 ${faqs.length ? `
       <h2 id="${t.questions[0]}">${t.questions[1]}</h2>

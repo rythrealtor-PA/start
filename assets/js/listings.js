@@ -24,7 +24,9 @@
  *   {
  *     "quote":  "Ryth sold our place faster than we thought possible.",
  *     "name":   "Danielle R.",
- *     "detail": "Seller, Stroudsburg"   // optional
+ *     "detail": "Seller, Stroudsburg",  // optional
+ *     "lang":   "es",                   // optional: the quote was written in Spanish
+ *     "translation": "Ryth vendió…"      // optional: the quote in the other language
  *   }
  */
 // Resolved from this file's own address, so the Spanish pages in es/ find

@@ -987,6 +987,12 @@ a { color: var(--brass-lt); }
   text-transform: uppercase;
   color: var(--brass-lt);
 }
+.guide-quote__note {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ivory-dim);
+}
 
 .guide .faq__list { margin-bottom: 1rem; }
 

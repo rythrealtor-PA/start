@@ -177,6 +177,26 @@
         </div>
 
         <div class="field" data-for="testimonials" hidden>
+          <label class="field__label" for="written">Written in</label>
+          <div class="field__select">
+            <select class="field__input" id="written" name="written">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+            </select>
+            <svg class="field__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="field field--full" data-for="testimonials" hidden>
+          <label class="field__label" for="translation">Translation</label>
+          <textarea class="field__input field__input--area" id="translation" name="translation"
+                    rows="5" placeholder="Ryth vendió nuestra casa más rápido de lo que creíamos posible…"></textarea>
+          <p class="field__hint">Optional — the same words in the other language, for the other
+          version of the site, which labels it as a translation. Without it, that version shows
+          the quote as they wrote it.</p>
+        </div>
+
+        <div class="field" data-for="testimonials" hidden>
           <label class="field__label" for="person">Their name</label>
           <input class="field__input" id="person" name="person" type="text"
                  placeholder="Danielle R.">

@@ -366,6 +366,8 @@ function startEdit(index) {
     $('[data-photo-prompt]').hidden = true;
   } else {
     f.quote.value = item.quote ?? '';
+    f.written.value = item.lang === 'es' ? 'es' : 'en';
+    f.translation.value = item.translation ?? '';
     f.person.value = item.name ?? '';
     f.detail.value = item.detail ?? '';
   }
@@ -430,6 +432,10 @@ function buildTestimonial(f) {
   if (!ok) return null;
 
   const item = { quote, name };
+  // English is assumed, so only a Spanish original is written down.
+  if (f.written.value === 'es') item.lang = 'es';
+  const translation = f.translation.value.trim();
+  if (translation) item.translation = translation;
   const detail = f.detail.value.trim();
   if (detail) item.detail = detail;
   return item;

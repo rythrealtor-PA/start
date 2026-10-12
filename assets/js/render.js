@@ -188,19 +188,32 @@ export function cardHTML(listing, { lang = 'en', root = '' } = {}) {
         </article>`;
 }
 
+/** Said under a quote shown in translation, in the page's language. */
+const TRANSLATED = { en: 'Translated from Spanish', es: 'Traducido del inglés' };
+
 /**
- * One testimonial, as its outer HTML. Quotes stay in the words the client
- * wrote; on the Spanish page an English quote is marked as English, so screen
- * readers pronounce it right.
+ * Which words of a testimonial a page in `lang` shows. A testimonial holds
+ * what the client wrote (`quote`, in `lang`: 'en' unless set to 'es') and,
+ * optionally, a `translation` into the other language. A page in the other
+ * language shows the translation and says it is one; without a translation
+ * it shows the original, marked with its language for screen readers.
  */
+export function quoteFor(item, lang = 'en') {
+  const original = item.lang === 'es' ? 'es' : 'en';
+  if (lang === original || !item.translation) return { text: item.quote, lang: original, note: '' };
+  return { text: item.translation, lang, note: TRANSLATED[lang] ?? '' };
+}
+
+/** One testimonial, as its outer HTML. */
 export function testimonialHTML(item, { lang = 'en' } = {}) {
-  const quoteLang = lang !== 'en' && !/[¿¡áéíóúñ]/i.test(item.quote) ? ' lang="en"' : '';
+  const q = quoteFor(item, lang);
   return `
         <figure class="quote" data-carousel-item>
-          <blockquote class="quote__text"${quoteLang}>${esc(item.quote)}</blockquote>
+          <blockquote class="quote__text"${q.lang !== lang ? ` lang="${q.lang}"` : ''}>${esc(q.text)}</blockquote>
           <figcaption class="quote__by">
             <span class="quote__name">${esc(item.name)}</span>
             ${item.detail ? `<span class="quote__detail">${esc(item.detail)}</span>` : ''}
+            ${q.note ? `<span class="quote__detail">${q.note}</span>` : ''}
           </figcaption>
         </figure>`;
 }
@@ -293,10 +306,12 @@ export function schemaJSON(config, testimonials, lang = 'en') {
     ...(config.team && { memberOf: { '@type': 'Organization', name: config.team } }),
     ...(social.length && { sameAs: social }),
     ...(testimonials.length && {
+      // Always the client's own words, never the translation.
       review: testimonials.map((t) => ({
         '@type': 'Review',
         author: { '@type': 'Person', name: t.name },
         reviewBody: t.quote,
+        inLanguage: t.lang === 'es' ? 'es' : 'en',
         itemReviewed: { '@id': `${site}#agent` },
       })),
     }),
