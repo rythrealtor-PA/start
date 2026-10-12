@@ -69,7 +69,9 @@ export const CONFIG = {
   open24h: true,
 
   /** What Ryth specialises in — shown to search engines as his expertise. */
-  specialties: ['Luxury real estate', 'Real estate investors', 'Spanish-speaking families'],
+  specialties: ['Luxury real estate', 'Real estate investors', 'Spanish-speaking buyers and sellers'],
+  /** The same, in Spanish, for the Spanish pages (es/). */
+  specialtiesEs: ['Bienes raíces de lujo', 'Inversionistas en bienes raíces', 'Compradores y vendedores de habla hispana'],
 
   /**
    * Other profiles that describe Ryth (beyond the social links): search
@@ -127,5 +129,4 @@ export const CONFIG = {
   },
 };
 
-/** Topic options for the contact form's "Select a topic" field. */
-export const TOPICS = ['Buying', 'Selling', 'Rental'];
+// The contact form's topics, in English and Spanish, are in i18n.js.

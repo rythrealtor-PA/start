@@ -36,8 +36,9 @@ const FPS = 24;
 const SOURCES = [
   {
     type: 'video/mp4; codecs="avc1.640028"',
-    quick: 'assets/video/hero-960.mp4',
-    full: 'assets/video/hero-1920.mp4',
+    // Resolved from this file's address, so the Spanish page in es/ finds them.
+    quick: new URL('../video/hero-960.mp4', import.meta.url).href,
+    full: new URL('../video/hero-1920.mp4', import.meta.url).href,
   },
 ];
 
@@ -91,7 +92,7 @@ export class VideoSequence {
         resolve();
       };
       img.onerror = reject;
-      img.src = `assets/frames/desktop/f_001.avif?v=${FRAMES_VERSION}`;
+      img.src = new URL(`../frames/desktop/f_001.avif?v=${FRAMES_VERSION}`, import.meta.url).href;
     });
 
     const video = await this.makeVideo(await this.download(source.quick, 0, QUICK_SHARE));

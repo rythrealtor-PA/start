@@ -27,8 +27,10 @@
  *     "detail": "Seller, Stroudsburg"   // optional
  *   }
  */
-export const LISTINGS_URL = 'assets/data/listings.json';
-export const TESTIMONIALS_URL = 'assets/data/testimonials.json';
+// Resolved from this file's own address, so the Spanish pages in es/ find
+// them too.
+export const LISTINGS_URL = new URL('../data/listings.json', import.meta.url).href;
+export const TESTIMONIALS_URL = new URL('../data/testimonials.json', import.meta.url).href;
 
 /**
  * Both carousels read their data the same way.

@@ -6,18 +6,17 @@
  * never a dead end, even on a fresh clone.
  */
 import { CONFIG } from './config.js';
+import { LANG, T } from './i18n.js';
 
 const ENDPOINT = 'https://api.web3forms.com/submit';
 
 /** Native validity messages are terse; these say what to actually do. */
 function errorFor(field) {
   if (field.validity.valueMissing) {
-    return field.type === 'select-one'
-      ? 'Please choose a topic.'
-      : `Please enter your ${field.dataset.label.toLowerCase()}.`;
+    return field.type === 'select-one' ? T.chooseTopic : T.enterField(field.dataset.label);
   }
   if (field.validity.typeMismatch && field.type === 'email') {
-    return 'That email address looks incomplete.';
+    return T.badEmail;
   }
   return field.validationMessage;
 }
@@ -30,16 +29,17 @@ function showError(field, message) {
 
 /** Builds the mailto: used when no Web3Forms key is set. */
 function mailtoFallback(data) {
+  const l = T.mailLabels;
   const body = [
-    `Name:  ${data.name}`,
-    `Email: ${data.email}`,
-    `Phone: ${data.phone || '—'}`,
-    `Topic: ${data.topic}`,
+    `${l.name}: ${data.name}`,
+    `${l.email}: ${data.email}`,
+    `${l.phone}: ${data.phone || '—'}`,
+    `${l.topic}: ${data.topic}`,
     '',
     data.message,
   ].join('\n');
   return `mailto:${CONFIG.contact.email}?subject=${encodeURIComponent(
-    `${data.topic} enquiry from ${data.name}`,
+    T.subject(data.topic, data.name),
   )}&body=${encodeURIComponent(body)}`;
 }
 
@@ -72,7 +72,7 @@ export function initContact(form) {
     });
     if (firstInvalid) {
       firstInvalid.focus();
-      result.textContent = 'Please fix the highlighted fields.';
+      result.textContent = T.fixFields;
       result.dataset.state = 'error';
       return;
     }
@@ -80,14 +80,14 @@ export function initContact(form) {
     const data = Object.fromEntries(new FormData(form).entries());
 
     if (!CONFIG.web3formsKey) {
-      result.textContent = 'Opening your email app…';
+      result.textContent = T.openingEmail;
       result.dataset.state = 'pending';
       window.location.href = mailtoFallback(data);
       return;
     }
 
     submit.disabled = true;
-    result.textContent = 'Sending…';
+    result.textContent = T.sending;
     result.dataset.state = 'pending';
 
     try {
@@ -96,21 +96,22 @@ export function initContact(form) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: CONFIG.web3formsKey,
-          subject: `${data.topic} enquiry from ${data.name}`,
+          subject: T.subject(data.topic, data.name),
           from_name: data.name,
           ...data,
+          // So Ryth knows which language to answer in.
+          ...(LANG === 'es' && { language: 'Español' }),
         }),
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       form.reset();
-      result.textContent = `Thank you — your message is on its way. ${CONFIG.name.split(' ')[0]} will be in touch shortly.`;
+      result.textContent = T.sent(CONFIG.name.split(' ')[0]);
       result.dataset.state = 'success';
     } catch {
       // Never strand the enquiry: hand them the prefilled email instead.
       result.innerHTML =
-        `Something went wrong sending that. ` +
-        `<a href="${mailtoFallback(data)}">Send it by email instead</a>.`;
+        `${T.failed} <a href="${mailtoFallback(data)}">${T.sendByEmail}</a>.`;
       result.dataset.state = 'error';
     } finally {
       submit.disabled = false;

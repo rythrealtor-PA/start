@@ -2,7 +2,8 @@
  * Wires the page together: fills the config-driven contact details, boots the
  * scroll stage, the listings carousel, and the contact form.
  */
-import { CONFIG, TOPICS } from './config.js';
+import { CONFIG } from './config.js';
+import { T, SITE_ROOT } from './i18n.js';
 import { Stage } from './stage.js';
 import { VideoSequence } from './video-sequence.js';
 import { initDebug } from './debug.js';
@@ -23,13 +24,13 @@ function tidySocial(root) {
 
 function renderTopics(select) {
   select.append(
-    ...TOPICS.map((topic) => new Option(topic, topic)),
+    ...T.topics.map((topic) => new Option(topic, topic)),
   );
 }
 
 function renderPortrait(img) {
-  if (CONFIG.portrait) img.src = CONFIG.portrait;
-  img.alt = `${CONFIG.name}, ${CONFIG.role} in ${CONFIG.state}`;
+  if (CONFIG.portrait) img.src = SITE_ROOT + CONFIG.portrait;
+  img.alt = T.portraitAlt(CONFIG.name);
 }
 
 function renderBrandMarks() {
@@ -102,9 +103,8 @@ function boot() {
   // Both carousels read their data over the network, so they fill in a moment
   // after the rest of the page. Everything else is already rendered. They load
   // independently, so one failing does not take the other down.
-  hydrate('listings', loadListings, card, 'Listings are unavailable right now.');
-  hydrate('testimonials', loadTestimonials, testimonial,
-          'Testimonials are unavailable right now.');
+  hydrate('listings', loadListings, card, T.listingsDown);
+  hydrate('testimonials', loadTestimonials, testimonial, T.testimonialsDown);
   initContact(document.querySelector('[data-contact-form]'));
 
   initCta(document.querySelector('[data-cta]'));

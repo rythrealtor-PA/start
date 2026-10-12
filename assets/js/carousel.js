@@ -7,6 +7,7 @@
  * stays a usable scroller if this script never runs.
  */
 import { cardHTML, testimonialHTML } from './render.js';
+import { LANG, SITE_ROOT, T } from './i18n.js';
 
 /** Builds an element from one of render.js's HTML strings. */
 const fromHTML = (html) => {
@@ -20,10 +21,10 @@ const fromHTML = (html) => {
  * the markup the real site uses — the same render.js function that writes the
  * card into index.html — rather than an approximation that can drift.
  */
-export const card = (listing) => fromHTML(cardHTML(listing));
+export const card = (listing) => fromHTML(cardHTML(listing, { lang: LANG, root: SITE_ROOT }));
 
 /** One testimonial. Same carousel machinery as the listing cards. */
-export const testimonial = (item) => fromHTML(testimonialHTML(item));
+export const testimonial = (item) => fromHTML(testimonialHTML(item, { lang: LANG }));
 
 /**
  * Wires up a carousel. The cards are normally already in the HTML (written by
@@ -54,7 +55,7 @@ export function initCarousel(root, items, renderItem = card) {
     const perPage = Math.max(1, Math.round(track.clientWidth / cardWidth()));
     const current = Math.round(track.scrollLeft / track.clientWidth) + 1;
     const total = Math.max(1, Math.ceil(count / perPage));
-    status.textContent = `Page ${Math.min(current, total)} of ${total}`;
+    status.textContent = T.page(Math.min(current, total), total);
   };
 
   const cardWidth = () => {

@@ -13,6 +13,20 @@ Updated October 12, 2026. Items are ordered from most to least important.
       homes sold in the last 12 months, average days on market). They go in
       content/market.json; the prompt for Claude Cowork is in the chat.
 
+## Spanish site (added October 12, 2026)
+
+- [ ] Read the Spanish pages (es/ and es/guias/). The text is neutral Latin
+      American Spanish and uses "usted". Change any word that does not sound
+      like you.
+- [ ] Your takes are translated into Spanish on the Spanish pages. Check that
+      they say what you mean.
+- [ ] Testimonials stay in the words the client wrote. If Flor B. (or anyone
+      else) first wrote theirs in Spanish, send the original text so the
+      Spanish page can show it.
+- [ ] Footer in Spanish: "Licencia RS380174 · Bróker: Real of Pennsylvania ·
+      Oficina 570.801.7441". Confirm with your broker that Spanish-language
+      ads are fine with this wording.
+
 ## Settled with Ryth (October 11, 2026)
 
 - Coolbaugh Township is green on the short-term rental map.

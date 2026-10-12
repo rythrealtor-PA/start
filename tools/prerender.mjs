@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
- * Writes the data-driven text into index.html — contact facts, office
- * address, social links, the licence line, listings, testimonials and the
- * schema data search engines read — so it is in the HTML source
- * that search engines and link previews read, not only injected by JavaScript.
+ * Writes the data-driven text — contact facts, office address, social links,
+ * the licence line, listings, testimonials and the schema data search engines
+ * read — into both homepages (index.html, and es/index.html in Spanish), so it
+ * is in the HTML source that search engines and link previews read, not only
+ * injected by JavaScript. Also builds the guide pages and the sitemap.
  *
  * Run after editing assets/js/config.js or the files in assets/data/ by hand:
  *
@@ -21,25 +22,33 @@ import { buildGuides, homepageGuidesHTML, sitemapXML } from './build-guides.mjs'
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => readFile(root + p, 'utf8');
 
-// The guide pages first: the homepage links to them and the sitemap lists them.
+// The guide pages first: the homepages link to them and the sitemap lists them.
 const guides = await buildGuides(root);
-console.log(`guides/: ${guides.length} guides + index built`);
+console.log(`guides/: ${guides.en.length} guides + index built`);
+console.log(`es/guias/: ${guides.es.length} guides + index built`);
 await writeFile(root + 'sitemap.xml', sitemapXML(guides));
 
-const html = await read('index.html');
-let out = renderAllBlocks(html, {
+// The two homepages: English at the root, Spanish in es/.
+const data = {
   config: CONFIG,
   listings: JSON.parse(await read('assets/data/listings.json')),
   testimonials: JSON.parse(await read('assets/data/testimonials.json')),
-});
-out = replaceBlock(out, 'guides', homepageGuidesHTML(guides));
-await writeFile(root + 'index.html', out);
-console.log(out === html ? 'index.html already up to date' : 'index.html updated');
+};
+for (const page of [
+  { file: 'index.html', lang: 'en', root: '', guides: guides.en, prefix: 'guides/' },
+  { file: 'es/index.html', lang: 'es', root: '../', guides: guides.es, prefix: 'guias/' },
+]) {
+  const html = await read(page.file);
+  let out = renderAllBlocks(html, data, page);
+  out = replaceBlock(out, 'guides', homepageGuidesHTML(page.guides, page.prefix));
+  await writeFile(root + page.file, out);
+  console.log(out === html ? `${page.file} already up to date` : `${page.file} updated`);
+}
 
 // Every absolute URL — canonical links, link-preview tags, sitemap, robots —
 // follows config.siteUrl, so connecting the domain later is a one-line change.
 const HOSTS = ['https://rythvara.com/', 'https://rythrealtor-pa.github.io/start/'];
-for (const file of ['index.html', 'privacy.html', 'terms.html', 'preview.html', 'robots.txt']) {
+for (const file of ['index.html', 'es/index.html', 'privacy.html', 'terms.html', 'preview.html', 'robots.txt']) {
   const before = await read(file);
   let after = before;
   for (const host of HOSTS) if (host !== CONFIG.siteUrl) after = after.split(host).join(CONFIG.siteUrl);

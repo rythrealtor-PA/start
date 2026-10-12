@@ -20,6 +20,49 @@ export const esc = (value = '') =>
 
 const fmtBaths = (n) => (Number.isInteger(n) ? String(n) : Number(n).toFixed(1));
 
+/* ─────────────────────────────── languages ───────────────────────────── */
+
+/**
+ * The words these blocks use, in English and Spanish. Every function below
+ * takes a `lang` ('en' or 'es'); the English page is the default.
+ */
+const WORDS = {
+  en: {
+    email: 'Email', phone: 'Phone', office: 'Office', hours: 'Hours', languages: 'Languages',
+    beds: 'Beds', baths: 'Baths', sqft: 'Sq ft',
+    serving: (counties) => `Serving ${counties.join(' & ')}`,
+    role: (config) => config.role,
+    state: 'Pennsylvania',
+    license: 'License',
+    brokered: 'Brokered by',
+    hoursText: (h) => h,
+  },
+  es: {
+    email: 'Correo', phone: 'Teléfono', office: 'Oficina', hours: 'Horario', languages: 'Idiomas',
+    beds: 'Habitaciones', baths: 'Baños', sqft: 'Pies²',
+    serving: (counties) => `Atiende los condados de ${counties.map((c) => c.replace(/ County$/, '')).join(' y ')}`,
+    role: () => 'Agente de bienes raíces',
+    state: 'Pensilvania',
+    license: 'Licencia',
+    brokered: 'Bróker:',
+    hoursText: (h) => h.replace(/^Open 24\/7$/, 'Abierto 24/7'),
+  },
+};
+const words = (lang) => WORDS[lang] ?? WORDS.en;
+
+/**
+ * Listing text typed in English in admin.html, put into Spanish for es/.
+ * Statuses are the admin's fixed list; prices are free text, so only the
+ * usual words are changed and anything else is left as typed.
+ */
+const STATUS_ES = { 'For sale': 'En venta', Pending: 'Pendiente', Sold: 'Vendida', 'For rent': 'En alquiler' };
+const priceEs = (price) => price
+  .replace(/\s*(?:per month|monthly|\/\s*mo(?:nth)?\b)/i, ' al mes')
+  .replace(/\bAcres\b/, 'acres').replace(/\bAcre\b/, 'acre');
+
+/** A path in the data ("assets/img/…") made relative to the page it is on. */
+const fromRoot = (path, root = '') => (/^([a-z][a-z0-9+.-]*:|\/)/i.test(path) ? path : root + path);
+
 /* ─────────────────────────── contact and licence ─────────────────────── */
 
 function fact(label, value, href) {
@@ -39,14 +82,15 @@ function fact(label, value, href) {
  * names the brokerage and area, and the brokerage and licence number are in
  * the footer, which is what Pennsylvania's advertising rule requires.
  */
-export function factsHTML(config) {
+export function factsHTML(config, lang = 'en') {
   const { contact, languages } = config;
+  const w = words(lang);
   return [
-    fact('Email', contact.email, `mailto:${contact.email}`),
-    fact('Phone', contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
-    fact('Office', officeLine(config), mapsUrl(config)),
-    fact('Hours', config.hours),
-    fact('Languages', languages.join(' · ')),
+    fact(w.email, contact.email, `mailto:${contact.email}`),
+    fact(w.phone, contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
+    fact(w.office, officeLine(config), mapsUrl(config)),
+    fact(w.hours, config.hours && w.hoursText(config.hours)),
+    fact(w.languages, languages.join(' · ')),
   ].join('');
 }
 
@@ -54,11 +98,12 @@ export function factsHTML(config) {
  * The footer's office line: address, hours and the area served — the three
  * things local search looks for in a footer.
  */
-export function footerOfficeLine(config) {
+export function footerOfficeLine(config, lang = 'en') {
+  const w = words(lang);
   return [
     officeLine(config),
-    config.hours,
-    `Serving ${config.serviceAreas.counties.join(' & ')}`,
+    config.hours && w.hoursText(config.hours),
+    w.serving(config.serviceAreas.counties),
   ].filter(Boolean).join(' · ');
 }
 
@@ -94,38 +139,45 @@ export function socialHTML(config) {
  * The footer's identification line. Pennsylvania requires advertising to name
  * the broker, so it is built from config.js rather than typed by hand.
  */
-export function legalLine(config) {
+export function legalLine(config, lang = 'en') {
+  const w = words(lang);
   return [
-    `${config.name} — ${config.role}, ${config.state}`,
-    config.license ? `License ${config.license}` : '',
-    config.brokerage ? `Brokered by ${config.brokerage}` : '',
-    config.contact.officePhone ? `Office ${config.contact.officePhone}` : '',
+    `${config.name} — ${w.role(config)}, ${lang === 'en' ? config.state : w.state}`,
+    config.license ? `${w.license} ${config.license}` : '',
+    config.brokerage ? `${w.brokered} ${config.brokerage}` : '',
+    config.contact.officePhone ? `${w.office} ${config.contact.officePhone}` : '',
   ].filter(Boolean).join(' · ');
 }
 
 /* ──────────────────────────── listings, reviews ──────────────────────── */
 
-/** One listing card, as its outer HTML. */
-export function cardHTML(listing) {
+/**
+ * One listing card, as its outer HTML. `root` leads from the page to the site
+ * root ('../' on the Spanish page), since the photo paths are from the root.
+ */
+export function cardHTML(listing, { lang = 'en', root = '' } = {}) {
+  const w = words(lang);
   // Zero beds and baths means land (a lot): say nothing rather than "0 Beds".
   const specs = [];
-  if (Number(listing.beds) > 0) specs.push({ label: 'Beds', value: listing.beds });
-  if (Number(listing.baths) > 0) specs.push({ label: 'Baths', value: fmtBaths(Number(listing.baths)) });
+  if (Number(listing.beds) > 0) specs.push({ label: w.beds, value: listing.beds });
+  if (Number(listing.baths) > 0) specs.push({ label: w.baths, value: fmtBaths(Number(listing.baths)) });
   if (listing.sqft) {
-    specs.push({ label: 'Sq ft', value: Number(listing.sqft).toLocaleString('en-US') });
+    specs.push({ label: w.sqft, value: Number(listing.sqft).toLocaleString('en-US') });
   }
   const where = [listing.address, listing.city].filter(Boolean).join(', ');
+  const status = lang === 'es' ? STATUS_ES[listing.status] ?? listing.status : listing.status;
+  const price = lang === 'es' && listing.price ? priceEs(listing.price) : listing.price;
   return `
         <article class="listing" data-carousel-item>
           <div class="listing__frame">
-            <img class="listing__photo" src="${esc(listing.photo)}"
+            <img class="listing__photo" src="${esc(fromRoot(listing.photo, root))}"
                  alt="${esc(where)}" loading="lazy" decoding="async">
-            ${listing.status ? `<span class="listing__status">${esc(listing.status)}</span>` : ''}
+            ${status ? `<span class="listing__status">${esc(status)}</span>` : ''}
           </div>
           <div class="listing__body">
             <h3 class="listing__address">${esc(listing.address)}</h3>
             ${listing.city ? `<p class="listing__city">${esc(listing.city)}</p>` : ''}
-            ${listing.price ? `<p class="listing__price">${esc(listing.price)}</p>` : ''}
+            ${price ? `<p class="listing__price">${esc(price)}</p>` : ''}
             ${specs.length ? `<dl class="specs">${specs.map((s) => `
               <div class="specs__item">
                 <dt class="specs__label">${s.label}</dt>
@@ -136,11 +188,16 @@ export function cardHTML(listing) {
         </article>`;
 }
 
-/** One testimonial, as its outer HTML. */
-export function testimonialHTML(item) {
+/**
+ * One testimonial, as its outer HTML. Quotes stay in the words the client
+ * wrote; on the Spanish page an English quote is marked as English, so screen
+ * readers pronounce it right.
+ */
+export function testimonialHTML(item, { lang = 'en' } = {}) {
+  const quoteLang = lang !== 'en' && !/[¿¡áéíóúñ]/i.test(item.quote) ? ' lang="en"' : '';
   return `
         <figure class="quote" data-carousel-item>
-          <blockquote class="quote__text">${esc(item.quote)}</blockquote>
+          <blockquote class="quote__text"${quoteLang}>${esc(item.quote)}</blockquote>
           <figcaption class="quote__by">
             <span class="quote__name">${esc(item.name)}</span>
             ${item.detail ? `<span class="quote__detail">${esc(item.detail)}</span>` : ''}
@@ -154,6 +211,8 @@ export function testimonialHTML(item) {
 const sentenceCase = (x) => (/^(Spanish|English)/.test(x) ? x : x[0].toLowerCase() + x.slice(1));
 /** ["a", "b", "c"] -> "a, b, and c". */
 const listSentence = (xs) => (xs.length < 3 ? xs.join(' and ') : `${xs.slice(0, -1).join(', ')}, and ${xs.at(-1)}`);
+/** ["a", "b", "c"] -> "a, b y c". */
+const listaEs = (xs) => (xs.length < 3 ? xs.join(' y ') : `${xs.slice(0, -1).join(', ')} y ${xs.at(-1)}`);
 
 /**
  * The structured data search engines read: who Ryth is (a RealEstateAgent),
@@ -164,21 +223,25 @@ const listSentence = (xs) => (xs.length < 3 ? xs.join(' and ') : `${xs.slice(0, 
  * No star rating is given: the testimonials do not carry one, and inventing
  * one would be both false and against Google's review guidelines.
  */
-export function schemaJSON(config, testimonials) {
+export function schemaJSON(config, testimonials, lang = 'en') {
   const site = config.siteUrl;
   const o = config.office;
   const social = [...Object.values(config.social), ...(config.profiles ?? [])].filter(Boolean);
+  const es = lang === 'es';
   const data = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     '@id': `${site}#agent`,
     name: config.name,
     ...(config.legalName && { alternateName: config.legalName }),
-    description:
-      `Bilingual (English and Spanish) REALTOR® with ${config.brokerage}, serving ` +
-      `${config.serviceAreas.counties.join(' and ')}, Pennsylvania. ` +
-      `Specializes in ${listSentence(config.specialties.map(sentenceCase))}.`,
-    knowsAbout: config.specialties,
+    description: es
+      ? `REALTOR® bilingüe (inglés y español) con ${config.brokerage}, que atiende los ` +
+        `condados de ${config.serviceAreas.counties.map((c) => c.replace(/ County$/, '')).join(' y ')}, Pensilvania. ` +
+        `Se especializa en ${listaEs(config.specialtiesEs.map((x) => x[0].toLowerCase() + x.slice(1)))}.`
+      : `Bilingual (English and Spanish) REALTOR® with ${config.brokerage}, serving ` +
+        `${config.serviceAreas.counties.join(' and ')}, Pennsylvania. ` +
+        `Specializes in ${listSentence(config.specialties.map(sentenceCase))}.`,
+    knowsAbout: es ? config.specialtiesEs : config.specialties,
     url: site,
     image: `${site}${config.portrait}`,
     telephone: `+1-${config.contact.phoneHref.replace(/^\+1/, '').replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}`,
@@ -242,8 +305,8 @@ export function schemaJSON(config, testimonials) {
 }
 
 /** The schema as a <script> tag. "<" is escaped so no text can close it early. */
-export function schemaHTML(config, testimonials) {
-  const json = JSON.stringify(schemaJSON(config, testimonials), null, 2).replace(/</g, '\\u003c');
+export function schemaHTML(config, testimonials, lang = 'en') {
+  const json = JSON.stringify(schemaJSON(config, testimonials, lang), null, 2).replace(/</g, '\\u003c');
   return `\n<script type="application/ld+json">\n${json}\n</script>`;
 }
 
@@ -259,7 +322,7 @@ export function replaceBlock(html, name, inner) {
   const close = `<!-- /prerender:${name} -->`;
   const start = html.indexOf(open);
   const end = html.indexOf(close);
-  if (start < 0 || end < start) throw new Error(`index.html is missing the ${name} markers`);
+  if (start < 0 || end < start) throw new Error(`the page is missing the ${name} markers`);
   return html.slice(0, start + open.length) + inner + '\n        ' + html.slice(end);
 }
 
@@ -268,23 +331,26 @@ export function replaceBlock(html, name, inner) {
  * address. Unlike renderAllBlocks, missing markers are skipped, since not
  * every page has every block.
  */
-export function renderFooterBlocks(html, config) {
+export function renderFooterBlocks(html, config, lang = 'en') {
   let out = html;
-  for (const [name, inner] of [['legal', esc(legalLine(config))], ['office', esc(footerOfficeLine(config))]]) {
+  for (const [name, inner] of [['legal', esc(legalLine(config, lang))], ['office', esc(footerOfficeLine(config, lang))]]) {
     if (out.includes(`<!-- prerender:${name} -->`)) out = replaceBlock(out, name, inner);
   }
   return out;
 }
 
-/** Every data-driven block, rendered from config and the two data files. */
-export function renderAllBlocks(html, { config, listings, testimonials }) {
+/**
+ * Every data-driven block, rendered from config and the two data files.
+ * The Spanish homepage (es/index.html) passes lang 'es' and root '../'.
+ */
+export function renderAllBlocks(html, { config, listings, testimonials }, { lang = 'en', root = '' } = {}) {
   let out = html;
-  out = replaceBlock(out, 'schema', schemaHTML(config, testimonials));
-  out = replaceBlock(out, 'office', esc(footerOfficeLine(config)));
-  out = replaceBlock(out, 'facts', factsHTML(config));
+  out = replaceBlock(out, 'schema', schemaHTML(config, testimonials, lang));
+  out = replaceBlock(out, 'office', esc(footerOfficeLine(config, lang)));
+  out = replaceBlock(out, 'facts', factsHTML(config, lang));
   out = replaceBlock(out, 'social', socialHTML(config));
-  out = replaceBlock(out, 'legal', esc(legalLine(config)));
-  out = replaceBlock(out, 'listings', listings.map(cardHTML).join(''));
-  out = replaceBlock(out, 'testimonials', testimonials.map(testimonialHTML).join(''));
+  out = replaceBlock(out, 'legal', esc(legalLine(config, lang)));
+  out = replaceBlock(out, 'listings', listings.map((l) => cardHTML(l, { lang, root })).join(''));
+  out = replaceBlock(out, 'testimonials', testimonials.map((t) => testimonialHTML(t, { lang })).join(''));
   return out;
 }

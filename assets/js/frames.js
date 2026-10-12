@@ -180,7 +180,7 @@ export class FrameSequence {
 
   async start() {
     const { dir, ext } = await chooseSet();
-    this.basePath = `assets/frames/${dir}`;
+    this.basePath = new URL(`../frames/${dir}`, import.meta.url).href;
     this.ext = ext;
 
     // Frame 1 first and alone: it is the static hero behind the title, so it

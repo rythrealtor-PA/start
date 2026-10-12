@@ -194,6 +194,30 @@ a { color: var(--brass-lt); }
   will-change: opacity;
 }
 
+/* The link to the same page in the other language (Español / English), top
+   right over the hero. Square corners and a brass hairline, like the buttons. */
+.lang-switch {
+  position: absolute;
+  z-index: 3;
+  top: clamp(0.75rem, 2.5vh, 1.5rem);
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--border-lit);
+  background: rgba(18, 23, 28, 0.6);
+  color: var(--ivory);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.22s var(--ease), color 0.22s var(--ease);
+}
+.lang-switch:hover,
+.lang-switch:focus-visible { border-color: var(--brass); color: var(--brass-lt); }
+
 /* Without WebGL the canvas is the raw frame buffer at its native size and the
    shader's work has to be done in CSS: cover-fit so the footage is not
    stretched to the viewport's aspect, and a scrim so the title stays legible

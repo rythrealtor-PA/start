@@ -33,6 +33,12 @@ const COLLECTIONS = {
   testimonials: { path: 'assets/data/testimonials.json', render: testimonial, hasPhoto: false },
 };
 
+/** The pages Publish rewrites the listing and testimonial cards in. */
+const HOMEPAGES = [
+  { path: 'index.html', label: 'the home page', lang: 'en', root: '' },
+  { path: 'es/index.html', label: 'the Spanish home page', lang: 'es', root: '../' },
+];
+
 /** Photos are cover-fitted into a 4:3 card, so this is ample on any screen. */
 const MAX_PHOTO_EDGE = 1400;
 const PHOTO_QUALITY = 0.82;
@@ -496,22 +502,24 @@ async function publish() {
     // index.html (not only loaded by script) so search engines and link
     // previews can read them. Done after the data files, so the page never
     // shows a listing whose photo or data is not live yet.
+    // Both homepages carry the cards: English at the root, Spanish in es/.
     if (changed) {
-      setStatus('Updating the page…');
-      const file = await gh(
-        `/repos/${state.owner}/${state.repo}/contents/index.html?ref=${state.branch}`,
-      );
-      const html = decodeContent(file.content);
-      const updated = renderAllBlocks(html, {
-        config: CONFIG,
-        listings: state.data.listings.items,
-        testimonials: state.data.testimonials.items,
-      });
-      if (updated !== html) {
-        await gh(`/repos/${state.owner}/${state.repo}/contents/index.html`, {
+      for (const page of HOMEPAGES) {
+        setStatus(`Updating ${page.label}…`);
+        const file = await gh(
+          `/repos/${state.owner}/${state.repo}/contents/${page.path}?ref=${state.branch}`,
+        );
+        const html = decodeContent(file.content);
+        const updated = renderAllBlocks(html, {
+          config: CONFIG,
+          listings: state.data.listings.items,
+          testimonials: state.data.testimonials.items,
+        }, page);
+        if (updated === html) continue;
+        await gh(`/repos/${state.owner}/${state.repo}/contents/${page.path}`, {
           method: 'PUT',
           body: JSON.stringify({
-            message: 'Update listings and testimonials on the page',
+            message: `Update listings and testimonials on ${page.label}`,
             content: toBase64(new TextEncoder().encode(updated)),
             branch: state.branch,
             sha: file.sha,

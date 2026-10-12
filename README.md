@@ -124,8 +124,8 @@ same GitHub page and generate a new one.
 
 **Everything that matters for credibility is in the HTML source**, not only
 loaded by JavaScript: reviews, listings, contact details, social links and the
-licence/brokerage line are written into `index.html` between
-`<!-- prerender:… -->` markers, so search engines and link previews read them
+licence/brokerage line are written into `index.html` (and the Spanish
+`es/index.html`) between `<!-- prerender:… -->` markers, so search engines and link previews read them
 even when they do not run scripts. **Publish** in the editor rewrites those
 blocks automatically. If you edit `assets/js/config.js` or the JSON files by
 hand, run `node tools/prerender.mjs` afterwards to do the same. Keep it that
@@ -316,6 +316,24 @@ in `content/REVIEW-CHECKLIST.md`.
 Fair-housing rule for anything written here: describe places, homes and
 amenities, never the people. No "safe", "family-friendly", school rankings or
 demographics.
+
+## The Spanish site
+
+The whole site also exists in Spanish, under **`es/`**: the homepage is
+`es/index.html` and the guides are `es/guias/`, built from
+**`content/guias/`**. Each Spanish guide names the English guide it
+translates (`en: tannersville`) and takes the map, category, order and
+reviews from it, so only the words are kept twice. The two versions link to
+each other ("Español" / "English"), and the `hreflang` tags and the sitemap
+tell search engines they are the same page in two languages.
+
+When an English guide changes, change its Spanish version in the same edit.
+The scripts read `<html lang>` and take their words from
+`assets/js/i18n.js`; text written in at build time (contact facts, listing
+cards, the footer) is in `assets/js/render.js`. Listings are typed once in
+the editor, and **Publish** updates both homepages. The Spanish is neutral
+Latin American Spanish and addresses the reader as *usted*. The privacy
+policy and terms are in English only, and the Spanish pages say so.
 
 ## Launch plumbing
 
