@@ -20,7 +20,8 @@
  *   seoTitle: Living in Stroudsburg, PA (2026)  (browser tab / Google, ≤ 60)
  *   description: One or two sentences, ≤ 160 characters, for Google.
  *   answer: The short, direct answer shown first on the page.
- *   category: Towns                  (Counties, Towns, Buying, Selling, Investing)
+ *   category: Towns                  (Buying, Selling, Investing, Towns, Counties)
+ *   ctaTitle: Questions about ...?    (the contact box's heading, optional)
  *   place: Stroudsburg, Pennsylvania (area guides only)
  *   published: 2026-10-08
  *   updated: 2026-10-08
@@ -70,7 +71,7 @@ import { CONFIG } from '../assets/js/config.js';
 import { esc, legalLine, footerOfficeLine } from '../assets/js/render.js';
 import { countyMap } from './maps.mjs';
 
-const CATEGORY_ORDER = ['Counties', 'Towns', 'Buying', 'Selling', 'Investing'];
+const CATEGORY_ORDER = ['Buying', 'Selling', 'Investing', 'Towns', 'Counties'];
 
 /* ───────────────────────────── text → HTML ───────────────────────────── */
 
@@ -553,7 +554,7 @@ ${faqs.map((f) => `        <details class="faq__item">
       </div>` : ''}
 
       <div class="guide-cta">
-        <p class="guide-cta__title">Questions about ${esc(g.places.length ? listSentence(g.places.map((p) => p.replace(/, Pennsylvania$/, ''))) : 'your move')}?</p>
+        <p class="guide-cta__title">${esc(g.ctaTitle || `Questions about ${g.places.length ? listSentence(g.places.map((p) => p.replace(/, Pennsylvania$/, ''))) : 'your move'}?`)}</p>
         <p>Ryth answers in English or Spanish — call or text
         <a href="tel:${CONFIG.contact.phoneHref}">${esc(CONFIG.contact.phone)}</a>, or send a message.</p>
         <a class="button button--primary" href="${prefix}./#contact">Contact Ryth</a>

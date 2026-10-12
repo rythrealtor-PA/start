@@ -7,7 +7,7 @@ category: Buying
 published: 2026-10-08
 updated: 2026-10-08
 featured: yes
-order: 2
+order: 3
 reviews: Steven B.
 related: first-time-home-buyer-pennsylvania, selling-your-home-pennsylvania
 ---

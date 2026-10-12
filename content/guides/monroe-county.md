@@ -5,7 +5,7 @@ description: Monroe County, PA: the Poconos, I-80 from New Jersey, a map of ever
 answer: Monroe County is in the middle of the Pocono Mountains, in northeastern Pennsylvania: lakes, state parks, ski resorts and quiet roads, with homes that cost less than in the New York and New Jersey suburbs. It is a county of homeowners, where about 4 in 5 homes are lived in by their owners, and for years people have moved here from the New York area to get more space without going far. I-80 brings you in from New Jersey at the Delaware Water Gap, and the county seat is Stroudsburg.
 category: Counties
 published: 2026-10-08
-updated: 2026-10-09
+updated: 2026-10-12
 featured: yes
 order: 1
 reviews: Steven B., Flor B.
@@ -98,6 +98,10 @@ Mostly. The Pocono Mountains region covers four counties (Monroe, Pike, Wayne an
 ### Are most homes in Monroe County owner-occupied?
 
 Yes. About 79.5% of occupied homes in Monroe County are lived in by their owners, according to the US Census Bureau's American Community Survey (2019 to 2023).
+
+### Is there help for first-time buyers in Monroe County?
+
+Yes. The county's First-Time Homebuyer Program offers up to $20,000, plus $5,000 for buyers who have lived in the county for the past 12 months, as a 0% loan forgiven over 10 years. See the [Monroe County First-Time Homebuyer Program guide](monroe-county-first-time-homebuyer-program.html).
 
 ### Can I buy a home in Monroe County working in Spanish?
 

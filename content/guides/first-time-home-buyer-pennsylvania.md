@@ -2,14 +2,14 @@
 title: First-Time Home Buyer Guide for Pennsylvania (2026)
 seoTitle: First-Time Home Buyer Guide for Pennsylvania (2026)
 description: How to buy your first home in Pennsylvania, step by step: pre-approval, the buyer agreement, loan options, PHFA programs, inspections, costs and settlement.
-answer: To buy your first home in Pennsylvania, you will usually need a mortgage pre-approval, a written buyer agreement with your agent before touring homes, a down payment (as little as 0 to 3.5% with some loan programs) and money for closing costs. From accepted offer to settlement typically takes 30 to 60 days. Pennsylvania Housing Finance Agency (PHFA) programs can help with the down payment and closing costs if you qualify.
+answer: To buy your first home in Pennsylvania, you will usually need a mortgage pre-approval, a written buyer agreement with your agent before touring homes, a down payment (as little as 0 to 3.5% with some loan programs) and money for closing costs. From accepted offer to settlement typically takes 30 to 60 days. Pennsylvania Housing Finance Agency (PHFA) programs can help with the down payment and closing costs if you qualify, and in Monroe County the county's First-Time Homebuyer Program can add up to $25,000 as a 0% loan forgiven over 10 years.
 category: Buying
 published: 2026-10-08
-updated: 2026-10-08
+updated: 2026-10-12
 featured: yes
 order: 1
 reviews: Steven B., Flor B.
-related: closing-costs-pennsylvania, monroe-county, northampton-county
+related: monroe-county-first-time-homebuyer-program, closing-costs-pennsylvania, monroe-county, northampton-county
 ---
 ## Step by step
 
@@ -28,6 +28,22 @@ related: closing-costs-pennsylvania, monroe-county, northampton-county
 - **Conventional loans:** as little as 3% down for many first-time buyers.
 - **VA loans:** 0% down for eligible veterans and service members.
 - **USDA loans:** 0% down in eligible rural areas. Parts of Monroe County may qualify, depending on the address.
+
+## Monroe County: up to $25,000 toward your down payment and closing costs
+
+If you are buying your first home in Monroe County, the county's First-Time Homebuyer Program can lend you up to $20,000, or 20% of the price if that is less, at 0% interest for the down payment and closing costs. Buyers who have lived in the county for the past 12 months can get $5,000 more. The loan is forgiven 10% a year, so after 10 years in the home you owe nothing.
+
+To qualify, you must:
+
+- Be a first-time homebuyer.
+- Have a total household income at or below 100% of Monroe County's median income ($99,188 for a household of four, as of October 2026).
+- Use the home as your primary residence.
+- Be a U.S. citizen or permanent resident.
+- Have good credit and the ability to make the mortgage payments.
+- Complete a homeownership pre-purchase counseling workshop and get the certificate.
+- Put in at least 3% of the price from your own money, and buy an existing home (new construction does not qualify).
+
+The program is run by the Redevelopment Authority of the County of Monroe. See the full [Monroe County First-Time Homebuyer Program guide](monroe-county-first-time-homebuyer-program.html) for the income limits, how the loan is forgiven and how to apply, or ask Ryth.
 
 ## Help from PHFA
 
@@ -57,6 +73,10 @@ Ryth works in English and Spanish, so you can go through every step, from the pr
 ### How much money do I need to buy my first home in Pennsylvania?
 
 It depends on the price and the loan. With some loans the down payment can be 0 to 3.5%, and closing costs are often 2 to 5% of the price. PHFA programs can help with both if you qualify.
+
+### Is there first-time homebuyer help in Monroe County, PA?
+
+Yes. Monroe County's First-Time Homebuyer Program offers up to $20,000, plus $5,000 for buyers who have lived in the county for the past 12 months, as a 0% second mortgage forgiven over 10 years. Income limits and other rules apply; see the [Monroe County program guide](monroe-county-first-time-homebuyer-program.html).
 
 ### Do I have to pay my real estate agent as a buyer?
 
