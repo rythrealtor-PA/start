@@ -55,6 +55,7 @@
  *   map: monroe                        (monroe or northampton)
  *   highlight: Pocono township         (Census names, comma separated)
  *   marker: Tannersville @ 41.0401, -75.3057
+ *   mapStyle: colors                   (each municipality its own color)
  *   aliases: old-slug                  (old addresses that redirect here)
  *
  * A slot with no data yet renders nothing, and a "##" section left empty
@@ -338,7 +339,12 @@ const HINT = ' <span class="cmap__hint">Swipe sideways to see the whole county.<
 
 function mapSlot(g) {
   if (!g.map) return '';
-  const m = countyMap(g.map, { highlight: g.highlight, marker: g.marker, idPrefix: `map-${g.slug}` });
+  const m = countyMap(g.map, {
+    highlight: g.highlight,
+    marker: g.marker,
+    colors: /^colou?rs$/i.test(g.mapStyle || ''),
+    idPrefix: `map-${g.slug}`,
+  });
   const hl = m.items.filter((i) => i.hl).map((i) => i.full);
   const caption = g.mapCaption
     ? esc(g.mapCaption)

@@ -988,6 +988,13 @@ a { color: var(--brass-lt); }
 .cmap__area.str-green { fill: #63a777; }
 .cmap__area.str-yellow { fill: #d8b64e; }
 .cmap__area.str-red { fill: #cf6a5f; }
+/* Colors that only tell neighboring municipalities apart (no meaning). */
+.cmap__area.cat-0 { fill: #8fa9c0; }
+.cmap__area.cat-1 { fill: #7fb3ab; }
+.cmap__area.cat-2 { fill: #cdb98f; }
+.cmap__area.cat-3 { fill: #ab9dbf; }
+.cmap__area.cat-4 { fill: #a9b67f; }
+.cmap__area.cat-5 { fill: #c99c86; }
 .cmap__label {
   font-family: var(--font-body);
   font-size: 16px;
@@ -996,7 +1003,9 @@ a { color: var(--brass-lt); }
 }
 .cmap__label--sm { font-size: 13.5px; }
 .cmap__label.is-hl,
-.cmap__svg--str .cmap__label { fill: var(--slate); font-weight: 600; }
+.cmap__svg--str .cmap__label,
+.cmap__svg--cat .cmap__label { fill: var(--slate); font-weight: 600; }
+.cmap__svg--cat .cmap__area { stroke: var(--slate); stroke-width: 1.2; }
 .cmap__num circle { fill: var(--slate); stroke: var(--ivory-dim); stroke-width: 1.2; }
 .cmap__num text {
   font-family: var(--font-body);

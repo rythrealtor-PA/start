@@ -112,6 +112,38 @@ const overlaps = (a, b, gap = 4) =>
   a.x - a.w / 2 - gap < b.x + b.w / 2 && b.x - b.w / 2 - gap < a.x + a.w / 2
   && a.y - a.h / 2 - gap < b.y + b.h / 2 && b.y - b.h / 2 - gap < a.y + a.h / 2;
 
+/**
+ * Gives each municipality one of `n` colors so that no two that touch share
+ * one (greedy, most-connected first). Two shapes touch when a corner of one
+ * lies on the other's edge.
+ */
+function colorAreas(items, n) {
+  const near = (a, b) => a.rings.some((r) => r.some(([x, y]) => edgeDist(x, y, b.rings) < 1.5));
+  const box = (it) => {
+    const pts = it.rings.flat();
+    return [Math.min(...pts.map((p) => p[0])), Math.min(...pts.map((p) => p[1])),
+      Math.max(...pts.map((p) => p[0])), Math.max(...pts.map((p) => p[1]))];
+  };
+  const boxes = items.map(box);
+  const adj = items.map(() => new Set());
+  for (let i = 0; i < items.length; i++) {
+    for (let j = i + 1; j < items.length; j++) {
+      const [a, b] = [boxes[i], boxes[j]];
+      if (a[0] > b[2] + 2 || b[0] > a[2] + 2 || a[1] > b[3] + 2 || b[1] > a[3] + 2) continue;
+      if (near(items[i], items[j]) || near(items[j], items[i])) { adj[i].add(j); adj[j].add(i); }
+    }
+  }
+  const order = items.map((_, i) => i).sort((i, j) => adj[j].size - adj[i].size || items[i].full.localeCompare(items[j].full));
+  const color = new Array(items.length).fill(-1);
+  for (const i of order) {
+    const used = new Set([...adj[i]].map((j) => color[j]));
+    const c = [...Array(n).keys()].find((k) => !used.has(k));
+    if (c === undefined) throw new Error(`colorAreas: ${items[i].full} needs more than ${n} colors`);
+    color[i] = c;
+  }
+  return color;
+}
+
 /* ───────────────────────────── names ───────────────────────────── */
 
 function describe(f, all) {
@@ -146,7 +178,8 @@ const textBox = (lines, size) => ({
 
 /**
  * countyMap('monroe', { highlight: ['Pocono township'], marker: {label, lat, lon},
- *                       ratings: { 'Barrett township': 'green', ... }, idPrefix })
+ *                       ratings: { 'Barrett township': 'green', ... },
+ *                       colors: true (each municipality its own color), idPrefix })
  * → { svg, items } where items lists every municipality with its number, if any.
  */
 export function countyMap(key, opts = {}) {
@@ -246,15 +279,17 @@ export function countyMap(key, opts = {}) {
   /* ── SVG ── */
   const f1 = (n) => n.toFixed(1);
   const id = opts.idPrefix || `map-${key}`;
-  const areaClass = (it) => [
+  const colors = opts.colors ? colorAreas(items, 6) : null;
+  const areaClass = (it, i) => [
     'cmap__area',
     it.hl && 'is-hl',
     opts.ratings && `str-${opts.ratings[it.name]}`,
+    colors && `cat-${colors[i]}`,
   ].filter(Boolean).join(' ');
 
-  const areas = items.map((it) => {
+  const areas = items.map((it, i) => {
     const d = it.rings.map((r) => `M${r.map(([x, y]) => `${f1(x)} ${f1(y)}`).join('L')}Z`).join('');
-    return `<path class="${areaClass(it)}" d="${d}"><title>${esc(it.full)}</title></path>`;
+    return `<path class="${areaClass(it, i)}" d="${d}"><title>${esc(it.full)}</title></path>`;
   }).join('');
 
   const labels = items.filter((it) => it.text).map((it) => {
@@ -277,7 +312,7 @@ export function countyMap(key, opts = {}) {
       + `y="${f1(mark.label.y)}" dy="0.35em" text-anchor="${mark.label.anchor}">${esc(opts.marker.label)}</text></g>`
     : '';
 
-  const svg = `<svg class="cmap__svg${opts.ratings ? ' cmap__svg--str' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-title">`
+  const svg = `<svg class="cmap__svg${opts.ratings ? ' cmap__svg--str' : ''}${colors ? ' cmap__svg--cat' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="${id}-title">`
     + `<title id="${id}-title">${esc(opts.title || `Map of ${county.name}, Pennsylvania, by municipality`)}</title>`
     + `<g class="cmap__areas">${areas}</g><g>${labels}</g><g>${numbers}</g>${marker}</svg>`;
 

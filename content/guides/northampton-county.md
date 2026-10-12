@@ -11,6 +11,7 @@ order: 2
 reviews: Steven B., Cesar A.
 related: bethlehem, monroe-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
 map: northampton
+mapStyle: colors
 aliases: easton, nazareth, bath
 ---
 ## Where Northampton County is

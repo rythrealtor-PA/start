@@ -1,15 +1,14 @@
 # Guide pages: facts for Ryth to confirm
 
-Updated October 11, 2026. Items are ordered from most to least important.
+Updated October 12, 2026. Items are ordered from most to least important.
 
 ## Questions only Ryth can answer
 
-- [ ] Photos still needed: Tannersville, Bethlehem, and three for the
-      investing page (Lake Harmony, Lake Naomi, Emerald Lakes). Use your own
-      photos, photos you have written permission to use, or free-license
-      photos (Creative Commons, with the credit line). Not photos copied from
-      other websites, listings or photographers, and not AI images of real
-      places.
+- [ ] Photos: none on the site for now (Ryth's choice, October 12). When there
+      are some, use your own photos, photos you have written permission to
+      use, or free-license photos with their credit line, never photos
+      copied from other websites, listings or photographers, and not AI
+      images of real places. They go in content/photos.json.
 - [ ] Market numbers from the MLS for each area page (median sale price,
       homes sold in the last 12 months, average days on market). They go in
       content/market.json; the prompt for Claude Cowork is in the chat.
@@ -25,9 +24,8 @@ Updated October 11, 2026. Items are ordered from most to least important.
 - The phone on the Google Business Profile is Ryth's: 929-345-6838.
 - Only the license number (RS380174) goes on the site, not the MLS ID or the
   NRDS ID.
-- Photos in use, with their required credit lines: downtown Stroudsburg
-  (Quintin Soloviev, CC BY 4.0) and Pocono Pines (Mark Luethi, CC BY-SA
-  4.0), both from Wikimedia Commons.
+- Northampton County page: the map gives each municipality its own color
+  (colors only tell neighbors apart).
 
 ## Compliance (check with your broker)
 
