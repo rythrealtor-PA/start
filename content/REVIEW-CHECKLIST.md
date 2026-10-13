@@ -11,10 +11,13 @@ Updated October 12, 2026. Items are ordered from most to least important.
       images of real places. They go in content/photos.json.
 - [ ] Market numbers: on all six area pages since October 12 (Pocono
       Mountains Association of REALTORS® MLS and Greater Lehigh Valley
-      REALTORS® MLS, October 2025 to September 2026). Still to confirm:
-      whether "days on market" is DOM or cumulative DOM (CDOM), and whether
-      either MLS requires its own wording for statistics published on a
-      website. Refresh the numbers every few months in content/market.json.
+      REALTORS® MLS, October 2025 to September 2026). The source line names
+      PMAR, as Ryth asked. Tannersville's 130 days is a 12-month average;
+      Ryth saw a 2026 median CDOM of 115 there, which fits (a few slow sales
+      pull an average above the median). Still to confirm: whether the
+      figures are DOM or CDOM, and whether either MLS requires its own
+      wording for statistics on a website. Refresh the numbers every few
+      months in content/market.json.
 
 ## Spanish site (added October 12, 2026)
 
