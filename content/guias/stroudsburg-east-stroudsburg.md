@@ -53,7 +53,7 @@ La mayor parte de Penn Estates está en Stroud Township, que hace una excepción
 - El municipio y el distrito escolar. Una dirección postal de Stroudsburg o East Stroudsburg puede estar en un township vecino. A los boroughs los atienden los distritos escolares Stroudsburg Area y East Stroudsburg Area.
 - El estado de la casa: una inspección completa, más la prueba de radón, que es estándar en Pensilvania. Las casas construidas antes de 1978 vienen con una declaración sobre pintura con plomo.
 - Las zonas de inundación cerca de Brodhead Creek y McMichael Creek, y si se exige seguro contra inundaciones.
-- Las reglas de alquiler a corto plazo, si piensa alquilar. Ninguno de los dos boroughs permite alquileres a corto plazo en sus zonas residenciales. Vea [Invertir en un alquiler vacacional en los Poconos](invertir-alquiler-vacacional-poconos.html).
+- Las reglas de alquiler a corto plazo, si piensa alquilar. Ninguno de los dos boroughs permite alquileres a corto plazo en sus zonas residenciales. Vea [Comprar un Airbnb en los Poconos](comprar-un-airbnb-en-los-poconos.html).
 
 ## Fuentes
 

@@ -1,28 +1,50 @@
 ---
-en: pocono-vacation-rental-investing
-title: Invertir en un alquiler vacacional en los Poconos: reglas por municipio, ubicación e ingresos
-seoTitle: Alquiler a corto plazo en los Poconos: reglas (2026)
-description: Qué municipios del condado de Monroe permiten alquileres a corto plazo, en un mapa verde, amarillo o rojo, más reglas de comunidades, impuestos e ingresos.
-homeQuestion: ¿Dónde puedo tener un alquiler vacacional en los Poconos?
-homeText: Un mapa verde, amarillo y rojo de las reglas de cada township.
-answer: Antes de comprar una casa para alquiler vacacional en los Poconos, confirme que tanto el municipio como la comunidad permiten alquileres a corto plazo, porque las reglas cambian de un township a otro. En el condado de Monroe, Ryth califica a Tunkhannock, Tobyhanna, Coolbaugh, Barrett y Middle Smithfield como los townships más fáciles (verde), a Polk, Eldred, Jackson, Stroud y Price como posibles con límites (amarillo), y a los otros diez como muy difíciles (rojo). Después, evalúe la casa por su ubicación, sus características, un ingreso realista (un alquiler promedio en los Poconos generó unos $55,000 en los 12 meses hasta agosto de 2026, según AirDNA) y el costo completo de tenerla.
-ctaTitle: ¿Busca una propiedad para alquiler vacacional?
+en: buying-an-airbnb-in-the-poconos
+title: Comprar un Airbnb en los Poconos: dónde se permiten los alquileres a corto plazo, precios y los mejores pueblos
+seoTitle: Casas para Airbnb en venta en los Poconos: dónde comprar
+description: Comprar un Airbnb en los Poconos: qué townships permiten alquileres a corto plazo, cuánto cuestan las casas, los mejores pueblos, impuestos e ingresos.
+homeQuestion: ¿Puedo comprar una casa en los Poconos para usarla como Airbnb?
+homeText: Dónde se permiten los alquileres a corto plazo, precios y los mejores pueblos.
+aliases: invertir-alquiler-vacacional-poconos
+answer: Sí, puede comprar una casa en los Poconos para usarla como Airbnb u otro alquiler a corto plazo, pero solo donde lo permitan tanto el municipio como la comunidad, porque las reglas cambian de un township a otro. En el condado de Monroe, Ryth califica a Tunkhannock, Tobyhanna, Coolbaugh, Barrett y Middle Smithfield como los townships más fáciles (verde), a Polk, Eldred, Jackson, Stroud y Price como posibles con límites (amarillo), y a los otros diez como muy difíciles (rojo). Después, evalúe la casa por su ubicación, sus características, un ingreso realista (un alquiler promedio en los Poconos generó unos $55,000 en los 12 meses hasta agosto de 2026, según AirDNA) y el costo completo de tenerla.
+ctaTitle: ¿Busca una casa para Airbnb en los Poconos?
 updated: 2026-10-13
 take: En todo el país se conoce a los Poconos como un gran lugar para tener un alquiler a corto plazo. No hay duda de que a algunas personas les va muy bien, y usted puede ser una de ellas. Una casa promedio de alquiler a corto plazo aquí genera entre $45,000 y $65,000 al año, según la zona, lo que la hace diferente de las demás y sus reseñas. Algunas casas promedian más de seis cifras al año, y son las que ofrecen algo excepcional. El límite es su creatividad y cómo promociona la propiedad.
 ---
-## Cómo trabaja Ryth con inversionistas
+## Cómo ayuda Ryth a quienes compran un Airbnb
 
 Ryth ha cerrado operaciones de propiedades de inversión por millones de dólares, para compradores de Nueva York, Nueva Jersey y Filadelfia que buscan un alquiler en los Poconos que sea rentable, algunos con la meta de llegar a seis cifras al año. Hace los números con usted, incluida la tasa de capitalización (cap rate: el ingreso neto anual de la propiedad dividido entre su precio), y negocia la compra para conseguirle mejores condiciones.
 
 Conoce las reglas de alquiler a corto plazo de cada township y borough, y cómo funcionan las comunidades. Ha visitado Emerald Lakes, Pocono Pines (Lake Naomi), Penn Estates, A Pocono Country Place, Lake Harmony y Pocono Summit, y conoce sus reglas de alquiler y qué tan fácil es tener un alquiler a corto plazo en cada una. Si prefiere no lidiar con las reglas y cuotas de una comunidad, Ryth también conoce las zonas donde se puede tener un alquiler a corto plazo sin HOA.
 
-## Reglas de alquiler a corto plazo por municipio
+## Dónde puede tener un Airbnb: reglas de alquiler a corto plazo por township
 
 {{str-map}}
 
 Cada township y borough del condado de Monroe escribe sus propias reglas de alquiler a corto plazo, desde un simple permiso hasta una prohibición en las zonas residenciales. Ryth califica cada uno según lo difícil que es obtener y mantener hoy una licencia de alquiler ahí. La tabla explica el motivo de cada calificación.
 
 {{str-table}}
+
+## Cuánto cuesta comprar un Airbnb en los Poconos
+
+{{prices}}
+
+La tabla muestra los precios de venta medianos en las zonas donde Ryth califica los alquileres a corto plazo como más fáciles, junto al condado de Monroe completo. Las casas por las que los huéspedes pagan más, como las que están frente a un lago, las que tienen jacuzzi o sala de juegos, y las que están en comunidades con piscinas y playas, normalmente se venden por encima de la mediana. Las que necesitan reparaciones, o las que están en comunidades sin instalaciones, normalmente se venden por debajo.
+
+Sume al precio los costos del primer año: muebles y suministros, la licencia y la inspección del township, los cargos de alquiler de la comunidad, si los hay, y un seguro hecho para alquileres a corto plazo.
+
+## Los mejores pueblos para un Airbnb en los Poconos
+
+Ryth busca primero donde las reglas del township son más fáciles y donde los huéspedes ya quieren quedarse:
+
+- **Pocono Pines, Pocono Lake y Blakeslee** (Tobyhanna Township, verde). Lake Naomi, Emerald Lakes y otras comunidades con lagos, cerca de Pocono Raceway, Kalahari Resorts y las zonas de esquí de Jack Frost y Big Boulder, justo al otro lado de la línea del condado de Carbon.
+- **Tobyhanna y Pocono Summit** (Coolbaugh Township, verde). A Pocono Country Place y Stillwater Lake Estates, junto a la I-380, cerca de Kalahari, Mount Airy Casino Resort y los parques estatales Tobyhanna y Gouldsboro.
+- **Long Pond** (Tunkhannock Township, verde). A minutos de Pocono Raceway, con parte de Emerald Lakes y de Indian Mountain Lakes.
+- **Bushkill y el resto de Middle Smithfield Township** (verde), justo al norte de East Stroudsburg. Cerca del río Delaware y del Delaware Water Gap National Recreation Area, a poca distancia de Nueva Jersey. En las cifras de AirDNA, la zona de East Stroudsburg tuvo el ingreso promedio más alto de los Poconos.
+- **Mountainhome, Canadensis y Cresco** (Barrett Township, verde). Zonas más tranquilas y boscosas, cerca de Skytop Lodge, Buck Hill Falls y las cascadas del norte de los Poconos.
+- **Penn Estates** (Stroud Township, amarillo). Stroud Township hace una excepción para esta comunidad con acceso controlado cerca de Stroudsburg, que tiene agua y alcantarillado públicos.
+
+En cada uno, igual hay que revisar la licencia del township y las reglas de la comunidad para la casa exacta.
 
 ## Paso 1: revise primero las reglas
 
@@ -82,9 +104,16 @@ Calcule el ingreso a partir de alquileres comparables cercanos, temporada por te
 
 {{take}}
 
-## Paso 6: el financiamiento
+## Paso 6: cómo financiar un Airbnb en los Poconos
 
-Financiar un alquiler vacacional es distinto a financiar su casa principal. Los préstamos para segunda vivienda y para propiedades de inversión normalmente piden un pago inicial más alto, y algunos prestamistas ofrecen préstamos basados en el ingreso de alquiler que se espera de la propiedad. Hable con un prestamista desde el principio para que los números que haga sean reales.
+El uso que le dará a la casa decide el tipo de préstamo, así que dígale la verdad a su prestamista.
+
+- **Préstamo para segunda vivienda.** Con las reglas de Fannie Mae y Freddie Mac, un préstamo convencional para segunda vivienda puede cubrir hasta el 90% del precio, es decir, un pago inicial de alrededor del 10%. La casa debe ser de una sola unidad, usted debe vivir en ella parte del año y controlarla usted mismo, y ninguna compañía de administración puede decidir quién se queda ahí. Fannie Mae acepta algo de ingreso por alquiler, pero ese ingreso no se puede usar para calificarle.
+- **Préstamo para propiedad de inversión.** Si la casa será un alquiler de tiempo completo, es una propiedad de inversión. Los préstamos convencionales cubren hasta el 85% del precio de una casa unifamiliar (alrededor del 15% de pago inicial) y el 75% de un edificio de 2 a 4 unidades (alrededor del 25%).
+- **Préstamos basados en el alquiler.** Algunos prestamistas le califican con el ingreso de alquiler que se espera de la propiedad, en vez de con su propio ingreso (se les suele llamar préstamos DSCR). Normalmente piden un pago inicial más alto y tienen tasas más altas.
+- **Los préstamos FHA, VA y USDA** son para la casa donde usted vive como residencia principal, no para un alquiler vacacional.
+
+Hable desde el principio con un oficial de préstamos con licencia, para que los números que haga sean reales.
 
 ## Fuentes
 
@@ -96,8 +125,15 @@ Las reglas de cada township y borough están enlazadas en la tabla de arriba.
 - [Lake Naomi Club: cuotas para nuevos socios 2026 (PDF, en inglés)](https://lakenaomiclub.com/documents/20124/0/New+Member+Fees+2026.pdf/55f64114-443a-ccea-9103-9aa113cc48d5?t=1765574078012)
 - [Indian Mountain Lakes: formulario de registro de alquileres 2026 (PDF, en inglés)](https://www.indianmountainlake.com/data/2026%20RENTAL%20REGIST%20FORM%20-%20WORKABLE%20NEW.pdf)
 - [Lake Harmony Estates: playa e instalaciones (en inglés)](https://www.lakeharmonyestatespoa.com/beach-amenities)
+- [Fannie Mae: tabla de elegibilidad, porcentaje máximo del préstamo según el uso de la casa (PDF, en inglés)](https://singlefamily.fanniemae.com/media/document/pdf/eligibility-matrix-current)
+- [Fannie Mae: tipos de ocupación, incluida la segunda vivienda (en inglés)](https://selling-guide.fanniemae.com/sel/b2-1.1-01/occupancy-types)
+- [Freddie Mac: porcentajes máximos del préstamo (en inglés)](https://sf.freddiemac.com/general/maximum-ltv-tltv-htltv-ratio-requirements-for-conforming-and-super-conforming-mortgages)
 
 ## Preguntas
+
+### ¿Los Poconos son buenos para Airbnb?
+
+Pueden serlo. Los Poconos atraen visitantes de Nueva York, Nueva Jersey y Filadelfia todo el año, y según AirDNA, el alquiler a corto plazo promedio en los Poconos generó unos $55,200 en los 12 meses hasta agosto de 2026. Que una casa funcione depende de las reglas del township, las reglas de la comunidad, el precio que pague y el costo completo de operarla.
 
 ### ¿Qué townships del condado de Monroe permiten alquileres a corto plazo?
 
@@ -115,6 +151,6 @@ Según AirDNA, el alquiler a corto plazo promedio en los Poconos generó unos $5
 
 En el condado de Monroe, las estadías de menos de 30 días por lo general pagan el impuesto de ocupación hotelera de Pensilvania, del 6%, y el impuesto del 3% del condado sobre las habitaciones de hotel. Algunas plataformas de reservas cobran ciertos impuestos por usted; confirme qué cubre la suya.
 
-### ¿Puedo obtener una hipoteca para un alquiler vacacional?
+### ¿Cuánto necesito de pago inicial para comprar un Airbnb en los Poconos?
 
-Sí. Los préstamos para segunda vivienda y para propiedades de inversión son comunes. Normalmente piden un pago inicial más alto que para una casa principal, y algunos prestamistas le califican con el ingreso de alquiler que se espera de la propiedad.
+Con las reglas de Fannie Mae y Freddie Mac, alrededor del 10% para una segunda vivienda que usted también usa y alquila solo parte del tiempo, y alrededor del 15% para una casa unifamiliar comprada como alquiler de tiempo completo. Los préstamos basados en el ingreso de alquiler normalmente piden más. Su prestamista confirma las condiciones exactas.

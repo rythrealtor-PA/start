@@ -68,6 +68,8 @@ Justo al oeste de la línea del condado, en el condado de Carbon:
 - Casas de lujo en terrenos grandes y con acres de tierra
 - Terrenos y lotes para construir
 
+Para los pasos, los precios por pueblo, el pozo y el séptico, y la compra de una segunda vivienda, vea [Comprar casa en los Poconos](comprar-casa-en-los-poconos.html). ¿Va a vender? Vea [Cómo vender su casa en los Poconos](vender-su-casa-en-los-poconos.html).
+
 ## Impuestos a la propiedad y distritos escolares
 
 En Pensilvania, los impuestos a la propiedad van a tres entidades: el condado, el municipio (el township o el borough) y el distrito escolar. Cada una fija su propia tasa, así que dos casas parecidas a unas millas de distancia pueden tener cuentas de impuestos muy distintas.
@@ -79,7 +81,7 @@ El condado de Monroe tiene cuatro distritos escolares: East Stroudsburg Area, Pl
 - Las reglas de la POA, las cuotas anuales y cualquier cobro especial (special assessment). La ley de Pensilvania exige que el vendedor le entregue un certificado de reventa (resale certificate) si la casa está en una comunidad planificada.
 - El agua y el alcantarillado. Muchas casas aquí usan un pozo privado y un sistema séptico, así que vale la pena hacer una prueba del pozo y una inspección del séptico.
 - El radón. Es común en Pensilvania, y hacer la prueba durante el periodo de inspección es lo normal.
-- Las reglas de alquiler a corto plazo, si piensa alquilar la casa. Cada township y cada comunidad tiene las suyas, y algunos no lo permiten. Vea [Invertir en un alquiler vacacional en los Poconos](invertir-alquiler-vacacional-poconos.html).
+- Las reglas de alquiler a corto plazo, si piensa alquilar la casa. Cada township y cada comunidad tiene las suyas, y algunos no lo permiten. Vea [Comprar un Airbnb en los Poconos](comprar-un-airbnb-en-los-poconos.html).
 - Las zonas de inundación cerca de arroyos y ríos, y si se exige seguro contra inundaciones.
 - El acceso en invierno: quién limpia la nieve de los caminos privados y de la comunidad.
 

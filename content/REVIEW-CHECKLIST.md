@@ -49,6 +49,20 @@ Updated October 12, 2026. Items are ordered from most to least important.
       PoconoVacationHomeSales.com (another agent's site) where they were
       published. Remove that link if you prefer not to send readers there.
 
+## New pages (October 13, 2026, first group)
+
+Built in English and Spanish:
+- Buying a Home in the Poconos
+- Buying an Airbnb in the Poconos (renamed from the rental investing guide; the old address forwards)
+- How to Sell Your House in the Poconos, and in the Lehigh Valley. These replace "How to Sell Your Home in Pennsylvania"; its old address forwards to the Poconos page.
+- 8 new questions in the homepage FAQ; Allentown added to the areas served
+
+- [ ] Read the new pages and correct anything that does not match how you work.
+- [ ] Out-of-state buyers: tell me how you work with them (video tours? weekend showings?), so the FAQ answer about moving from New York or New Jersey can say it.
+- [ ] Ryth's take for each new page, in your own words (2 or 3 sentences).
+- [ ] MLS numbers: run the Lehigh Valley prompt. When the numbers arrive, the price tables on the buying, selling and Airbnb pages fill in on their own (Mount Pocono, Coolbaugh, Tobyhanna Township, Middle Smithfield, Stroud Township, Allentown, Easton, Nazareth, Lehigh County).
+- [ ] Second-home and investment down payments (10%, 15%, 25%) come from Fannie Mae and Freddie Mac's current tables. Have a lender you trust read that section.
+
 ## Spanish site (added October 12, 2026)
 
 - [ ] Read the Spanish pages (es/ and es/guias/). The text is neutral Latin

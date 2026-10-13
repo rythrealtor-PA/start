@@ -49,6 +49,8 @@ Bethlehem es una ciudad del Lehigh Valley, entre Allentown al oeste y Easton al 
 - Las zonas de inundación cerca del río Lehigh y de Monocacy Creek.
 - La exención de vivienda principal (homestead exclusion). Cuando la casa sea su residencia principal, solicite al condado la exención de vivienda principal de Pensilvania, que baja sus impuestos escolares a la propiedad. La fecha límite de cada año es el 1 de marzo.
 
+¿Va a vender una casa en Bethlehem? La ciudad exige su propia inspección antes del cierre. Vea [Cómo vender su casa en Lehigh Valley](vender-su-casa-en-lehigh-valley.html).
+
 ## Fuentes
 
 - [Centro del Patrimonio Mundial de la UNESCO: asentamientos de la Iglesia Morava (en inglés)](https://whc.unesco.org/en/list/1468/)

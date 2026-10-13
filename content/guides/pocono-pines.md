@@ -9,7 +9,7 @@ published: 2026-10-08
 updated: 2026-10-13
 order: 3
 reviews: Flor B., Ike A.
-related: monroe-county, tannersville, pocono-vacation-rental-investing
+related: monroe-county, tannersville, buying-an-airbnb-in-the-poconos
 map: monroe
 highlight: Tobyhanna township
 marker: Pocono Pines @ 41.1068, -75.4544

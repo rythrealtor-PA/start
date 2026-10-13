@@ -90,7 +90,7 @@ export const CONFIG = {
   serviceAreas: {
     counties: ['Monroe County', 'Northampton County'],
     towns: ['Stroudsburg', 'East Stroudsburg', 'Tannersville', 'Pocono Pines',
-            'Saylorsburg', 'Bethlehem', 'Nazareth', 'Easton', 'Bath'],
+            'Saylorsburg', 'Bethlehem', 'Nazareth', 'Easton', 'Bath', 'Allentown'],
   },
 
   // Tracking parameters are stripped: the ?stkn / ?_r / ?mibextid strings these

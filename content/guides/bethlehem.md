@@ -9,7 +9,7 @@ published: 2026-10-08
 updated: 2026-10-13
 order: 4
 reviews: Steven B., Flor B.
-related: northampton-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
+related: northampton-county, sell-your-house-lehigh-valley, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
 map: northampton
 highlight: Bethlehem city
 take: In my opinion, what Bethlehem has is opportunity and a good quality of life. It is an opportunity for investors, because long-term rentals work very well here, and for work, because there are more job opportunities than in many of the areas around it. And it is a good place to live, with colleges and universities, restaurants, parks and a lot of history.
@@ -54,6 +54,8 @@ Bethlehem is a city in the Lehigh Valley, between Allentown to the west and East
 - Older homes. Homes built before 1978 come with a lead-based paint disclosure, and older wiring, plumbing and foundations deserve a careful inspection.
 - Flood zones near the Lehigh River and Monocacy Creek.
 - The homestead exclusion. Once the home is your main residence, apply to the county for Pennsylvania's homestead exclusion, which lowers your school property taxes. The yearly deadline is March 1.
+
+Selling a home in Bethlehem? The city requires its own inspection before the sale closes. See [How to sell your house in the Lehigh Valley](sell-your-house-lehigh-valley.html).
 
 ## Sources
 

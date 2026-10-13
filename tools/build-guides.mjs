@@ -72,6 +72,7 @@
  *   {{photos}}     all of the guide's photos      content/photos.json
  *   {{map}}        the county map                 front matter: map, highlight, marker
  *   {{market}}     median price, sales, days      content/market.json
+ *   {{prices}}     the same, several areas, as a table   front matter: prices
  *   {{take}}       Ryth's own words               front matter: take
  *   {{str-map}}    rental rules map, by color     content/str-ratings.json
  *   {{str-table}}  the same, as a table           content/str-ratings.json
@@ -81,6 +82,7 @@
  *   marker: Tannersville @ 41.0401, -75.3057
  *   mapStyle: colors                   (each municipality its own color)
  *   aliases: old-slug                  (old addresses that redirect here)
+ *   prices: monroe-county, pocono-pines (content/market.json entries, in order)
  *
  * A slot with no data yet renders nothing, and a "##" section left empty
  * is dropped, so a page never shows an empty box. Pipe tables work too:
@@ -207,6 +209,10 @@ const L = {
     why: (r) => r.why,
     market: ['Median sale price', 'Homes sold in the last 12 months', 'Average days on market', 'Source'],
     marketText: (m) => [m.scope, m.period, m.source],
+    pricesHead: ['Area', 'Median price', 'Homes sold', 'Avg. days on market'],
+    pricesCaption: 'Home prices by area, from the MLS',
+    pricesNote: (period, sources) => `Homes sold from ${period}. Source: ${sources}.`,
+    pricesRow: (m) => [m.place, m.period, m.source],
     // The question people ask about these numbers, answered from them.
     marketFaq: (m) => m.place && {
       q: `What is the median home price in ${m.place}?`,
@@ -292,6 +298,10 @@ const L = {
     },
     market: ['Precio de venta mediano', 'Casas vendidas en los últimos 12 meses', 'Días promedio en el mercado', 'Fuente'],
     marketText: (m) => [m.scopeEs || m.scope, m.periodEs || m.period, m.sourceEs || m.source],
+    pricesHead: ['Zona', 'Precio mediano', 'Casas vendidas', 'Días promedio en el mercado'],
+    pricesCaption: 'Precios de las casas por zona, según el MLS',
+    pricesNote: (period, sources) => `Casas vendidas de ${period}. Fuente: ${sources}.`,
+    pricesRow: (m) => [(m.placeEs || m.place).replace(/^(?:el|la|los|las) (.)/, (_, c) => c.toUpperCase()), m.periodEs || m.period, m.sourceEs || m.source],
     marketFaq: (m) => m.placeEs && m.scopeEs && m.periodEs && m.sourceEs && {
       q: `¿Cuál es el precio mediano de una casa en ${m.placeEs}?`,
       a: [`El precio de venta mediano fue de $${num(m.median)} para ${lower(m.scopeEs)}, de ${m.periodEs}. `
@@ -342,6 +352,7 @@ function normalize(meta, file) {
     reviews: list(meta.reviews),
     related: list(meta.related),
     aliases: list(meta.aliases),
+    prices: list(meta.prices),
     highlight: list(meta.highlight),
     marker,
     featured: /^(yes|true)$/i.test(meta.featured || ''),
@@ -653,6 +664,27 @@ function marketSlot(m, t) {
 <p class="stats__note">${esc(scope)}, ${esc(period)}. ${t.market[3]}: ${esc(source)}.</p>`;
 }
 
+/**
+ * Several areas' market numbers side by side, in the order the guide lists
+ * them (front matter "prices"). Areas without numbers yet are left out, and
+ * with none at all the table is not shown.
+ */
+function pricesSlot(keys, market, t) {
+  const rows = keys.map((k) => market[k] && [k, market[k]]).filter(Boolean);
+  if (!rows.length) return '';
+  const parts = rows.map(([, m]) => t.pricesRow(m));
+  const periods = [...new Set(parts.map((x) => x[1]))];
+  const sources = [...new Set(parts.map((x) => x[2]))];
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="${t.pricesCaption}"><table class="prices-table">
+  <caption>${t.pricesCaption}</caption>
+  <thead><tr>${t.pricesHead.map((h) => `<th scope="col">${h}</th>`).join('')}</tr></thead>
+  <tbody>
+${rows.map(([, m], i) => `    <tr><th scope="row">${esc(parts[i][0])}</th><td>$${num(m.median)}</td><td>${num(m.sold)}</td><td>${num(m.dom)}</td></tr>`).join('\n')}
+  </tbody>
+</table></div>
+<p class="stats__note">${esc(t.pricesNote(periods.join('; '), sources.join('; ')))}</p>`;
+}
+
 function photoFigure(p, eager, t) {
   const { alt, caption: text } = t.photo(p);
   const caption = [text && esc(text), p.credit && `<span class="guide-photo__credit">${inline(p.credit)}</span>`]
@@ -699,6 +731,7 @@ function guidePage(g, all, testimonials, data, { drafts = false } = {}) {
     photos: () => (photos.length ? `<div class="guide-photos">\n${photos.map((p) => photoFigure(p, false, t)).join('\n')}\n</div>` : ''),
     map: () => mapSlot(g, t),
     market: () => marketSlot(data.market[key], t),
+    prices: () => pricesSlot(g.prices, data.market, t),
     take: () => takeSlot(g.take),
     'str-map': () => strMapSlot(data.str, t),
     'str-table': () => strTableSlot(data.str, t),
@@ -885,7 +918,7 @@ async function readSources(dir) {
 }
 
 /** What a Spanish guide takes from the English one it translates. */
-const INHERITED = ['category', 'order', 'featured', 'place', 'map', 'highlight', 'marker', 'mapStyle', 'reviews'];
+const INHERITED = ['category', 'order', 'featured', 'place', 'map', 'highlight', 'marker', 'mapStyle', 'reviews', 'prices'];
 
 /** The front matter text a normalized field came from, for inheriting. */
 function rawOf(g, key) {
@@ -893,7 +926,7 @@ function rawOf(g, key) {
     case 'featured': return g.featured ? 'yes' : '';
     case 'order': return String(g.order);
     case 'place': return g.places.join('; ');
-    case 'reviews': case 'highlight': return g[key].join(', ');
+    case 'reviews': case 'highlight': case 'prices': return g[key].join(', ');
     case 'marker': return g.marker ? `${g.marker.label} @ ${g.marker.lat}, ${g.marker.lon}` : '';
     default: return g[key];
   }

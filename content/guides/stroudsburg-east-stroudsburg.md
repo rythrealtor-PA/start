@@ -9,7 +9,7 @@ published: 2026-10-08
 updated: 2026-10-13
 order: 1
 reviews: Steven B.
-related: monroe-county, tannersville, pocono-vacation-rental-investing
+related: monroe-county, tannersville, buying-an-airbnb-in-the-poconos
 map: monroe
 highlight: Stroudsburg borough, East Stroudsburg borough
 marker: Stroudsburg & East Stroudsburg @ 40.993, -75.188
@@ -60,7 +60,7 @@ Most of Penn Estates is in Stroud Township, which makes an exception to allow sh
 - The municipality and school district. A Stroudsburg or East Stroudsburg mailing address can be in a neighboring township. The boroughs are served by the Stroudsburg Area and East Stroudsburg Area school districts.
 - The condition of the house: a full home inspection, plus a radon test, which is standard in Pennsylvania. Homes built before 1978 come with a lead-based paint disclosure.
 - Flood zones near Brodhead Creek and McMichael Creek, and whether flood insurance is required.
-- Short-term rental rules, if you plan to rent. Neither borough allows short-term rentals in its residential districts. See [Investing in a Pocono vacation rental](pocono-vacation-rental-investing.html).
+- Short-term rental rules, if you plan to rent. Neither borough allows short-term rentals in its residential districts. See [Buying an Airbnb in the Poconos](buying-an-airbnb-in-the-poconos.html).
 
 ## Sources
 

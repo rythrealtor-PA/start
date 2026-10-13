@@ -9,7 +9,7 @@ published: 2026-10-08
 updated: 2026-10-13
 order: 2
 reviews: Ike A., Steven B.
-related: monroe-county, stroudsburg-east-stroudsburg, pocono-pines, pocono-vacation-rental-investing
+related: monroe-county, stroudsburg-east-stroudsburg, pocono-pines, buying-an-airbnb-in-the-poconos
 map: monroe
 highlight: Pocono township
 marker: Tannersville @ 41.0401, -75.3057

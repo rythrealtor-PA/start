@@ -1360,6 +1360,15 @@ a { color: var(--brass-lt); }
 }
 .table-wrap tbody th { color: var(--ivory); font-weight: 600; }
 .str-table td:nth-child(2) { white-space: nowrap; }
+/* Prices by area: four short columns, so it fits a phone without scrolling. */
+.table-wrap .prices-table { min-width: 0; }
+.prices-table td { white-space: nowrap; }
+@media (max-width: 40rem) {
+  .prices-table { font-size: 0.85rem; }
+  .prices-table th, .prices-table td { padding: 0.55rem 0.4rem; }
+  .prices-table th:first-child, .prices-table td:first-child { padding-left: 0.75rem; }
+  .prices-table thead th { font-size: 0.64rem; letter-spacing: 0.03em; }
+}
 
 /* Market numbers. */
 .stats {

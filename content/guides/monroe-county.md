@@ -11,7 +11,7 @@ updated: 2026-10-13
 featured: yes
 order: 1
 reviews: Steven B., Flor B.
-related: stroudsburg-east-stroudsburg, tannersville, pocono-pines, pocono-vacation-rental-investing
+related: buying-a-home-in-the-poconos, stroudsburg-east-stroudsburg, tannersville, pocono-pines, buying-an-airbnb-in-the-poconos
 map: monroe
 aliases: saylorsburg
 ---
@@ -72,6 +72,8 @@ Just west of the county line, in Carbon County:
 - Luxury homes on large lots and acreage
 - Land and building lots
 
+For the steps, prices by town, well and septic, and buying a second home, see [Buying a home in the Poconos](buying-a-home-in-the-poconos.html). Selling? See [How to sell your house in the Poconos](sell-your-house-poconos.html).
+
 ## Property taxes and school districts
 
 In Pennsylvania, property taxes go to three bodies: the county, the municipality (the township or borough) and the school district. Each sets its own rate, so two similar homes a few miles apart can have very different tax bills.
@@ -83,7 +85,7 @@ Monroe County has four school districts: East Stroudsburg Area, Pleasant Valley,
 - The POA's rules, annual dues and any special assessments. Pennsylvania law requires the seller to give you a resale certificate for a home in a planned community.
 - Water and sewer. Many homes here use a private well and a septic system, so a well test and a septic inspection are worth doing.
 - Radon. It is common in Pennsylvania, and testing during the inspection period is standard.
-- Short-term rental rules, if you plan to rent the home. Each township and community has its own, and some do not allow it at all. See [Investing in a Pocono vacation rental](pocono-vacation-rental-investing.html).
+- Short-term rental rules, if you plan to rent the home. Each township and community has its own, and some do not allow it at all. See [Buying an Airbnb in the Poconos](buying-an-airbnb-in-the-poconos.html).
 - Flood zones near creeks and rivers, and whether flood insurance is required.
 - Winter access: who plows private and community roads.
 

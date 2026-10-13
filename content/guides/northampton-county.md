@@ -8,10 +8,10 @@ answer: Northampton County is the eastern half of the Lehigh Valley, on the New 
 category: Counties
 published: 2026-10-08
 updated: 2026-10-13
-featured: yes
+featured: no
 order: 2
 reviews: Steven B., Cesar A.
-related: bethlehem, monroe-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
+related: bethlehem, sell-your-house-lehigh-valley, monroe-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
 map: northampton
 mapStyle: colors
 aliases: easton, nazareth, bath

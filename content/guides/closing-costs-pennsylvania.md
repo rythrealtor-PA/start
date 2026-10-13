@@ -8,10 +8,10 @@ answer: In Pennsylvania, the largest closing cost is usually the realty transfer
 category: Buying
 published: 2026-10-08
 updated: 2026-10-13
-featured: yes
+featured: no
 order: 3
 reviews: Steven B.
-related: first-time-home-buyer-pennsylvania, selling-your-home-pennsylvania
+related: first-time-home-buyer-pennsylvania, sell-your-house-poconos, sell-your-house-lehigh-valley
 ---
 ## The realty transfer tax
 

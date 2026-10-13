@@ -1,3 +1,7 @@
 # Byte-compiled Python from the bundled skill scripts
 __pycache__/
 *.py[cod]
+# Screenshots that test scripts leave in the project root; the site has no
+# root-level images except the touch icon.
+/*.png
+!/apple-touch-icon.png
