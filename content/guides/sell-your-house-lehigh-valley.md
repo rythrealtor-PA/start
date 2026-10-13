@@ -36,7 +36,7 @@ The City of Allentown requires a pre-sale inspection of residential and commerci
 
 {{prices}}
 
-Once you accept an offer, closing usually takes another 30 to 60 days.
+Lehigh Valley homes have been selling quickly: from October 2025 to September 2026, the average time on the market was under four weeks in every area in the table. Once you accept an offer, closing usually takes another 30 to 60 days.
 
 ## What sellers pay
 
@@ -71,7 +71,7 @@ Schedule the city's required inspection within 10 days of listing, price the hom
 
 ### How long does it take to sell a house in Bethlehem?
 
-Homes in the City of Bethlehem that sold from October 2025 to September 2026 spent an average of 57 days on the market, according to the Greater Lehigh Valley REALTORS® MLS. After you accept an offer, closing usually takes another 30 to 60 days.
+Homes in the City of Bethlehem that sold from October 2025 to September 2026 spent an average of 19 days on the market, according to the Greater Lehigh Valley REALTORS® MLS. After you accept an offer, closing usually takes another 30 to 60 days.
 
 ### Do I need an inspection to sell my house in Allentown or Easton?
 

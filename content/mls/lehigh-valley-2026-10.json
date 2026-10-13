@@ -1,0 +1,196 @@
+{
+  "period": "October 2025 to September 2026",
+  "periodEs": "octubre de 2025 a septiembre de 2026",
+  "glvr": {
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "areas": {
+      "allentown": {
+        "median": 260000,
+        "sold": 862,
+        "dom": 22.57345971563981,
+        "domType": "DOM"
+      },
+      "bethlehem": {
+        "median": 315000,
+        "sold": 589,
+        "dom": 19.19055944055944,
+        "domType": "DOM"
+      },
+      "easton": {
+        "median": 252000,
+        "sold": 197,
+        "dom": 26.130208333333332,
+        "domType": "DOM"
+      },
+      "nazareth": {
+        "median": 332300,
+        "sold": 48,
+        "dom": 14.72340425531915,
+        "domType": "DOM"
+      },
+      "lehigh-county": {
+        "median": 359900,
+        "sold": 3392,
+        "dom": 22.79070483225608,
+        "domType": "DOM"
+      },
+      "northampton-county": {
+        "median": 375000,
+        "sold": 2942,
+        "dom": 23.109838998211092,
+        "domType": "DOM"
+      }
+    },
+    "multifamily": {
+      "allentown": {
+        "median": 329000,
+        "sold": 79
+      },
+      "bethlehem": {
+        "median": 378000,
+        "sold": 29
+      },
+      "easton": {
+        "median": 388500,
+        "sold": 26
+      }
+    },
+    "rents": {
+      "allentown": {
+        "rent2br": 1500,
+        "leases2br": 140,
+        "rent3br": 1900,
+        "leases3br": 171
+      },
+      "bethlehem": {
+        "rent2br": 1798,
+        "leases2br": 152,
+        "rent3br": 2000,
+        "leases3br": 108
+      },
+      "easton": {
+        "rent2br": 1600,
+        "leases2br": 76,
+        "rent3br": 1958,
+        "leases3br": 50
+      }
+    },
+    "priceRanges": [
+      {
+        "range": "under-200k",
+        "sold": 441,
+        "medianSqft": 1216,
+        "medianBeds": 3
+      },
+      {
+        "range": "200-300k",
+        "sold": 1485,
+        "medianSqft": 1420,
+        "medianBeds": 3
+      },
+      {
+        "range": "300-400k",
+        "sold": 1773,
+        "medianSqft": 1728,
+        "medianBeds": 3
+      },
+      {
+        "range": "400-500k",
+        "sold": 1063,
+        "medianSqft": 2117,
+        "medianBeds": 3
+      },
+      {
+        "range": "500k-plus",
+        "sold": 1572,
+        "medianSqft": 3033,
+        "medianBeds": 4
+      }
+    ]
+  },
+  "pmar": {
+    "source": null,
+    "sourceEs": null,
+    "areas": {
+      "mount-pocono": {
+        "median": null,
+        "sold": null,
+        "dom": null,
+        "domType": "DOM"
+      },
+      "coolbaugh": {
+        "median": null,
+        "sold": null,
+        "dom": null,
+        "domType": "DOM"
+      },
+      "tobyhanna-township": {
+        "median": null,
+        "sold": null,
+        "dom": null,
+        "domType": "DOM"
+      },
+      "middle-smithfield": {
+        "median": null,
+        "sold": null,
+        "dom": null,
+        "domType": "DOM"
+      },
+      "stroud-township": {
+        "median": null,
+        "sold": null,
+        "dom": null,
+        "domType": "DOM"
+      }
+    },
+    "priceRanges": [
+      {
+        "range": "under-200k",
+        "sold": null,
+        "medianSqft": null,
+        "medianBeds": null,
+        "topAreas": []
+      },
+      {
+        "range": "200-300k",
+        "sold": null,
+        "medianSqft": null,
+        "medianBeds": null,
+        "topAreas": []
+      },
+      {
+        "range": "300-400k",
+        "sold": null,
+        "medianSqft": null,
+        "medianBeds": null,
+        "topAreas": []
+      },
+      {
+        "range": "400-500k",
+        "sold": null,
+        "medianSqft": null,
+        "medianBeds": null,
+        "topAreas": []
+      },
+      {
+        "range": "500k-plus",
+        "sold": null,
+        "medianSqft": null,
+        "medianBeds": null,
+        "topAreas": []
+      }
+    ],
+    "rents": {
+      "rent2br": null,
+      "leases2br": null,
+      "rent3br": null,
+      "leases3br": null
+    },
+    "land": {
+      "sold": null,
+      "median": null
+    }
+  },
+  "notes": "Pulled October 13, 2026 from the Greater Lehigh Valley REALTORS® MLS (Matrix). SALES: status Sold & Settled, settled 10/01/2025-09/30/2026; price = sold price. Property types = Residential sub type with category Detached, Semi Detached/Twin, Row/Townhouse, Row-End Unit, Apartment Style (condos), Cluster or Modular. Excluded: Manufactured (mobile homes), Resi Lease/Lot, and 13 GLVR listings with no category. Only GLVR's own listings (Association = Lehigh Valley MLS) are counted; records shared in from PMAR, Greater Scranton and Pike Wayne boards are excluded (most have no property-type code and about 1 in 5 repeat a GLVR listing). AREAS: the MLS Municipality field follows the mailing address (e.g. 'Easton' also covers Forks, Palmer, Wilson and Williams), so cities use MLS Areas instead: Allentown = Areas 13-16; Bethlehem = Areas 01-03 (covers both the Lehigh and Northampton County parts); Easton = Areas 77-79 (College Hill, Easton, South Easton); Nazareth Borough = Area 53. Area 17 (Allentown West-Parkland School) is outside the city and was left out. Counties use the County field. DOM: average of the DOM field across sales that have a DOM; sales with blank DOM (mostly builder/new-construction entries) are left out: Lehigh 143 of 3392, Northampton 147 of 2942, Allentown 18 of 862, Bethlehem 17 of 589, Easton 5 of 197, Nazareth 1 of 48. Values are unrounded. Matrix's own Stats screen counts blank DOM as 0 and shows whole days (22, 22, 22, 19, 25, 14 for Lehigh, Northampton, Allentown, Bethlehem, Easton, Nazareth). One Lehigh sale has a DOM of -22 (data error) and was left in as recorded. MULTI-FAMILY: Investment Property class, sold in the same period, GLVR listings, same city Areas, 'Total Units' field = 2 to 4. Listings with Total Units 0 or blank could not be classified and are left out (Allentown 5, Bethlehem 3, Easton 4). RENTS: Residential Rental sub type, Sold & Settled (lease closed) in the same period, GLVR listings, same city Areas, bedrooms exactly 2 or 3, leased price. Leases recorded above $10,000 look like annual amounts and are left out: Allentown 2BR 1 lease, Bethlehem 2BR 15 leases (mostly 2895/2897 Easton Ave), Bethlehem 3BR 2 leases. With them included, Bethlehem 2BR would be $1,840 on 167 leases (3BR unchanged at $2,000 on 110). Medians that landed on a half dollar were rounded up: Bethlehem 2BR $1,797.50 -> 1798, Easton 2BR $1,599.50 -> 1600. PRICE RANGES: Lehigh + Northampton combined, same sales as above (6,334 total = 3,392 + 2,942). medianSqft is Matrix's 'Square Footage', which is Total Finished SF (above + below grade). Above-grade-only medians would be 1192, 1332, 1500, 1865 and 2600. medianBeds from the Bedrooms field. PMAR (Part 2): left null. No PMAR MLS access; GLVR Matrix carries a PMAR data feed, but about 95% of those records have no property-type code."
+}

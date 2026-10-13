@@ -15,8 +15,8 @@
   },
   "northampton-county": {
     "median": 375000,
-    "sold": 2744,
-    "dom": 65,
+    "sold": 2942,
+    "dom": 23,
     "scope": "Single-family homes (detached and twins), townhouses and condos sold in Northampton County",
     "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en el condado de Northampton",
     "period": "October 2025 to September 2026",
@@ -67,8 +67,8 @@
   },
   "bethlehem": {
     "median": 315000,
-    "sold": 557,
-    "dom": 57,
+    "sold": 589,
+    "dom": 19,
     "scope": "Single-family homes (detached and twins), townhouses and condos sold in the City of Bethlehem (Northampton and Lehigh County parts)",
     "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en la ciudad de Bethlehem (partes de los condados de Northampton y Lehigh)",
     "period": "October 2025 to September 2026",
@@ -77,5 +77,57 @@
     "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
     "place": "Bethlehem, PA",
     "placeEs": "Bethlehem, PA"
+  },
+  "allentown": {
+    "median": 260000,
+    "sold": 862,
+    "dom": 23,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in the City of Allentown",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en la ciudad de Allentown",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Allentown, PA",
+    "placeEs": "Allentown, PA"
+  },
+  "easton": {
+    "median": 252000,
+    "sold": 197,
+    "dom": 26,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in the City of Easton",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en la ciudad de Easton",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Easton, PA",
+    "placeEs": "Easton, PA"
+  },
+  "nazareth": {
+    "median": 332300,
+    "sold": 48,
+    "dom": 15,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in Nazareth Borough",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en Nazareth Borough",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Nazareth, PA",
+    "placeEs": "Nazareth, PA"
+  },
+  "lehigh-county": {
+    "median": 359900,
+    "sold": 3392,
+    "dom": 23,
+    "scope": "Single-family homes (detached and twins), townhouses and condos sold in Lehigh County",
+    "scopeEs": "Casas unifamiliares (independientes y dúplex), casas adosadas y condominios vendidos en el condado de Lehigh",
+    "period": "October 2025 to September 2026",
+    "periodEs": "octubre de 2025 a septiembre de 2026",
+    "source": "Greater Lehigh Valley REALTORS® MLS, pulled October 2026",
+    "sourceEs": "MLS de Greater Lehigh Valley REALTORS®, consultado en octubre de 2026",
+    "place": "Lehigh County, PA",
+    "placeEs": "el condado de Lehigh, PA"
   }
 }

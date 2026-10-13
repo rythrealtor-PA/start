@@ -14,10 +14,15 @@ Updated October 12, 2026. Items are ordered from most to least important.
       REALTORS® MLS, October 2025 to September 2026). The source line names
       PMAR, as Ryth asked. Tannersville's 130 days is a 12-month average;
       Ryth saw a 2026 median CDOM of 115 there, which fits (a few slow sales
-      pull an average above the median). Still to confirm: whether the
-      figures are DOM or CDOM, and whether either MLS requires its own
-      wording for statistics on a website. Refresh the numbers every few
-      months in content/market.json.
+      pull an average above the median). Lehigh Valley numbers were
+      replaced on October 13 with a documented pull (average DOM, blank DOM
+      left out; details in content/mls/lehigh-valley-2026-10.json). The
+      earlier Lehigh Valley figures showed 57 and 65 days; the new ones show
+      19 and 23, so the first pull counted days differently. Still to
+      confirm: how the Pocono (PMAR) days were counted (DOM, CDOM or list to
+      closing), and whether either MLS requires its own wording for
+      statistics on a website. Refresh the numbers every few months in
+      content/market.json.
 
 ## From the October 13 review
 
@@ -60,7 +65,8 @@ Built in English and Spanish:
 - [ ] Read the new pages and correct anything that does not match how you work.
 - [ ] Out-of-state buyers: tell me how you work with them (video tours? weekend showings?), so the FAQ answer about moving from New York or New Jersey can say it.
 - [ ] Ryth's take for each new page, in your own words (2 or 3 sentences).
-- [ ] MLS numbers: run the Lehigh Valley prompt. When the numbers arrive, the price tables on the buying, selling and Airbnb pages fill in on their own (Mount Pocono, Coolbaugh, Tobyhanna Township, Middle Smithfield, Stroud Township, Allentown, Easton, Nazareth, Lehigh County).
+- [x] Lehigh Valley MLS numbers: received October 13 and added (Allentown, Bethlehem, Easton, Nazareth, Lehigh and Northampton counties). Rents, 2 to 4 unit sales and price ranges are saved in content/mls/ for the Lehigh Valley buying and investing pages.
+- [ ] Pocono MLS numbers (Part 2 of the prompt): still needed from the PMAR MLS. The Lehigh Valley MLS's copy of Pocono listings is missing most property types, so it cannot be used. When they arrive, the price tables on the Poconos buying, selling and Airbnb pages fill in on their own (Mount Pocono, Coolbaugh, Tobyhanna Township, Middle Smithfield, Stroud Township).
 - [ ] Second-home and investment down payments (10%, 15%, 25%) come from Fannie Mae and Freddie Mac's current tables. Have a lender you trust read that section.
 
 ## Spanish site (added October 12, 2026)

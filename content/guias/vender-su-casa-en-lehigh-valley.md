@@ -30,7 +30,7 @@ La ciudad de Allentown exige una inspección antes de la venta de propiedades re
 
 {{prices}}
 
-Después de aceptar una oferta, el cierre suele tomar otros 30 a 60 días.
+Las casas de Lehigh Valley se han vendido rápido: de octubre de 2025 a septiembre de 2026, el tiempo promedio en el mercado fue de menos de cuatro semanas en todas las zonas de la tabla. Después de aceptar una oferta, el cierre suele tomar otros 30 a 60 días.
 
 ## Lo que paga el vendedor
 
@@ -65,7 +65,7 @@ Programe la inspección obligatoria de la ciudad dentro de los 10 días después
 
 ### ¿Cuánto tiempo toma vender una casa en Bethlehem?
 
-Las casas de la ciudad de Bethlehem que se vendieron de octubre de 2025 a septiembre de 2026 pasaron un promedio de 57 días en el mercado, según el MLS de Greater Lehigh Valley REALTORS®. Después de aceptar una oferta, el cierre suele tomar otros 30 a 60 días.
+Las casas de la ciudad de Bethlehem que se vendieron de octubre de 2025 a septiembre de 2026 pasaron un promedio de 19 días en el mercado, según el MLS de Greater Lehigh Valley REALTORS®. Después de aceptar una oferta, el cierre suele tomar otros 30 a 60 días.
 
 ### ¿Necesito una inspección para vender mi casa en Allentown o en Easton?
 
