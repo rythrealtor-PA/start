@@ -19,6 +19,33 @@ Updated October 12, 2026. Items are ordered from most to least important.
       wording for statistics on a website. Refresh the numbers every few
       months in content/market.json.
 
+## From the October 13 review
+
+- [ ] Zillow profile (zillow.com/profile/ryth%20realtor) does not match the
+      site: it shows the brokerage as "Coldwell Banker Hearhside- Heather
+      Schierloh Group", the office as "1656 Route 209, Brodheasville, PA
+      18058". The site, Google and the MLS say Real of Pennsylvania, 1636 US
+      209, Suite 106, Brodheadsville, PA 18322. Update Zillow so all match.
+- [ ] Zillow rating on the homepage: "5.0 on Zillow, 2 reviews" (config.js,
+      zillow). Change it there when new reviews come in. Those two reviews
+      are Steven B.'s and Ike A.'s, already quoted on the site.
+- [ ] Google Business Profile: send its full address (google.com/maps/…)
+      for the site's profile list; the share.google short link is not a
+      stable address.
+- [ ] Broker phone: the site's footer shows the office line 570.801.7441;
+      MLS listings show Real of Pennsylvania-Brodheadsville as
+      855-450-0442. Ask the broker which number advertising should carry.
+- [ ] "149 transactions" and "$49M" are now labeled as HS Group team
+      totals on both homepages. Confirm the wording with the broker.
+- [ ] 9781 Auburn Dr: another site shows a $14,900 price reduction; the
+      homepage still says $230,000. Update it in the listings editor if so.
+- [ ] Monroe County program guide: the only county brochure found is from
+      2023, with older amounts, so the guide links the Redevelopment
+      Authority's current program page instead.
+- [ ] Investing guide sources: the AirDNA figures link to the article on
+      PoconoVacationHomeSales.com (another agent's site) where they were
+      published. Remove that link if you prefer not to send readers there.
+
 ## Spanish site (added October 12, 2026)
 
 - [ ] Read the Spanish pages (es/ and es/guias/). The text is neutral Latin

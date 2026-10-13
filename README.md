@@ -49,9 +49,12 @@ active in Namecheap:
    the repo root (or type the domain into Settings → Pages → Custom domain,
    which writes the same file).
 3. When the DNS check turns green, tick **Enforce HTTPS** in Settings → Pages.
-
-The canonical URLs, sitemap, robots.txt and social-share tags already point at
-`https://rythvara.com`, so nothing else needs to change on the day.
+4. In `assets/js/config.js`, change `siteUrl` to `'https://rythvara.com/'` and
+   run `node tools/prerender.mjs`. Every absolute address (canonical links,
+   hreflang, sitemap, robots.txt, the schema data and the social-share tags)
+   follows `siteUrl`, which until then is the github.io address.
+5. Add `https://rythvara.com/` as a new property in Google Search Console and
+   Bing Webmaster Tools, and submit `https://rythvara.com/sitemap.xml`.
 
 Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.

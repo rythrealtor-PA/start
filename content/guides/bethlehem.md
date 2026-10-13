@@ -6,7 +6,7 @@ answer: Living in Bethlehem means city life with a lot of history. You can walk 
 category: Towns
 place: Bethlehem, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 order: 4
 reviews: Steven B., Flor B.
 related: northampton-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
@@ -54,6 +54,15 @@ Bethlehem is a city in the Lehigh Valley, between Allentown to the west and East
 - Older homes. Homes built before 1978 come with a lead-based paint disclosure, and older wiring, plumbing and foundations deserve a careful inspection.
 - Flood zones near the Lehigh River and Monocacy Creek.
 - The homestead exclusion. Once the home is your main residence, apply to the county for Pennsylvania's homestead exclusion, which lowers your school property taxes. The yearly deadline is March 1.
+
+## Sources
+
+- [UNESCO World Heritage Centre: Moravian Church Settlements](https://whc.unesco.org/en/list/1468/)
+- [City of Bethlehem: changes to the resale inspection rules (PDF)](https://www.bethlehem-pa.gov/getmedia/72a5e4a1-4f1b-4d70-a5f2-6ec486d0838d/06h-City-Solicitor-Memo-Article-1731-and-Article-119-Revisions.pdf)
+- [City of Bethlehem: rental licensing](https://bethlehem-pa.gov/Community-Economic-Development/Housing-Inspections/Rental-Licensing)
+- [City of Bethlehem: lead service lines](https://bethlehem-pa.gov/Water-Sewer-Resources/Public-Information/Lead-Service-Lines)
+- [City of Bethlehem: homebuyer assistance program](https://bethlehem-pa.gov/News/City-Unveils-New-Homebuyer-Program,-Bethlehem-Home)
+- [Northampton County Assessment Office: homestead exclusion application](https://www.norcopa.gov/assessment)
 
 ## Questions
 

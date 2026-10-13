@@ -7,7 +7,7 @@ homeQuestion: ¿Cómo es vivir en el condado de Northampton?
 homeText: El Lehigh Valley: Bethlehem, Easton, casas e impuestos.
 answer: El condado de Northampton es la mitad este del Lehigh Valley, en la frontera con Nueva Jersey. La vida aquí es más suburbana que en los Poconos, con más oferta de trabajo, colegios universitarios y universidades, y centros en Bethlehem y Easton llenos de restaurantes, parques y arte público. La historia sigue presente: el distrito moravo de Bethlehem es Patrimonio Mundial de la UNESCO. La I-78 y la Ruta 22 llevan a Nueva Jersey, la Ruta 33 va al norte hacia los Poconos, y la sede del condado es Easton.
 ctaTitle: ¿Preguntas sobre el condado de Northampton?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## Dónde está el condado de Northampton
 
@@ -60,6 +60,12 @@ En el condado también están Lehigh University y Moravian University en Bethleh
 - Las casas antiguas. Las casas construidas antes de 1978 vienen con una declaración sobre pintura con plomo, y la instalación eléctrica, la plomería y los cimientos antiguos merecen una inspección cuidadosa.
 - Las zonas de inundación cerca de los ríos Lehigh y Delaware y de sus arroyos.
 - Las reglas y cuotas de la HOA en las comunidades más nuevas.
+
+## Fuentes
+
+- [Centro del Patrimonio Mundial de la UNESCO: asentamientos de la Iglesia Morava (en inglés)](https://whc.unesco.org/en/list/1468/)
+- [Delaware River Joint Toll Bridge Commission: puente de peaje Easton-Phillipsburg (Ruta 22, en inglés)](https://www.drjtbc.org/bridges/easton-phillipsburg/)
+- [Delaware River Joint Toll Bridge Commission: puente de peaje Portland-Columbia (en inglés)](https://www.drjtbc.org/bridges/portland-columbia/)
 
 ## Preguntas
 

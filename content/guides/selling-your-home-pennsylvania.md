@@ -7,7 +7,7 @@ homeText: Pricing, disclosures, offers and what sellers pay.
 answer: Selling a home in Pennsylvania usually means pricing it from recent local sales, preparing and marketing it, completing the state's Seller's Property Disclosure Statement, negotiating offers, and then working through the buyer's inspections, appraisal and settlement, which commonly takes 30 to 60 days after an offer is accepted. Sellers typically pay their share of the realty transfer tax and their agent's commission, which is always negotiable.
 category: Selling
 published: 2026-10-08
-updated: 2026-10-08
+updated: 2026-10-13
 featured: yes
 order: 1
 reviews: Ike A.
@@ -36,6 +36,13 @@ related: closing-costs-pennsylvania, pocono-vacation-rental-investing, monroe-co
 ## How Ryth markets your home
 
 Every listing gets professional photos, a targeted social media and advertising campaign, and exposure across multiple MLS systems. AI-powered visualizations can show buyers what an empty or dated room could look like, which helps them picture themselves in the home. And Ryth markets in English and Spanish, which widens the pool of buyers.
+
+## Sources
+
+- [Pennsylvania's Real Estate Seller Disclosure Law (68 Pa.C.S. Chapter 73)](https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=68&div=0&chpt=73)
+- [U.S. EPA: lead-based paint disclosure for homes built before 1978](https://www.epa.gov/lead/real-estate-disclosures-about-potential-lead-hazards)
+- [Pennsylvania Department of Revenue: realty transfer tax](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax)
+- [Pennsylvania State Real Estate Commission: Consumer Notice (PDF)](https://www.pa.gov/content/dam/copapwp-pagov/en/dos/department-and-offices/bpoa/real-estate/Written%20Consumer%20Notice.pdf)
 
 ## Questions
 

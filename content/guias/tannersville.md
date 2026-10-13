@@ -6,7 +6,7 @@ description: Tannersville, PA: Camelback, los outlets, las casas, las reglas de 
 answer: Vivir en Tannersville es tener la montaña en la puerta. Aquí está Camelback Resort, para esquiar en invierno y con un parque acuático techado todo el año; The Crossings Premium Outlets está justo al lado de la I-80, y Big Pocono State Park tiene senderos y vistas largas desde lo alto de la montaña. Tannersville es un pueblo (village) de Pocono Township, a unos 15 minutos de Stroudsburg y a unas 1.5 a 2 horas de la ciudad de Nueva York.
 ctaTitle: ¿Preguntas sobre Tannersville?
 take: Tannersville es uno de los lugares más céntricos de las montañas Pocono. Quienes viven aquí están cerca de todo: los outlets, los resorts, los restaurantes y los pueblos de alrededor. Si a mí me gustara salir a cenar y disfrutar mis fines de semana, pero quisiera una casa en un vecindario pequeño y privado, viviría aquí.
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 {{photo}}
 
@@ -49,6 +49,11 @@ Tannersville está sobre la Ruta 611, entre Stroudsburg y Mount Pocono, con su p
 - Las cuotas y reglas de la POA y el certificado de reventa, si la casa está en una comunidad.
 - Las inspecciones del pozo, del sistema séptico y del radón.
 - El acceso en invierno: quién limpia la nieve del camino y qué tan empinada es la entrada.
+
+## Fuentes
+
+- [Código de Pocono Township, capítulo 302: alquileres a corto plazo (en inglés)](https://ecode360.com/34825907)
+- [Jackson Township: alquileres a corto plazo (en inglés)](https://jacksontwp-pa.gov/shorttermrentals)
 
 ## Preguntas
 

@@ -7,7 +7,7 @@ homeQuestion: ¿Cómo vendo mi casa en Pensilvania?
 homeText: El precio, las declaraciones, las ofertas y lo que paga el vendedor.
 answer: Vender una casa en Pensilvania normalmente significa fijar el precio a partir de ventas recientes en la zona, preparar y promocionar la casa, llenar la declaración del vendedor que exige el estado (Seller's Property Disclosure Statement), negociar las ofertas y luego pasar por las inspecciones del comprador, la tasación y el cierre, que suele tomar de 30 a 60 días después de aceptar una oferta. El vendedor normalmente paga su parte del impuesto de transferencia y la comisión de su agente, que siempre es negociable.
 ctaTitle: ¿Piensa vender su casa?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## Paso a paso
 
@@ -32,6 +32,13 @@ updated: 2026-10-12
 ## Cómo promociona Ryth su casa
 
 Cada propiedad recibe fotos profesionales, una campaña dirigida en redes sociales y en publicidad, y exposición en varios sistemas MLS. Las visualizaciones hechas con inteligencia artificial pueden mostrarle al comprador cómo se vería un cuarto vacío o anticuado, lo que le ayuda a imaginarse viviendo en la casa. Y Ryth promociona en español y en inglés, lo que amplía el número de compradores.
+
+## Fuentes
+
+- [Ley de Pensilvania sobre las declaraciones del vendedor (68 Pa.C.S. capítulo 73, en inglés)](https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=68&div=0&chpt=73)
+- [EPA de EE. UU.: declaración sobre pintura con plomo en casas construidas antes de 1978 (en inglés)](https://www.epa.gov/lead/real-estate-disclosures-about-potential-lead-hazards)
+- [Departamento de Ingresos de Pensilvania: impuesto de transferencia (en inglés)](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax)
+- [Comisión Estatal de Bienes Raíces de Pensilvania: Aviso al Consumidor (PDF, en inglés)](https://www.pa.gov/content/dam/copapwp-pagov/en/dos/department-and-offices/bpoa/real-estate/Written%20Consumer%20Notice.pdf)
 
 ## Preguntas
 

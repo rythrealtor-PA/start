@@ -7,7 +7,7 @@ homeText: The Poconos: towns, roads, homes and taxes.
 answer: Monroe County is in the middle of the Pocono Mountains, in northeastern Pennsylvania: lakes, state parks, ski resorts and quiet roads, with homes that cost less than in the New York and New Jersey suburbs. It is a county of homeowners, where about 4 in 5 homes are lived in by their owners, and for years people have moved here from the New York area to get more space without going far. I-80 brings you in from New Jersey at the Delaware Water Gap, and the county seat is Stroudsburg.
 category: Counties
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 featured: yes
 order: 1
 reviews: Steven B., Flor B.
@@ -86,6 +86,12 @@ Monroe County has four school districts: East Stroudsburg Area, Pleasant Valley,
 - Short-term rental rules, if you plan to rent the home. Each township and community has its own, and some do not allow it at all. See [Investing in a Pocono vacation rental](pocono-vacation-rental-investing.html).
 - Flood zones near creeks and rivers, and whether flood insurance is required.
 - Winter access: who plows private and community roads.
+
+## Sources
+
+- [U.S. Census Bureau QuickFacts: Monroe County, Pennsylvania](https://census.gov/quickfacts/fact/table/monroecountypennsylvania/PST045223)
+- [Delaware River Joint Toll Bridge Commission: Delaware Water Gap (I-80) toll bridge](https://www.drjtbc.org/bridges/delaware-water-gap/)
+- [Redevelopment Authority of the County of Monroe: First-Time Homebuyer Program](https://www.monroecountyrda.org/first-time-homebuyer-program)
 
 ## Questions
 

@@ -153,7 +153,8 @@
     "https://www.tiktok.com/@rythvararealtor",
     "https://www.facebook.com/share/1DZJzdaQ4v/",
     "https://www.linkedin.com/in/ryth-vara-a6b87b3a2/",
-    "https://www.realtor.com/realestateagents/694acaadf16e5b22934e2f8a"
+    "https://www.realtor.com/realestateagents/694acaadf16e5b22934e2f8a",
+    "https://www.zillow.com/profile/ryth%20realtor"
   ],
   "review": [
     {
@@ -238,8 +239,10 @@
     <canvas class="stage__canvas" data-stage-canvas aria-hidden="true"></canvas>
 
     <div class="stage__title" data-stage-title>
-      <h1 class="stage__name" data-name>Ryth Vara</h1>
-      <p class="stage__tagline">Bienes raíces en Pensilvania</p>
+      <h1 class="stage__name">
+        <span data-name>Ryth Vara</span>
+        <span class="stage__tagline">REALTOR<sup>&reg;</sup> · Condados de Monroe y Northampton,&nbsp;PA</span>
+      </h1>
       <!-- Doubles as the frame-loading indicator: it fills as the sequence
            arrives, then fades once the clip is fully scrubbable. -->
       <div class="stage__rule">
@@ -266,8 +269,8 @@
         <p class="discover__lede">REALTOR<sup>&reg;</sup> bilingüe con Real of Pennsylvania, en los condados de Monroe y Northampton.</p>
 
         <ul class="discover__stats">
-          <li><span class="discover__num">149</span><span class="discover__cap">transacciones cerradas en 2025 con HS&nbsp;Group</span></li>
-          <li><span class="discover__num">$49M</span><span class="discover__cap">en ventas en 2025</span></li>
+          <li><span class="discover__num">149</span><span class="discover__cap">transacciones cerradas en 2025 por el equipo HS&nbsp;Group</span></li>
+          <li><span class="discover__num">$49M</span><span class="discover__cap">en ventas en 2025 por el equipo HS&nbsp;Group</span></li>
           <li><span class="discover__num">2</span><span class="discover__cap">idiomas: español e inglés</span></li>
         </ul>
 
@@ -332,12 +335,12 @@
         <article class="listing" data-carousel-item>
           <div class="listing__frame">
             <img class="listing__photo" src="../assets/img/listings/9781-auburn-dr-murckdkn.jpg"
-                 alt="9781 Auburn Dr, Tobyhanna" loading="lazy" decoding="async">
+                 alt="9781 Auburn Dr, Tobyhanna, PA" loading="lazy" decoding="async">
             <span class="listing__status">En venta</span>
           </div>
           <div class="listing__body">
             <h3 class="listing__address">9781 Auburn Dr</h3>
-            <p class="listing__city">Tobyhanna</p>
+            <p class="listing__city">Tobyhanna, PA</p>
             <p class="listing__price">$230,000</p>
             <dl class="specs">
               <div class="specs__item">
@@ -397,12 +400,12 @@
         <article class="listing" data-carousel-item>
           <div class="listing__frame">
             <img class="listing__photo" src="../assets/img/listings/261-clearview-dr-murd92qd.jpg"
-                 alt="261 Clearview Dr, Long Pond" loading="lazy" decoding="async">
+                 alt="261 Clearview Dr, Long Pond, PA" loading="lazy" decoding="async">
             <span class="listing__status">Vendida</span>
           </div>
           <div class="listing__body">
             <h3 class="listing__address">261 Clearview Dr</h3>
-            <p class="listing__city">Long Pond</p>
+            <p class="listing__city">Long Pond, PA</p>
             <p class="listing__price">$350,000</p>
             <dl class="specs">
               <div class="specs__item">
@@ -441,6 +444,13 @@
         </button>
       </div>
     </div>
+
+    <!-- Ryth's Zillow rating, linked to the profile. Shown on the page only,
+         never in the schema data: Google does not accept ratings copied from
+         another site there. Set in config.js (zillow). -->
+    <p class="rating" data-rating><!-- prerender:rating -->
+        <a class="rating__link" href="https://www.zillow.com/profile/ryth%20realtor" rel="noopener" target="_blank"><span class="rating__star" aria-hidden="true">★</span> 5.0 en Zillow <span aria-hidden="true">·</span> 2 reseñas</a>
+        <!-- /prerender:rating --></p>
 
     <div class="carousel">
       <div class="carousel__track" id="testimonials-track" data-track tabindex="0" role="group" aria-label="Testimonios, desplazable">

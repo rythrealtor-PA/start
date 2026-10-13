@@ -6,7 +6,7 @@ answer: Living in Stroudsburg and East Stroudsburg means being close to everythi
 category: Towns
 place: Stroudsburg, Pennsylvania; East Stroudsburg, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 order: 1
 reviews: Steven B.
 related: monroe-county, tannersville, pocono-vacation-rental-investing
@@ -61,6 +61,13 @@ Most of Penn Estates is in Stroud Township, which makes an exception to allow sh
 - The condition of the house: a full home inspection, plus a radon test, which is standard in Pennsylvania. Homes built before 1978 come with a lead-based paint disclosure.
 - Flood zones near Brodhead Creek and McMichael Creek, and whether flood insurance is required.
 - Short-term rental rules, if you plan to rent. Neither borough allows short-term rentals in its residential districts. See [Investing in a Pocono vacation rental](pocono-vacation-rental-investing.html).
+
+## Sources
+
+- [Borough of Stroudsburg: short-term rental zoning amendment (PDF)](http://stroudsburgboro.com/sbpa/_zumu_user_doc_cache/Short_Term_Rental_Zoning_Amendment.pdf)
+- [Borough of East Stroudsburg: short-term rentals ordinance 1379 (PDF)](https://eaststroudsburgboro.org/wp-content/uploads/2021/07/Short-Term-Rentals-Ordinance-1379.pdf)
+- [Stroud Township: short-term rental application, guide and ordinances (PDF)](https://users.neo.registeredsite.com/8/6/2/22225268/assets/STR_Application__Guide__Ordinances.pdf)
+- [Delaware River Joint Toll Bridge Commission: Delaware Water Gap (I-80) toll bridge](https://www.drjtbc.org/bridges/delaware-water-gap/)
 
 ## Questions
 

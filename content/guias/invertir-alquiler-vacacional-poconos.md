@@ -7,7 +7,7 @@ homeQuestion: ¿Dónde puedo tener un alquiler vacacional en los Poconos?
 homeText: Un mapa verde, amarillo y rojo de las reglas de cada township.
 answer: Antes de comprar una casa para alquiler vacacional en los Poconos, confirme que tanto el municipio como la comunidad permiten alquileres a corto plazo, porque las reglas cambian de un township a otro. En el condado de Monroe, Ryth califica a Tunkhannock, Tobyhanna, Coolbaugh, Barrett y Middle Smithfield como los townships más fáciles (verde), a Polk, Eldred, Jackson, Stroud y Price como posibles con límites (amarillo), y a los otros diez como muy difíciles (rojo). Después, evalúe la casa por su ubicación, sus características, un ingreso realista (un alquiler promedio en los Poconos generó unos $55,000 en los 12 meses hasta agosto de 2026, según AirDNA) y el costo completo de tenerla.
 ctaTitle: ¿Busca una propiedad para alquiler vacacional?
-updated: 2026-10-12
+updated: 2026-10-13
 take: En todo el país se conoce a los Poconos como un gran lugar para tener un alquiler a corto plazo. No hay duda de que a algunas personas les va muy bien, y usted puede ser una de ellas. Una casa promedio de alquiler a corto plazo aquí genera entre $45,000 y $65,000 al año, según la zona, lo que la hace diferente de las demás y sus reseñas. Algunas casas promedian más de seis cifras al año, y son las que ofrecen algo excepcional. El límite es su creatividad y cómo promociona la propiedad.
 ---
 ## Cómo trabaja Ryth con inversionistas
@@ -85,6 +85,17 @@ Calcule el ingreso a partir de alquileres comparables cercanos, temporada por te
 ## Paso 6: el financiamiento
 
 Financiar un alquiler vacacional es distinto a financiar su casa principal. Los préstamos para segunda vivienda y para propiedades de inversión normalmente piden un pago inicial más alto, y algunos prestamistas ofrecen préstamos basados en el ingreso de alquiler que se espera de la propiedad. Hable con un prestamista desde el principio para que los números que haga sean reales.
+
+## Fuentes
+
+Las reglas de cada township y borough están enlazadas en la tabla de arriba.
+
+- [Departamento de Ingresos de Pensilvania: impuesto de ocupación hotelera en alquileres de casas (en inglés)](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/home-sharing)
+- [Tesorería del condado de Monroe: impuesto sobre habitaciones de hotel (en inglés)](https://monroecountypa.gov/departments/treasurer/resources/hotel-tax-a078bd448efc4d86f0ab47a5dac92564)
+- [Cifras de AirDNA para los Poconos, publicadas por PoconoVacationHomeSales.com (agosto de 2026, en inglés)](https://poconovacationhomesales.com/2026/08/07/the-poconos-str-market-is-growing-and-guests-are-choosing-quality/)
+- [Lake Naomi Club: cuotas para nuevos socios 2026 (PDF, en inglés)](https://lakenaomiclub.com/documents/20124/0/New+Member+Fees+2026.pdf/55f64114-443a-ccea-9103-9aa113cc48d5?t=1765574078012)
+- [Indian Mountain Lakes: formulario de registro de alquileres 2026 (PDF, en inglés)](https://www.indianmountainlake.com/data/2026%20RENTAL%20REGIST%20FORM%20-%20WORKABLE%20NEW.pdf)
+- [Lake Harmony Estates: playa e instalaciones (en inglés)](https://www.lakeharmonyestatespoa.com/beach-amenities)
 
 ## Preguntas
 

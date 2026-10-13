@@ -6,7 +6,7 @@ answer: Living in Tannersville means having the mountain at your door. Camelback
 category: Towns
 place: Tannersville, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 order: 2
 reviews: Ike A., Steven B.
 related: monroe-county, stroudsburg-east-stroudsburg, pocono-pines, pocono-vacation-rental-investing
@@ -56,6 +56,11 @@ Tannersville is on Route 611 between Stroudsburg and Mount Pocono, with its own 
 - POA dues, rules and the resale certificate, if the home is in a community.
 - Well, septic and radon inspections.
 - Winter access: who plows the road, and how steep the driveway is.
+
+## Sources
+
+- [Pocono Township Code, Chapter 302: short-term rentals](https://ecode360.com/34825907)
+- [Jackson Township: short-term rentals](https://jacksontwp-pa.gov/shorttermrentals)
 
 ## Questions
 

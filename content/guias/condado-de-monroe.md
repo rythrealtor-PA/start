@@ -7,7 +7,7 @@ homeQuestion: ¿Cómo es vivir en el condado de Monroe?
 homeText: Los Poconos: pueblos, carreteras, casas e impuestos.
 answer: El condado de Monroe está en el centro de las montañas Pocono, en el noreste de Pensilvania: lagos, parques estatales, centros de esquí y caminos tranquilos, con casas que cuestan menos que en los suburbios de Nueva York y Nueva Jersey. Es un condado de propietarios, donde unas 4 de cada 5 casas las habitan sus dueños, y desde hace años llega gente de la zona de Nueva York para tener más espacio sin irse lejos. La I-80 entra desde Nueva Jersey por el Delaware Water Gap, y la sede del condado es Stroudsburg.
 ctaTitle: ¿Preguntas sobre el condado de Monroe?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## Dónde está el condado de Monroe
 
@@ -82,6 +82,12 @@ El condado de Monroe tiene cuatro distritos escolares: East Stroudsburg Area, Pl
 - Las reglas de alquiler a corto plazo, si piensa alquilar la casa. Cada township y cada comunidad tiene las suyas, y algunos no lo permiten. Vea [Invertir en un alquiler vacacional en los Poconos](invertir-alquiler-vacacional-poconos.html).
 - Las zonas de inundación cerca de arroyos y ríos, y si se exige seguro contra inundaciones.
 - El acceso en invierno: quién limpia la nieve de los caminos privados y de la comunidad.
+
+## Fuentes
+
+- [Oficina del Censo de EE. UU., QuickFacts: condado de Monroe, Pensilvania (en inglés)](https://census.gov/quickfacts/fact/table/monroecountypennsylvania/PST045223)
+- [Delaware River Joint Toll Bridge Commission: puente de peaje Delaware Water Gap (I-80, en inglés)](https://www.drjtbc.org/bridges/delaware-water-gap/)
+- [Redevelopment Authority of the County of Monroe: programa para compradores de primera vivienda (en inglés)](https://www.monroecountyrda.org/first-time-homebuyer-program)
 
 ## Preguntas
 

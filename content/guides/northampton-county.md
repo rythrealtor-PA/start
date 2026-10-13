@@ -7,7 +7,7 @@ homeText: The Lehigh Valley: Bethlehem, Easton, homes and taxes.
 answer: Northampton County is the eastern half of the Lehigh Valley, on the New Jersey border. Life here is more suburban than in the Poconos, with a bigger job market, colleges and universities, and downtowns in Bethlehem and Easton full of restaurants, parks and public art. The history is still there too: Bethlehem's Moravian district is a UNESCO World Heritage Site. I-78 and Route 22 lead into New Jersey, Route 33 goes north to the Poconos, and the county seat is Easton.
 category: Counties
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 featured: yes
 order: 2
 reviews: Steven B., Cesar A.
@@ -65,6 +65,12 @@ The county is also home to Lehigh University and Moravian University in Bethlehe
 - Older homes. Homes built before 1978 come with a lead-based paint disclosure, and older wiring, plumbing and foundations deserve a careful inspection.
 - Flood zones near the Lehigh and Delaware rivers and their creeks.
 - HOA rules and fees in newer communities.
+
+## Sources
+
+- [UNESCO World Heritage Centre: Moravian Church Settlements](https://whc.unesco.org/en/list/1468/)
+- [Delaware River Joint Toll Bridge Commission: Easton-Phillipsburg (Route 22) toll bridge](https://www.drjtbc.org/bridges/easton-phillipsburg/)
+- [Delaware River Joint Toll Bridge Commission: Portland-Columbia toll bridge](https://www.drjtbc.org/bridges/portland-columbia/)
 
 ## Questions
 

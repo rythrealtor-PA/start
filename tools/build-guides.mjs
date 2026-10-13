@@ -201,6 +201,7 @@ const L = {
     strTableLabel: 'Short-term rentals by municipality',
     strCaption: (county, asOf) => `Short-term rentals by municipality, ${county}: Ryth's assessment as of ${asOf}`,
     strHead: ['Municipality', 'Rating', 'Why'],
+    strSource: 'Source',
     asOf: (s) => s,
     countyName: (name) => name,
     why: (r) => r.why,
@@ -282,6 +283,7 @@ const L = {
     strTableLabel: 'Alquileres a corto plazo por municipio',
     strCaption: (county, asOf) => `Alquileres a corto plazo por municipio en ${county}: evaluación de Ryth a ${asOf}`,
     strHead: ['Municipio', 'Calificación', 'Motivo'],
+    strSource: 'Fuente',
     asOf: monthYearEs,
     countyName: countyEs,
     why: (r, name) => {
@@ -635,7 +637,7 @@ function strTableSlot(data, t) {
   <caption>${esc(t.strCaption(county, t.asOf(data.asOf)))}</caption>
   <thead><tr>${t.strHead.map((h) => `<th scope="col">${h}</th>`).join('')}</tr></thead>
   <tbody>
-${rows.map(([name, r]) => `    <tr><th scope="row">${esc(full(name))}</th><td><span class="str-swatch str-swatch--${r.color}" aria-hidden="true"></span>${t.strNames[r.color]}</td><td>${inline(t.why(r, name))}</td></tr>`).join('\n')}
+${rows.map(([name, r]) => `    <tr><th scope="row">${esc(full(name))}</th><td><span class="str-swatch str-swatch--${r.color}" aria-hidden="true"></span>${t.strNames[r.color]}</td><td>${inline(t.why(r, name))}${r.source ? ` <a href="${esc(r.source)}">${t.strSource}</a>` : ''}</td></tr>`).join('\n')}
   </tbody>
 </table></div>`;
 }

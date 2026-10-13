@@ -31,6 +31,7 @@ const WORDS = {
     email: 'Email', phone: 'Phone', office: 'Office', hours: 'Hours', languages: 'Languages',
     callOrText: 'Call or text', directions: 'Get directions',
     languageList: (langs) => langs.join(' and '),
+    onZillow: (rating, n) => `${rating} on Zillow <span aria-hidden="true">·</span> ${n} review${n === 1 ? '' : 's'}`,
     beds: 'Beds', baths: 'Baths', sqft: 'Sq ft',
     serving: (counties) => `Serving ${counties.join(' & ')}`,
     role: (config) => config.role,
@@ -42,6 +43,7 @@ const WORDS = {
   es: {
     email: 'Correo electrónico', phone: 'Teléfono', office: 'Oficina', hours: 'Horario', languages: 'Idiomas',
     callOrText: 'Llamar o escribir', directions: 'Cómo llegar',
+    onZillow: (rating, n) => `${rating} en Zillow <span aria-hidden="true">·</span> ${n} reseña${n === 1 ? '' : 's'}`,
     // ['English', 'Español'] -> "Español e inglés": Spanish first, and "e"
     // instead of "y" before a word that starts with an i sound.
     languageList: (langs) => {
@@ -176,6 +178,19 @@ export function legalLine(config, lang = 'en') {
     config.brokerage ? `${w.brokered} ${config.brokerage}` : '',
     config.contact.officePhone ? `${w.office} ${config.contact.officePhone}` : '',
   ].filter(Boolean).join(' · ');
+}
+
+/**
+ * "★ 5.0 on Zillow · 2 reviews", linked to Ryth's Zillow profile, for the
+ * line under Testimonials. Only ever shown on the page: it never goes into
+ * the schema data (schemaJSON), because Google does not accept star ratings
+ * copied from another site there.
+ */
+export function ratingHTML(config, lang = 'en') {
+  const z = config.zillow;
+  if (!z?.url || !z.rating || !z.reviews) return '';
+  return `
+        <a class="rating__link" href="${esc(z.url)}" rel="noopener" target="_blank"><span class="rating__star" aria-hidden="true">★</span> ${words(lang).onZillow(esc(z.rating), Number(z.reviews))}</a>`;
 }
 
 /* ──────────────────────────── listings, reviews ──────────────────────── */
@@ -396,5 +411,6 @@ export function renderAllBlocks(html, { config, listings, testimonials }, { lang
   out = replaceBlock(out, 'legal', esc(legalLine(config, lang)));
   out = replaceBlock(out, 'listings', listings.map((l) => cardHTML(l, { lang, root })).join(''));
   out = replaceBlock(out, 'testimonials', testimonials.map((t) => testimonialHTML(t, { lang })).join(''));
+  out = replaceBlock(out, 'rating', ratingHTML(config, lang));
   return out;
 }

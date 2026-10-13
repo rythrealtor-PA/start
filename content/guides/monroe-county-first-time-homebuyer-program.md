@@ -7,7 +7,7 @@ category: Buying
 place: Monroe County, Pennsylvania
 ctaTitle: Questions about the Monroe County homebuyer program?
 published: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-13
 order: 2
 reviews: Steven B., Flor B.
 related: first-time-home-buyer-pennsylvania, closing-costs-pennsylvania, monroe-county
@@ -73,6 +73,11 @@ During those 10 years, you may have to repay what is left if:
 Ryth helps first-time buyers use this program from start to finish, in English or Spanish. He connects you with participating lenders, looks for homes that fit the program's rules, and keeps your offer, the lender and the Redevelopment Authority on the same timeline so the assistance is ready at settlement. Call or text him at 929.345.6838 for more information about the program.
 
 For the rest of the process, see the [first-time home buyer guide](first-time-home-buyer-pennsylvania.html) and [Closing costs in Pennsylvania](closing-costs-pennsylvania.html).
+
+## Sources
+
+- [Redevelopment Authority of the County of Monroe: First-Time Homebuyer Program (amounts, income limits and rules)](https://www.monroecountyrda.org/first-time-homebuyer-program)
+- [The Redevelopment Authority's online application portal](https://portal.neighborlysoftware.com/monroecountyrdapa/Participant)
 
 ## Questions
 

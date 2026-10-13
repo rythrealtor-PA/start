@@ -79,7 +79,23 @@ export const CONFIG = {
    */
   profiles: [
     'https://www.realtor.com/realestateagents/694acaadf16e5b22934e2f8a',
+    'https://www.zillow.com/profile/ryth%20realtor',
+    // TODO: the Google Business Profile's full address (google.com/maps/…),
+    // once Ryth sends it. The share.google short link is not a stable URL.
   ],
+
+  /**
+   * Ryth's Zillow rating, shown as one line under Testimonials and linked to
+   * the profile: "★ 5.0 on Zillow · 2 reviews". Copy it exactly as Zillow
+   * shows it, and update it when new reviews come in. It is deliberately not
+   * in the schema data: Google does not accept ratings taken from another
+   * site there. Set to null to hide the line.
+   */
+  zillow: {
+    url: 'https://www.zillow.com/profile/ryth%20realtor',
+    rating: '5.0',
+    reviews: 2,
+  },
 
   /** Counties and towns served — the schema's areaServed, in this order. */
   serviceAreas: {

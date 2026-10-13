@@ -2,7 +2,7 @@
   {
     "photo": "assets/img/listings/9781-auburn-dr-murckdkn.jpg",
     "address": "9781 Auburn Dr",
-    "city": "Tobyhanna",
+    "city": "Tobyhanna, PA",
     "price": "$230,000",
     "beds": 3,
     "baths": 1.5,
@@ -31,7 +31,7 @@
   {
     "photo": "assets/img/listings/261-clearview-dr-murd92qd.jpg",
     "address": "261 Clearview Dr",
-    "city": "Long Pond",
+    "city": "Long Pond, PA",
     "price": "$350,000",
     "beds": 3,
     "baths": 2,

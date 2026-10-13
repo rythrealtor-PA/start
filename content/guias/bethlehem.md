@@ -7,7 +7,7 @@ answer: Vivir en Bethlehem es vivir en una ciudad con mucha historia. Puede cami
 ctaTitle: ¿Preguntas sobre Bethlehem?
 mapCaption: En este mapa del condado de Northampton se resalta la ciudad de Bethlehem (City of Bethlehem). El lado oeste de la ciudad está en el condado de Lehigh, fuera del mapa. Bethlehem Township, un municipio aparte, está al este.
 take: En mi opinión, lo que tiene Bethlehem es oportunidad y una buena calidad de vida. Es una oportunidad para inversionistas, porque los alquileres a largo plazo funcionan muy bien aquí, y para el trabajo, porque hay más oportunidades de empleo que en muchas de las zonas de alrededor. Y es un buen lugar para vivir, con colegios universitarios y universidades, restaurantes, parques y mucha historia.
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 {{photo}}
 
@@ -48,6 +48,15 @@ Bethlehem es una ciudad del Lehigh Valley, entre Allentown al oeste y Easton al 
 - Las casas antiguas. Las casas construidas antes de 1978 vienen con una declaración sobre pintura con plomo, y la instalación eléctrica, la plomería y los cimientos antiguos merecen una inspección cuidadosa.
 - Las zonas de inundación cerca del río Lehigh y de Monocacy Creek.
 - La exención de vivienda principal (homestead exclusion). Cuando la casa sea su residencia principal, solicite al condado la exención de vivienda principal de Pensilvania, que baja sus impuestos escolares a la propiedad. La fecha límite de cada año es el 1 de marzo.
+
+## Fuentes
+
+- [Centro del Patrimonio Mundial de la UNESCO: asentamientos de la Iglesia Morava (en inglés)](https://whc.unesco.org/en/list/1468/)
+- [Ciudad de Bethlehem: cambios en las reglas de inspección de reventa (PDF, en inglés)](https://www.bethlehem-pa.gov/getmedia/72a5e4a1-4f1b-4d70-a5f2-6ec486d0838d/06h-City-Solicitor-Memo-Article-1731-and-Article-119-Revisions.pdf)
+- [Ciudad de Bethlehem: licencias de alquiler (en inglés)](https://bethlehem-pa.gov/Community-Economic-Development/Housing-Inspections/Rental-Licensing)
+- [Ciudad de Bethlehem: tuberías de plomo (en inglés)](https://bethlehem-pa.gov/Water-Sewer-Resources/Public-Information/Lead-Service-Lines)
+- [Ciudad de Bethlehem: programa de ayuda para compradores (en inglés)](https://bethlehem-pa.gov/News/City-Unveils-New-Homebuyer-Program,-Bethlehem-Home)
+- [Oficina de Avalúos del condado de Northampton: solicitud de la exención de vivienda principal (en inglés)](https://www.norcopa.gov/assessment)
 
 ## Preguntas
 

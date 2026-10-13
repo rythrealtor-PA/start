@@ -7,7 +7,7 @@ homeText: Every step, from pre-approval to the keys, plus help with the down pay
 answer: To buy your first home in Pennsylvania, you will usually need a mortgage pre-approval, a written buyer agreement with your agent before touring homes, a down payment (as little as 0 to 3.5% with some loan programs) and money for closing costs. From accepted offer to settlement typically takes 30 to 60 days. Pennsylvania Housing Finance Agency (PHFA) programs can help with the down payment and closing costs if you qualify, and in Monroe County the county's First-Time Homebuyer Program can add up to $25,000 as a 0% loan forgiven over 10 years.
 category: Buying
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 featured: yes
 order: 1
 reviews: Steven B., Flor B.
@@ -69,6 +69,16 @@ The **Pennsylvania Housing Finance Agency** offers first-time buyer programs thr
 ## Buying in Spanish
 
 Ryth works in English and Spanish, so you can go through every step, from the pre-approval to settlement day, in Spanish. Pennsylvania contracts are written in English; Ryth explains each document in Spanish before you sign, and family members are always welcome.
+
+## Sources
+
+- [Pennsylvania Housing Finance Agency (PHFA): home purchase loans](https://www.phfa.org/programs/homepurchase.aspx)
+- [PHFA: Keystone Advantage Assistance Loan](https://www.phfa.org/programs/assistance/keystone-advantage.aspx)
+- [Redevelopment Authority of the County of Monroe: First-Time Homebuyer Program](https://www.monroecountyrda.org/first-time-homebuyer-program)
+- [National Association of REALTORS®: consumer guide to written buyer agreements](https://www.nar.realtor/the-facts/consumer-guide-to-written-buyer-agreements)
+- [Pennsylvania State Real Estate Commission: Consumer Notice (PDF)](https://www.pa.gov/content/dam/copapwp-pagov/en/dos/department-and-offices/bpoa/real-estate/Written%20Consumer%20Notice.pdf)
+- [Pennsylvania's Real Estate Seller Disclosure Law (68 Pa.C.S. Chapter 73)](https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=68&div=0&chpt=73)
+- [USDA: property eligibility map for USDA loans](https://eligibility.sc.egov.usda.gov/eligibility/welcomeAction.do?pageAction=sfp)
 
 ## Questions
 

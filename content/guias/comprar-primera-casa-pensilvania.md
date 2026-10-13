@@ -7,7 +7,7 @@ homeQuestion: ¿Cómo compro mi primera casa en Pensilvania?
 homeText: Cada paso, desde la preaprobación hasta las llaves, y la ayuda para el pago inicial.
 answer: Para comprar su primera casa en Pensilvania, normalmente necesita una preaprobación de hipoteca, un acuerdo por escrito con su agente antes de visitar casas, un pago inicial (desde 0 hasta 3.5% con algunos préstamos) y dinero para los costos de cierre. Desde que el vendedor acepta su oferta hasta el cierre pasan por lo general de 30 a 60 días. Los programas de la Agencia de Financiamiento de Vivienda de Pensilvania (PHFA) pueden ayudarle con el pago inicial y los costos de cierre si usted califica, y en el condado de Monroe el programa del condado para compradores de primera vivienda puede sumar hasta $25,000 como un préstamo al 0% que se perdona en 10 años.
 ctaTitle: ¿Preguntas sobre su primera compra?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## Paso a paso
 
@@ -65,6 +65,16 @@ La **Agencia de Financiamiento de Vivienda de Pensilvania (PHFA)** ofrece progra
 ## Comprar en español
 
 Ryth trabaja en español y en inglés, así que usted puede hacer cada paso en español, desde la preaprobación hasta el día del cierre. Los contratos en Pensilvania están escritos en inglés; Ryth le explica cada documento en español antes de que usted firme, y sus familiares siempre son bienvenidos.
+
+## Fuentes
+
+- [Agencia de Financiamiento de Vivienda de Pensilvania (PHFA): préstamos para comprar casa](https://www.phfa.org/programs/homepurchase.aspx)
+- [PHFA: Keystone Advantage Assistance Loan](https://www.phfa.org/programs/assistance/keystone-advantage.aspx)
+- [Redevelopment Authority of the County of Monroe: programa para compradores de primera vivienda](https://www.monroecountyrda.org/first-time-homebuyer-program)
+- [National Association of REALTORS®: guía sobre los acuerdos de representación de comprador (en inglés)](https://www.nar.realtor/the-facts/consumer-guide-to-written-buyer-agreements)
+- [Comisión Estatal de Bienes Raíces de Pensilvania: Aviso al Consumidor (PDF, en inglés)](https://www.pa.gov/content/dam/copapwp-pagov/en/dos/department-and-offices/bpoa/real-estate/Written%20Consumer%20Notice.pdf)
+- [Ley de Pensilvania sobre las declaraciones del vendedor (68 Pa.C.S. capítulo 73, en inglés)](https://www.palegis.us/statutes/consolidated/view-statute?iFrame=true&txtType=HTM&ttl=68&div=0&chpt=73)
+- [USDA: mapa de elegibilidad de propiedades para préstamos USDA (en inglés)](https://eligibility.sc.egov.usda.gov/eligibility/welcomeAction.do?pageAction=sfp)
 
 ## Preguntas
 

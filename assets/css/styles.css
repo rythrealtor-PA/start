@@ -153,6 +153,10 @@ a { color: var(--brass-lt); }
 }
 
 .stage__tagline {
+  display: block;
+  font-family: var(--font-body);
+  font-variation-settings: normal;
+  line-height: 1.6;
   font-size: clamp(0.72rem, 1.5vw, 0.95rem);
   letter-spacing: 0.42em;
   text-indent: 0.42em; /* offsets the trailing letter-space so it stays centred */
@@ -575,6 +579,13 @@ a { color: var(--brass-lt); }
 .carousel__button[disabled] { opacity: 0.3; cursor: default; }
 
 .carousel { margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+
+/* "★ 5.0 on Zillow · 2 reviews" under the Testimonials heading. */
+.rating { margin: 0.75rem 0 0; font-size: 0.95rem; }
+.rating:empty { display: none; }
+.rating__link { color: var(--ivory); text-decoration-color: var(--border-lit); text-underline-offset: 0.25em; }
+.rating__link:hover, .rating__link:focus-visible { color: var(--brass-lt); }
+.rating__star { color: var(--brass-lt); }
 
 .carousel__track {
   display: grid;

@@ -5,7 +5,7 @@ seoTitle: Ayuda para primera vivienda en el condado de Monroe, PA
 description: Programa del condado de Monroe, PA, para compradores de primera vivienda: hasta $20,000 más $5,000, préstamo al 0% que se perdona en 10 años. Quién califica.
 answer: El programa del condado de Monroe para compradores de primera vivienda (First-Time Homebuyer Program) le presta a quien califica hasta $20,000, o el 20% del precio de compra si eso es menos, al 0% de interés para el pago inicial y los costos de cierre, más $5,000 adicionales si usted ha vivido en el condado de Monroe durante los últimos 12 meses. El préstamo es una segunda hipoteca que se perdona un 10% cada año, así que después de 10 años en la casa no debe nada. El ingreso del hogar debe ser igual o menor al 100% del ingreso mediano del condado ($99,188 para un hogar de cuatro personas, a octubre de 2026), y el programa lo administra la Redevelopment Authority of the County of Monroe.
 ctaTitle: ¿Preguntas sobre el programa del condado de Monroe?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## Cuánto puede recibir
 
@@ -68,6 +68,11 @@ Durante esos 10 años, es posible que tenga que devolver lo que falte por perdon
 Ryth ayuda a los compradores de primera vivienda a usar este programa de principio a fin, en español o en inglés. Le pone en contacto con prestamistas participantes, busca casas que cumplan con las reglas del programa y coordina su oferta, al prestamista y a la Redevelopment Authority para que la ayuda esté lista el día del cierre. Llámele o escríbale por mensaje de texto al 929.345.6838 para más información sobre el programa.
 
 Para el resto del proceso, vea la [guía para comprar su primera casa](comprar-primera-casa-pensilvania.html) y [Costos de cierre en Pensilvania](costos-de-cierre-pensilvania.html).
+
+## Fuentes
+
+- [Redevelopment Authority of the County of Monroe: programa para compradores de primera vivienda (montos, límites de ingreso y reglas, en inglés)](https://www.monroecountyrda.org/first-time-homebuyer-program)
+- [El portal de solicitud en línea de la Redevelopment Authority (en inglés)](https://portal.neighborlysoftware.com/monroecountyrdapa/Participant)
 
 ## Preguntas
 

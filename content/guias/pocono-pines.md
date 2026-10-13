@@ -6,7 +6,7 @@ description: Pocono Pines, PA: Lake Naomi y el Lake Naomi Club (cuotas de 2026),
 answer: Vivir en Pocono Pines es vivir junto al lago en la parte más alta de los Poconos. Lake Naomi es la gran atracción, con el club privado Lake Naomi Club para paseos en bote, piscinas, tenis, pickleball, golf y eventos de la comunidad, y bosques y caminos tranquilos alrededor. Pocono Pines está en Tobyhanna Township, sobre la Ruta 940, a pocos minutos de la I-380, cerca de Pocono Raceway y Kalahari Resorts, y a unas 2 horas de la ciudad de Nueva York.
 ctaTitle: ¿Preguntas sobre Pocono Pines?
 take: Por supuesto, revise las reglas de la HOA. Cada comunidad tiene reglas distintas, y algunas tienen más restricciones. Su agente tiene que revisarlas y entregarle las políticas de la comunidad antes de que usted compre.
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 {{photo}}
 
@@ -53,6 +53,11 @@ Los propietarios de Lake Naomi también pagan una cuota anual a la Pocono Pines 
 - Los caminos privados y la limpieza de nieve en invierno.
 - Las inspecciones del pozo, del sistema séptico y del radón.
 - Las reglas de alquiler, si piensa alquilar. Tobyhanna Township da licencias de alquiler a corto plazo para hasta 2 huéspedes por habitación más 2. En Lake Naomi, los inquilinos pueden usar el club solo con su programa de membresía temporal (Temporary Membership): el dueño tiene que inscribirse en el nivel familiar, pagar un registro anual de alquiler de $175 y cumplir con la estadía mínima del club.
+
+## Fuentes
+
+- [Lake Naomi Club: cuotas para nuevos socios 2026 (PDF, en inglés)](https://lakenaomiclub.com/documents/20124/0/New+Member+Fees+2026.pdf/55f64114-443a-ccea-9103-9aa113cc48d5?t=1765574078012)
+- [Tobyhanna Township: alquileres a corto plazo (en inglés)](https://tobyhannatownshippa.gov/str/)
 
 ## Preguntas
 

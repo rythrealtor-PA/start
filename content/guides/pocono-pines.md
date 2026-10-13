@@ -6,7 +6,7 @@ answer: Living in Pocono Pines means lake life in the higher part of the Poconos
 category: Towns
 place: Pocono Pines, Pennsylvania
 published: 2026-10-08
-updated: 2026-10-12
+updated: 2026-10-13
 order: 3
 reviews: Flor B., Ike A.
 related: monroe-county, tannersville, pocono-vacation-rental-investing
@@ -60,6 +60,11 @@ Owners in Lake Naomi also pay a yearly assessment to the Pocono Pines Community 
 - Private roads and winter plowing.
 - Well, septic and radon inspections.
 - Rental rules, if you plan to rent. Tobyhanna Township licenses short-term rentals for up to 2 guests per bedroom plus 2. In Lake Naomi, renters can use the club only through its Temporary Membership program: the owner has to join at the family level, pay a $175 yearly rental registration fee and meet the club's minimum stay.
+
+## Sources
+
+- [Lake Naomi Club: 2026 new member fees (PDF)](https://lakenaomiclub.com/documents/20124/0/New+Member+Fees+2026.pdf/55f64114-443a-ccea-9103-9aa113cc48d5?t=1765574078012)
+- [Tobyhanna Township: short-term rentals](https://tobyhannatownshippa.gov/str/)
 
 ## Questions
 

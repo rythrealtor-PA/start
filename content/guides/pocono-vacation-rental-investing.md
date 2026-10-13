@@ -7,7 +7,7 @@ homeText: A green, yellow and red map of the rules in each township.
 answer: Before buying a vacation rental in the Poconos, confirm that both the township and the community allow short-term rentals, because the rules change from one township to the next. In Monroe County, Ryth rates Tunkhannock, Tobyhanna, Coolbaugh, Barrett and Middle Smithfield townships as the easier ones (green), Polk, Eldred, Jackson, Stroud and Price as possible with limits (yellow), and the other ten as very difficult (red). Then judge the home on its location, its features, realistic income (an average Pocono rental brought in about $55,000 in the 12 months to August 2026, according to AirDNA) and the full cost of owning it.
 category: Investing
 published: 2026-10-08
-updated: 2026-10-11
+updated: 2026-10-13
 featured: yes
 order: 1
 reviews: Ike A., Cesar A.
@@ -89,6 +89,17 @@ Estimate the income from comparable rentals nearby, season by season, and then s
 ## Step 6: Financing
 
 Financing a vacation rental is different from financing a primary home. Second-home and investment-property loans usually require a larger down payment, and some lenders offer loans based on the property's expected rental income. Talk to a lender early so the numbers you run are real.
+
+## Sources
+
+Each township's and borough's own rules are linked in the table above.
+
+- [Pennsylvania Department of Revenue: hotel occupancy tax on home-sharing rentals](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/sales-use-and-hotel-occupancy-tax/home-sharing)
+- [Monroe County Treasurer: hotel room excise tax](https://monroecountypa.gov/departments/treasurer/resources/hotel-tax-a078bd448efc4d86f0ab47a5dac92564)
+- [AirDNA figures for the Poconos, as published by PoconoVacationHomeSales.com (August 2026)](https://poconovacationhomesales.com/2026/08/07/the-poconos-str-market-is-growing-and-guests-are-choosing-quality/)
+- [Lake Naomi Club: 2026 new member fees (PDF)](https://lakenaomiclub.com/documents/20124/0/New+Member+Fees+2026.pdf/55f64114-443a-ccea-9103-9aa113cc48d5?t=1765574078012)
+- [Indian Mountain Lakes: 2026 rental registration form (PDF)](https://www.indianmountainlake.com/data/2026%20RENTAL%20REGIST%20FORM%20-%20WORKABLE%20NEW.pdf)
+- [Lake Harmony Estates: beach and amenities](https://www.lakeharmonyestatespoa.com/beach-amenities)
 
 ## Questions
 

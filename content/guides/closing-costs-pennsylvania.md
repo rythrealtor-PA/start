@@ -7,7 +7,7 @@ homeText: The transfer tax, title insurance and who pays what.
 answer: In Pennsylvania, the largest closing cost is usually the realty transfer tax: 1% to the state plus a local tax (often 1% combined for the municipality and school district), customarily split between buyer and seller. On top of that, buyers often pay around 2 to 5% of the price in total closing costs, depending on the loan, while sellers pay their agent's commission, their share of the transfer tax and any agreed credits.
 category: Buying
 published: 2026-10-08
-updated: 2026-10-08
+updated: 2026-10-13
 featured: yes
 order: 3
 reviews: Steven B.
@@ -49,6 +49,12 @@ Pennsylvania property taxes come in separate bills: county and municipal taxes a
 - **Use PHFA assistance** if you qualify. See the [First-time home buyer guide](first-time-home-buyer-pennsylvania.html).
 - **Compare lenders.** Fees and rates vary, and the Loan Estimate makes them easy to compare.
 - **Negotiate the transfer tax split** in a buyer's or seller's market.
+
+## Sources
+
+- [Pennsylvania Department of Revenue: realty transfer tax](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax)
+- [Consumer Financial Protection Bureau: how to read a Loan Estimate](https://www.consumerfinance.gov/owning-a-home/loan-estimate/)
+- [PHFA: down payment and closing cost assistance](https://www.phfa.org/programs/assistance.aspx)
 
 ## Questions
 

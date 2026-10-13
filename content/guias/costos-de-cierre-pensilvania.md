@@ -7,7 +7,7 @@ homeQuestion: ¿Qué son los costos de cierre en Pensilvania?
 homeText: El impuesto de transferencia, el seguro de título y quién paga qué.
 answer: En Pensilvania, el costo de cierre más grande suele ser el impuesto de transferencia (realty transfer tax): 1% para el estado más un impuesto local (a menudo 1% entre el municipio y el distrito escolar), que por costumbre se divide entre el comprador y el vendedor. Además de eso, el comprador suele pagar entre 2 y 5% del precio en costos de cierre en total, según el préstamo, mientras que el vendedor paga la comisión de su agente, su parte del impuesto de transferencia y los créditos que haya acordado.
 ctaTitle: ¿Preguntas sobre sus costos de cierre?
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 ## El impuesto de transferencia
 
@@ -45,6 +45,12 @@ En Pensilvania, los impuestos a la propiedad llegan en cuentas separadas: los de
 - **Use la ayuda de PHFA** si califica. Vea la [guía para comprar su primera casa](comprar-primera-casa-pensilvania.html).
 - **Compare prestamistas.** Los cargos y las tasas varían, y el Loan Estimate (la estimación del préstamo) permite compararlos fácilmente.
 - **Negocie cómo se divide el impuesto de transferencia,** según el mercado esté a favor del comprador o del vendedor.
+
+## Fuentes
+
+- [Departamento de Ingresos de Pensilvania: impuesto de transferencia (en inglés)](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax)
+- [Consumer Financial Protection Bureau: cómo leer un Loan Estimate (en inglés)](https://www.consumerfinance.gov/owning-a-home/loan-estimate/)
+- [PHFA: ayuda para el pago inicial y los costos de cierre (en inglés)](https://www.phfa.org/programs/assistance.aspx)
 
 ## Preguntas
 

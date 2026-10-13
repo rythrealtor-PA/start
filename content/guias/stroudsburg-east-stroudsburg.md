@@ -8,7 +8,7 @@ ctaTitle: ¿Preguntas sobre Stroudsburg y East Stroudsburg?
 marker: Stroudsburg y East Stroudsburg @ 40.993, -75.188
 mapCaption: En este mapa del condado de Monroe se resaltan Stroudsburg Borough y East Stroudsburg Borough. Muchas casas con dirección de Stroudsburg o East Stroudsburg están en los townships de alrededor, como Stroud, Hamilton, Smithfield y Middle Smithfield.
 take: Algunas casas cerca de Stroudsburg y East Stroudsburg tienen agua y alcantarillado públicos, algo muy práctico si usted no conoce los sistemas de pozo y séptico. Definitivamente es una ventaja. Los impuestos también cambian mucho de una zona a otra, así que yo revisaría los impuestos primero.
-updated: 2026-10-12
+updated: 2026-10-13
 ---
 {{photo}}
 
@@ -54,6 +54,13 @@ La mayor parte de Penn Estates está en Stroud Township, que hace una excepción
 - El estado de la casa: una inspección completa, más la prueba de radón, que es estándar en Pensilvania. Las casas construidas antes de 1978 vienen con una declaración sobre pintura con plomo.
 - Las zonas de inundación cerca de Brodhead Creek y McMichael Creek, y si se exige seguro contra inundaciones.
 - Las reglas de alquiler a corto plazo, si piensa alquilar. Ninguno de los dos boroughs permite alquileres a corto plazo en sus zonas residenciales. Vea [Invertir en un alquiler vacacional en los Poconos](invertir-alquiler-vacacional-poconos.html).
+
+## Fuentes
+
+- [Borough de Stroudsburg: reforma de zonificación sobre alquileres a corto plazo (PDF, en inglés)](http://stroudsburgboro.com/sbpa/_zumu_user_doc_cache/Short_Term_Rental_Zoning_Amendment.pdf)
+- [Borough de East Stroudsburg: ordenanza 1379 de alquileres a corto plazo (PDF, en inglés)](https://eaststroudsburgboro.org/wp-content/uploads/2021/07/Short-Term-Rentals-Ordinance-1379.pdf)
+- [Stroud Township: solicitud, guía y ordenanzas de alquiler a corto plazo (PDF, en inglés)](https://users.neo.registeredsite.com/8/6/2/22225268/assets/STR_Application__Guide__Ordinances.pdf)
+- [Delaware River Joint Toll Bridge Commission: puente de peaje Delaware Water Gap (I-80, en inglés)](https://www.drjtbc.org/bridges/delaware-water-gap/)
 
 ## Preguntas
 
