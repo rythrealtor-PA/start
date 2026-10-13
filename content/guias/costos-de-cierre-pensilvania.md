@@ -3,6 +3,8 @@ en: closing-costs-pennsylvania
 title: Costos de cierre en Pensilvania: qué pagan el comprador y el vendedor
 seoTitle: Costos de cierre en Pensilvania: comprador y vendedor
 description: Costos de cierre en Pensilvania: el impuesto de transferencia, el seguro de título, los cargos del prestamista, los prorrateos de impuestos y cómo ahorrar.
+homeQuestion: ¿Qué son los costos de cierre en Pensilvania?
+homeText: El impuesto de transferencia, el seguro de título y quién paga qué.
 answer: En Pensilvania, el costo de cierre más grande suele ser el impuesto de transferencia (realty transfer tax): 1% para el estado más un impuesto local (a menudo 1% entre el municipio y el distrito escolar), que por costumbre se divide entre el comprador y el vendedor. Además de eso, el comprador suele pagar entre 2 y 5% del precio en costos de cierre en total, según el préstamo, mientras que el vendedor paga la comisión de su agente, su parte del impuesto de transferencia y los créditos que haya acordado.
 ctaTitle: ¿Preguntas sobre sus costos de cierre?
 updated: 2026-10-12

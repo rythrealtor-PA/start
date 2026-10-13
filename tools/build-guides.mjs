@@ -29,6 +29,8 @@
  *   reviews: Steven B., Flor B.      (names exactly as in testimonials.json)
  *   related: monroe-county, tannersville
  *   featured: yes                    (also listed on the homepage)
+ *   homeQuestion: How do I …?        (the homepage card's title: the question
+ *   homeText: One short line.         people ask, and what the guide covers)
  *   order: 10                        (position within its category)
  *   ---
  *   ## A heading
@@ -165,6 +167,7 @@ const L = {
     ctaText: (phone) => `Ryth answers in English or Spanish — call or text
         ${phone}, or send a message.`,
     ctaButton: 'Contact Ryth',
+    readGuide: 'Read the guide &rarr;',
     aboutAuthor: 'About the author',
     writtenBy: 'Written by',
     bio: () => `Bilingual (English and Spanish) REALTOR<sup>&reg;</sup> with ${esc(CONFIG.brokerage)},
@@ -245,6 +248,7 @@ const L = {
     ctaText: (phone) => `Ryth le atiende en español o en inglés. Llame o escriba por
         mensaje de texto al ${phone}, o envíe un mensaje.`,
     ctaButton: 'Contactar a Ryth',
+    readGuide: 'Leer la guía &rarr;',
     aboutAuthor: 'Sobre el autor',
     writtenBy: 'Escrito por',
     bio: () => `REALTOR<sup>&reg;</sup> bilingüe (español e inglés) con ${esc(CONFIG.brokerage)}, que atiende
@@ -922,9 +926,25 @@ export async function loadGuides(root) {
   return { en: sortGuides(en), es: sortGuides(es) };
 }
 
+/**
+ * A homepage card: the question a buyer or seller would ask (homeQuestion)
+ * and one line on what the guide covers (homeText), falling back to the
+ * guide's title and description.
+ */
+function homeCard(g, prefix) {
+  const t = L[g.lang];
+  return `
+        <a class="guide-q" href="${prefix}${g.slug}.html">
+          <span class="guide-card__kicker">${esc(t.category(g.category))}</span>
+          <span class="guide-q__q">${esc(g.homeQuestion || g.title)}</span>
+          <span class="guide-q__a">${esc(g.homeText || g.description)}</span>
+          <span class="guide-q__more">${t.readGuide}</span>
+        </a>`;
+}
+
 /** Homepage block: the featured guides, linked from the front page. */
 export function homepageGuidesHTML(guides, prefix = 'guides/') {
-  return guides.filter((g) => g.featured).map((g) => card(g, prefix)).join('');
+  return guides.filter((g) => g.featured).map((g) => homeCard(g, prefix)).join('');
 }
 
 /**

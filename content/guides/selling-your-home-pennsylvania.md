@@ -2,6 +2,8 @@
 title: How to Sell Your Home in Pennsylvania: Step by Step
 seoTitle: How to Sell Your Home in Pennsylvania: Step by Step
 description: How selling a home works in Pennsylvania: pricing, preparing and marketing the home, required disclosures, offers, inspections, settlement and what sellers pay.
+homeQuestion: How do I sell my home in Pennsylvania?
+homeText: Pricing, disclosures, offers and what sellers pay.
 answer: Selling a home in Pennsylvania usually means pricing it from recent local sales, preparing and marketing it, completing the state's Seller's Property Disclosure Statement, negotiating offers, and then working through the buyer's inspections, appraisal and settlement, which commonly takes 30 to 60 days after an offer is accepted. Sellers typically pay their share of the realty transfer tax and their agent's commission, which is always negotiable.
 category: Selling
 published: 2026-10-08

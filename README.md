@@ -62,7 +62,7 @@ Pennsylvania requires advertising to identify the broker, so the brokerage name
 and licence number are **not** optional decoration here — they render in two
 places, both built from `config.js` so they cannot drift apart:
 
-- the facts list in the bio section
+- the bio in the Discover section ("Bilingual REALTOR® with Real of Pennsylvania")
 - the footer line, beside the brokerage and team logos
 
 If your broker has specific requirements about wording, logo size, or the

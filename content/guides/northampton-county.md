@@ -2,6 +2,8 @@
 title: Living in Northampton County, PA: Towns, Roads and Homes
 seoTitle: Living in Northampton County, PA: Real Estate Guide
 description: Northampton County, PA: the Lehigh Valley next to New Jersey, I-78 and Route 22, a map of every municipality, Bethlehem, Easton, homes, taxes and what to check.
+homeQuestion: What is it like to live in Northampton County?
+homeText: The Lehigh Valley: Bethlehem, Easton, homes and taxes.
 answer: Northampton County is the eastern half of the Lehigh Valley, on the New Jersey border. Life here is more suburban than in the Poconos, with a bigger job market, colleges and universities, and downtowns in Bethlehem and Easton full of restaurants, parks and public art. The history is still there too: Bethlehem's Moravian district is a UNESCO World Heritage Site. I-78 and Route 22 lead into New Jersey, Route 33 goes north to the Poconos, and the county seat is Easton.
 category: Counties
 published: 2026-10-08

@@ -3,6 +3,8 @@ en: monroe-county
 title: Vivir en el condado de Monroe, PA: pueblos, carreteras y casas
 seoTitle: Vivir en el condado de Monroe, PA: guía de bienes raíces
 description: El condado de Monroe, PA: los Poconos, la I-80 desde Nueva Jersey, un mapa de cada municipio, los pueblos que atiende Ryth, casas, impuestos y qué revisar.
+homeQuestion: ¿Cómo es vivir en el condado de Monroe?
+homeText: Los Poconos: pueblos, carreteras, casas e impuestos.
 answer: El condado de Monroe está en el centro de las montañas Pocono, en el noreste de Pensilvania: lagos, parques estatales, centros de esquí y caminos tranquilos, con casas que cuestan menos que en los suburbios de Nueva York y Nueva Jersey. Es un condado de propietarios, donde unas 4 de cada 5 casas las habitan sus dueños, y desde hace años llega gente de la zona de Nueva York para tener más espacio sin irse lejos. La I-80 entra desde Nueva Jersey por el Delaware Water Gap, y la sede del condado es Stroudsburg.
 ctaTitle: ¿Preguntas sobre el condado de Monroe?
 updated: 2026-10-12

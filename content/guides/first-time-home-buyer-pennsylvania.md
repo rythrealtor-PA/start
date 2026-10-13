@@ -2,6 +2,8 @@
 title: First-Time Home Buyer Guide for Pennsylvania (2026)
 seoTitle: First-Time Home Buyer Guide for Pennsylvania (2026)
 description: How to buy your first home in Pennsylvania, step by step: pre-approval, the buyer agreement, loan options, PHFA programs, inspections, costs and settlement.
+homeQuestion: How do I buy my first home in Pennsylvania?
+homeText: Every step, from pre-approval to the keys, plus help with the down payment.
 answer: To buy your first home in Pennsylvania, you will usually need a mortgage pre-approval, a written buyer agreement with your agent before touring homes, a down payment (as little as 0 to 3.5% with some loan programs) and money for closing costs. From accepted offer to settlement typically takes 30 to 60 days. Pennsylvania Housing Finance Agency (PHFA) programs can help with the down payment and closing costs if you qualify, and in Monroe County the county's First-Time Homebuyer Program can add up to $25,000 as a 0% loan forgiven over 10 years.
 category: Buying
 published: 2026-10-08

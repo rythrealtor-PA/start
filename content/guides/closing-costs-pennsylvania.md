@@ -2,6 +2,8 @@
 title: Closing Costs in Pennsylvania: What Buyers and Sellers Pay
 seoTitle: Closing Costs in Pennsylvania: Buyers and Sellers
 description: Closing costs in Pennsylvania: the realty transfer tax, title insurance, lender fees, tax prorations, what buyers and sellers pay, and how to save.
+homeQuestion: What are closing costs in Pennsylvania?
+homeText: The transfer tax, title insurance and who pays what.
 answer: In Pennsylvania, the largest closing cost is usually the realty transfer tax: 1% to the state plus a local tax (often 1% combined for the municipality and school district), customarily split between buyer and seller. On top of that, buyers often pay around 2 to 5% of the price in total closing costs, depending on the loan, while sellers pay their agent's commission, their share of the transfer tax and any agreed credits.
 category: Buying
 published: 2026-10-08

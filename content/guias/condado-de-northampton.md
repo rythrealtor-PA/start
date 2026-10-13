@@ -3,6 +3,8 @@ en: northampton-county
 title: Vivir en el condado de Northampton, PA: pueblos, carreteras y casas
 seoTitle: Vivir en el condado de Northampton, PA: guía
 description: El condado de Northampton, PA: el Lehigh Valley, la I-78 y la Ruta 22, un mapa de cada municipio, Bethlehem, Easton, casas, impuestos y qué revisar.
+homeQuestion: ¿Cómo es vivir en el condado de Northampton?
+homeText: El Lehigh Valley: Bethlehem, Easton, casas e impuestos.
 answer: El condado de Northampton es la mitad este del Lehigh Valley, en la frontera con Nueva Jersey. La vida aquí es más suburbana que en los Poconos, con más oferta de trabajo, colegios universitarios y universidades, y centros en Bethlehem y Easton llenos de restaurantes, parques y arte público. La historia sigue presente: el distrito moravo de Bethlehem es Patrimonio Mundial de la UNESCO. La I-78 y la Ruta 22 llevan a Nueva Jersey, la Ruta 33 va al norte hacia los Poconos, y la sede del condado es Easton.
 ctaTitle: ¿Preguntas sobre el condado de Northampton?
 updated: 2026-10-12

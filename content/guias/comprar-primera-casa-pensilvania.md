@@ -3,6 +3,8 @@ en: first-time-home-buyer-pennsylvania
 title: Guía para comprar su primera casa en Pensilvania (2026)
 seoTitle: Comprar su primera casa en Pensilvania: guía 2026
 description: Cómo comprar su primera casa en Pensilvania, paso a paso: preaprobación, acuerdo con su agente, préstamos, programas de PHFA, inspecciones, costos y cierre.
+homeQuestion: ¿Cómo compro mi primera casa en Pensilvania?
+homeText: Cada paso, desde la preaprobación hasta las llaves, y la ayuda para el pago inicial.
 answer: Para comprar su primera casa en Pensilvania, normalmente necesita una preaprobación de hipoteca, un acuerdo por escrito con su agente antes de visitar casas, un pago inicial (desde 0 hasta 3.5% con algunos préstamos) y dinero para los costos de cierre. Desde que el vendedor acepta su oferta hasta el cierre pasan por lo general de 30 a 60 días. Los programas de la Agencia de Financiamiento de Vivienda de Pensilvania (PHFA) pueden ayudarle con el pago inicial y los costos de cierre si usted califica, y en el condado de Monroe el programa del condado para compradores de primera vivienda puede sumar hasta $25,000 como un préstamo al 0% que se perdona en 10 años.
 ctaTitle: ¿Preguntas sobre su primera compra?
 updated: 2026-10-12

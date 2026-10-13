@@ -2,6 +2,8 @@
 title: Investing in a Pocono Vacation Rental: Rules by Township, Location and Income
 seoTitle: Pocono Short-Term Rental Rules by Township (2026)
 description: Which Monroe County townships allow short-term rentals, mapped green, yellow or red, plus community rules, taxes, location, income and financing.
+homeQuestion: Where can I own a vacation rental in the Poconos?
+homeText: A green, yellow and red map of the rules in each township.
 answer: Before buying a vacation rental in the Poconos, confirm that both the township and the community allow short-term rentals, because the rules change from one township to the next. In Monroe County, Ryth rates Tunkhannock, Tobyhanna, Coolbaugh, Barrett and Middle Smithfield townships as the easier ones (green), Polk, Eldred, Jackson, Stroud and Price as possible with limits (yellow), and the other ten as very difficult (red). Then judge the home on its location, its features, realistic income (an average Pocono rental brought in about $55,000 in the 12 months to August 2026, according to AirDNA) and the full cost of owning it.
 category: Investing
 published: 2026-10-08

@@ -29,6 +29,8 @@ const fmtBaths = (n) => (Number.isInteger(n) ? String(n) : Number(n).toFixed(1))
 const WORDS = {
   en: {
     email: 'Email', phone: 'Phone', office: 'Office', hours: 'Hours', languages: 'Languages',
+    callOrText: 'Call or text', directions: 'Get directions',
+    languageList: (langs) => langs.join(' and '),
     beds: 'Beds', baths: 'Baths', sqft: 'Sq ft',
     serving: (counties) => `Serving ${counties.join(' & ')}`,
     role: (config) => config.role,
@@ -38,7 +40,16 @@ const WORDS = {
     hoursText: (h) => h,
   },
   es: {
-    email: 'Correo', phone: 'Teléfono', office: 'Oficina', hours: 'Horario', languages: 'Idiomas',
+    email: 'Correo electrónico', phone: 'Teléfono', office: 'Oficina', hours: 'Horario', languages: 'Idiomas',
+    callOrText: 'Llamar o escribir', directions: 'Cómo llegar',
+    // ['English', 'Español'] -> "Español e inglés": Spanish first, and "e"
+    // instead of "y" before a word that starts with an i sound.
+    languageList: (langs) => {
+      const names = langs.map((l) => ({ English: 'inglés', Español: 'español' }[l] ?? l))
+        .sort((a, b) => (a === 'español' ? -1 : b === 'español' ? 1 : 0));
+      const joined = names.reduce((out, n, i) => (i === 0 ? n : `${out} ${/^h?i/i.test(n) ? 'e' : 'y'} ${n}`), '');
+      return joined[0].toUpperCase() + joined.slice(1);
+    },
     beds: 'Habitaciones', baths: 'Baños', sqft: 'Pies²',
     serving: (counties) => `Atiende los condados de ${counties.map((c) => c.replace(/ County$/, '')).join(' y ')}`,
     role: () => 'Agente de bienes raíces',
@@ -65,32 +76,50 @@ const fromRoot = (path, root = '') => (/^([a-z][a-z0-9+.-]*:|\/)/i.test(path) ? 
 
 /* ─────────────────────────── contact and licence ─────────────────────── */
 
-function fact(label, value, href) {
+/** Line icons for the contact details, drawn in the text colour. */
+const ICONS = {
+  phone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" stroke-linejoin="round"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5" stroke-linejoin="round"/>',
+  pin: '<path d="M12 21s-7-6.3-7-11.5a7 7 0 0 1 14 0C19 14.7 12 21 12 21z" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round"/>',
+  chat: '<path d="M4 5h16v11H10l-5 4v-4H4z" stroke-linejoin="round"/>',
+};
+const icon = (name) =>
+  `<span class="contact__icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6">${ICONS[name]}</svg></span>`;
+
+/** One contact detail: an icon, a label and a value, as a link or as text. */
+function contactItem(kind, iconName, label, value, href) {
   if (!value) return '';
-  const body = href
-    ? `<a class="facts__link" href="${esc(href)}">${esc(value)}</a>`
-    : esc(value);
+  const tag = href ? 'a' : 'div';
+  // A long email address may wrap in a narrow tile: let it break after the @.
+  const shown = kind === 'email' ? esc(value).replace('@', '@<wbr>') : esc(value);
   return `
-          <div class="facts__row">
-            <dt class="facts__label">${label}</dt>
-            <dd class="facts__value">${body}</dd>
-          </div>`;
+          <${tag} class="contact__item contact__item--${kind}"${href ? ` href="${esc(href)}"` : ''}>${icon(iconName)}<span class="contact__text"><span class="contact__label">${label}</span> <span class="contact__value">${shown}</span></span></${tag}>`;
 }
 
 /**
- * Contact details beside the portrait. Deliberately just these three — the bio
- * names the brokerage and area, and the brokerage and licence number are in
- * the footer, which is what Pennsylvania's advertising rule requires.
+ * The contact details beside the portrait. One set of HTML, two looks (see
+ * .contact in styles.css): on a phone, buttons to call, email and get
+ * directions with the office, hours and languages on one line under them;
+ * from tablet width up, a tile for each detail. Every detail is written once,
+ * as text, so search engines and AI tools read it exactly once.
+ *
+ * The brokerage is named in the bio above, and the brokerage and licence
+ * number are in the footer, which is what Pennsylvania's advertising rule
+ * requires.
  */
 export function factsHTML(config, lang = 'en') {
   const { contact, languages } = config;
   const w = words(lang);
+  const office = officeLine(config);
   return [
-    fact(w.email, contact.email, `mailto:${contact.email}`),
-    fact(w.phone, contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
-    fact(w.office, officeLine(config), mapsUrl(config)),
-    fact(w.hours, config.hours && w.hoursText(config.hours)),
-    fact(w.languages, languages.join(' · ')),
+    contactItem('call', 'phone', w.callOrText, contact.phone, contact.phoneHref ? `tel:${contact.phoneHref}` : null),
+    contactItem('email', 'mail', w.email, contact.email, `mailto:${contact.email}`),
+    office ? `
+          <a class="contact__item contact__item--directions" href="${esc(mapsUrl(config))}">${icon('pin')}<span class="contact__text">${w.directions}</span></a>` : '',
+    contactItem('office', 'pin', w.office, office),
+    contactItem('hours', 'clock', w.hours, config.hours && w.hoursText(config.hours)),
+    contactItem('languages', 'chat', w.languages, languages?.length && w.languageList(languages)),
   ].join('');
 }
 

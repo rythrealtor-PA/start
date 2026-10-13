@@ -3,6 +3,8 @@ en: pocono-vacation-rental-investing
 title: Invertir en un alquiler vacacional en los Poconos: reglas por municipio, ubicación e ingresos
 seoTitle: Alquiler a corto plazo en los Poconos: reglas (2026)
 description: Qué municipios del condado de Monroe permiten alquileres a corto plazo, en un mapa verde, amarillo o rojo, más reglas de comunidades, impuestos e ingresos.
+homeQuestion: ¿Dónde puedo tener un alquiler vacacional en los Poconos?
+homeText: Un mapa verde, amarillo y rojo de las reglas de cada township.
 answer: Antes de comprar una casa para alquiler vacacional en los Poconos, confirme que tanto el municipio como la comunidad permiten alquileres a corto plazo, porque las reglas cambian de un township a otro. En el condado de Monroe, Ryth califica a Tunkhannock, Tobyhanna, Coolbaugh, Barrett y Middle Smithfield como los townships más fáciles (verde), a Polk, Eldred, Jackson, Stroud y Price como posibles con límites (amarillo), y a los otros diez como muy difíciles (rojo). Después, evalúe la casa por su ubicación, sus características, un ingreso realista (un alquiler promedio en los Poconos generó unos $55,000 en los 12 meses hasta agosto de 2026, según AirDNA) y el costo completo de tenerla.
 ctaTitle: ¿Busca una propiedad para alquiler vacacional?
 updated: 2026-10-12

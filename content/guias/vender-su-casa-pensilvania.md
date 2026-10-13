@@ -3,6 +3,8 @@ en: selling-your-home-pennsylvania
 title: Cómo vender su casa en Pensilvania, paso a paso
 seoTitle: Cómo vender su casa en Pensilvania, paso a paso
 description: Cómo se vende una casa en Pensilvania: el precio, preparar y promocionar la casa, las declaraciones obligatorias, las ofertas, el cierre y los costos.
+homeQuestion: ¿Cómo vendo mi casa en Pensilvania?
+homeText: El precio, las declaraciones, las ofertas y lo que paga el vendedor.
 answer: Vender una casa en Pensilvania normalmente significa fijar el precio a partir de ventas recientes en la zona, preparar y promocionar la casa, llenar la declaración del vendedor que exige el estado (Seller's Property Disclosure Statement), negociar las ofertas y luego pasar por las inspecciones del comprador, la tasación y el cierre, que suele tomar de 30 a 60 días después de aceptar una oferta. El vendedor normalmente paga su parte del impuesto de transferencia y la comisión de su agente, que siempre es negociable.
 ctaTitle: ¿Piensa vender su casa?
 updated: 2026-10-12
