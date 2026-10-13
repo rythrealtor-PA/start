@@ -30,8 +30,11 @@
   --wrap: 78rem;
   --gutter: clamp(1.25rem, 5vw, 4rem);
 
-  /* Vertical rhythm. Sections share one scale so spacing never drifts. */
-  --space-section: clamp(5rem, 11vw, 10rem);
+  /* Vertical rhythm. Sections share one scale so spacing never drifts.
+     Two sections meet with this twice (bottom of one, top of the next), so
+     it is kept modest: about 11rem between sections on a laptop, 6.5rem on
+     a phone. */
+  --space-section: clamp(3.25rem, 6.5vw, 5.5rem);
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -249,7 +252,7 @@ a { color: var(--brass-lt); }
   font-size: clamp(2rem, 5.2vw, 4rem);
   line-height: 1.04;
   letter-spacing: -0.015em;
-  margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.75rem);
   max-width: 20ch;
   text-wrap: balance;
 }
@@ -388,10 +391,12 @@ a { color: var(--brass-lt); }
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem 2rem;
   flex-wrap: wrap;
 }
-.listings .section__title { margin-bottom: 0; }
+/* Both carousels (listings and testimonials): the arrows sit on the title's
+   line, not below it. */
+.listings__head .section__title { margin-bottom: 0; }
 
 .carousel__nav {
   display: flex;
@@ -428,7 +433,7 @@ a { color: var(--brass-lt); }
 }
 .carousel__button[disabled] { opacity: 0.3; cursor: default; }
 
-.carousel { margin-top: clamp(2rem, 5vw, 3.5rem); }
+.carousel { margin-top: clamp(1.5rem, 3vw, 2.25rem); }
 
 .carousel__track {
   display: grid;
@@ -755,6 +760,23 @@ a { color: var(--brass-lt); }
   max-width: 52rem;
   border-top: 1px solid var(--border);
 }
+/* On wide screens the homepage questions sit beside their heading, in the
+   same proportions as the Discover section, instead of leaving the right
+   half of the screen empty. */
+@media (min-width: 62rem) {
+  .faq .wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  .faq .faq__list { max-width: none; }
+}
+.faq__aside { margin: -0.75rem 0 2rem; max-width: 28ch; color: var(--ivory-dim); }
+.faq__aside a { color: var(--brass-lt); text-underline-offset: 0.2em; }
+@media (min-width: 62rem) {
+  .faq__aside { margin-bottom: 0; }
+}
 .faq__item { border-bottom: 1px solid var(--border); }
 
 .faq__q {
@@ -894,9 +916,9 @@ a { color: var(--brass-lt); }
 
 .page-header__nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
-.guides__intro { max-width: 62ch; color: var(--ivory-dim); margin: -1.5rem 0 2.5rem; }
+.guides__intro { max-width: 62ch; color: var(--ivory-dim); margin: -0.75rem 0 2rem; }
 .guide .guides__intro { margin: 0 0 1rem; }
-.guides__more { margin: 2.5rem 0 0; }
+.guides__more { margin: 2rem 0 0; }
 .guides__group {
   font-family: var(--font-display);
   font-variation-settings: 'opsz' 36;
