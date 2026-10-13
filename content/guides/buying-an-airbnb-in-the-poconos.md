@@ -13,7 +13,7 @@ prices: tobyhanna-township, coolbaugh, middle-smithfield, pocono-pines, monroe-c
 featured: yes
 order: 1
 reviews: Ike A., Cesar A.
-related: pocono-pines, monroe-county, tannersville, stroudsburg-east-stroudsburg
+related: investing-in-poconos-real-estate, pocono-pines, monroe-county, tannersville
 take: People all over the country know the Poconos as a great place to own a short-term rental. There is no doubt it works very well for some people, and you can be one of them. An average short-term rental home here makes between $45,000 and $65,000 a year, depending on the area, what makes it different from the others, and its reviews. Some homes average more than six figures a year, and those are the ones that offer something exceptional. The limit is your creativity and how you market the property.
 ---
 ## How Ryth helps Airbnb buyers
@@ -21,6 +21,8 @@ take: People all over the country know the Poconos as a great place to own a sho
 Ryth has closed investment-property deals worth millions of dollars, for buyers from New York, New Jersey and Philadelphia looking for a Pocono rental that pays, some of them aiming for six figures a year. He runs the numbers with you, including the cap rate (a property's yearly net income divided by its price), and negotiates the purchase to get you better terms.
 
 He knows the short-term rental rules of each township and borough, and how the communities work. He has visited Emerald Lakes, Pocono Pines (Lake Naomi), Penn Estates, A Pocono Country Place, Lake Harmony and Pocono Summit, and knows their rental rules and how easy it is to run a short-term rental in each one. If you would rather not deal with a community's rules and fees at all, Ryth also knows the areas where you can own a short-term rental with no HOA.
+
+Looking at long-term rentals, flips or land instead? See [Investing in Poconos real estate](investing-in-poconos-real-estate.html).
 
 ## Where you can run an Airbnb: short-term rental rules by township
 

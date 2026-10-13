@@ -17,6 +17,8 @@ Ryth ha cerrado operaciones de propiedades de inversión por millones de dólare
 
 Conoce las reglas de alquiler a corto plazo de cada township y borough, y cómo funcionan las comunidades. Ha visitado Emerald Lakes, Pocono Pines (Lake Naomi), Penn Estates, A Pocono Country Place, Lake Harmony y Pocono Summit, y conoce sus reglas de alquiler y qué tan fácil es tener un alquiler a corto plazo en cada una. Si prefiere no lidiar con las reglas y cuotas de una comunidad, Ryth también conoce las zonas donde se puede tener un alquiler a corto plazo sin HOA.
 
+¿Le interesan más los alquileres a largo plazo, las renovaciones o los terrenos? Vea [Invertir en bienes raíces en los Poconos](invertir-en-bienes-raices-en-los-poconos.html).
+
 ## Dónde puede tener un Airbnb: reglas de alquiler a corto plazo por township
 
 {{str-map}}

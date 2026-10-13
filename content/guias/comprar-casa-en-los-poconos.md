@@ -54,6 +54,8 @@ Los Poconos son un lugar muy buscado para una segunda vivienda, a unas 75 a 100 
 - **Los impuestos a la propiedad.** La exención de vivienda principal de Pensilvania (homestead exclusion), que baja los impuestos escolares, solo aplica a su residencia principal, así que una segunda vivienda paga el monto completo.
 - **Cuando no está.** Planee quién limpia la nieve, la calefacción y alguien de la zona que revise la casa en invierno.
 
+¿Se muda aquí para quedarse, desde Nueva York o Nueva Jersey? Vea [Mudarse a Pensilvania desde Nueva York o Nueva Jersey](mudarse-a-pensilvania-desde-nueva-york-o-nueva-jersey.html) para los impuestos y los viajes al trabajo.
+
 ## Lo que ofrecen los Poconos: la vida al aire libre todo el año
 
 - **Invierno:** esquí y snowboard en Camelback, en Tannersville, y en Shawnee Mountain, cerca de East Stroudsburg, con Jack Frost y Big Boulder justo al otro lado de la línea del condado de Carbon, además de deslizarse en tubos sobre la nieve.

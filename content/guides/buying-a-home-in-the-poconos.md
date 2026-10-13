@@ -12,7 +12,7 @@ updated: 2026-10-13
 featured: yes
 order: 0
 reviews: Steven B., Flor B.
-related: monroe-county, buying-an-airbnb-in-the-poconos, first-time-home-buyer-pennsylvania, monroe-county-first-time-homebuyer-program
+related: monroe-county, moving-to-pennsylvania-from-new-york-new-jersey, buying-an-airbnb-in-the-poconos, first-time-home-buyer-pennsylvania
 prices: monroe-county, stroudsburg-east-stroudsburg, stroud-township, middle-smithfield, tannersville, mount-pocono, coolbaugh, tobyhanna-township, pocono-pines
 ---
 ## How do I buy a house in the Poconos?
@@ -59,6 +59,8 @@ The Poconos are a popular place for a second home, with New York City about 75 t
 - **FHA, VA and USDA loans** are only for a home you live in as your main home.
 - **Property taxes.** Pennsylvania's homestead exclusion, which lowers school taxes, only applies to your primary residence, so a second home pays the full amount.
 - **When you are away.** Plan for snow removal, heat and someone local to check on the house in winter.
+
+Moving here full time from New York or New Jersey? See [Moving to Pennsylvania from New York or New Jersey](moving-to-pennsylvania-from-new-york-new-jersey.html) for taxes and commutes.
 
 ## What the Poconos offer: outdoor life through the year
 

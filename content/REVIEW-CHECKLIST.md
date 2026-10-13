@@ -54,6 +54,20 @@ Updated October 12, 2026. Items are ordered from most to least important.
       PoconoVacationHomeSales.com (another agent's site) where they were
       published. Remove that link if you prefer not to send readers there.
 
+## New pages (October 13, 2026, second group)
+
+Built in English and Spanish:
+- Moving to Pennsylvania from New York or New Jersey (taxes compared, commutes, towns, first months)
+- Investing in Poconos Real Estate (long-term rentals near the job centers, fix-and-flip, sheriff and tax sales, land)
+- Investing in Lehigh Valley Real Estate (MLS rents and 2 to 4 unit prices for Allentown, Bethlehem and Easton)
+- Buying a Home in the Lehigh Valley (prices, what each budget buys, city inspections)
+- Homepage: Buying in the Lehigh Valley replaced Monroe County among the six cards; the FAQ answers about moving, investing and the Lehigh Valley now link to these pages.
+
+- [ ] Read the four pages and correct anything that does not match how you work.
+- [ ] Taxes on the moving page come from the PA Department of Revenue, the NJ Division of Taxation and the Tax Foundation (2026). Have an accountant you trust read that section.
+- [ ] Poconos rents: the Poconos investing page has no rent figures yet. Pull median 2- and 3-bedroom rents from the PMAR MLS (Part 2 of the prompt) and I will add them.
+- [ ] Ryth's take for each of these pages, in your own words.
+
 ## New pages (October 13, 2026, first group)
 
 Built in English and Spanish:

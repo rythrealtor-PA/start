@@ -431,7 +431,10 @@ function renderBody(md, slot, t) {
 function renderTable(lines, t) {
   const cells = (l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
   const [head, , ...rows] = lines;
-  return `<div class="table-wrap" tabindex="0" role="region" aria-label="${t.tableLabel}: ${esc(cells(head).join(', '))}"><table>
+  // A table of short entries (numbers, prices) fits a phone screen; one with
+  // sentences in its cells scrolls sideways instead of squeezing them.
+  const short = cells(head).length <= 4 && rows.every((r) => cells(r).every((c) => c.length <= 22));
+  return `<div class="table-wrap" tabindex="0" role="region" aria-label="${t.tableLabel}: ${esc(cells(head).join(', '))}"><table${short ? ' class="table-compact"' : ''}>
   <thead><tr>${cells(head).map((c) => `<th scope="col">${inline(c)}</th>`).join('')}</tr></thead>
   <tbody>
 ${rows.map((r) => `    <tr>${cells(r).map((c, i) => (i === 0 ? `<th scope="row">${inline(c)}</th>` : `<td>${inline(c)}</td>`)).join('')}</tr>`).join('\n')}

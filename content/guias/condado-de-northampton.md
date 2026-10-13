@@ -47,6 +47,8 @@ Desde Bethlehem, la ciudad de Nueva York está a unas 1.5 a 2 horas en carro y F
 - Construcciones más nuevas, casas adosadas (townhomes) y comunidades planificadas, a menudo con HOA
 - Tierras de cultivo, terrenos grandes y casas más grandes en el norte del condado
 
+Para los pasos, los precios por zona y qué compra cada presupuesto, vea [Comprar casa en Lehigh Valley](comprar-casa-en-lehigh-valley.html). ¿Va a invertir? Vea [Invertir en bienes raíces en Lehigh Valley](invertir-en-bienes-raices-en-lehigh-valley.html).
+
 ## Impuestos a la propiedad, escuelas y universidades
 
 Como en toda Pensilvania, los impuestos a la propiedad van al condado, al municipio y al distrito escolar, y cada uno fija su propia tasa. El condado de Northampton tiene varios distritos escolares, entre ellos Bethlehem Area, Easton Area, Nazareth Area, Northampton Area, Bangor Area, Pen Argyl Area, Saucon Valley y Wilson Area, así que la dirección exacta importa. Ryth le consigue la cuenta real de impuestos antes de que usted haga una oferta.

@@ -11,7 +11,7 @@ updated: 2026-10-13
 featured: no
 order: 2
 reviews: Steven B., Cesar A.
-related: bethlehem, sell-your-house-lehigh-valley, monroe-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
+related: bethlehem, buying-a-home-in-the-lehigh-valley, sell-your-house-lehigh-valley, monroe-county, closing-costs-pennsylvania, first-time-home-buyer-pennsylvania
 map: northampton
 mapStyle: colors
 aliases: easton, nazareth, bath
@@ -51,6 +51,8 @@ From Bethlehem, New York City is about 1.5 to 2 hours by car and Philadelphia ab
 - Single-family homes in established suburban townships
 - Newer construction, townhomes and planned communities, often with an HOA
 - Farmland, acreage and larger homes in the northern part of the county
+
+For the steps, prices by area and what each budget buys, see [Buying a home in the Lehigh Valley](buying-a-home-in-the-lehigh-valley.html). Investing? See [Investing in Lehigh Valley real estate](investing-in-lehigh-valley-real-estate.html).
 
 ## Property taxes, schools and colleges
 

@@ -8,7 +8,7 @@ answer: Monroe County is in the middle of the Pocono Mountains, in northeastern 
 category: Counties
 published: 2026-10-08
 updated: 2026-10-13
-featured: yes
+featured: no
 order: 1
 reviews: Steven B., Flor B.
 related: buying-a-home-in-the-poconos, stroudsburg-east-stroudsburg, tannersville, pocono-pines, buying-an-airbnb-in-the-poconos
