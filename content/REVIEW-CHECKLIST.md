@@ -38,8 +38,8 @@ Updated October 12, 2026. Items are ordered from most to least important.
       The footer keeps it.
 - [ ] "149 transactions" and "$49M" are now labeled as HS Group team
       totals on both homepages. Confirm the wording with the broker.
-- [x] 9781 Auburn Dr: now $215,100, with "Price reduced $14,900 · was
-      $230,000" on the card. The listings editor has a new optional field,
+- [x] 9781 Auburn Dr: now $215,000 (was $229,900, per Ryth), with "Price
+      reduced $14,900 · was $229,900" on the card. The listings editor has a new optional field,
       "Price before reduction", for the next price cut; clear it to remove
       the line.
 - [ ] Monroe County program guide: the only county brochure found is from
