@@ -45,10 +45,11 @@ export const CONFIG = {
   /**
    * The public address of the site. Every absolute URL — link previews
    * (og:image), canonical links, the sitemap and the schema data — is built
-   * from this. Switch it to 'https://rythvara.com/' the day that domain is
-   * registered and connected, then run `node tools/prerender.mjs`.
+   * from this. rythvara.com was connected on October 13, 2026 (the CNAME
+   * file at the root); the old github.io address now forwards here. After
+   * changing it, run `node tools/prerender.mjs`.
    */
-  siteUrl: 'https://rythrealtor-pa.github.io/start/',
+  siteUrl: 'https://rythvara.com/',
 
   /**
    * Office address. Shown beside the contact details and in the footer, and

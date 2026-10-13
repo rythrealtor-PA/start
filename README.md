@@ -29,32 +29,31 @@ Everything personal lives in **`assets/js/config.js`**.
 | Privacy Policy / Terms of Use | drafted — `privacy.html`, `terms.html`; have your broker review |
 | FAQ | drafted in `index.html` — check the buyer-agreement answer with your broker |
 | Visitor analytics | off until a Cloudflare Web Analytics token is set in `config.js` |
-| Custom domain | **not connected — see below** |
+| Custom domain | **rythvara.com, connected October 13, 2026** — HTTPS and Search Console still to do, see below |
 
-Live at **https://rythrealtor-pa.github.io/start/** (GitHub Pages from `main`).
+Live at **https://rythvara.com/** (GitHub Pages from `main`). The old address,
+https://rythrealtor-pa.github.io/start/, forwards there.
 
-**Custom domain — not connected yet.** On 2026-09-28 the .com registry had no
-record of `rythvara.com` (DNS answered NXDOMAIN and the Verisign RDAP lookup
-returned 404) — the registration had not gone through, whether unpaid, still
-processing, or bought under a different spelling. The `CNAME` file was
-removed because with it in place GitHub redirected every visitor to a domain
-that does not exist, taking the whole site offline. Once the domain shows as
-active in Namecheap:
+**Custom domain — how it is set up.** Registered at Namecheap. Its Advanced
+DNS has four **A** records on host `@` (`185.199.108.153`, `185.199.109.153`,
+`185.199.110.153`, `185.199.111.153`) and a **CNAME** on host `www` pointing to
+`rythrealtor-pa.github.io.`; checked working on October 13, 2026. The `CNAME`
+file at the repo root (one line, `rythvara.com`) tells GitHub Pages the domain,
+and `siteUrl` in `assets/js/config.js` is `'https://rythvara.com/'`, which every
+absolute address follows (canonical links, hreflang, sitemap, robots.txt, the
+schema data and the social-share tags).
 
-1. Namecheap → Domain List → rythvara.com → Advanced DNS. Add four **A**
-   records on host `@`: `185.199.108.153`, `185.199.109.153`,
-   `185.199.110.153`, `185.199.111.153`; and a **CNAME** on host `www` pointing
-   to `rythrealtor-pa.github.io.` Delete Namecheap's default parking records.
-2. Put a file named `CNAME` containing the single line `rythvara.com` back at
-   the repo root (or type the domain into Settings → Pages → Custom domain,
-   which writes the same file).
-3. When the DNS check turns green, tick **Enforce HTTPS** in Settings → Pages.
-4. In `assets/js/config.js`, change `siteUrl` to `'https://rythvara.com/'` and
-   run `node tools/prerender.mjs`. Every absolute address (canonical links,
-   hreflang, sitemap, robots.txt, the schema data and the social-share tags)
-   follows `siteUrl`, which until then is the github.io address.
-5. Add `https://rythvara.com/` as a new property in Google Search Console and
+Do not delete the `CNAME` file or change those DNS records: either one takes
+the site offline at rythvara.com.
+
+Still to do:
+
+1. When GitHub has issued the certificate (up to a day), tick **Enforce
+   HTTPS** in Settings → Pages.
+2. Add `https://rythvara.com/` as a new property in Google Search Console and
    Bing Webmaster Tools, and submit `https://rythvara.com/sitemap.xml`.
+3. Put `https://rythvara.com` in the website field of the Google Business
+   Profile, Zillow, Realtor.com and the social profiles.
 
 Any field left empty is left off the page rather than rendered blank, so
 partial answers are safe to ship.
