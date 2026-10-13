@@ -26,19 +26,22 @@ Updated October 12, 2026. Items are ordered from most to least important.
       Schierloh Group", the office as "1656 Route 209, Brodheasville, PA
       18058". The site, Google and the MLS say Real of Pennsylvania, 1636 US
       209, Suite 106, Brodheadsville, PA 18322. Update Zillow so all match.
-- [ ] Zillow rating on the homepage: "5.0 on Zillow, 2 reviews" (config.js,
-      zillow). Change it there when new reviews come in. Those two reviews
-      are Steven B.'s and Ike A.'s, already quoted on the site.
-- [ ] Google Business Profile: send its full address (google.com/maps/…)
-      for the site's profile list; the share.google short link is not a
-      stable address.
-- [ ] Broker phone: the site's footer shows the office line 570.801.7441;
-      MLS listings show Real of Pennsylvania-Brodheadsville as
-      855-450-0442. Ask the broker which number advertising should carry.
+- [x] Zillow rating: removed from the homepage, as Ryth asked, so the page
+      does not send visitors to Zillow. The Zillow profile stays in the
+      site's hidden profile list (config.js, profiles).
+- [ ] Zillow profile: add the website address in its settings.
+- [x] Google Business Profile: Ryth sent https://share.google/kdEYDmRYLdOX4UNrp,
+      now in the site's profile list. If you can, copy the longer address
+      from the browser bar after opening it (google.com/maps/…) and swap
+      it in; short links can change.
+- [x] Broker phone: Ryth confirmed 570.801.7441 is the broker's number.
+      The footer keeps it.
 - [ ] "149 transactions" and "$49M" are now labeled as HS Group team
       totals on both homepages. Confirm the wording with the broker.
-- [ ] 9781 Auburn Dr: another site shows a $14,900 price reduction; the
-      homepage still says $230,000. Update it in the listings editor if so.
+- [x] 9781 Auburn Dr: now $215,100, with "Price reduced $14,900 · was
+      $230,000" on the card. The listings editor has a new optional field,
+      "Price before reduction", for the next price cut; clear it to remove
+      the line.
 - [ ] Monroe County program guide: the only county brochure found is from
       2023, with older amounts, so the guide links the Redevelopment
       Authority's current program page instead.

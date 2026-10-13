@@ -152,7 +152,9 @@ Editing by hand still works — `listings.json`:
 ```
 
 `sqft` and `status` are optional. `status` is one of *For sale*, *Pending*,
-*Sold*, *For rent*.
+*Sold*, *For rent*. After a price cut, add `"was": "$230,000"` (the old
+price): the card then shows "Price reduced $14,900 · was $230,000" under the
+new price. The editor's "Price before reduction" field sets it.
 
 And `testimonials.json`:
 

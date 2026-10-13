@@ -31,8 +31,8 @@ const WORDS = {
     email: 'Email', phone: 'Phone', office: 'Office', hours: 'Hours', languages: 'Languages',
     callOrText: 'Call or text', directions: 'Get directions',
     languageList: (langs) => langs.join(' and '),
-    onZillow: (rating, n) => `${rating} on Zillow <span aria-hidden="true">·</span> ${n} review${n === 1 ? '' : 's'}`,
     beds: 'Beds', baths: 'Baths', sqft: 'Sq ft',
+    reduced: (by, was) => `Price reduced ${by} <span aria-hidden="true">·</span> was ${was}`,
     serving: (counties) => `Serving ${counties.join(' & ')}`,
     role: (config) => config.role,
     state: 'Pennsylvania',
@@ -43,7 +43,6 @@ const WORDS = {
   es: {
     email: 'Correo electrónico', phone: 'Teléfono', office: 'Oficina', hours: 'Horario', languages: 'Idiomas',
     callOrText: 'Llamar o escribir', directions: 'Cómo llegar',
-    onZillow: (rating, n) => `${rating} en Zillow <span aria-hidden="true">·</span> ${n} reseña${n === 1 ? '' : 's'}`,
     // ['English', 'Español'] -> "Español e inglés": Spanish first, and "e"
     // instead of "y" before a word that starts with an i sound.
     languageList: (langs) => {
@@ -53,6 +52,7 @@ const WORDS = {
       return joined[0].toUpperCase() + joined.slice(1);
     },
     beds: 'Habitaciones', baths: 'Baños', sqft: 'Pies²',
+    reduced: (by, was) => `Precio rebajado ${by} <span aria-hidden="true">·</span> antes ${was}`,
     serving: (counties) => `Atiende los condados de ${counties.map((c) => c.replace(/ County$/, '')).join(' y ')}`,
     role: () => 'Agente de bienes raíces',
     state: 'Pensilvania',
@@ -72,6 +72,26 @@ const STATUS_ES = { 'For sale': 'En venta', Pending: 'Pendiente', Sold: 'Vendida
 const priceEs = (price) => price
   .replace(/\s*(?:per month|monthly|\/\s*mo(?:nth)?\b)/i, ' al mes')
   .replace(/\bAcres\b/, 'acres').replace(/\bAcre\b/, 'acre');
+
+/** "$230,000" -> 230000; null when the text is not a plain dollar amount. */
+const dollars = (text) => {
+  const m = /^\s*\$\s*([\d,]+)\s*$/.exec(text ?? '');
+  return m ? Number(m[1].replace(/,/g, '')) : null;
+};
+
+/**
+ * "Price reduced $14,900 · was $230,000", when the listing has a `was` price
+ * above its current one. Anything else (no `was`, or text that is not a plain
+ * dollar amount) shows no line rather than a wrong one.
+ */
+function reducedLine(listing, w) {
+  const now = dollars(listing.price);
+  const was = dollars(listing.was);
+  if (now === null || was === null || was <= now) return '';
+  const usd = (n) => `$${n.toLocaleString('en-US')}`;
+  return `
+            <p class="listing__reduced">${w.reduced(usd(was - now), usd(was))}</p>`;
+}
 
 /** A path in the data ("assets/img/…") made relative to the page it is on. */
 const fromRoot = (path, root = '') => (/^([a-z][a-z0-9+.-]*:|\/)/i.test(path) ? path : root + path);
@@ -180,19 +200,6 @@ export function legalLine(config, lang = 'en') {
   ].filter(Boolean).join(' · ');
 }
 
-/**
- * "★ 5.0 on Zillow · 2 reviews", linked to Ryth's Zillow profile, for the
- * line under Testimonials. Only ever shown on the page: it never goes into
- * the schema data (schemaJSON), because Google does not accept star ratings
- * copied from another site there.
- */
-export function ratingHTML(config, lang = 'en') {
-  const z = config.zillow;
-  if (!z?.url || !z.rating || !z.reviews) return '';
-  return `
-        <a class="rating__link" href="${esc(z.url)}" rel="noopener" target="_blank"><span class="rating__star" aria-hidden="true">★</span> ${words(lang).onZillow(esc(z.rating), Number(z.reviews))}</a>`;
-}
-
 /* ──────────────────────────── listings, reviews ──────────────────────── */
 
 /**
@@ -221,7 +228,7 @@ export function cardHTML(listing, { lang = 'en', root = '' } = {}) {
           <div class="listing__body">
             <h3 class="listing__address">${esc(listing.address)}</h3>
             ${listing.city ? `<p class="listing__city">${esc(listing.city)}</p>` : ''}
-            ${price ? `<p class="listing__price">${esc(price)}</p>` : ''}
+            ${price ? `<p class="listing__price">${esc(price)}</p>` : ''}${reducedLine(listing, w)}
             ${specs.length ? `<dl class="specs">${specs.map((s) => `
               <div class="specs__item">
                 <dt class="specs__label">${s.label}</dt>
@@ -411,6 +418,5 @@ export function renderAllBlocks(html, { config, listings, testimonials }, { lang
   out = replaceBlock(out, 'legal', esc(legalLine(config, lang)));
   out = replaceBlock(out, 'listings', listings.map((l) => cardHTML(l, { lang, root })).join(''));
   out = replaceBlock(out, 'testimonials', testimonials.map((t) => testimonialHTML(t, { lang })).join(''));
-  out = replaceBlock(out, 'rating', ratingHTML(config, lang));
   return out;
 }

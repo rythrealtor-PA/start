@@ -355,6 +355,7 @@ function startEdit(index) {
     f.address.value = item.address ?? '';
     f.city.value = item.city ?? '';
     f.price.value = item.price ?? '';
+    f.was.value = item.was ?? '';
     f.beds.value = item.beds ?? '';
     f.baths.value = item.baths ?? '';
     f.sqft.value = item.sqft ?? '';
@@ -412,6 +413,7 @@ function buildListing(f, editing, index) {
     beds: Number(f.beds.value),
     baths: Number(f.baths.value),
   };
+  if (f.was.value.trim()) listing.was = f.was.value.trim();
   if (f.sqft.value) listing.sqft = Number(f.sqft.value);
   if (f.status.value) listing.status = f.status.value;
 

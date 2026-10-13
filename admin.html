@@ -133,6 +133,13 @@
         </div>
 
         <div class="field" data-for="listings">
+          <label class="field__label" for="was">Price before reduction</label>
+          <input class="field__input" id="was" name="was" type="text"
+                 placeholder="$230,000">
+          <p class="field__hint">Optional. After a price cut, put the old price here and the new one above: the card then says "Price reduced $14,900 · was $230,000". Leave blank otherwise.</p>
+        </div>
+
+        <div class="field" data-for="listings">
           <label class="field__label" for="beds">Beds</label>
           <input class="field__input" id="beds" name="beds" type="number"
                  min="0" max="50" step="1" placeholder="4" required>
