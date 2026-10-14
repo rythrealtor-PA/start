@@ -280,12 +280,18 @@ const listaEs = (xs) => (xs.length < 3 ? xs.join(' y ') : `${xs.slice(0, -1).joi
 
 /**
  * The structured data search engines read: who Ryth is (a RealEstateAgent),
- * licence, brokerage, team, office address, languages, the areas served,
- * social profiles, and every testimonial as a Review — all built from the same
- * config and data as the visible page, so the two can never disagree.
+ * licence, brokerage, team, office address, languages, the areas served and
+ * social profiles — all built from the same config as the visible page, so
+ * the two can never disagree.
  *
- * No star rating is given: the testimonials do not carry one, and inventing
- * one would be both false and against Google's review guidelines.
+ * The testimonials are deliberately not in it. Google only accepts review
+ * markup with star ratings (and an aggregateRating when there are several),
+ * the testimonials carry none, and inventing one would be false. Google also
+ * never shows review stars for a business's reviews of itself on its own
+ * site. Search Console flagged the earlier Review markup on October 14, 2026,
+ * so the testimonials stay as visible text on the page only, where search
+ * engines and AI still read them. `testimonials` is kept as a parameter so
+ * callers do not change.
  */
 export function schemaJSON(config, testimonials, lang = 'en') {
   const site = config.siteUrl;
@@ -356,16 +362,6 @@ export function schemaJSON(config, testimonials, lang = 'en') {
     }),
     ...(config.team && { memberOf: { '@type': 'Organization', name: config.team } }),
     ...(social.length && { sameAs: social }),
-    ...(testimonials.length && {
-      // Always the client's own words, never the translation.
-      review: testimonials.map((t) => ({
-        '@type': 'Review',
-        author: { '@type': 'Person', name: t.name },
-        reviewBody: t.quote,
-        inLanguage: t.lang === 'es' ? 'es' : 'en',
-        itemReviewed: { '@id': `${site}#agent` },
-      })),
-    }),
   };
   return data;
 }
