@@ -1,4 +1,23 @@
+# Every crawler may read the whole site, including search engines and the
+# AI assistants and AI search engines named below, so they can find, read
+# and cite Ryth's pages.
 User-agent: *
+Allow: /
+
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://rythvara.com/sitemap.xml

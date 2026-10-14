@@ -17,7 +17,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { CONFIG } from '../assets/js/config.js';
 import { renderAllBlocks, renderFooterBlocks, replaceBlock } from '../assets/js/render.js';
-import { buildGuides, homepageGuidesHTML, sitemapXML } from './build-guides.mjs';
+import { buildGuides, homepageGuidesHTML, llmsTxt, sitemapXML } from './build-guides.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const read = (p) => readFile(root + p, 'utf8');
@@ -27,6 +27,7 @@ const guides = await buildGuides(root);
 console.log(`guides/: ${guides.en.length} guides + index built`);
 console.log(`es/guias/: ${guides.es.length} guides + index built`);
 await writeFile(root + 'sitemap.xml', sitemapXML(guides));
+await writeFile(root + 'llms.txt', llmsTxt(guides));
 
 // The two homepages: English at the root, Spanish in es/.
 const data = {

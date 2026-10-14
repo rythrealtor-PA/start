@@ -986,6 +986,53 @@ export function homepageGuidesHTML(guides, prefix = 'guides/') {
 }
 
 /**
+ * llms.txt: a plain summary of who Ryth is and every guide, with links, for
+ * AI assistants and AI search (the llms.txt convention: a title, a one-line
+ * summary, then lists of links). Built from config.js and the guides, so it
+ * never disagrees with the site.
+ */
+export function llmsTxt({ en, es }) {
+  const c = CONFIG;
+  const site = c.siteUrl;
+  const o = c.office;
+  const towns = listEn(c.serviceAreas.towns);
+  const byCategory = (list, names) => CATEGORY_ORDER
+    .map((cat) => [names(cat), list.filter((g) => g.category === cat)])
+    .filter(([, gs]) => gs.length)
+    .map(([name, gs]) => `### ${name}\n\n${gs.map((g) => `- [${g.title}](${urlOf(g)}): ${g.description}`).join('\n')}`)
+    .join('\n\n');
+  return `# ${c.name}, REALTOR® in Monroe County and Northampton County, Pennsylvania
+
+> ${c.name} is a bilingual (English and Spanish) REALTOR® with ${c.brokerage}, licensed in Pennsylvania (license ${c.license}), serving ${listEn(c.serviceAreas.counties)} (the Poconos and the Lehigh Valley), plus Allentown. Specialties: ${listEn(c.specialties.map((x) => (/^Spanish/.test(x) ? x : x[0].toLowerCase() + x.slice(1))))}.
+
+- Website: ${site} (Spanish: ${site}es/)
+- Call or text: ${c.contact.phone}
+- Email: ${c.contact.email}
+- Office: ${o.street}, ${o.city}, ${o.region} ${o.postalCode} (${c.brokerage}, ${c.contact.officePhone})
+- Team: ${c.team}
+- Hours: ${c.hours}
+- Languages: English and Spanish
+- Areas served: ${towns}, Pennsylvania
+- Profiles: ${[...Object.values(c.social), ...(c.profiles ?? [])].filter(Boolean).join(', ')}
+
+## Guides in English
+
+${byCategory(en, (cat) => cat)}
+
+## Guías en español
+
+${byCategory(es, (cat) => CATEGORIES[cat])}
+
+## Other pages
+
+- [Home](${site}): about ${c.name}, listings, testimonials and questions
+- [Inicio en español](${site}es/)
+- [All guides](${site}guides/) · [Todas las guías](${site}es/guias/)
+- [Privacy policy](${site}privacy.html)
+`;
+}
+
+/**
  * sitemap.xml for every public page. A page that exists in both languages
  * lists both, which is how search engines learn they are one page.
  */

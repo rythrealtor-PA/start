@@ -347,11 +347,12 @@ policy and terms are in English only, and the Spanish pages say so.
 
 | File | What it is for |
 |---|---|
-| `robots.txt` | lets search engines crawl everything and points them to the sitemap |
-| `sitemap.xml` | the three public pages; bump `<lastmod>` when a page changes materially |
+| `robots.txt` | lets every crawler read everything, names the AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended and others) explicitly, and points to the sitemap |
+| `llms.txt` | a plain summary of Ryth and every guide, with links, for AI assistants; rebuilt by `node tools/prerender.mjs` |
+| `sitemap.xml` | every public page in both languages; rebuilt by `node tools/prerender.mjs` |
 | `404.html` | GitHub Pages serves it for any missing address, on either host |
 | `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` | browser tab, bookmarks, iPhone home screen |
-| JSON-LD in `index.html` | tells Google this is a real estate agent: phone, area, languages. Keep in step with `config.js` |
+| JSON-LD in `index.html` | tells Google this is a real estate agent: phone, area, languages. Built from `config.js`. Testimonials are not in it (Google rejects review markup without star ratings) |
 
 **No cookie banner, on purpose.** The site sets no cookies and stores nothing in
 the visitor's browser; fonts are self-hosted, social links are plain links, and
