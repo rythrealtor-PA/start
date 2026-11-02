@@ -36,7 +36,7 @@ The serif PNGs were rebuilt from the original file so they read "ASHWOOD REAL ES
 Canva upload of the white logo: media ID `MAHZy6x0TNE`.
 
 Symbols: howling wolf (silver), mountain-peak roofline with window, tree.
-Request transparent PNG/SVG versions for design work; the current files are JPGs on white.
+For print or large formats, ask the logo designer for the original vector (SVG/AI) files.
 
 ## Colors
 
