@@ -7,7 +7,7 @@ Last updated: 2026-11-02.
 
 | Item | Value |
 |---|---|
-| Brokerage | Ashwood Real Estate (logo 2 reads "Ashwood Real Estate **Firm**" — confirm which is the registered name and use only that one) |
+| Brokerage (registered name) | **Ashwood Real Estate** — never "Ashwood Real Estate Firm" |
 | Team | Heather Schierloh Collective (team under Ashwood) |
 | Brokers | Heather Schierloh · Emily [last name pending] |
 | Office phone | (570) 534-4404 |
@@ -22,10 +22,18 @@ Last updated: 2026-11-02.
 
 ## Logos
 
+**Primary style: the serif logo.**
+
 | File | Use |
 |---|---|
-| `logos/ashwood-real-estate-sans.jpg` | Brokerage-only logo (geometric sans) |
-| `logos/ashwood-firm-heather-schierloh-collective-serif.jpg` | Brokerage + team logo (serif) |
+| `logos/ashwood-real-estate-serif-white.png` | **Main logo for dark/navy posts** (white, transparent background) |
+| `logos/ashwood-real-estate-serif-transparent.png` | Main logo for light posts (navy + steel, transparent background) |
+| `logos/ashwood-real-estate-serif.png` | Same logo on white |
+| `logos/ashwood-firm-heather-schierloh-collective-serif.jpg` | Original serif file (says "Firm" — do not use as is) |
+| `logos/ashwood-real-estate-sans.jpg` | Original sans file (secondary) |
+
+The serif PNGs were rebuilt from the original file so they read "ASHWOOD REAL ESTATE" (the word "Firm" and the team name removed).
+Canva upload of the white logo: media ID `MAHZy6x0TNE`.
 
 Symbols: howling wolf (silver), mountain-peak roofline with window, tree.
 Request transparent PNG/SVG versions for design work; the current files are JPGs on white.
@@ -54,7 +62,7 @@ Default pairing for posts: Ashwood Navy background, white headline, Silver Mist 
 - Body text: **Montserrat** or **Poppins** Regular
 - Small caps labels: wide letter spacing, Steel Gray
 
-The two logos use different typefaces. Pick one as primary for consistency.
+Primary typeface: the serif style (matches the serif logo).
 
 ## Required on every post (PA advertising + brand rules)
 
@@ -72,3 +80,9 @@ The two logos use different typefaces. Pick one as primary for consistency.
 
 Warm, confident, local, plain-spoken. Experts who explain how things work.
 Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcome ("Hablamos español").
+
+## Designs made
+
+| Date | Post | Canva |
+|---|---|---|
+| 2026-11-02 | Launch post #1 "Would you trust a brokerage that's 10 days old? / New brokerage. Not new to real estate." | https://www.canva.com/d/At3MuiI4Qws2xfF |
