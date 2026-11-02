@@ -85,4 +85,11 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 
 | Date | Post | Canva |
 |---|---|---|
-| 2026-11-02 | Launch post #1 "Would you trust a brokerage that's 10 days old? / New brokerage. Not new to real estate." | https://www.canva.com/d/At3MuiI4Qws2xfF |
+| 2026-11-02 | Launch post #1 "New brokerage. Not new to real estate." with logo and broker photo (top question removed) | https://www.canva.com/d/At3MuiI4Qws2xfF |
+
+## Photos
+
+| File | Use |
+|---|---|
+| `photos/brokers-heather-emily.jpg` | Original photo of both brokers (white studio background) |
+| `photos/brokers-heather-emily-cutout.png` | Head-to-thigh cutout, transparent background, for navy designs (Canva media ID `MAHZzIE07Rc`) |
