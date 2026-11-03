@@ -9,7 +9,7 @@ Last updated: 2026-11-02.
 |---|---|
 | Brokerage (registered name) | **Ashwood Real Estate** — never "Ashwood Real Estate Firm" |
 | Team | Heather Schierloh Collective (team under Ashwood) |
-| Brokers | Heather Schierloh · Emily [last name pending] |
+| Brokers | Heather Schierloh · Emily Del |
 | Office phone | (570) 534-4404 |
 | Office address | 1636 US 209, Ste 106, Brodheadsville, PA |
 | Tagline | New brokerage. Not new to real estate. |
@@ -18,7 +18,7 @@ Last updated: 2026-11-02.
 ### Broker bios (short)
 
 - **Heather Schierloh** — Poconos Community's Choice Award winner, Real Estate Agent, 2026 (2024 to be confirmed as the same award). Lifelong Poconos local.
-- **Emily [last name]** — Four years running a successful real estate team; background in insurance, construction, business development and community outreach.
+- **Emily Del** — Four years running a successful real estate team; background in insurance, construction, business development and community outreach.
 
 ## Logos
 
@@ -86,6 +86,10 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | Date | Post | Canva |
 |---|---|---|
 | 2026-11-02 | Launch post #1 "New brokerage. Not new to real estate." with logo and broker photo (top question removed) | https://www.canva.com/d/At3MuiI4Qws2xfF |
+| 2026-11-03 | Meet the Brokers carousel — slide 1 cover (both brokers, names) | https://www.canva.com/d/P9p9t-CSNYJUuts |
+| 2026-11-03 | Meet the Brokers carousel — slide 2 Heather | https://www.canva.com/d/_Td-TVx29lnPais |
+| 2026-11-03 | Meet the Brokers carousel — slide 3 Emily | https://www.canva.com/d/Bu5JgAoNXzQa0wu |
+| 2026-11-03 | Meet the Brokers carousel — slide 4 contact / visit us | https://www.canva.com/d/pNAtU2M4oHQ0ST9 |
 
 ## Photos
 
@@ -93,3 +97,7 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 |---|---|
 | `photos/brokers-heather-emily.jpg` | Original photo of both brokers (white studio background) |
 | `photos/brokers-heather-emily-cutout.png` | Head-to-thigh cutout, transparent background, for navy designs (Canva media ID `MAHZzIE07Rc`) |
+| `photos/heather-cutout.png` | Heather alone, cut at the right edge — place bleeding off the right side of the page (Canva `MAHZ5VI2mkw`) |
+| `photos/emily-cutout.png` | Emily alone, cut at the left edge — place bleeding off the left side of the page (Canva `MAHZ5caZ2y0`) |
+
+In the group photo, Heather is on the left (navy blazer, white top) and Emily is on the right (all black).
