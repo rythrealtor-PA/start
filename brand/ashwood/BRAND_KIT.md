@@ -1,7 +1,7 @@
 # Ashwood Real Estate — Brand Kit
 
 Reference for every post, reel, and design made for the brokerage.
-Last updated: 2026-11-02.
+Last updated: 2026-11-04.
 
 ## Identity
 
@@ -90,6 +90,8 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | 2026-11-03 | Meet the Brokers carousel — slide 2 Heather | https://www.canva.com/d/_Td-TVx29lnPais |
 | 2026-11-03 | Meet the Brokers carousel — slide 3 Emily | https://www.canva.com/d/Bu5JgAoNXzQa0wu |
 | 2026-11-03 | Meet the Brokers carousel — slide 4 contact / visit us | https://www.canva.com/d/pNAtU2M4oHQ0ST9 |
+| 2026-11-04 | This or That – Poconos Edition carousel (7 slides: cover, Tannersville, Pocono Pines, Stroudsburg, Jim Thorpe, Lake Harmony, CTA). PNGs in `posts/this-or-that/` | https://www.canva.com/d/ucjyAo0qYylNywE |
+| 2026-11-04 | Is your Poconos home winter-ready? carousel (8 slides: cover, 6 tips, save/contact). PNGs in `posts/winter-ready/` | https://www.canva.com/d/DyqSJmu7a8Qsm6X |
 
 ## Photos
 
