@@ -202,3 +202,33 @@
 - Reply to "I found 3!" comments with a **video reply** showing the one they missed.
 - Pin a hint comment on Option 1.
 - When someone guesses "sunset" on Option 3, reply kindly with a video. Those replies become free follow-up content.
+
+---
+
+## OPTION 8 — "Why Is Our Wolf Disappearing?" ⭐⭐ MASTER SCRIPT (Pregunta + Problema)
+**Duración:** 55–60 segundos
+**Estructura:** Cada símbolo del logo responde a un **problema real** de la industria, y cada problema se presenta como una **pregunta**. Son 4 "mini-misterios" seguidos: el espectador siempre tiene una pregunta abierta y se queda hasta el final.
+
+`PREGUNTA (hook) → PROBLEMA → RESPUESTA (símbolo) → x4 → PREGUNTA FINAL (comentarios)`
+
+**🎣 HOOK (0–4s)**
+- **Visual:** El broker sostiene un letrero genérico de "SOLD" con una cara de agente borrosa o de caricatura (**nunca** uses la cara de un agente real). Lo tira fuera del cuadro y aparece el logo.
+- **On-screen text:** `Why is our wolf disappearing? 🐺`
+
+| Tiempo | Visual | Script (para grabar) | Traducción |
+|---|---|---|---|
+| 0–4s | Letrero con cara → logo | "Every real estate agent puts their face on their sign. **So why did we make our wolf disappear?**" | Todo agente pone su cara en su letrero. ¿Entonces por qué hicimos que nuestro lobo desapareciera? |
+| 4–12s | Broker a cámara, serio | "Here's the problem: in real estate, it's always about the agent. Their face. Their awards. Their sales. **But whose home is it?**" | El problema: en bienes raíces todo gira alrededor del agente. Su cara, sus premios, sus ventas. ¿Pero de quién es la casa? |
+| 12–18s | Zoom a la parte desvanecida del lobo | "Yours. So our wolf fades, on purpose. You're the main character. We're just one chapter." | Tuya. Por eso el lobo se desvanece, a propósito. Tú eres el protagonista. Nosotros solo somos un capítulo. |
+| 18–28s | Jump cut, zoom al lobo y el sol | "Problem two: **how many agents are still doing things exactly like they did 20 years ago?** Our wolf faces the sunrise, not the sunset. Our backs are never turned on progress." | Problema dos: ¿cuántos agentes siguen haciendo todo igual que hace 20 años? Nuestro lobo mira al amanecer, no al atardecer. Nunca le damos la espalda al progreso. |
+| 28–38s | Trazar las montañas en la melena → video real de las montañas | "Problem three: **why would you trust someone who found the Poconos on a map?** Look inside the mane. Those are our mountains. This is where we were born." | Problema tres: ¿por qué confiarías en alguien que encontró los Poconos en un mapa? Mira dentro de la melena. Son nuestras montañas. Aquí nacimos. |
+| 38–50s | Animación: una hoja cae y se convierte en llave | "And the biggest problem: **too many agents count sales.** We count keys. Every leaf falling from our ash tree is a key: a family that got home." | Y el problema más grande: demasiados agentes cuentan ventas. Nosotros contamos llaves. Cada hoja que cae de nuestro fresno es una llave: una familia que llegó a casa. |
+| 50–57s | Broker a cámara, se acerca | "So tell me: **what's the one thing your last agent got wrong?** 👇" | Entonces dime: ¿qué es lo que tu último agente hizo mal? 👇 |
+
+**Caption:** `Every detail in our logo fixes a problem in real estate. What did your last agent get wrong? 👇 #poconos #poconosrealestate #logodesign #realestate`
+
+**Alternate hooks (A/B test) — todos con pregunta + problema:**
+1. "Why do real estate agents disappear the second you get your keys? …We built that into our logo."
+2. "What's wrong with this logo? Nothing. And that's the point."
+3. "Have you ever felt like your agent cared more about the sale than about you?"
+4. "Why would a real estate company make its own logo fade away?"
