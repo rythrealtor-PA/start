@@ -1,7 +1,7 @@
 # Ashwood Real Estate — Brand Kit
 
 Reference for every post, reel, and design made for the brokerage.
-Last updated: 2026-11-05.
+Last updated: 2026-11-06.
 
 ## Identity
 
@@ -95,6 +95,8 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | 2026-11-05 | Fact of the Day – The Ashwood Tree (3 slides: cover, "the tree in our logo is an ash tree / every falling leaf = the keys to a home", message + contact). Autumn palette, custom backgrounds in `posts/fact-of-the-day-ashwood-tree/backgrounds/` | https://www.canva.com/d/-Ve5Qrjl7_CIsxj |
 | 2026-11-05 | Build Your Poconos Cabin carousel (4 slides: cover, log cabin vs A-frame, hot tub vs fire pit, lake vs mountain view + "comment your 3 picks"). Night-forest palette, illustrations + backgrounds in `posts/build-your-cabin/art/` | https://www.canva.com/d/3U-Pm6Qp8RxvbE6 |
 | 2026-11-05 | The Poconos: 1950s vs Today carousel (4 slides: cover, the getaway, getting here, "some things never change" CTA). Vintage postcard palette, backgrounds in `posts/1950s-vs-today/art/`. Photos are AI illustrations, labeled on each slide | https://www.canva.com/d/ILw7LtW5G3Cb0Bj |
+| 2026-11-06 | A Weekend in the Poconos carousel (7 slides: cover, Fri 7 PM, Sat 10 AM, Sat 2 PM, Sat 8 PM, Sun 11 AM, "What if this was every weekend?" + comment WEEKEND). No AI photos: each slide has a drag-and-drop photo box with an idea. Photo ideas + captions in `posts/weekend-in-the-poconos/PHOTO_IDEAS.md` | https://www.canva.com/d/YM9isorjmu4UvCX |
+| 2026-11-06 | Poconos Tier List carousel (7 slides: cover, full board, S / A / B / C tiers with 3 towns each, "Where would YOU rank your town?" CTA). No photos. Caption in `posts/poconos-tier-list/CAPTION.md` | https://www.canva.com/d/Kn1u5Llg_lqxPv5 |
 
 ### Seasonal palette: autumn (Fact of the Day posts)
 
@@ -107,6 +109,14 @@ Forest green `#0E2A20` (cards, 55% opacity) and `#0A1D17` (footer band), gold `#
 ### Palette: vintage postcard (1950s vs Today)
 
 Paper `#EFDDBA`, navy `#1F2A44` (headlines, footer band), coral `#D9583B` (kickers, "TODAY"), teal `#2C7A7B`, mustard `#E8B04A`. Uses the navy logo. Art from `posts/1950s-vs-today/art/retro.py`.
+
+### Palette: time of day (A Weekend in the Poconos)
+
+One sky gradient per slide, so the carousel moves from Friday dusk to Sunday gold: dusk purple, morning blue, afternoon teal, night navy (with stars), Sunday amber. Mountain ridge and pines along the bottom, sun or moon top right, white-outline photo frame, 5-dot timeline. Footer band takes each slide's darkest color. Art from `posts/weekend-in-the-poconos/art/weekend.py`; photo-box images are `art/ph-*.png`.
+
+### Palette: topo tier list (Poconos Tier List)
+
+Charcoal `#14161B` base with faint topographic contour lines (`#3A4250`), cards `#262B34` at 92%, footer band `#0E1013`, body text `#C9CFD9`. Tier colors: S `#FF7F7F`, A `#FFBF7F`, B `#FFDF7F`, C `#BFFF7F` (also the 4-color stripe on top). Art from `posts/poconos-tier-list/art/tier.py`. Rank towns by weekend amenities only, never schools, safety or residents.
 
 Facts used (checked): the Delaware Water Gap Toll Bridge opened Dec 1953 and now carries I-80; after WWII the Poconos became a top honeymoon destination. AI images must stay labeled "AI-generated illustrations" and must not show real business names (the 1950s resort image is cropped to hide an AI-made "Pocono Manor" sign).
 
