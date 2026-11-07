@@ -1,0 +1,10 @@
+import json
+v = json.load(open('logo-vec.json'))
+html = open('reel_template.html').read()
+html = (html.replace('{{FONTS}}', open('fonts/local.css').read())
+            .replace('{{HOUSE}}', v['house']).replace('{{WORD}}', v['word']).replace('{{WOLF}}', v['wolf'])
+            .replace('{{WINDOW}}', v['window'])
+            .replace('{{ZIG}}', ' '.join(f'{x},{y}' for x,y in v['zig']))
+            .replace('{{STARS}}', open('stars.svgfrag').read()))
+open('reel.html','w').write(html)
+print(len(html))

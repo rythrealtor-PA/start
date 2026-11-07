@@ -1,7 +1,7 @@
 # Ashwood Real Estate — Brand Kit
 
 Reference for every post, reel, and design made for the brokerage.
-Last updated: 2026-11-06.
+Last updated: 2026-11-07.
 
 ## Identity
 
@@ -97,6 +97,8 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | 2026-11-05 | The Poconos: 1950s vs Today carousel (4 slides: cover, the getaway, getting here, "some things never change" CTA). Vintage postcard palette, backgrounds in `posts/1950s-vs-today/art/`. Photos are AI illustrations, labeled on each slide | https://www.canva.com/d/ILw7LtW5G3Cb0Bj |
 | 2026-11-06 | A Weekend in the Poconos carousel (7 slides: cover, Fri 7 PM, Sat 10 AM, Sat 2 PM, Sat 8 PM, Sun 11 AM, "What if this was every weekend?" + comment WEEKEND). No AI photos: each slide has a drag-and-drop photo box with an idea. Photo ideas + captions in `posts/weekend-in-the-poconos/PHOTO_IDEAS.md` | https://www.canva.com/d/YM9isorjmu4UvCX |
 | 2026-11-06 | Poconos Tier List carousel (7 slides: cover, full board, S / A / B / C tiers with 3 towns each, "Where would YOU rank your town?" CTA). No photos. Caption in `posts/poconos-tier-list/CAPTION.md` | https://www.canva.com/d/Kn1u5Llg_lqxPv5 |
+| 2026-11-07 | Meet the Wolf in Our Logo carousel (5 slides: cover "3 details most people miss", 01 faces the sunrise, 02 the fade, 03 Poconos mountains in the mane, CTA "comment 🐺"). Logo-study style, art in `posts/meet-the-wolf-carousel/art/` | https://www.canva.com/d/jUAWXSMQzp80e0V |
+| 2026-11-07 | Meet the Wolf reel (9:16, 23 s, silent; add trending audio in-app). Same story, animated from the vector logo: night → sunrise. File + source in `posts/meet-the-wolf-reel/`, captions EN/ES in `CAPTION.md` | MP4 in repo (Canva's upload tool doesn't take video) |
 
 ### Seasonal palette: autumn (Fact of the Day posts)
 
@@ -118,11 +120,26 @@ One sky gradient per slide, so the carousel moves from Friday dusk to Sunday gol
 
 Charcoal `#14161B` base with faint topographic contour lines (`#3A4250`), cards `#262B34` at 92%, footer band `#0E1013`, body text `#C9CFD9`. Tier colors: S `#FF7F7F`, A `#FFBF7F`, B `#FFDF7F`, C `#BFFF7F` (also the 4-color stripe on top). Art from `posts/poconos-tier-list/art/tier.py`. Rank towns by weekend amenities only, never schools, safety or residents.
 
+### Palette: logo study (Meet the Wolf carousel)
+
+Warm paper `#F4F1EA` with a drafting grid (`#E9E4D9` every 30 px, `#DCD5C6` every 150 px), navy `#08233B` headlines and footer band, steel `#798597` wolf, gold `#E7A845` callouts and sun, dark gold `#B9802A` kickers, body text `#3B4A5C`. Labels in JetBrains Mono. Art from `posts/meet-the-wolf-carousel/art/wolfcar.py`.
+
+### Palette: night to sunrise (Meet the Wolf reel)
+
+Night navy `#040B18` → `#0D2A4A`, dawn gradient `#0A1834` → `#6E4A72` → `#E08A62`, sun `#FFD58A`/`#FFAE5E`, white logo with silver wolf, gold window `#FFC56B`. Headlines Cormorant Garamond Bold, labels Montserrat. Source in `posts/meet-the-wolf-reel/source/`.
+
+### Vector logo
+
+`posts/meet-the-wolf-reel/source/logo-vec.json` holds a vector trace of the serif logo (1261x649 space) split into `wolf`, `house` (tree + roof + window), `window`, `word` (ASHWOOD + REAL ESTATE) and `zig` (the mountain line in the wolf's mane). Use it for any zoom or animation of the logo; for print, still ask the designer for the original vector files.
+
 Facts used (checked): the Delaware Water Gap Toll Bridge opened Dec 1953 and now carries I-80; after WWII the Poconos became a top honeymoon destination. AI images must stay labeled "AI-generated illustrations" and must not show real business names (the 1950s resort image is cropped to hide an AI-made "Pocono Manor" sign).
 
 ## Brand story
 
 - The tree in the Ashwood logo is an ash tree. Every leaf that falls from it represents the keys to a home.
+- The wolf faces the sunrise, not the sunset: our backs are never turned on progress.
+- The wolf fades because the client's life story is the focus; we are only a small part of it.
+- The mane of the wolf is a mountain range: the Poconos, where Ashwood was founded.
 
 ## Photos
 

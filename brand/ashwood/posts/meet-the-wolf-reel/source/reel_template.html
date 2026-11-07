@@ -1,0 +1,209 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+{{FONTS}}
+html,body{margin:0;padding:0;width:1080px;height:1920px;overflow:hidden;background:#050E1C}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+svg#scene{position:absolute;left:0;top:0}
+.t{position:absolute;left:60px;width:960px;text-align:center;color:#fff;opacity:0;will-change:transform,opacity}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.02;letter-spacing:-0.5px;text-shadow:0 4px 30px rgba(3,10,24,.65)}
+.kick{font-family:'Montserrat',sans-serif;font-weight:700;font-size:30px;letter-spacing:7px;color:#FFC56B;text-shadow:0 2px 14px rgba(3,10,24,.7)}
+.sub{font-family:'Montserrat',sans-serif;font-weight:600;font-size:40px;line-height:1.3;color:#E6EAEE;text-shadow:0 2px 18px rgba(3,10,24,.8)}
+.pill{left:50%;width:auto;transform:translateX(-50%);font-family:'Montserrat',sans-serif;font-weight:700;font-size:36px;color:#0B1A33;background:#FFC56B;border-radius:60px;padding:22px 44px;white-space:nowrap;box-shadow:0 10px 40px rgba(255,197,107,.35)}
+.foot{font-family:'Montserrat',sans-serif;font-weight:500;font-size:24px;color:#C7CED4;letter-spacing:.3px}
+#grain{position:absolute;left:-40px;top:-40px;width:1160px;height:2000px;background:url(grain.png);background-size:540px 960px;mix-blend-mode:overlay;opacity:.13;pointer-events:none}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 48%,rgba(0,0,0,0) 55%,rgba(2,6,14,.55) 100%);pointer-events:none}
+</style></head>
+<body><div id="stage">
+<svg id="scene" width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#040B18"/><stop offset=".55" stop-color="#08203B"/><stop offset="1" stop-color="#0D2A4A"/>
+  </linearGradient>
+  <linearGradient id="dawn" x1="0" y1="0" x2="0.35" y2="1">
+    <stop offset="0" stop-color="#0A1834"/><stop offset=".38" stop-color="#25305C"/><stop offset=".68" stop-color="#6E4A72"/><stop offset="1" stop-color="#E08A62"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFD58A" stop-opacity=".95"/><stop offset=".18" stop-color="#FFB46A" stop-opacity=".55"/>
+    <stop offset=".5" stop-color="#F0875E" stop-opacity=".18"/><stop offset="1" stop-color="#F0875E" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="sunfill" cx="0.42" cy="0.38" r="0.7">
+    <stop offset="0" stop-color="#FFF6DC"/><stop offset=".55" stop-color="#FFD58A"/><stop offset="1" stop-color="#FFAE5E"/>
+  </radialGradient>
+  <linearGradient id="wolfGrad" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="236">
+    <stop offset="0" stop-color="#F2F5F8"/><stop offset="1" stop-color="#A9B4C0"/>
+  </linearGradient>
+  <linearGradient id="wolfWarm" gradientUnits="userSpaceOnUse" x1="560" y1="40" x2="780" y2="236">
+    <stop offset="0" stop-color="#FFE6B8"/><stop offset="1" stop-color="#FFB46A"/>
+  </linearGradient>
+  <filter id="blur8" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="blur3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.4"/></filter>
+</defs>
+<rect width="1080" height="1920" fill="url(#night)"/>
+<rect id="dawn" width="1080" height="1920" fill="url(#dawn)" opacity="0"/>
+<g id="stars">{{STARS}}</g>
+<image id="sunglow" href="glow.png" x="-20" y="1500" width="1800" height="1800" opacity="0"/>
+<circle id="sun" cx="880" cy="2400" r="104" fill="url(#sunfill)"/>
+<g id="arrow" opacity="0" fill="none" stroke="#FFC56B" stroke-width="5" stroke-linecap="round">
+  <path id="arrowLine" d="" stroke-dasharray="2 16"/>
+  <path id="arrowHead" d="" stroke-linejoin="round"/>
+</g>
+<g id="cam">
+  <path id="rest" d="{{HOUSE}}" fill="#FFFFFF" fill-rule="evenodd"/>
+  <path id="word" d="{{WORD}}" fill="#FFFFFF" fill-rule="evenodd"/>
+  <path id="winGlow" d="{{WINDOW}}" fill="#FFC56B" filter="url(#blur8)" opacity="0"/>
+  <path id="win" d="{{WINDOW}}" fill="#FFC56B" opacity="0"/>
+  <g id="wolfG">
+    <path id="wolf" d="{{WOLF}}" fill="url(#wolfGrad)" fill-rule="evenodd"/>
+    <path id="wolfWarmP" d="{{WOLF}}" fill="url(#wolfWarm)" fill-rule="evenodd" opacity="0"/>
+  </g>
+  <polyline id="zigGlow" points="{{ZIG}}" fill="none" stroke="#FFC56B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" filter="url(#blur3)" opacity="0"/>
+  <polyline id="zig" points="{{ZIG}}" fill="none" stroke="#FFD27F" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" opacity="0"/>
+</g>
+<circle id="ring" cx="0" cy="0" r="10" fill="none" stroke="#FFC56B" stroke-width="6" opacity="0"/>
+</svg>
+<div id="vig"></div>
+
+<div class="t serif" id="h_hook" style="top:300px;font-size:104px">Most people miss this<br>in our logo 👀</div>
+
+<div class="t kick" id="k_meet" style="top:300px">3 DETAILS MOST PEOPLE MISS</div>
+<div class="t serif" id="h_meet" style="top:350px;font-size:130px">Meet the wolf.</div>
+
+<div class="t kick" id="k1" style="top:290px">01 · THE DIRECTION</div>
+<div class="t serif" id="h1" style="top:345px;font-size:96px">It faces the sunrise,<br>not the sunset.</div>
+<div class="t sub" id="s1" style="top:570px">Our backs are never<br>turned on progress.</div>
+
+<div class="t kick" id="k2" style="top:290px">02 · THE FADE</div>
+<div class="t serif" id="h2a" style="top:345px;font-size:96px">Why does<br>the wolf fade?</div>
+<div class="t serif" id="h2b" style="top:345px;font-size:96px">Because your story<br>is the focus.</div>
+<div class="t sub" id="s2" style="top:570px">We're just a small part of it.</div>
+
+<div class="t kick" id="k3" style="top:290px">03 · THE MANE</div>
+<div class="t serif" id="h3a" style="top:345px;font-size:96px">Look closer<br>at the mane.</div>
+<div class="t serif" id="h3b" style="top:345px;font-size:96px">Those are<br>mountains.</div>
+<div class="t sub" id="s3" style="top:570px">The Poconos. Where<br>Ashwood was founded.</div>
+
+<div class="t serif" id="h_out" style="top:330px;font-size:104px">Now you can't<br>unsee it.</div>
+<div class="t sub" id="s_out" style="top:1300px;font-size:36px;color:#C7CED4">New brokerage. Not new to real estate.</div>
+<div class="t pill" id="cta" style="top:1400px">Comment 🐺 if you caught it first</div>
+<div class="t foot" id="foot" style="top:1560px">Ashwood Real Estate · (570) 534-4404 · Equal Housing Opportunity</div>
+
+<div id="grain"></div>
+</div>
+<script>
+const ease = t => t<0?0:t>1?1:(t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2);
+const easeOut = t => t<0?0:t>1?1:1-Math.pow(1-t,3);
+const clamp01 = t => Math.max(0,Math.min(1,t));
+const lerp = (a,b,t) => a+(b-a)*t;
+// fade helper: 0 before a, ramps to 1 over (b-a), holds, ramps down over (d-c)
+function env(t,a,b,c,d){ if(t<a||t>d) return 0; if(t<b) return easeOut((t-a)/(b-a)); if(t<=c) return 1; return 1-ease((t-c)/(d-c)); }
+// camera keyframes: [time, cx, cy, scale, sx, sy]
+const K = [
+ [0.0, 630,325,0.74, 540,1000],
+ [2.8, 630,325,0.80, 540,1000],
+ [4.0, 673,138,4.20, 540,1160],
+ [5.6, 673,138,4.35, 540,1160],
+ [6.5, 673,138,3.15, 420,1260],
+ [10.2,673,138,3.30, 420,1260],
+ [11.1,625,182,2.00, 540,1150],
+ [14.8,625,182,2.10, 540,1150],
+ [15.7,669,172,4.60, 540,1250],
+ [19.0,669,172,4.80, 540,1250],
+ [20.0,630,325,0.78, 540,1000],
+ [23.0,630,325,0.80, 540,1000]
+];
+function cam(t){
+  let i=0; while(i<K.length-2 && t>K[i+1][0]) i++;
+  const a=K[i], b=K[i+1];
+  const zoomSeg = Math.abs(Math.log(b[3]/a[3]))>0.2;
+  let u = clamp01((t-a[0])/(b[0]-a[0]));
+  u = zoomSeg ? ease(u) : u;           // big moves ease, holds drift linearly
+  const s = Math.exp(lerp(Math.log(a[3]),Math.log(b[3]),u));
+  return {cx:lerp(a[1],b[1],u), cy:lerp(a[2],b[2],u), s, sx:lerp(a[4],b[4],u), sy:lerp(a[5],b[5],u)};
+}
+const $ = id => document.getElementById(id);
+function show(id, o, dy){ const e=$(id); e.style.opacity=o.toFixed(3); const y=(1-o)*(dy===undefined?26:dy);
+  if(e.classList.contains('pill')) e.style.transform=`translateX(-50%) translateY(${y}px)`; else e.style.transform=`translateY(${y}px)`; }
+const zigEl = $('zig'), zigGl = $('zigGlow');
+let zigLen = 0;
+function setTime(t){
+  const c = cam(t);
+  const tx = c.sx - c.cx*c.s, ty = c.sy - c.cy*c.s;
+  $('cam').setAttribute('transform',`translate(${tx.toFixed(2)},${ty.toFixed(2)}) scale(${c.s.toFixed(4)})`);
+  const P = (x,y) => [tx + x*c.s, ty + y*c.s];
+  // logo layers
+  let rest = 1;
+  if(t>2.9 && t<10.2) rest = 1-env(t,2.9,3.6,10.0,11.0)*1; // fade out during close-ups
+  rest = Math.min(rest, 1);
+  const restA = (t<2.9)?1 : (t<3.6)? 1-ease((t-2.9)/0.7) : (t<10.2)?0 : (t<11.0)? ease((t-10.2)/0.8) : (t<14.8)?1 : (t<15.4)? 1-ease((t-14.8)/0.6) : (t<19.45)?0 : (t<20.05)? ease((t-19.45)/0.6) : 1;
+  const wordA = (t<2.9)?1 : (t<3.5)? 1-ease((t-2.9)/0.6) : (t<19.6)?0 : (t<20.15)? ease((t-19.6)/0.55) : 1;
+  $('word').setAttribute('opacity',wordA.toFixed(3));
+  $('rest').setAttribute('opacity',restA.toFixed(3));
+  const wolfA = (t<11.6)?1 : (t<12.9)? 1-0.78*ease((t-11.6)/1.3) : (t<14.8)?0.22 : (t<15.5)? 0.22+0.78*ease((t-14.8)/0.7) : 1;
+  $('wolfG').setAttribute('opacity',wolfA.toFixed(3));
+  const warm = env(t,6.2,8.4,10.4,11.2)*0.38 + (t>19.6? 0.22*easeOut((t-19.6)/1.2):0);
+  $('wolfWarmP').setAttribute('opacity',warm.toFixed(3));
+  const winA = env(t,12.0,13.0,14.8,15.4) + (t>19.8? 0.9*easeOut((t-19.8)/1.0):0);
+  $('win').setAttribute('opacity',Math.min(1,winA).toFixed(3)); $('winGlow').setAttribute('opacity',(Math.min(1,winA)*0.9).toFixed(3));
+  // zig draw
+  if(!zigLen){ zigLen = zigEl.getTotalLength(); zigEl.setAttribute('stroke-dasharray',zigLen); zigGl.setAttribute('stroke-dasharray',zigLen); }
+  const draw = easeOut((t-15.9)/1.2);
+  const zigA = env(t,15.85,16.0,18.9,19.6);
+  zigEl.setAttribute('stroke-dashoffset',(zigLen*(1-draw)).toFixed(2)); zigGl.setAttribute('stroke-dashoffset',(zigLen*(1-draw)).toFixed(2));
+  zigEl.setAttribute('opacity',zigA.toFixed(3)); zigGl.setAttribute('opacity',(zigA*(0.7+0.3*Math.sin(t*5))).toFixed(3));
+  // sky: dawn + stars + sun
+  const dawn = easeOut((t-5.8)/2.6);
+  $('dawn').setAttribute('opacity',(dawn*0.92).toFixed(3));
+  $('stars').setAttribute('opacity',(1-dawn).toFixed(3));
+  const sunY = lerp(2150, 760, easeOut((t-5.7)/2.9));
+  const sunX = 880;
+  $('sun').setAttribute('cy',sunY.toFixed(1)); $('sun').setAttribute('cx',sunX);
+  $('sunglow').setAttribute('y',(sunY-900).toFixed(1)); $('sunglow').setAttribute('x',sunX-900);
+  const glowA = dawn*(0.85+0.08*Math.sin(t*1.7));
+  $('sunglow').setAttribute('opacity',glowA.toFixed(3));
+  // sunrise arrow from the snout toward the sun (scene 3 only)
+  const arA = env(t,7.0,7.6,9.9,10.4);
+  const sn = P(772,30);
+  const ax0 = sn[0]+20, ay0 = sn[1]-14, ax1 = sunX-128, ay1 = 760+30;
+  const prog = easeOut((t-7.0)/0.9);
+  const ex = lerp(ax0,ax1,prog), ey = lerp(ay0,ay1,prog);
+  $('arrowLine').setAttribute('d',`M${ax0.toFixed(1)},${ay0.toFixed(1)} L${ex.toFixed(1)},${ey.toFixed(1)}`);
+  const ang = Math.atan2(ay1-ay0, ax1-ax0), hl=22;
+  const h1x = ex - hl*Math.cos(ang-0.5), h1y = ey - hl*Math.sin(ang-0.5), h2x = ex - hl*Math.cos(ang+0.5), h2y = ey - hl*Math.sin(ang+0.5);
+  $('arrowHead').setAttribute('d',`M${h1x.toFixed(1)},${h1y.toFixed(1)} L${ex.toFixed(1)},${ey.toFixed(1)} L${h2x.toFixed(1)},${h2y.toFixed(1)}`);
+  $('arrow').setAttribute('opacity','0');
+  // hook ring around the wolf
+  const rc = P(673,140); const ringA = env(t,1.15,1.35,3.0,3.5);
+  const ring = $('ring'); ring.setAttribute('cx',rc[0].toFixed(1)); ring.setAttribute('cy',rc[1].toFixed(1));
+  const rr = 132*c.s; ring.setAttribute('r',rr.toFixed(1));
+  const circ = 2*Math.PI*rr; ring.setAttribute('stroke-dasharray',circ.toFixed(1));
+  ring.setAttribute('stroke-dashoffset',(circ*(1-easeOut((t-1.15)/0.8))).toFixed(1));
+  ring.setAttribute('transform',`rotate(-110 ${rc[0].toFixed(1)} ${rc[1].toFixed(1)})`);
+  ring.setAttribute('opacity',ringA.toFixed(3));
+  // texts
+  show('h_hook', env(t,0.0,0.01,2.55,2.95), 0);
+  show('k_meet', env(t,3.75,4.15,5.35,5.7));
+  show('h_meet', env(t,3.85,4.3,5.35,5.7));
+  show('k1', env(t,5.95,6.35,9.85,10.2));
+  show('h1', env(t,6.05,6.5,9.85,10.2));
+  show('s1', env(t,7.6,8.05,9.85,10.2));
+  show('k2', env(t,10.45,10.85,14.45,14.8));
+  show('h2a', env(t,10.55,11.0,11.95,12.25));
+  show('h2b', env(t,12.25,12.7,14.45,14.8));
+  show('s2', env(t,13.1,13.55,14.45,14.8));
+  show('k3', env(t,15.05,15.45,18.8,19.15));
+  show('h3a', env(t,15.15,15.6,16.55,16.85));
+  show('h3b', env(t,16.85,17.3,18.8,19.15));
+  show('s3', env(t,17.5,17.95,18.8,19.15));
+  show('h_out', env(t,19.6,20.1,23.5,24));
+  show('s_out', env(t,20.4,20.85,23.5,24));
+  show('cta', env(t,21.0,21.45,23.5,24), 20);
+  show('foot', env(t,19.8,20.3,23.5,24), 0);
+  // grain jitter
+  const g = $('grain'); const f = Math.floor(t*30);
+  g.style.transform = `translate(${(f*37)%40}px, ${(f*53)%40}px)`;
+}
+window.setTime = setTime;
+setTime(0);
+</script>
+</body></html>
