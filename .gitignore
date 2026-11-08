@@ -1,0 +1,6 @@
+# Video toolkit outputs and local environment
+.venv/
+out/
+renders/
+*.frames.txt
+__pycache__/
