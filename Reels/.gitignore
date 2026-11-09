@@ -1,0 +1,6 @@
+# Videos y audios pesados: viven en la carpeta local / Drive, no en git
+*.mp4
+*.mov
+*.wav
+*.mp3
+proyectos/*/frames/

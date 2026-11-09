@@ -1,0 +1,489 @@
+{
+ "source": "tomas/toma_drive.mp4",
+ "engine": "faster-whisper",
+ "model": "small",
+ "language": "en",
+ "duration": 26.966667,
+ "words": [
+  {
+   "w": "If",
+   "start": 0.0,
+   "end": 0.18
+  },
+  {
+   "w": "your",
+   "start": 0.18,
+   "end": 0.32
+  },
+  {
+   "w": "realtor",
+   "start": 0.32,
+   "end": 0.66
+  },
+  {
+   "w": "makes",
+   "start": 0.66,
+   "end": 0.88
+  },
+  {
+   "w": "any",
+   "start": 0.88,
+   "end": 1.2
+  },
+  {
+   "w": "of",
+   "start": 1.2,
+   "end": 1.38
+  },
+  {
+   "w": "these",
+   "start": 1.38,
+   "end": 1.62
+  },
+  {
+   "w": "three",
+   "start": 1.62,
+   "end": 1.86
+  },
+  {
+   "w": "mistakes,",
+   "start": 1.86,
+   "end": 2.32
+  },
+  {
+   "w": "you",
+   "start": 2.56,
+   "end": 2.66
+  },
+  {
+   "w": "need",
+   "start": 2.66,
+   "end": 2.8
+  },
+  {
+   "w": "to",
+   "start": 2.8,
+   "end": 2.9
+  },
+  {
+   "w": "fire",
+   "start": 2.9,
+   "end": 3.14
+  },
+  {
+   "w": "them.",
+   "start": 3.14,
+   "end": 3.42
+  },
+  {
+   "w": "One",
+   "start": 3.74,
+   "end": 3.9
+  },
+  {
+   "w": "is",
+   "start": 3.9,
+   "end": 4.12
+  },
+  {
+   "w": "that",
+   "start": 4.12,
+   "end": 4.26
+  },
+  {
+   "w": "they",
+   "start": 4.26,
+   "end": 4.4
+  },
+  {
+   "w": "can",
+   "start": 4.4,
+   "end": 4.74
+  },
+  {
+   "w": "explain",
+   "start": 4.74,
+   "end": 5.22
+  },
+  {
+   "w": "how",
+   "start": 5.22,
+   "end": 5.54
+  },
+  {
+   "w": "they",
+   "start": 5.54,
+   "end": 5.8
+  },
+  {
+   "w": "price",
+   "start": 5.8,
+   "end": 6.18
+  },
+  {
+   "w": "your",
+   "start": 6.18,
+   "end": 6.38
+  },
+  {
+   "w": "home",
+   "start": 6.38,
+   "end": 6.7
+  },
+  {
+   "w": "in",
+   "start": 6.7,
+   "end": 6.9
+  },
+  {
+   "w": "under",
+   "start": 6.9,
+   "end": 7.1
+  },
+  {
+   "w": "60",
+   "start": 7.1,
+   "end": 7.56
+  },
+  {
+   "w": "seconds.",
+   "start": 7.56,
+   "end": 8.1
+  },
+  {
+   "w": "Two",
+   "start": 8.48,
+   "end": 8.62
+  },
+  {
+   "w": "is",
+   "start": 8.62,
+   "end": 8.84
+  },
+  {
+   "w": "lack",
+   "start": 8.84,
+   "end": 9.02
+  },
+  {
+   "w": "of",
+   "start": 9.02,
+   "end": 9.2
+  },
+  {
+   "w": "communication,",
+   "start": 9.2,
+   "end": 9.7
+  },
+  {
+   "w": "you",
+   "start": 10.02,
+   "end": 10.08
+  },
+  {
+   "w": "only",
+   "start": 10.08,
+   "end": 10.3
+  },
+  {
+   "w": "hear",
+   "start": 10.3,
+   "end": 10.54
+  },
+  {
+   "w": "from",
+   "start": 10.54,
+   "end": 10.76
+  },
+  {
+   "w": "them",
+   "start": 10.76,
+   "end": 10.9
+  },
+  {
+   "w": "when",
+   "start": 10.9,
+   "end": 11.06
+  },
+  {
+   "w": "they",
+   "start": 11.06,
+   "end": 11.18
+  },
+  {
+   "w": "need",
+   "start": 11.18,
+   "end": 11.36
+  },
+  {
+   "w": "your",
+   "start": 11.36,
+   "end": 11.5
+  },
+  {
+   "w": "signature,",
+   "start": 11.5,
+   "end": 11.9
+  },
+  {
+   "w": "but",
+   "start": 12.3,
+   "end": 12.42
+  },
+  {
+   "w": "that's",
+   "start": 12.42,
+   "end": 12.58
+  },
+  {
+   "w": "not",
+   "start": 12.58,
+   "end": 12.68
+  },
+  {
+   "w": "okay.",
+   "start": 12.68,
+   "end": 12.96
+  },
+  {
+   "w": "Realters",
+   "start": 13.08,
+   "end": 13.44
+  },
+  {
+   "w": "have",
+   "start": 13.44,
+   "end": 13.68
+  },
+  {
+   "w": "to",
+   "start": 13.68,
+   "end": 13.86
+  },
+  {
+   "w": "keep",
+   "start": 13.86,
+   "end": 14.02
+  },
+  {
+   "w": "communicating",
+   "start": 14.02,
+   "end": 14.52
+  },
+  {
+   "w": "with",
+   "start": 14.52,
+   "end": 14.82
+  },
+  {
+   "w": "their",
+   "start": 14.82,
+   "end": 14.96
+  },
+  {
+   "w": "clients",
+   "start": 14.96,
+   "end": 15.3
+  },
+  {
+   "w": "during",
+   "start": 15.3,
+   "end": 15.54
+  },
+  {
+   "w": "the",
+   "start": 15.54,
+   "end": 15.74
+  },
+  {
+   "w": "whole",
+   "start": 15.74,
+   "end": 15.96
+  },
+  {
+   "w": "process.",
+   "start": 15.96,
+   "end": 16.44
+  },
+  {
+   "w": "And",
+   "start": 16.7,
+   "end": 16.74
+  },
+  {
+   "w": "the",
+   "start": 16.74,
+   "end": 16.86
+  },
+  {
+   "w": "number",
+   "start": 16.86,
+   "end": 17.06
+  },
+  {
+   "w": "three",
+   "start": 17.06,
+   "end": 17.36
+  },
+  {
+   "w": "is",
+   "start": 17.36,
+   "end": 17.56
+  },
+  {
+   "w": "that",
+   "start": 17.56,
+   "end": 17.7
+  },
+  {
+   "w": "they",
+   "start": 17.7,
+   "end": 17.82
+  },
+  {
+   "w": "rush",
+   "start": 17.82,
+   "end": 18.16
+  },
+  {
+   "w": "you",
+   "start": 18.16,
+   "end": 18.38
+  },
+  {
+   "w": "to",
+   "start": 18.38,
+   "end": 18.52
+  },
+  {
+   "w": "sign.",
+   "start": 18.52,
+   "end": 18.86
+  },
+  {
+   "w": "Your",
+   "start": 19.5,
+   "end": 19.66
+  },
+  {
+   "w": "deadline",
+   "start": 19.66,
+   "end": 20.06
+  },
+  {
+   "w": "should",
+   "start": 20.06,
+   "end": 20.5
+  },
+  {
+   "w": "be",
+   "start": 20.5,
+   "end": 20.68
+  },
+  {
+   "w": "yours,",
+   "start": 20.68,
+   "end": 20.96
+  },
+  {
+   "w": "not",
+   "start": 21.18,
+   "end": 21.3
+  },
+  {
+   "w": "their",
+   "start": 21.3,
+   "end": 21.5
+  },
+  {
+   "w": "paycheck.",
+   "start": 21.5,
+   "end": 21.86
+  },
+  {
+   "w": "And",
+   "start": 22.16,
+   "end": 22.3
+  },
+  {
+   "w": "if",
+   "start": 22.3,
+   "end": 22.42
+  },
+  {
+   "w": "your",
+   "start": 22.42,
+   "end": 22.56
+  },
+  {
+   "w": "agent",
+   "start": 22.56,
+   "end": 22.92
+  },
+  {
+   "w": "does",
+   "start": 22.92,
+   "end": 23.24
+  },
+  {
+   "w": "O3,",
+   "start": 23.24,
+   "end": 23.86
+  },
+  {
+   "w": "you",
+   "start": 24.36,
+   "end": 24.54
+  },
+  {
+   "w": "know",
+   "start": 24.54,
+   "end": 24.72
+  },
+  {
+   "w": "where",
+   "start": 24.72,
+   "end": 24.9
+  },
+  {
+   "w": "to",
+   "start": 24.9,
+   "end": 25.06
+  },
+  {
+   "w": "find",
+   "start": 25.06,
+   "end": 25.32
+  },
+  {
+   "w": "us,",
+   "start": 25.32,
+   "end": 25.54
+  },
+  {
+   "w": "we're",
+   "start": 25.78,
+   "end": 25.96
+  },
+  {
+   "w": "ash",
+   "start": 25.96,
+   "end": 26.16
+  },
+  {
+   "w": "with",
+   "start": 26.16,
+   "end": 26.32
+  },
+  {
+   "w": "real",
+   "start": 26.32,
+   "end": 26.5
+  },
+  {
+   "w": "estate.",
+   "start": 26.5,
+   "end": 26.72
+  }
+ ]
+}
