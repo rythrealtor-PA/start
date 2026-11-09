@@ -1,0 +1,1 @@
+Pega aquí transcripciones de tus videos que mejor funcionaron (uno por archivo .txt o .md). Claude imita tu forma de hablar.
