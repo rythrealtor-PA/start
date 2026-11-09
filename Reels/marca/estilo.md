@@ -4,10 +4,10 @@
 > Lo que diga `[POR DEFINIR]` se pregunta la primera vez.
 
 ## Datos de la marca
-- Nombre de la brokerage: [POR DEFINIR]
+- Nombre de la brokerage: Ashwood Real Estate
 - Broker / presentador: [POR DEFINIR]
 - Zona: Poconos, Pennsylvania
-- Idioma de los videos: [POR DEFINIR: inglés / español / ambos]
+- Idioma de los videos: inglés (por ahora)
 - Licencia o aviso legal que debe aparecer (si tu estado lo pide): [POR DEFINIR]
 
 ## Ajustes (el script de subtítulos los lee; deja el formato `clave: valor`)
@@ -42,5 +42,5 @@ plataforma: instagram
 - Termina con una pregunta que invite a comentar.
 
 ## Música y sonido
-- Música preferida: [POR DEFINIR: tranquila / cinemática / acústica / lo-fi]
+- Música preferida: ninguna. El usuario agrega la música después, en la app.
 - Efectos: whoosh suave en transiciones, click en palabras clave. Pocos.

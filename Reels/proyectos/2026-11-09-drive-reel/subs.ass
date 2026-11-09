@@ -1,0 +1,108 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Inter,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,5,90,140,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.18,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}If{\r} your realtor makes
+Dialogue: 0,0:00:00.18,0:00:00.32,Caption,,0,0,0,,{\an5\pos(540,1180)}If {\c&H004BB0E8}your{\r} realtor makes
+Dialogue: 0,0:00:00.32,0:00:00.66,Caption,,0,0,0,,{\an5\pos(540,1180)}If your {\c&H004BB0E8}realtor{\r} makes
+Dialogue: 0,0:00:00.66,0:00:00.88,Caption,,0,0,0,,{\an5\pos(540,1180)}If your realtor {\c&H004BB0E8}makes{\r}
+Dialogue: 0,0:00:00.88,0:00:01.20,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}any{\r} of these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.20,0:00:01.38,Caption,,0,0,0,,{\an5\pos(540,1180)}any {\c&H004BB0E8}of{\r} these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.38,0:00:01.62,Caption,,0,0,0,,{\an5\pos(540,1180)}any of {\c&H004BB0E8}these{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.62,0:00:01.86,Caption,,0,0,0,,{\an5\pos(540,1180)}any of these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.86,0:00:02.56,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}mistakes,{\r}
+Dialogue: 0,0:00:02.56,0:00:02.66,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} need to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.66,0:00:02.80,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}need{\r} to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.80,0:00:02.90,Caption,,0,0,0,,{\an5\pos(540,1180)}you need {\c&H004BB0E8}to{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.90,0:00:03.14,Caption,,0,0,0,,{\an5\pos(540,1180)}you need to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:03.14,0:00:03.57,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}them.{\r}
+Dialogue: 0,0:00:03.74,0:00:03.90,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}One{\r} is that they
+Dialogue: 0,0:00:03.90,0:00:04.12,Caption,,0,0,0,,{\an5\pos(540,1180)}One {\c&H004BB0E8}is{\r} that they
+Dialogue: 0,0:00:04.12,0:00:04.26,Caption,,0,0,0,,{\an5\pos(540,1180)}One is {\c&H004BB0E8}that{\r} they
+Dialogue: 0,0:00:04.26,0:00:04.40,Caption,,0,0,0,,{\an5\pos(540,1180)}One is that {\c&H004BB0E8}they{\r}
+Dialogue: 0,0:00:04.40,0:00:04.74,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}can't{\r} explain how they
+Dialogue: 0,0:00:04.74,0:00:05.22,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}can't{\r} {\c&H004BB0E8}explain{\r} how they
+Dialogue: 0,0:00:05.22,0:00:05.54,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}can't{\r} explain {\c&H004BB0E8}how{\r} they
+Dialogue: 0,0:00:05.54,0:00:05.80,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}can't{\r} explain how {\c&H004BB0E8}they{\r}
+Dialogue: 0,0:00:05.80,0:00:06.18,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}price{\r} your home in
+Dialogue: 0,0:00:06.18,0:00:06.38,Caption,,0,0,0,,{\an5\pos(540,1180)}price {\c&H004BB0E8}your{\r} home in
+Dialogue: 0,0:00:06.38,0:00:06.70,Caption,,0,0,0,,{\an5\pos(540,1180)}price your {\c&H004BB0E8}home{\r} in
+Dialogue: 0,0:00:06.70,0:00:06.90,Caption,,0,0,0,,{\an5\pos(540,1180)}price your home {\c&H004BB0E8}in{\r}
+Dialogue: 0,0:00:06.90,0:00:07.10,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}under{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}60{\r} seconds.
+Dialogue: 0,0:00:07.10,0:00:07.56,Caption,,0,0,0,,{\an5\pos(540,1180)}under {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}60{\r} seconds.
+Dialogue: 0,0:00:07.56,0:00:08.18,Caption,,0,0,0,,{\an5\pos(540,1180)}under {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}60{\r} {\c&H004BB0E8}seconds.{\r}
+Dialogue: 0,0:00:08.18,0:00:08.32,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}Two{\r} is lack of
+Dialogue: 0,0:00:08.32,0:00:08.54,Caption,,0,0,0,,{\an5\pos(540,1180)}Two {\c&H004BB0E8}is{\r} lack of
+Dialogue: 0,0:00:08.54,0:00:08.72,Caption,,0,0,0,,{\an5\pos(540,1180)}Two is {\c&H004BB0E8}lack{\r} of
+Dialogue: 0,0:00:08.72,0:00:08.90,Caption,,0,0,0,,{\an5\pos(540,1180)}Two is lack {\c&H004BB0E8}of{\r}
+Dialogue: 0,0:00:08.90,0:00:09.55,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}communication,{\r}
+Dialogue: 0,0:00:09.72,0:00:09.78,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} only hear from
+Dialogue: 0,0:00:09.78,0:00:10.00,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}only{\r} hear from
+Dialogue: 0,0:00:10.00,0:00:10.24,Caption,,0,0,0,,{\an5\pos(540,1180)}you only {\c&H004BB0E8}hear{\r} from
+Dialogue: 0,0:00:10.24,0:00:10.46,Caption,,0,0,0,,{\an5\pos(540,1180)}you only hear {\c&H004BB0E8}from{\r}
+Dialogue: 0,0:00:10.46,0:00:10.60,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}them{\r} when they need
+Dialogue: 0,0:00:10.60,0:00:10.76,Caption,,0,0,0,,{\an5\pos(540,1180)}them {\c&H004BB0E8}when{\r} they need
+Dialogue: 0,0:00:10.76,0:00:10.88,Caption,,0,0,0,,{\an5\pos(540,1180)}them when {\c&H004BB0E8}they{\r} need
+Dialogue: 0,0:00:10.88,0:00:11.06,Caption,,0,0,0,,{\an5\pos(540,1180)}them when they {\c&H004BB0E8}need{\r}
+Dialogue: 0,0:00:11.06,0:00:11.20,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}your{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}signature,{\r}
+Dialogue: 0,0:00:11.20,0:00:11.67,Caption,,0,0,0,,{\an5\pos(540,1180)}your {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}signature,{\r}
+Dialogue: 0,0:00:11.67,0:00:11.79,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}but{\r} that's not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:11.79,0:00:11.95,Caption,,0,0,0,,{\an5\pos(540,1180)}but {\c&H004BB0E8}that's{\r} not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:11.95,0:00:12.05,Caption,,0,0,0,,{\an5\pos(540,1180)}but that's {\c&H004BB0E8}not{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:12.05,0:00:12.45,Caption,,0,0,0,,{\an5\pos(540,1180)}but that's not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:12.45,0:00:12.81,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}Realtors{\r} have to keep
+Dialogue: 0,0:00:12.81,0:00:13.05,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors {\c&H004BB0E8}have{\r} to keep
+Dialogue: 0,0:00:13.05,0:00:13.23,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors have {\c&H004BB0E8}to{\r} keep
+Dialogue: 0,0:00:13.23,0:00:13.39,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors have to {\c&H004BB0E8}keep{\r}
+Dialogue: 0,0:00:13.39,0:00:13.89,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}communicating{\r} with their clients
+Dialogue: 0,0:00:13.89,0:00:14.19,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating {\c&H004BB0E8}with{\r} their clients
+Dialogue: 0,0:00:14.19,0:00:14.33,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating with {\c&H004BB0E8}their{\r} clients
+Dialogue: 0,0:00:14.33,0:00:14.67,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating with their {\c&H004BB0E8}clients{\r}
+Dialogue: 0,0:00:14.67,0:00:14.91,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}during{\r} the whole process.
+Dialogue: 0,0:00:14.91,0:00:15.11,Caption,,0,0,0,,{\an5\pos(540,1180)}during {\c&H004BB0E8}the{\r} whole process.
+Dialogue: 0,0:00:15.11,0:00:15.33,Caption,,0,0,0,,{\an5\pos(540,1180)}during the {\c&H004BB0E8}whole{\r} process.
+Dialogue: 0,0:00:15.33,0:00:16.07,Caption,,0,0,0,,{\an5\pos(540,1180)}during the whole {\c&H004BB0E8}process.{\r}
+Dialogue: 0,0:00:16.07,0:00:16.11,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}And{\r} the number {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:16.11,0:00:16.23,Caption,,0,0,0,,{\an5\pos(540,1180)}And {\c&H004BB0E8}the{\r} number {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:16.23,0:00:16.43,Caption,,0,0,0,,{\an5\pos(540,1180)}And the {\c&H004BB0E8}number{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:16.43,0:00:16.73,Caption,,0,0,0,,{\an5\pos(540,1180)}And the number {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:16.73,0:00:16.93,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}is{\r} that they {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}rush{\r}
+Dialogue: 0,0:00:16.93,0:00:17.07,Caption,,0,0,0,,{\an5\pos(540,1180)}is {\c&H004BB0E8}that{\r} they {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}rush{\r}
+Dialogue: 0,0:00:17.07,0:00:17.19,Caption,,0,0,0,,{\an5\pos(540,1180)}is that {\c&H004BB0E8}they{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}rush{\r}
+Dialogue: 0,0:00:17.19,0:00:17.53,Caption,,0,0,0,,{\an5\pos(540,1180)}is that they {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}rush{\r}
+Dialogue: 0,0:00:17.53,0:00:17.75,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} to sign.
+Dialogue: 0,0:00:17.75,0:00:17.89,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}to{\r} sign.
+Dialogue: 0,0:00:17.89,0:00:18.30,Caption,,0,0,0,,{\an5\pos(540,1180)}you to {\c&H004BB0E8}sign.{\r}
+Dialogue: 0,0:00:18.30,0:00:18.46,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}Your{\r} deadline should be
+Dialogue: 0,0:00:18.46,0:00:18.86,Caption,,0,0,0,,{\an5\pos(540,1180)}Your {\c&H004BB0E8}deadline{\r} should be
+Dialogue: 0,0:00:18.86,0:00:19.30,Caption,,0,0,0,,{\an5\pos(540,1180)}Your deadline {\c&H004BB0E8}should{\r} be
+Dialogue: 0,0:00:19.30,0:00:19.48,Caption,,0,0,0,,{\an5\pos(540,1180)}Your deadline should {\c&H004BB0E8}be{\r}
+Dialogue: 0,0:00:19.48,0:00:19.98,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}yours,{\r}
+Dialogue: 0,0:00:19.98,0:00:20.10,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}not{\r} their {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}paycheck.{\r}
+Dialogue: 0,0:00:20.10,0:00:20.30,Caption,,0,0,0,,{\an5\pos(540,1180)}not {\c&H004BB0E8}their{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}paycheck.{\r}
+Dialogue: 0,0:00:20.30,0:00:20.81,Caption,,0,0,0,,{\an5\pos(540,1180)}not their {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}paycheck.{\r}
+Dialogue: 0,0:00:20.96,0:00:21.10,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}And{\r} if your agent
+Dialogue: 0,0:00:21.10,0:00:21.22,Caption,,0,0,0,,{\an5\pos(540,1180)}And {\c&H004BB0E8}if{\r} your agent
+Dialogue: 0,0:00:21.22,0:00:21.36,Caption,,0,0,0,,{\an5\pos(540,1180)}And if {\c&H004BB0E8}your{\r} agent
+Dialogue: 0,0:00:21.36,0:00:21.72,Caption,,0,0,0,,{\an5\pos(540,1180)}And if your {\c&H004BB0E8}agent{\r}
+Dialogue: 0,0:00:21.72,0:00:22.04,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}does{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}all 3,{\r}
+Dialogue: 0,0:00:22.04,0:00:22.76,Caption,,0,0,0,,{\an5\pos(540,1180)}does {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}all 3,{\r}
+Dialogue: 0,0:00:22.76,0:00:22.94,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} know where to
+Dialogue: 0,0:00:22.94,0:00:23.12,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}know{\r} where to
+Dialogue: 0,0:00:23.12,0:00:23.30,Caption,,0,0,0,,{\an5\pos(540,1180)}you know {\c&H004BB0E8}where{\r} to
+Dialogue: 0,0:00:23.30,0:00:23.46,Caption,,0,0,0,,{\an5\pos(540,1180)}you know where {\c&H004BB0E8}to{\r}
+Dialogue: 0,0:00:23.46,0:00:23.72,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}find{\r} us,
+Dialogue: 0,0:00:23.72,0:00:24.18,Caption,,0,0,0,,{\an5\pos(540,1180)}find {\c&H004BB0E8}us,{\r}
+Dialogue: 0,0:00:24.18,0:00:24.36,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}we're{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}Ashwood{\r} Real Estate.
+Dialogue: 0,0:00:24.36,0:00:24.72,Caption,,0,0,0,,{\an5\pos(540,1180)}we're {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}Ashwood{\r} Real Estate.
+Dialogue: 0,0:00:24.72,0:00:24.90,Caption,,0,0,0,,{\an5\pos(540,1180)}we're {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}Ashwood{\r} {\c&H004BB0E8}Real{\r} Estate.
+Dialogue: 0,0:00:24.90,0:00:25.27,Caption,,0,0,0,,{\an5\pos(540,1180)}we're {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}Ashwood{\r} Real {\c&H004BB0E8}Estate.{\r}
