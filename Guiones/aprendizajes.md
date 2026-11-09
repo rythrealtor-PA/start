@@ -4,3 +4,4 @@
 
 - 2026-11-09: Idioma de grabación por defecto: inglés, con traducción al español debajo (el broker lee en español).
 - 2026-11-09: La brokerage se llama **Ashwood** (conecta con el fresno / ash tree del logo). Recién empieza a crear contenido: priorizar reconocimiento de marca y presentar la marca antes que pedir leads.
+- 2026-11-09: En el chat, el usuario prefiere recibir solo el texto del guion (para grabar) + sugerencias cortas (título en pantalla, portada, caption). El guion completo con tabla queda en el archivo.
