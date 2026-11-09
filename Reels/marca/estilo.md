@@ -36,6 +36,9 @@ plataforma: instagram
 - Una hoja cae y se convierte en llave (transición o cierre).
 - Cierre de 2–3 segundos con el logo sobre fondo oscurecido.
 
+## Estilos de edición propios
+- Ver `marca/estilos-edicion.md` (5 estilos: 3 behind, texto grande detrás, 1 behind, hook text, título detrás).
+
 ## Tono
 - Hooks con **pregunta + problema** en los primeros 3 segundos.
 - Cercano, honesto, local. Nada de "welcome to this beautiful home".

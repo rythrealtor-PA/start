@@ -1,0 +1,55 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Inter,74,&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,5,2,5,90,140,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.18,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}If{\r} your realtor makes
+Dialogue: 0,0:00:00.18,0:00:00.32,Caption,,0,0,0,,{\an5\pos(540,1180)}If {\c&H004BB0E8}your{\r} realtor makes
+Dialogue: 0,0:00:00.32,0:00:00.66,Caption,,0,0,0,,{\an5\pos(540,1180)}If your {\c&H004BB0E8}realtor{\r} makes
+Dialogue: 0,0:00:00.66,0:00:00.88,Caption,,0,0,0,,{\an5\pos(540,1180)}If your realtor {\c&H004BB0E8}makes{\r}
+Dialogue: 0,0:00:00.88,0:00:01.20,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}any{\r} of these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.20,0:00:01.38,Caption,,0,0,0,,{\an5\pos(540,1180)}any {\c&H004BB0E8}of{\r} these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.38,0:00:01.62,Caption,,0,0,0,,{\an5\pos(540,1180)}any of {\c&H004BB0E8}these{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.62,0:00:01.86,Caption,,0,0,0,,{\an5\pos(540,1180)}any of these {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}three{\r}
+Dialogue: 0,0:00:01.86,0:00:02.56,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}mistakes,{\r}
+Dialogue: 0,0:00:02.56,0:00:02.66,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} need to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.66,0:00:02.80,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}need{\r} to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.80,0:00:02.90,Caption,,0,0,0,,{\an5\pos(540,1180)}you need {\c&H004BB0E8}to{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:02.90,0:00:03.14,Caption,,0,0,0,,{\an5\pos(540,1180)}you need to {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}fire{\r}
+Dialogue: 0,0:00:03.14,0:00:03.57,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}them.{\r}
+Dialogue: 0,0:00:11.67,0:00:11.79,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}but{\r} that's not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:11.79,0:00:11.95,Caption,,0,0,0,,{\an5\pos(540,1180)}but {\c&H004BB0E8}that's{\r} not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:11.95,0:00:12.05,Caption,,0,0,0,,{\an5\pos(540,1180)}but that's {\c&H004BB0E8}not{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:12.05,0:00:12.45,Caption,,0,0,0,,{\an5\pos(540,1180)}but that's not {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}okay.{\r}
+Dialogue: 0,0:00:12.45,0:00:12.81,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}Realtors{\r} have to keep
+Dialogue: 0,0:00:12.81,0:00:13.05,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors {\c&H004BB0E8}have{\r} to keep
+Dialogue: 0,0:00:13.05,0:00:13.23,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors have {\c&H004BB0E8}to{\r} keep
+Dialogue: 0,0:00:13.23,0:00:13.39,Caption,,0,0,0,,{\an5\pos(540,1180)}Realtors have to {\c&H004BB0E8}keep{\r}
+Dialogue: 0,0:00:13.39,0:00:13.89,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}communicating{\r} with their clients
+Dialogue: 0,0:00:13.89,0:00:14.19,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating {\c&H004BB0E8}with{\r} their clients
+Dialogue: 0,0:00:14.19,0:00:14.33,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating with {\c&H004BB0E8}their{\r} clients
+Dialogue: 0,0:00:14.33,0:00:14.67,Caption,,0,0,0,,{\an5\pos(540,1180)}communicating with their {\c&H004BB0E8}clients{\r}
+Dialogue: 0,0:00:14.67,0:00:14.91,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}during{\r} the whole process.
+Dialogue: 0,0:00:14.91,0:00:15.11,Caption,,0,0,0,,{\an5\pos(540,1180)}during {\c&H004BB0E8}the{\r} whole process.
+Dialogue: 0,0:00:15.11,0:00:15.33,Caption,,0,0,0,,{\an5\pos(540,1180)}during the {\c&H004BB0E8}whole{\r} process.
+Dialogue: 0,0:00:15.33,0:00:16.07,Caption,,0,0,0,,{\an5\pos(540,1180)}during the whole {\c&H004BB0E8}process.{\r}
+Dialogue: 0,0:00:20.96,0:00:21.10,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}And{\r} if your agent
+Dialogue: 0,0:00:21.10,0:00:21.22,Caption,,0,0,0,,{\an5\pos(540,1180)}And {\c&H004BB0E8}if{\r} your agent
+Dialogue: 0,0:00:21.22,0:00:21.36,Caption,,0,0,0,,{\an5\pos(540,1180)}And if {\c&H004BB0E8}your{\r} agent
+Dialogue: 0,0:00:21.36,0:00:21.72,Caption,,0,0,0,,{\an5\pos(540,1180)}And if your {\c&H004BB0E8}agent{\r}
+Dialogue: 0,0:00:21.72,0:00:22.04,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}does{\r} {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}all 3,{\r}
+Dialogue: 0,0:00:22.04,0:00:22.76,Caption,,0,0,0,,{\an5\pos(540,1180)}does {\fnPlayfair Display\c&H004BB0E8\fscx118\fscy118}all 3,{\r}
+Dialogue: 0,0:00:22.76,0:00:22.94,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}you{\r} know where to
+Dialogue: 0,0:00:22.94,0:00:23.12,Caption,,0,0,0,,{\an5\pos(540,1180)}you {\c&H004BB0E8}know{\r} where to
+Dialogue: 0,0:00:23.12,0:00:23.30,Caption,,0,0,0,,{\an5\pos(540,1180)}you know {\c&H004BB0E8}where{\r} to
+Dialogue: 0,0:00:23.30,0:00:23.46,Caption,,0,0,0,,{\an5\pos(540,1180)}you know where {\c&H004BB0E8}to{\r}
+Dialogue: 0,0:00:23.46,0:00:23.72,Caption,,0,0,0,,{\an5\pos(540,1180)}{\fscx88\fscy88\t(0,90,\fscx100\fscy100)}{\c&H004BB0E8}find{\r} us,
+Dialogue: 0,0:00:23.72,0:00:24.18,Caption,,0,0,0,,{\an5\pos(540,1180)}find {\c&H004BB0E8}us,{\r}

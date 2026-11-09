@@ -1,0 +1,159 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "4-hook-text",
+   "start": 0.0,
+   "end": 3.0,
+   "hide_captions": false,
+   "lines": [
+    {
+     "t": "Fire your",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "REALTOR",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 330
+    }
+   ],
+   "overlap": 60
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 3.65,
+   "end": 8.0,
+   "hide_captions": true,
+   "lines": [
+    {
+     "t": "can't explain",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 140
+    },
+    {
+     "t": "THE PRICE",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ],
+   "overlap": 60
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 8.15,
+   "end": 11.65,
+   "hide_captions": true,
+   "lines": [
+    {
+     "t": "lack of",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "COMMUNICATION",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ],
+   "overlap": 60
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 16.05,
+   "end": 18.2,
+   "hide_captions": true,
+   "lines": [
+    {
+     "t": "they",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "RUSH YOU",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ],
+   "overlap": -10
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 18.25,
+   "end": 19.85,
+   "hide_captions": true,
+   "overlap": 60,
+   "lines": [
+    {
+     "t": "your",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "DEADLINE",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 19.9,
+   "end": 20.9,
+   "hide_captions": true,
+   "overlap": 60,
+   "lines": [
+    {
+     "t": "not their",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "PAYCHECK",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 24.1,
+   "end": 25.15,
+   "hide_captions": true,
+   "lines": [
+    {
+     "t": "we're",
+     "font": "serif",
+     "color": "#B8862E",
+     "size": 150
+    },
+    {
+     "t": "ASHWOOD",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ],
+   "overlap": 60
+  }
+ ]
+}
