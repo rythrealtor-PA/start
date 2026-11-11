@@ -106,9 +106,19 @@ def build(ov, fonts, max_w, head_top=None, base_dir="."):
     else:
         y = ov.get("y", 560)
         top = (y if isinstance(y, (int, float)) else 560) - total / 2
+    if ov.get("layout") == "row":
+        # estilo 1 ("3 behind"): fotos en fila; la parte de abajo de cada una queda detrás de la cabeza.
+        # Cada elemento puede llevar "x" (centro horizontal, px) y "dy" (desplazamiento vertical, px).
+        n = len(imgs); placed = []
+        base = (head_top if head_top is not None else 700) + ov.get("overlap", 200)
+        for i, ((im, pad), item) in enumerate(zip(imgs, ov["lines"])):
+            cx = item.get("x", 1080 * (i + 0.5) / n)
+            bottom = base + pad + item.get("dy", 0)
+            placed.append((im, max(ov.get("min_top", 150) - pad, bottom - im.size[1]), cx))
+        return placed
     placed = []
     for (im, pad), h in zip(imgs, heights):
-        placed.append((im, top)); top += h
+        placed.append((im, top, None)); top += h
     return placed
 
 
@@ -119,10 +129,11 @@ def frame_layer(ov, placed, t, W, H):
     s, e = ov["start"], ov["end"]
     if t < s or t > e: return None
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0)); any_ = False
-    for i, (im, top) in enumerate(placed):
-        ls = s + i * STAGGER
+    stagger, in_d, out_d = ov.get("stagger", STAGGER), ov.get("in", IN_D), ov.get("out", OUT_D)
+    for i, (im, top, cx) in enumerate(placed):
+        ls = s + i * stagger
         if t < ls: continue
-        k_in = min(1.0, (t - ls) / IN_D); k_out = min(1.0, max(0.0, (e - t) / OUT_D))
+        k_in = min(1.0, (t - ls) / in_d); k_out = min(1.0, max(0.0, (e - t) / out_d))
         a = ease_out(k_in) * k_out
         if a <= 0.01: continue
         scale = (0.90 + 0.10 * ease_out(k_in)) * (1.0 + 0.04 * (1 - k_out))
@@ -130,7 +141,7 @@ def frame_layer(ov, placed, t, W, H):
         w, h = im.size; nw, nh = max(1, int(w * scale)), max(1, int(h * scale))
         li = im.resize((nw, nh), Image.BILINEAR) if scale != 1 else im.copy()
         if a < 1: li.putalpha(li.split()[3].point(lambda v: int(v * a)))
-        cx, cy = W / 2, top + h / 2 + dy
+        cx, cy = (W / 2 if cx is None else cx), top + h / 2 + dy
         canvas.alpha_composite(li, (int(cx - nw / 2), int(cy - nh / 2))); any_ = True
     return canvas if any_ else None
 

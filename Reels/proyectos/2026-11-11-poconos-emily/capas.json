@@ -1,0 +1,129 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "4-hook-text",
+   "start": 0.0,
+   "end": 3.0,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "would you trust a brokerage",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 110
+    },
+    {
+     "t": "10 DAYS OLD?",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 300
+    }
+   ]
+  },
+  {
+   "style": "4-hook-text",
+   "start": 3.05,
+   "end": 3.95,
+   "overlap": 60,
+   "lines": [
+    {
+     "t": "here's the",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 150
+    },
+    {
+     "t": "ANSWER",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "4-hook-text",
+   "start": 4.0,
+   "end": 7.0,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "a new brokerage, but",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 130
+    },
+    {
+     "t": "NOT NEW",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "1-three-behind",
+   "layout": "row",
+   "start": 14.3,
+   "end": 18.4,
+   "overlap": 260,
+   "stagger": 0.18,
+   "in": 0.45,
+   "out": 0.35,
+   "lines": [
+    {
+     "image": "../../broll/poconos-casa-lago.jpg",
+     "width": 440,
+     "height": 340,
+     "border": 8,
+     "rotate": -6,
+     "x": 225,
+     "dy": 0
+    },
+    {
+     "image": "../../broll/poconos-terraza-atardecer.jpg",
+     "width": 440,
+     "height": 340,
+     "border": 8,
+     "rotate": 3,
+     "x": 620,
+     "dy": -120
+    },
+    {
+     "image": "../../broll/poconos-lago-aereo.jpg",
+     "width": 440,
+     "height": 340,
+     "border": 8,
+     "rotate": 7,
+     "x": 900,
+     "dy": 30
+    }
+   ]
+  },
+  {
+   "style": "3-one-behind",
+   "start": 24.4,
+   "end": 26.4,
+   "overlap": 200,
+   "in": 0.4,
+   "out": 0.35,
+   "lines": [
+    {
+     "image": "../../broll/casa-nueva-render.jpg",
+     "width": 860,
+     "border": 10,
+     "rotate": -3
+    }
+   ]
+  }
+ ]
+}

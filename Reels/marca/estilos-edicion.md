@@ -51,3 +51,4 @@ ffmpeg -i proyectos/X/v3_texto.mp4 -vf "ass=proyectos/X/subs_final.ass:fontsdir=
 - `"y": "auto"` (valor por defecto) mide dónde está la cabeza y coloca el texto para que la tape solo un poco (`"overlap"`, 60 px; baja el número si la cabeza tapa demasiado, como cuando la persona se inclina hacia la cámara).
 - `"hide_captions": true` en las capas del estilo 2; `false` en el hook (estilo 4).
 - Estilos 1 y 3 (imágenes): en "lines" usa `{"image": "ruta.jpg", "width": 860, "border": 10, "radius": 28, "rotate": 0}` (ruta relativa a capas.json). Para el 3 ("1 behind") la capa dura 2 s y `"overlap"` ~200 para que la cabeza tape la parte de abajo de la foto.
+- Estilo 1 ("3 behind"): capa con `"layout": "row"` y 3 imágenes; cada una con `"x"`, `"dy"`, `"rotate"`, `"width"`/`"height"` (recorte). Ejemplo en `proyectos/2026-11-11-poconos-emily/capas.json`. Opciones de capa: `"stagger"`, `"in"`, `"out"` (segundos).
