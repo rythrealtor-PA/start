@@ -67,8 +67,34 @@ def render_line(line, fonts, max_w):
     return img, pad
 
 
-def build(ov, fonts, max_w, head_top=None):
-    imgs = [render_line(l, fonts, max_w) for l in ov["lines"]]
+def render_image(item, base_dir):
+    """Foto como tarjeta (estilos 1 y 3): esquinas redondeadas, borde blanco opcional y sombra suave."""
+    path = item["image"] if os.path.isabs(item["image"]) else os.path.join(base_dir, item["image"])
+    im = Image.open(path).convert("RGB")
+    w = int(item.get("width", 820)); h = int(im.size[1] * w / im.size[0])
+    if item.get("height"):  # recorte centrado a una altura fija
+        h = int(item["height"]); s = max(w / im.size[0], h / im.size[1])
+        im = im.resize((int(im.size[0] * s) + 1, int(im.size[1] * s) + 1), Image.LANCZOS)
+        l, t = (im.size[0] - w) // 2, (im.size[1] - h) // 2; im = im.crop((l, t, l + w, t + h))
+    else:
+        im = im.resize((w, h), Image.LANCZOS)
+    b, r, pad = int(item.get("border", 10)), int(item.get("radius", 28)), 50
+    card = Image.new("RGBA", (w + 2 * b, h + 2 * b), (255, 255, 255, 255))
+    card.paste(im, (b, b))
+    mask = Image.new("L", card.size, 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, *card.size), r, fill=255)
+    card.putalpha(mask)
+    out = Image.new("RGBA", (card.size[0] + 2 * pad, card.size[1] + 2 * pad), (0, 0, 0, 0))
+    sh = Image.new("RGBA", out.size, (0, 0, 0, 0))
+    sh.putalpha(Image.new("L", out.size, 0)); sa = sh.split()[3]
+    sa.paste(mask.point(lambda v: int(v * item.get("shadow", 0.35))), (pad, pad + 10))
+    sh.putalpha(sa.filter(ImageFilter.GaussianBlur(18)))
+    out.alpha_composite(sh); out.alpha_composite(card, (pad, pad))
+    if item.get("rotate"): out = out.rotate(item["rotate"], resample=Image.BICUBIC, expand=True)
+    return out, pad
+
+
+def build(ov, fonts, max_w, head_top=None, base_dir="."):
+    imgs = [render_image(l, base_dir) if "image" in l else render_line(l, fonts, max_w) for l in ov["lines"]]
     gap = ov.get("gap", -50)  # negativo: líneas pegadas, estilo editorial
     heights = [im.size[1] + (gap if i < len(imgs) - 1 else 0) for i, (im, _) in enumerate(imgs)]
     total = sum(heights)
@@ -158,7 +184,7 @@ def main():
     for ov in spec["overlays"]:
         ht = head_top(a.input, ov["start"], ov["end"], matter) if ov.get("y", "auto") == "auto" else None
         if ht is not None: print(f"  capa {ov['start']:.2f}s: cabeza en y={ht}")
-        ovs.append((ov, build(ov, fonts, max_w, ht)))
+        ovs.append((ov, build(ov, fonts, max_w, ht, os.path.dirname(os.path.abspath(a.spec)))))
 
     if a.ass_in and a.ass_out:
         filter_ass(a.ass_in, a.ass_out, [(o["start"], o["end"]) for o in spec["overlays"] if o.get("hide_captions")])
