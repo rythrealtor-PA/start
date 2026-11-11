@@ -1,0 +1,819 @@
+{
+ "source": "tomas/toma_airbnb.mp4",
+ "engine": "faster-whisper",
+ "model": "small",
+ "language": "en",
+ "duration": 52.666667,
+ "words": [
+  {
+   "w": "Buying",
+   "start": 0.0,
+   "end": 0.4
+  },
+  {
+   "w": "an",
+   "start": 0.4,
+   "end": 0.58
+  },
+  {
+   "w": "Airbnb",
+   "start": 0.58,
+   "end": 0.88
+  },
+  {
+   "w": "in",
+   "start": 0.88,
+   "end": 1.26
+  },
+  {
+   "w": "the",
+   "start": 1.26,
+   "end": 1.36
+  },
+  {
+   "w": "Poconos,",
+   "start": 1.36,
+   "end": 1.68
+  },
+  {
+   "w": "you",
+   "start": 2.0,
+   "end": 2.12
+  },
+  {
+   "w": "could",
+   "start": 2.12,
+   "end": 2.3
+  },
+  {
+   "w": "close",
+   "start": 2.3,
+   "end": 2.7
+  },
+  {
+   "w": "the",
+   "start": 2.7,
+   "end": 2.9
+  },
+  {
+   "w": "house",
+   "start": 2.9,
+   "end": 3.14
+  },
+  {
+   "w": "and",
+   "start": 3.14,
+   "end": 3.42
+  },
+  {
+   "w": "lose",
+   "start": 3.42,
+   "end": 3.68
+  },
+  {
+   "w": "the",
+   "start": 3.68,
+   "end": 3.84
+  },
+  {
+   "w": "rental",
+   "start": 3.84,
+   "end": 4.02
+  },
+  {
+   "w": "license",
+   "start": 4.02,
+   "end": 4.42
+  },
+  {
+   "w": "in",
+   "start": 4.42,
+   "end": 4.68
+  },
+  {
+   "w": "the",
+   "start": 4.68,
+   "end": 4.82
+  },
+  {
+   "w": "same",
+   "start": 4.82,
+   "end": 5.08
+  },
+  {
+   "w": "day.",
+   "start": 5.08,
+   "end": 5.32
+  },
+  {
+   "w": "Here",
+   "start": 5.78,
+   "end": 5.92
+  },
+  {
+   "w": "is",
+   "start": 5.92,
+   "end": 6.04
+  },
+  {
+   "w": "something",
+   "start": 6.04,
+   "end": 6.26
+  },
+  {
+   "w": "most",
+   "start": 6.26,
+   "end": 6.62
+  },
+  {
+   "w": "buyers",
+   "start": 6.62,
+   "end": 6.9
+  },
+  {
+   "w": "don't",
+   "start": 6.9,
+   "end": 7.42
+  },
+  {
+   "w": "know.",
+   "start": 7.42,
+   "end": 7.68
+  },
+  {
+   "w": "In",
+   "start": 8.08,
+   "end": 8.2
+  },
+  {
+   "w": "some",
+   "start": 8.2,
+   "end": 8.44
+  },
+  {
+   "w": "Poconos",
+   "start": 8.44,
+   "end": 8.84
+  },
+  {
+   "w": "Township,",
+   "start": 8.84,
+   "end": 9.38
+  },
+  {
+   "w": "the",
+   "start": 9.54,
+   "end": 9.56
+  },
+  {
+   "w": "rental",
+   "start": 9.56,
+   "end": 9.84
+  },
+  {
+   "w": "license",
+   "start": 9.84,
+   "end": 10.22
+  },
+  {
+   "w": "belongs",
+   "start": 10.22,
+   "end": 10.5
+  },
+  {
+   "w": "to",
+   "start": 10.5,
+   "end": 10.78
+  },
+  {
+   "w": "the",
+   "start": 10.78,
+   "end": 10.92
+  },
+  {
+   "w": "owner,",
+   "start": 10.92,
+   "end": 11.14
+  },
+  {
+   "w": "not",
+   "start": 11.58,
+   "end": 11.84
+  },
+  {
+   "w": "the",
+   "start": 11.84,
+   "end": 12.06
+  },
+  {
+   "w": "property.",
+   "start": 12.06,
+   "end": 12.4
+  },
+  {
+   "w": "Take",
+   "start": 12.82,
+   "end": 12.94
+  },
+  {
+   "w": "Pocono",
+   "start": 12.94,
+   "end": 13.38
+  },
+  {
+   "w": "Township,",
+   "start": 13.38,
+   "end": 13.84
+  },
+  {
+   "w": "where",
+   "start": 13.92,
+   "end": 14.04
+  },
+  {
+   "w": "Tannersville",
+   "start": 14.04,
+   "end": 14.52
+  },
+  {
+   "w": "is",
+   "start": 14.52,
+   "end": 14.76
+  },
+  {
+   "w": "located.",
+   "start": 14.76,
+   "end": 15.08
+  },
+  {
+   "w": "The",
+   "start": 15.56,
+   "end": 15.66
+  },
+  {
+   "w": "license",
+   "start": 15.66,
+   "end": 16.0
+  },
+  {
+   "w": "is",
+   "start": 16.0,
+   "end": 16.28
+  },
+  {
+   "w": "non",
+   "start": 16.28,
+   "end": 16.54
+  },
+  {
+   "w": "-transferable.",
+   "start": 16.54,
+   "end": 17.2
+  },
+  {
+   "w": "That",
+   "start": 17.34,
+   "end": 17.5
+  },
+  {
+   "w": "means",
+   "start": 17.5,
+   "end": 17.76
+  },
+  {
+   "w": "when",
+   "start": 17.76,
+   "end": 18.32
+  },
+  {
+   "w": "the",
+   "start": 18.32,
+   "end": 18.46
+  },
+  {
+   "w": "ownership",
+   "start": 18.46,
+   "end": 18.8
+  },
+  {
+   "w": "changed,",
+   "start": 18.8,
+   "end": 19.44
+  },
+  {
+   "w": "you",
+   "start": 19.76,
+   "end": 19.84
+  },
+  {
+   "w": "cannot",
+   "start": 19.84,
+   "end": 20.18
+  },
+  {
+   "w": "simply",
+   "start": 20.18,
+   "end": 20.6
+  },
+  {
+   "w": "take",
+   "start": 20.6,
+   "end": 20.8
+  },
+  {
+   "w": "over",
+   "start": 20.8,
+   "end": 21.04
+  },
+  {
+   "w": "the",
+   "start": 21.04,
+   "end": 21.24
+  },
+  {
+   "w": "seller's",
+   "start": 21.24,
+   "end": 21.66
+  },
+  {
+   "w": "license.",
+   "start": 21.66,
+   "end": 21.96
+  },
+  {
+   "w": "You",
+   "start": 22.1,
+   "end": 22.2
+  },
+  {
+   "w": "need",
+   "start": 22.2,
+   "end": 22.3
+  },
+  {
+   "w": "to",
+   "start": 22.3,
+   "end": 22.42
+  },
+  {
+   "w": "start",
+   "start": 22.42,
+   "end": 22.66
+  },
+  {
+   "w": "the",
+   "start": 22.66,
+   "end": 22.86
+  },
+  {
+   "w": "process",
+   "start": 22.86,
+   "end": 23.1
+  },
+  {
+   "w": "again.",
+   "start": 23.1,
+   "end": 23.42
+  },
+  {
+   "w": "Other",
+   "start": 23.66,
+   "end": 23.86
+  },
+  {
+   "w": "Townships",
+   "start": 23.86,
+   "end": 24.56
+  },
+  {
+   "w": "might",
+   "start": 24.56,
+   "end": 24.72
+  },
+  {
+   "w": "allow",
+   "start": 24.72,
+   "end": 25.2
+  },
+  {
+   "w": "you",
+   "start": 25.2,
+   "end": 25.44
+  },
+  {
+   "w": "to",
+   "start": 25.44,
+   "end": 25.58
+  },
+  {
+   "w": "apply",
+   "start": 25.58,
+   "end": 25.78
+  },
+  {
+   "w": "for",
+   "start": 25.78,
+   "end": 25.98
+  },
+  {
+   "w": "a",
+   "start": 25.98,
+   "end": 26.12
+  },
+  {
+   "w": "new",
+   "start": 26.12,
+   "end": 26.24
+  },
+  {
+   "w": "license,",
+   "start": 26.24,
+   "end": 26.7
+  },
+  {
+   "w": "but",
+   "start": 26.84,
+   "end": 27.0
+  },
+  {
+   "w": "that",
+   "start": 27.0,
+   "end": 27.2
+  },
+  {
+   "w": "doesn't",
+   "start": 27.2,
+   "end": 27.56
+  },
+  {
+   "w": "mean",
+   "start": 27.56,
+   "end": 27.8
+  },
+  {
+   "w": "automatic",
+   "start": 27.8,
+   "end": 28.44
+  },
+  {
+   "w": "approval.",
+   "start": 28.44,
+   "end": 28.96
+  },
+  {
+   "w": "You",
+   "start": 29.48,
+   "end": 29.54
+  },
+  {
+   "w": "might",
+   "start": 29.54,
+   "end": 29.74
+  },
+  {
+   "w": "still",
+   "start": 29.74,
+   "end": 30.02
+  },
+  {
+   "w": "need",
+   "start": 30.02,
+   "end": 30.22
+  },
+  {
+   "w": "to",
+   "start": 30.22,
+   "end": 30.38
+  },
+  {
+   "w": "do",
+   "start": 30.38,
+   "end": 30.54
+  },
+  {
+   "w": "an",
+   "start": 30.54,
+   "end": 30.68
+  },
+  {
+   "w": "inspection",
+   "start": 30.68,
+   "end": 31.14
+  },
+  {
+   "w": "and",
+   "start": 31.14,
+   "end": 31.66
+  },
+  {
+   "w": "meet",
+   "start": 31.66,
+   "end": 31.92
+  },
+  {
+   "w": "the",
+   "start": 31.92,
+   "end": 32.06
+  },
+  {
+   "w": "local",
+   "start": 32.06,
+   "end": 32.26
+  },
+  {
+   "w": "requirements.",
+   "start": 32.26,
+   "end": 32.88
+  },
+  {
+   "w": "So",
+   "start": 33.12,
+   "end": 33.14
+  },
+  {
+   "w": "before",
+   "start": 33.14,
+   "end": 33.36
+  },
+  {
+   "w": "you",
+   "start": 33.36,
+   "end": 33.6
+  },
+  {
+   "w": "buy,",
+   "start": 33.6,
+   "end": 33.84
+  },
+  {
+   "w": "ask",
+   "start": 34.0,
+   "end": 34.3
+  },
+  {
+   "w": "these",
+   "start": 34.3,
+   "end": 34.66
+  },
+  {
+   "w": "three",
+   "start": 34.66,
+   "end": 34.88
+  },
+  {
+   "w": "questions.",
+   "start": 34.88,
+   "end": 35.26
+  },
+  {
+   "w": "One,",
+   "start": 35.74,
+   "end": 35.9
+  },
+  {
+   "w": "does",
+   "start": 36.46,
+   "end": 36.5
+  },
+  {
+   "w": "the",
+   "start": 36.5,
+   "end": 36.64
+  },
+  {
+   "w": "rental",
+   "start": 36.64,
+   "end": 36.9
+  },
+  {
+   "w": "license",
+   "start": 36.9,
+   "end": 37.28
+  },
+  {
+   "w": "transfer",
+   "start": 37.28,
+   "end": 37.88
+  },
+  {
+   "w": "or",
+   "start": 37.88,
+   "end": 38.56
+  },
+  {
+   "w": "do",
+   "start": 38.56,
+   "end": 38.76
+  },
+  {
+   "w": "I",
+   "start": 38.76,
+   "end": 38.9
+  },
+  {
+   "w": "need",
+   "start": 38.9,
+   "end": 39.08
+  },
+  {
+   "w": "a",
+   "start": 39.08,
+   "end": 39.26
+  },
+  {
+   "w": "new",
+   "start": 39.26,
+   "end": 39.4
+  },
+  {
+   "w": "one?",
+   "start": 39.4,
+   "end": 39.64
+  },
+  {
+   "w": "Two,",
+   "start": 40.0,
+   "end": 40.18
+  },
+  {
+   "w": "would",
+   "start": 40.36,
+   "end": 40.46
+  },
+  {
+   "w": "this",
+   "start": 40.46,
+   "end": 40.7
+  },
+  {
+   "w": "property",
+   "start": 40.7,
+   "end": 40.98
+  },
+  {
+   "w": "pass",
+   "start": 40.98,
+   "end": 41.3
+  },
+  {
+   "w": "an",
+   "start": 41.3,
+   "end": 41.48
+  },
+  {
+   "w": "inspection",
+   "start": 41.48,
+   "end": 41.9
+  },
+  {
+   "w": "today?",
+   "start": 41.9,
+   "end": 42.4
+  },
+  {
+   "w": "And",
+   "start": 42.88,
+   "end": 43.1
+  },
+  {
+   "w": "three,",
+   "start": 43.1,
+   "end": 43.44
+  },
+  {
+   "w": "does",
+   "start": 43.7,
+   "end": 43.7
+  },
+  {
+   "w": "the",
+   "start": 43.7,
+   "end": 43.86
+  },
+  {
+   "w": "HOA",
+   "start": 43.86,
+   "end": 44.34
+  },
+  {
+   "w": "allow",
+   "start": 44.34,
+   "end": 44.68
+  },
+  {
+   "w": "short",
+   "start": 44.68,
+   "end": 45.02
+  },
+  {
+   "w": "and",
+   "start": 45.02,
+   "end": 45.22
+  },
+  {
+   "w": "rentals?",
+   "start": 45.22,
+   "end": 45.64
+  },
+  {
+   "w": "And",
+   "start": 46.14,
+   "end": 46.26
+  },
+  {
+   "w": "my",
+   "start": 46.26,
+   "end": 46.42
+  },
+  {
+   "w": "advice,",
+   "start": 46.42,
+   "end": 46.7
+  },
+  {
+   "w": "of",
+   "start": 46.88,
+   "end": 47.0
+  },
+  {
+   "w": "course,",
+   "start": 47.0,
+   "end": 47.22
+  },
+  {
+   "w": "is",
+   "start": 47.34,
+   "end": 47.44
+  },
+  {
+   "w": "to",
+   "start": 47.44,
+   "end": 47.58
+  },
+  {
+   "w": "talk",
+   "start": 47.58,
+   "end": 47.8
+  },
+  {
+   "w": "to",
+   "start": 47.8,
+   "end": 48.02
+  },
+  {
+   "w": "your",
+   "start": 48.02,
+   "end": 48.16
+  },
+  {
+   "w": "agent",
+   "start": 48.16,
+   "end": 48.62
+  },
+  {
+   "w": "about",
+   "start": 48.62,
+   "end": 49.16
+  },
+  {
+   "w": "protecting",
+   "start": 49.16,
+   "end": 49.78
+  },
+  {
+   "w": "yourself",
+   "start": 49.78,
+   "end": 50.3
+  },
+  {
+   "w": "with",
+   "start": 50.3,
+   "end": 50.56
+  },
+  {
+   "w": "the",
+   "start": 50.56,
+   "end": 50.66
+  },
+  {
+   "w": "right",
+   "start": 50.66,
+   "end": 50.84
+  },
+  {
+   "w": "contingencies",
+   "start": 50.84,
+   "end": 51.52
+  },
+  {
+   "w": "before",
+   "start": 51.52,
+   "end": 51.9
+  },
+  {
+   "w": "closing.",
+   "start": 51.9,
+   "end": 52.42
+  }
+ ]
+}
