@@ -99,6 +99,8 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | 2026-11-06 | Poconos Tier List carousel (7 slides: cover, full board, S / A / B / C tiers with 3 towns each, "Where would YOU rank your town?" CTA). No photos. Caption in `posts/poconos-tier-list/CAPTION.md` | https://www.canva.com/d/Kn1u5Llg_lqxPv5 |
 | 2026-11-07 | Meet the Wolf in Our Logo carousel (5 slides: cover "3 details most people miss", 01 faces the sunrise, 02 the fade, 03 Poconos mountains in the mane, CTA "comment 🐺"). Logo-study style, art in `posts/meet-the-wolf-carousel/art/` | https://www.canva.com/d/jUAWXSMQzp80e0V |
 | 2026-11-07 | Meet the Wolf reel (9:16, 23 s, silent; add trending audio in-app). Same story, animated from the vector logo: night → sunrise. File + source in `posts/meet-the-wolf-reel/`, captions EN/ES in `CAPTION.md` | MP4 in repo (Canva's upload tool doesn't take video) |
+| 2026-11-12 | Not Every Poconos Community Has the Same Rules carousel (7 slides: sticky-note cover, Emerald Lakes, Pocono Pines, Penn Estates, Indian Mountain Lake, Towamensing Trails, "Same Poconos. Different rulebook." + comment RULES). Each HOA slide: 2 photo boxes + HOA / amenities / parking / pets / STR. Sources, captions EN/ES in `posts/hoa-rules/CAPTION.md` | https://www.canva.com/d/PbeFU2m7dD_hNR0 |
+| 2026-11-12 | What $600K Buys You: NJ vs Poconos carousel (7 slides: 636 vs 4,056 sq ft cover, Hoboken, Mount Pocono, Nutley, East Stroudsburg receipts, $/sq ft chart, comment 600K). PA slides have 2 photo boxes. Home data, sources, listing-permission note, captions EN/ES in `posts/600k-nj-vs-poconos/CAPTION.md` | https://www.canva.com/d/7RLXEPvyQ2K_BiV |
 
 ### Seasonal palette: autumn (Fact of the Day posts)
 
@@ -127,6 +129,25 @@ Warm paper `#F4F1EA` with a drafting grid (`#E9E4D9` every 30 px, `#DCD5C6` ever
 ### Palette: night to sunrise (Meet the Wolf reel)
 
 Night navy `#040B18` → `#0D2A4A`, dawn gradient `#0A1834` → `#6E4A72` → `#E08A62`, sun `#FFD58A`/`#FFAE5E`, white logo with silver wolf, gold window `#FFC56B`. Headlines Cormorant Garamond Bold, labels Montserrat. Source in `posts/meet-the-wolf-reel/source/`.
+
+### Palette: cork bulletin board (HOA rules)
+
+Cork board in a wooden frame, white header card with a colored left bar, taped polaroid photo frames, and a pinned cream notice sheet. Row labels in JetBrains Mono:
+- THE HOA `#1F3A5F`
+- AMENITIES `#2C7A6B`
+- PARKING `#B8651B`
+- PETS `#7A4FA0`
+- SHORT-TERM RENTALS `#C0392B`
+
+Text colors: titles navy `#1F2D3D` (serif), location line `#5B6B7D`, disclaimer `#7A6F5C`. Footer band `#2A1A0C`, footer text `#F3E6CC`. Sticky notes and the READ FIRST stamp are in Caveat / Permanent Marker. Uses the navy logo. Art from `posts/hoa-rules/art/hoa.py`.
+
+### Palette: budget receipt (What $600K Buys You)
+
+Thermal-paper receipts with zigzag edges and labels in JetBrains Mono. Values are navy `#1F2D3D`; price per sq ft is red `#C0392B` for NJ and green `#2E7D4F` for PA.
+- NJ slides: slate night sky with a city skyline and yellow windows. Hook text gold `#F5C542`, footer band `#0E1013`.
+- PA slides: forest gradient with a sun `#F4A340`, mountains and pines. Hook text `#F4C26B`, footer band `#0F1F17`.
+
+White logo. Art from `posts/600k-nj-vs-poconos/art/k600.py`; receipt row positions are in `k600-layout.json`.
 
 ### Vector logo
 
