@@ -149,6 +149,45 @@ Thermal-paper receipts with zigzag edges and labels in JetBrains Mono. Values ar
 
 White logo. Art from `posts/600k-nj-vs-poconos/art/k600.py`; receipt row positions are in `k600-layout.json`.
 
+### Style: aesthetic background (Ryth's viral "Perfect Weekend" format)
+
+This is Ryth's best-performing format. References are in `reference/aesthetic-background/viral-slide-1..5.webp`, and the editable base is Ryth's Canva project https://canva.link/d3u2qbhwbkij2kc (design `DAHHImyweKc`). Every slide is a real photo, darkened, with white serif text on top. No cards, no flat colors.
+
+**Background**
+- Full-bleed photo with a black rectangle over the whole page.
+- Black overlay opacity: about 0.65 on the cover, 0.37–0.45 on content slides, 0.70 on the contact slide.
+
+**Cover**
+- One eye-catching landscape photo (mountains, forest, lake), darkened so the title pops.
+- Centered title block in the display serif (`YAFdJhem5V8` in Canva, same font as "Thinking about owning a piece of the Poconos?"). Measured at 1080x1350:
+  - Line 1–2 ("The Perfect / Weekend in"): about 150 px, y 220–500.
+  - Line 3–4 ("Pocono / Mountain"): the biggest, about 200 px, y 520–830.
+  - Small line ("according to residents"): about 60 px, y 860–900.
+- No boxes or logo on the cover except the small RW mark.
+
+**Content slides** (Sat Morning / Afternoon / Night)
+- Title box, top-left: "1.Sat Morning" at about 120–130 px in the display serif, white, inside a dark rounded box (black at about 70%, radius about 20). It starts at x about 30, y about 30.
+- Activity labels: about 55–60 px serif (Playfair Display style), white, each line in its own dark rounded box, with one emoji at the start or end ("☀️ Walk around Jim Thorpe", "☕ Coffee at Muggles' Mug", "🌙 Dinner at …").
+  - One label sits near the top under the title. The second sits mid-slide next to the photos, often right-aligned.
+- Photo boxes: 1–2 square photos (about 420–500 px) with a thick black border. They sit in the lower half, overlapping, with one straight and one tilted about 10–15°.
+  - These hold Ryth's own clear photos of the place, while the darkened background is a wider shot of the same place.
+- RW mark bottom-left (`YAFcfluH-FQ` heavy, `#D2D4D9`, about 60 px).
+
+**Last content slide** ("Why Locals Love the Pocono Mountains?")
+- Heading of 2 lines, about 110 px, centered at the top.
+- 3 checklist rows: a white circle (about 105 px) with a black check, plus the text (about 80 px serif) in a dark rounded box.
+- Closing line centered at the bottom, 3–4 lines, about 75 px: "Thinking of living in the Poconos? Weekends here feel different".
+
+**Contact slide**
+- Ryth's photo in a phone frame on the left, with the serif heading on the right.
+- Contact lines in bold sans: Let's talk / phone / email / Realtor in Pennsylvania / Hablo español.
+- Add "Ashwood Real Estate" so the brokerage is named (PA advertising rule).
+
+**Canva notes**
+- The text boxes use Canva's "Background" text effect for the dark rounded boxes, so editing the text keeps the box.
+- Photo boxes are frame shapes: drag a photo onto them to replace it.
+- Claude can't change font families through the Canva API, so new slides must start from pages that already have these fonts.
+
 ### Vector logo
 
 `posts/meet-the-wolf-reel/source/logo-vec.json` holds a vector trace of the serif logo (1261x649 space) split into `wolf`, `house` (tree + roof + window), `window`, `word` (ASHWOOD + REAL ESTATE) and `zig` (the mountain line in the wolf's mane). Use it for any zoom or animation of the logo; for print, still ask the designer for the original vector files.
