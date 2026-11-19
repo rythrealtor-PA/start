@@ -8,3 +8,19 @@
 | 4 | Despide a tu realtor si hace esto | Banderas rojas | Polémica sana + compartidos | 30–35 s | "If your realtor does any of these 3 things… fire them." | `🚩🚩🚩 Fire your realtor if…` | Guion listo |
 | 5 | Lo que tu agente se lleva de verdad | Matemática de la comisión | Confianza + compartidos | 45–55 s | "You think your agent made $10,000 on your house? Let me show you the real number." | `What your agent ACTUALLY takes home 💸` | Idea |
 | + | 3 cosas que nadie te dice al mudarte a los Poconos | Autoridad local | Marca | 44 s | "Moving to the Poconos from New York or Jersey? Three things nobody tells you until after closing." | `NY/NJ → Poconos: 3 surprises 😳` | Guion listo |
+
+## Ronda 2 (2026-11-19): análisis de mercado → 10 ideas para elegir 5
+Hallazgos: no hay un creador inmobiliario dominante en los Poconos (espacio libre); funciona video vertical 15–45 s, hiperlocal y constante; la gente busca barrios y consejos dentro de TikTok/IG (usar palabras clave en texto y caption). Datos de mercado de fuentes mixtas (verificar en el MLS antes de usarlos): Monroe County mediana vendida ~$335K (+13% interanual, jun-2026), ~51 días en el mercado; mediana de listado por pueblo ~$299K (Tobyhanna) a ~$500K (Pocono Pines).
+
+| # | Título | Hook | Formato | Objetivo | Estado |
+|---|---|---|---|---|---|
+| 6 | Mismo condado, $200K de diferencia | "Same county. Same mountains. A $200,000 difference. Here's why." | Autoridad local + gráfico | Viral + guardados | Idea |
+| 7 | Locales califican lugares turísticos | "I asked Poconos locals: overrated or underrated?" | Entrevista en la calle | Viral + marca | Idea |
+| 8 | Prepara tu casa para el invierno | "If you own a home in the Poconos, do this before the first big freeze." | 3 tips de temporada | Vendedores futuros | Idea |
+| 9 | Comprar en invierno | "Everyone waits for spring to buy in the Poconos. That's exactly why you shouldn't." | Contradicción | Leads compradores | Idea |
+| 10 | Antes de comprar un Airbnb en los Poconos | "Thinking of buying a Poconos Airbnb? Check this before you make an offer." | Costo del error | Leads inversionistas | Idea |
+| 11 | Lo más buscado en Google sobre los Poconos | "The most Googled questions about living in the Poconos, answered by a local broker." | Preguntas rápidas | Búsqueda + autoridad | Idea |
+| 12 | El mercado en 60 segundos (serie mensual) | "Poconos home prices just moved [X]%. Here's what it means for you." | Serie de datos | Autoridad recurrente | Idea |
+| 13 | Tour de 30 segundos | "This is what $[X] gets you in the Poconos right now." | Tour top 3 detalles | Leads compradores | Idea |
+| 14 | POV: acabas de abrir una brokerage | "POV: you just opened a real estate brokerage in the Poconos." | Humor / detrás de cámaras | Marca | Idea |
+| 15 | Clips de la entrevista con la title agent | "Someone could sell your house without you knowing." | Experto invitado | Viral + confianza | Grabado (pendiente edición) |
