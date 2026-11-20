@@ -11,18 +11,19 @@ Same county. Same mountains. A two hundred thousand dollar difference. Here's wh
 In Tobyhanna, the median listing is around $299,000. Down the road in Pocono Pines, it's closer to $500,000.
 
 [PUNTO 2]
-Reason one: water. Lakes and lake rights push prices up fast.
+And no, it's not the lakes. Tobyhanna has lake communities too.
 
 [PUNTO 3]
-But the reason most people miss is the community. Amenities, HOA dues, private roads. It all gets priced in.
+Reason one: the homes. In Pocono Pines, the typical home for sale is about [X] square feet, built around [YEAR]. In Tobyhanna, it's about [Y] square feet, built around [YEAR].
 
 [PUNTO 4]
-And three: the house itself. Size, age, and how close you are to I-80.
+Reason two: on the water versus near the water. Owning lakefront is a different price than walking to a community beach.
 
 [CIERRE]
-Pick the right town and you can save six figures. Which town should I break down next?
+So before you compare prices, compare what you're actually getting. Which town should I break down next?
 
 ## Notas
 - Texto en pantalla: `Same county. $200K difference 🤯` · gráfico de barras Tobyhanna vs Pocono Pines · mapa con los dos puntos.
 - Verificar en el MLS las medianas actuales antes de grabar (fuente: Realtor.com, junio 2026: ~$299K vs ~$500K).
-- Fair Housing: solo precio, agua, comunidad, casa y trayectos.
+- Fair Housing: solo precio, tamaño, antigüedad, agua y comunidad; nada sobre quién vive ahí.
+- Corregido 2026-11-20: la versión anterior decía que los lagos explicaban la diferencia, sin datos. Tobyhanna también tiene comunidades con lago (Arrowhead Lakes, Emerald Lakes, Pocono Farms). Las razones ahora salen del MLS: tamaño, año de construcción y cuántos listados son frente al lago.
