@@ -14,7 +14,7 @@ In Tobyhanna, the median listing is around $299,000. Down the road in Pocono Pin
 And no, it's not the lakes. Tobyhanna has lake communities too.
 
 [PUNTO 3]
-Reason one: the homes. The typical listing in Pocono Pines is about 2,400 square feet. In Tobyhanna, about 1,600.
+Reason one: the homes. The typical listing in Pocono Pines is about [2,400] square feet. In Tobyhanna, about [1,600].
 
 [PUNTO 4]
 Reason two: on the water versus near the water. Owning lakefront is a different price than walking to a community beach.
