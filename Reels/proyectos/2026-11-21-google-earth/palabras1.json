@@ -1,0 +1,669 @@
+{
+ "source": "tomas/google-earth/video1.mp4",
+ "engine": "faster-whisper",
+ "model": "small",
+ "language": "en",
+ "duration": 35.583333,
+ "words": [
+  {
+   "w": "The",
+   "start": 0.0,
+   "end": 0.22
+  },
+  {
+   "w": "down",
+   "start": 0.22,
+   "end": 0.46
+  },
+  {
+   "w": "payment",
+   "start": 0.46,
+   "end": 0.74
+  },
+  {
+   "w": "is",
+   "start": 0.74,
+   "end": 1.08
+  },
+  {
+   "w": "not",
+   "start": 1.08,
+   "end": 1.32
+  },
+  {
+   "w": "the",
+   "start": 1.32,
+   "end": 1.5
+  },
+  {
+   "w": "only",
+   "start": 1.5,
+   "end": 1.74
+  },
+  {
+   "w": "check",
+   "start": 1.74,
+   "end": 1.96
+  },
+  {
+   "w": "you",
+   "start": 1.96,
+   "end": 2.12
+  },
+  {
+   "w": "write",
+   "start": 2.12,
+   "end": 2.3
+  },
+  {
+   "w": "when",
+   "start": 2.3,
+   "end": 2.48
+  },
+  {
+   "w": "you're",
+   "start": 2.48,
+   "end": 2.66
+  },
+  {
+   "w": "buying",
+   "start": 2.66,
+   "end": 2.92
+  },
+  {
+   "w": "a",
+   "start": 2.92,
+   "end": 3.12
+  },
+  {
+   "w": "house.",
+   "start": 3.12,
+   "end": 3.46
+  },
+  {
+   "w": "Here",
+   "start": 3.76,
+   "end": 3.94
+  },
+  {
+   "w": "are",
+   "start": 3.94,
+   "end": 4.14
+  },
+  {
+   "w": "the",
+   "start": 4.14,
+   "end": 4.16
+  },
+  {
+   "w": "ones",
+   "start": 4.16,
+   "end": 4.42
+  },
+  {
+   "w": "nobody",
+   "start": 4.42,
+   "end": 4.9
+  },
+  {
+   "w": "warns",
+   "start": 4.9,
+   "end": 5.42
+  },
+  {
+   "w": "you",
+   "start": 5.42,
+   "end": 5.54
+  },
+  {
+   "w": "about.",
+   "start": 5.54,
+   "end": 5.88
+  },
+  {
+   "w": "We",
+   "start": 6.36,
+   "end": 6.5
+  },
+  {
+   "w": "have",
+   "start": 6.5,
+   "end": 6.74
+  },
+  {
+   "w": "lender",
+   "start": 6.74,
+   "end": 7.08
+  },
+  {
+   "w": "fees,",
+   "start": 7.08,
+   "end": 7.42
+  },
+  {
+   "w": "we",
+   "start": 7.68,
+   "end": 7.68
+  },
+  {
+   "w": "have",
+   "start": 7.68,
+   "end": 7.88
+  },
+  {
+   "w": "title",
+   "start": 7.88,
+   "end": 8.1
+  },
+  {
+   "w": "insurance,",
+   "start": 8.1,
+   "end": 8.52
+  },
+  {
+   "w": "the",
+   "start": 8.94,
+   "end": 8.98
+  },
+  {
+   "w": "pre",
+   "start": 8.98,
+   "end": 9.18
+  },
+  {
+   "w": "-sale.",
+   "start": 9.18,
+   "end": 9.48
+  },
+  {
+   "w": "You",
+   "start": 9.72,
+   "end": 9.8
+  },
+  {
+   "w": "could",
+   "start": 9.8,
+   "end": 9.98
+  },
+  {
+   "w": "ask",
+   "start": 9.98,
+   "end": 10.3
+  },
+  {
+   "w": "for",
+   "start": 10.3,
+   "end": 10.5
+  },
+  {
+   "w": "an",
+   "start": 10.5,
+   "end": 10.66
+  },
+  {
+   "w": "estimate",
+   "start": 10.66,
+   "end": 10.96
+  },
+  {
+   "w": "at",
+   "start": 10.96,
+   "end": 11.18
+  },
+  {
+   "w": "the",
+   "start": 11.18,
+   "end": 11.22
+  },
+  {
+   "w": "beginning",
+   "start": 11.22,
+   "end": 11.52
+  },
+  {
+   "w": "of",
+   "start": 11.52,
+   "end": 11.74
+  },
+  {
+   "w": "the",
+   "start": 11.74,
+   "end": 11.86
+  },
+  {
+   "w": "process.",
+   "start": 11.86,
+   "end": 12.2
+  },
+  {
+   "w": "The",
+   "start": 12.62,
+   "end": 12.68
+  },
+  {
+   "w": "other",
+   "start": 12.68,
+   "end": 12.82
+  },
+  {
+   "w": "one",
+   "start": 12.82,
+   "end": 12.98
+  },
+  {
+   "w": "is",
+   "start": 12.98,
+   "end": 13.1
+  },
+  {
+   "w": "the",
+   "start": 13.1,
+   "end": 13.22
+  },
+  {
+   "w": "transfer",
+   "start": 13.22,
+   "end": 13.54
+  },
+  {
+   "w": "tax.",
+   "start": 13.54,
+   "end": 13.88
+  },
+  {
+   "w": "In",
+   "start": 14.12,
+   "end": 14.2
+  },
+  {
+   "w": "Pennsylvania,",
+   "start": 14.2,
+   "end": 14.6
+  },
+  {
+   "w": "buyers",
+   "start": 15.18,
+   "end": 15.56
+  },
+  {
+   "w": "and",
+   "start": 15.56,
+   "end": 15.94
+  },
+  {
+   "w": "sellers",
+   "start": 15.94,
+   "end": 16.16
+  },
+  {
+   "w": "often",
+   "start": 16.16,
+   "end": 16.62
+  },
+  {
+   "w": "split",
+   "start": 16.62,
+   "end": 17.12
+  },
+  {
+   "w": "it.",
+   "start": 17.12,
+   "end": 17.32
+  },
+  {
+   "w": "Buyer",
+   "start": 17.64,
+   "end": 17.82
+  },
+  {
+   "w": "space",
+   "start": 17.82,
+   "end": 18.02
+  },
+  {
+   "w": "one",
+   "start": 18.02,
+   "end": 18.36
+  },
+  {
+   "w": "percent,",
+   "start": 18.36,
+   "end": 18.84
+  },
+  {
+   "w": "seller",
+   "start": 19.06,
+   "end": 19.2
+  },
+  {
+   "w": "space",
+   "start": 19.2,
+   "end": 19.44
+  },
+  {
+   "w": "one",
+   "start": 19.44,
+   "end": 19.72
+  },
+  {
+   "w": "percent.",
+   "start": 19.72,
+   "end": 20.18
+  },
+  {
+   "w": "You",
+   "start": 20.42,
+   "end": 20.56
+  },
+  {
+   "w": "could",
+   "start": 20.56,
+   "end": 20.72
+  },
+  {
+   "w": "ask",
+   "start": 20.72,
+   "end": 20.96
+  },
+  {
+   "w": "your",
+   "start": 20.96,
+   "end": 21.12
+  },
+  {
+   "w": "realtor",
+   "start": 21.12,
+   "end": 21.46
+  },
+  {
+   "w": "how",
+   "start": 21.46,
+   "end": 21.66
+  },
+  {
+   "w": "it",
+   "start": 21.66,
+   "end": 21.8
+  },
+  {
+   "w": "works",
+   "start": 21.8,
+   "end": 22.06
+  },
+  {
+   "w": "on",
+   "start": 22.06,
+   "end": 22.28
+  },
+  {
+   "w": "that",
+   "start": 22.28,
+   "end": 22.5
+  },
+  {
+   "w": "transaction.",
+   "start": 22.5,
+   "end": 23.02
+  },
+  {
+   "w": "And",
+   "start": 23.28,
+   "end": 23.38
+  },
+  {
+   "w": "the",
+   "start": 23.38,
+   "end": 23.52
+  },
+  {
+   "w": "last",
+   "start": 23.52,
+   "end": 23.66
+  },
+  {
+   "w": "one",
+   "start": 23.66,
+   "end": 23.82
+  },
+  {
+   "w": "are",
+   "start": 23.82,
+   "end": 24.0
+  },
+  {
+   "w": "the",
+   "start": 24.0,
+   "end": 24.1
+  },
+  {
+   "w": "home",
+   "start": 24.1,
+   "end": 24.3
+  },
+  {
+   "w": "inspections.",
+   "start": 24.3,
+   "end": 24.74
+  },
+  {
+   "w": "If",
+   "start": 25.02,
+   "end": 25.16
+  },
+  {
+   "w": "the",
+   "start": 25.16,
+   "end": 25.28
+  },
+  {
+   "w": "house",
+   "start": 25.28,
+   "end": 25.44
+  },
+  {
+   "w": "has",
+   "start": 25.44,
+   "end": 25.62
+  },
+  {
+   "w": "a",
+   "start": 25.62,
+   "end": 25.72
+  },
+  {
+   "w": "septic",
+   "start": 25.72,
+   "end": 26.1
+  },
+  {
+   "w": "system,",
+   "start": 26.1,
+   "end": 26.48
+  },
+  {
+   "w": "a",
+   "start": 26.9,
+   "end": 27.0
+  },
+  {
+   "w": "whale,",
+   "start": 27.0,
+   "end": 27.26
+  },
+  {
+   "w": "the",
+   "start": 27.26,
+   "end": 27.64
+  },
+  {
+   "w": "buyer",
+   "start": 27.64,
+   "end": 27.88
+  },
+  {
+   "w": "have",
+   "start": 27.88,
+   "end": 28.14
+  },
+  {
+   "w": "to",
+   "start": 28.14,
+   "end": 28.3
+  },
+  {
+   "w": "know",
+   "start": 28.3,
+   "end": 28.48
+  },
+  {
+   "w": "that",
+   "start": 28.48,
+   "end": 28.66
+  },
+  {
+   "w": "each",
+   "start": 28.66,
+   "end": 28.88
+  },
+  {
+   "w": "one",
+   "start": 28.88,
+   "end": 29.08
+  },
+  {
+   "w": "is",
+   "start": 29.08,
+   "end": 29.28
+  },
+  {
+   "w": "his",
+   "start": 29.28,
+   "end": 29.44
+  },
+  {
+   "w": "own",
+   "start": 29.44,
+   "end": 29.72
+  },
+  {
+   "w": "bill.",
+   "start": 29.72,
+   "end": 30.02
+  },
+  {
+   "w": "If",
+   "start": 30.3,
+   "end": 30.34
+  },
+  {
+   "w": "you",
+   "start": 30.34,
+   "end": 30.44
+  },
+  {
+   "w": "want",
+   "start": 30.44,
+   "end": 30.58
+  },
+  {
+   "w": "a",
+   "start": 30.58,
+   "end": 30.68
+  },
+  {
+   "w": "full",
+   "start": 30.68,
+   "end": 30.94
+  },
+  {
+   "w": "list",
+   "start": 30.94,
+   "end": 31.2
+  },
+  {
+   "w": "of",
+   "start": 31.2,
+   "end": 31.38
+  },
+  {
+   "w": "your",
+   "start": 31.38,
+   "end": 31.52
+  },
+  {
+   "w": "budget",
+   "start": 31.52,
+   "end": 31.84
+  },
+  {
+   "w": "before",
+   "start": 31.84,
+   "end": 32.16
+  },
+  {
+   "w": "your",
+   "start": 32.16,
+   "end": 32.34
+  },
+  {
+   "w": "start,",
+   "start": 32.34,
+   "end": 32.64
+  },
+  {
+   "w": "comment",
+   "start": 32.9,
+   "end": 33.18
+  },
+  {
+   "w": "the",
+   "start": 33.18,
+   "end": 33.36
+  },
+  {
+   "w": "word",
+   "start": 33.36,
+   "end": 33.54
+  },
+  {
+   "w": "cost",
+   "start": 33.54,
+   "end": 34.0
+  },
+  {
+   "w": "and",
+   "start": 34.0,
+   "end": 34.38
+  },
+  {
+   "w": "I",
+   "start": 34.38,
+   "end": 34.48
+  },
+  {
+   "w": "will",
+   "start": 34.48,
+   "end": 34.58
+  },
+  {
+   "w": "send",
+   "start": 34.58,
+   "end": 34.82
+  },
+  {
+   "w": "it",
+   "start": 34.82,
+   "end": 34.94
+  },
+  {
+   "w": "to",
+   "start": 34.94,
+   "end": 35.06
+  },
+  {
+   "w": "you.",
+   "start": 35.06,
+   "end": 35.2
+  }
+ ]
+}

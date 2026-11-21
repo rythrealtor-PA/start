@@ -1,0 +1,589 @@
+{
+ "source": "tomas/google-earth/video2.mp4",
+ "engine": "faster-whisper",
+ "model": "small",
+ "language": "en",
+ "duration": 28.216667,
+ "words": [
+  {
+   "w": "Everyone",
+   "start": 0.0,
+   "end": 0.46
+  },
+  {
+   "w": "waits",
+   "start": 0.46,
+   "end": 0.86
+  },
+  {
+   "w": "for",
+   "start": 0.86,
+   "end": 1.1
+  },
+  {
+   "w": "a",
+   "start": 1.1,
+   "end": 1.28
+  },
+  {
+   "w": "spring",
+   "start": 1.28,
+   "end": 1.54
+  },
+  {
+   "w": "to",
+   "start": 1.54,
+   "end": 1.76
+  },
+  {
+   "w": "buy",
+   "start": 1.76,
+   "end": 1.88
+  },
+  {
+   "w": "in",
+   "start": 1.88,
+   "end": 1.98
+  },
+  {
+   "w": "the",
+   "start": 1.98,
+   "end": 2.06
+  },
+  {
+   "w": "Poconos",
+   "start": 2.06,
+   "end": 2.4
+  },
+  {
+   "w": "and",
+   "start": 2.4,
+   "end": 2.74
+  },
+  {
+   "w": "that's",
+   "start": 2.74,
+   "end": 2.94
+  },
+  {
+   "w": "exactly",
+   "start": 2.94,
+   "end": 3.22
+  },
+  {
+   "w": "why",
+   "start": 3.22,
+   "end": 3.48
+  },
+  {
+   "w": "you",
+   "start": 3.48,
+   "end": 3.68
+  },
+  {
+   "w": "shouldn't.",
+   "start": 3.68,
+   "end": 4.06
+  },
+  {
+   "w": "Of",
+   "start": 4.18,
+   "end": 4.26
+  },
+  {
+   "w": "course",
+   "start": 4.26,
+   "end": 4.44
+  },
+  {
+   "w": "you",
+   "start": 4.44,
+   "end": 4.58
+  },
+  {
+   "w": "have",
+   "start": 4.58,
+   "end": 4.76
+  },
+  {
+   "w": "less",
+   "start": 4.76,
+   "end": 4.96
+  },
+  {
+   "w": "competition,",
+   "start": 4.96,
+   "end": 5.54
+  },
+  {
+   "w": "fewer",
+   "start": 5.7,
+   "end": 5.82
+  },
+  {
+   "w": "buyers",
+   "start": 5.82,
+   "end": 6.22
+  },
+  {
+   "w": "out",
+   "start": 6.22,
+   "end": 6.62
+  },
+  {
+   "w": "in",
+   "start": 6.62,
+   "end": 6.76
+  },
+  {
+   "w": "the",
+   "start": 6.76,
+   "end": 6.88
+  },
+  {
+   "w": "snow",
+   "start": 6.88,
+   "end": 7.1
+  },
+  {
+   "w": "means",
+   "start": 7.1,
+   "end": 7.44
+  },
+  {
+   "w": "more",
+   "start": 7.44,
+   "end": 7.84
+  },
+  {
+   "w": "room",
+   "start": 7.84,
+   "end": 8.12
+  },
+  {
+   "w": "to",
+   "start": 8.12,
+   "end": 8.28
+  },
+  {
+   "w": "negotiate.",
+   "start": 8.28,
+   "end": 8.76
+  },
+  {
+   "w": "If",
+   "start": 9.1,
+   "end": 9.18
+  },
+  {
+   "w": "you",
+   "start": 9.18,
+   "end": 9.3
+  },
+  {
+   "w": "don't",
+   "start": 9.3,
+   "end": 9.4
+  },
+  {
+   "w": "care",
+   "start": 9.4,
+   "end": 9.56
+  },
+  {
+   "w": "about",
+   "start": 9.56,
+   "end": 9.72
+  },
+  {
+   "w": "the",
+   "start": 9.72,
+   "end": 9.9
+  },
+  {
+   "w": "snow,",
+   "start": 9.9,
+   "end": 10.14
+  },
+  {
+   "w": "I'm",
+   "start": 10.36,
+   "end": 10.48
+  },
+  {
+   "w": "telling",
+   "start": 10.48,
+   "end": 10.74
+  },
+  {
+   "w": "you,",
+   "start": 10.74,
+   "end": 11.08
+  },
+  {
+   "w": "it's",
+   "start": 11.38,
+   "end": 11.6
+  },
+  {
+   "w": "a",
+   "start": 11.6,
+   "end": 11.7
+  },
+  {
+   "w": "great",
+   "start": 11.7,
+   "end": 11.9
+  },
+  {
+   "w": "idea.",
+   "start": 11.9,
+   "end": 12.28
+  },
+  {
+   "w": "Also,",
+   "start": 12.44,
+   "end": 12.6
+  },
+  {
+   "w": "sellers",
+   "start": 12.68,
+   "end": 12.9
+  },
+  {
+   "w": "who",
+   "start": 12.9,
+   "end": 13.16
+  },
+  {
+   "w": "lease",
+   "start": 13.16,
+   "end": 13.32
+  },
+  {
+   "w": "their",
+   "start": 13.32,
+   "end": 13.48
+  },
+  {
+   "w": "home",
+   "start": 13.48,
+   "end": 13.72
+  },
+  {
+   "w": "in",
+   "start": 13.72,
+   "end": 13.88
+  },
+  {
+   "w": "winter",
+   "start": 13.88,
+   "end": 14.18
+  },
+  {
+   "w": "are",
+   "start": 14.18,
+   "end": 14.72
+  },
+  {
+   "w": "often",
+   "start": 14.72,
+   "end": 15.12
+  },
+  {
+   "w": "more",
+   "start": 15.12,
+   "end": 15.44
+  },
+  {
+   "w": "motivated.",
+   "start": 15.44,
+   "end": 15.84
+  },
+  {
+   "w": "And",
+   "start": 16.2,
+   "end": 16.24
+  },
+  {
+   "w": "if",
+   "start": 16.24,
+   "end": 16.34
+  },
+  {
+   "w": "you",
+   "start": 16.34,
+   "end": 16.44
+  },
+  {
+   "w": "want",
+   "start": 16.44,
+   "end": 16.58
+  },
+  {
+   "w": "to",
+   "start": 16.58,
+   "end": 16.68
+  },
+  {
+   "w": "see",
+   "start": 16.68,
+   "end": 16.86
+  },
+  {
+   "w": "homes",
+   "start": 16.86,
+   "end": 17.12
+  },
+  {
+   "w": "in",
+   "start": 17.12,
+   "end": 17.34
+  },
+  {
+   "w": "winter,",
+   "start": 17.34,
+   "end": 17.7
+  },
+  {
+   "w": "you're",
+   "start": 17.82,
+   "end": 17.94
+  },
+  {
+   "w": "not",
+   "start": 17.94,
+   "end": 18.1
+  },
+  {
+   "w": "going",
+   "start": 18.1,
+   "end": 18.32
+  },
+  {
+   "w": "to",
+   "start": 18.32,
+   "end": 18.46
+  },
+  {
+   "w": "see",
+   "start": 18.46,
+   "end": 18.6
+  },
+  {
+   "w": "the",
+   "start": 18.6,
+   "end": 18.72
+  },
+  {
+   "w": "best",
+   "start": 18.72,
+   "end": 18.88
+  },
+  {
+   "w": "image",
+   "start": 18.88,
+   "end": 19.16
+  },
+  {
+   "w": "of",
+   "start": 19.16,
+   "end": 19.4
+  },
+  {
+   "w": "the",
+   "start": 19.4,
+   "end": 19.5
+  },
+  {
+   "w": "home,",
+   "start": 19.5,
+   "end": 19.78
+  },
+  {
+   "w": "but",
+   "start": 20.0,
+   "end": 20.2
+  },
+  {
+   "w": "if",
+   "start": 20.2,
+   "end": 20.32
+  },
+  {
+   "w": "you",
+   "start": 20.32,
+   "end": 20.42
+  },
+  {
+   "w": "love",
+   "start": 20.42,
+   "end": 20.62
+  },
+  {
+   "w": "it",
+   "start": 20.62,
+   "end": 20.76
+  },
+  {
+   "w": "now,",
+   "start": 20.76,
+   "end": 21.06
+  },
+  {
+   "w": "you",
+   "start": 21.44,
+   "end": 21.6
+  },
+  {
+   "w": "will",
+   "start": 21.6,
+   "end": 21.76
+  },
+  {
+   "w": "love",
+   "start": 21.76,
+   "end": 21.92
+  },
+  {
+   "w": "it",
+   "start": 21.92,
+   "end": 22.02
+  },
+  {
+   "w": "in",
+   "start": 22.02,
+   "end": 22.16
+  },
+  {
+   "w": "July.",
+   "start": 22.16,
+   "end": 22.36
+  },
+  {
+   "w": "If",
+   "start": 22.72,
+   "end": 22.82
+  },
+  {
+   "w": "you're",
+   "start": 22.82,
+   "end": 22.94
+  },
+  {
+   "w": "planning",
+   "start": 22.94,
+   "end": 23.08
+  },
+  {
+   "w": "to",
+   "start": 23.08,
+   "end": 23.26
+  },
+  {
+   "w": "see",
+   "start": 23.26,
+   "end": 23.38
+  },
+  {
+   "w": "homes",
+   "start": 23.38,
+   "end": 23.6
+  },
+  {
+   "w": "in",
+   "start": 23.6,
+   "end": 23.82
+  },
+  {
+   "w": "winter,",
+   "start": 23.82,
+   "end": 24.16
+  },
+  {
+   "w": "comment",
+   "start": 24.66,
+   "end": 24.8
+  },
+  {
+   "w": "the",
+   "start": 24.8,
+   "end": 24.98
+  },
+  {
+   "w": "word",
+   "start": 24.98,
+   "end": 25.18
+  },
+  {
+   "w": "winter",
+   "start": 25.18,
+   "end": 25.56
+  },
+  {
+   "w": "and",
+   "start": 25.56,
+   "end": 25.76
+  },
+  {
+   "w": "I",
+   "start": 25.76,
+   "end": 25.82
+  },
+  {
+   "w": "will",
+   "start": 25.82,
+   "end": 25.96
+  },
+  {
+   "w": "send",
+   "start": 25.96,
+   "end": 26.14
+  },
+  {
+   "w": "you",
+   "start": 26.14,
+   "end": 26.26
+  },
+  {
+   "w": "what",
+   "start": 26.26,
+   "end": 26.42
+  },
+  {
+   "w": "to",
+   "start": 26.42,
+   "end": 26.54
+  },
+  {
+   "w": "check",
+   "start": 26.54,
+   "end": 26.84
+  },
+  {
+   "w": "on",
+   "start": 26.84,
+   "end": 27.1
+  },
+  {
+   "w": "a",
+   "start": 27.1,
+   "end": 27.26
+  },
+  {
+   "w": "cold",
+   "start": 27.26,
+   "end": 27.46
+  },
+  {
+   "w": "water",
+   "start": 27.46,
+   "end": 27.66
+  },
+  {
+   "w": "showing.",
+   "start": 27.66,
+   "end": 28.0
+  }
+ ]
+}
