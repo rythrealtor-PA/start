@@ -52,3 +52,8 @@ ffmpeg -i proyectos/X/v3_texto.mp4 -vf "ass=proyectos/X/subs_final.ass:fontsdir=
 - `"hide_captions": true` en las capas del estilo 2; `false` en el hook (estilo 4).
 - Estilos 1 y 3 (imágenes): en "lines" usa `{"image": "ruta.jpg", "width": 860, "border": 10, "radius": 28, "rotate": 0}` (ruta relativa a capas.json). Para el 3 ("1 behind") la capa dura 2 s y `"overlap"` ~200 para que la cabeza tape la parte de abajo de la foto.
 - Estilo 1 ("3 behind"): capa con `"layout": "row"` y 3 imágenes; cada una con `"x"`, `"dy"`, `"rotate"`, `"width"`/`"height"` (recorte). Ejemplo en `proyectos/2026-11-11-poconos-emily/capas.json`. Opciones de capa: `"stagger"`, `"in"`, `"out"` (segundos).
+
+## Extras (agregados el 2026-11-21, video "Google questions")
+- **Fondo de video detrás de la persona:** en capas.json, `"backgrounds": [{"video": "../../broll/clip.mp4", "start": 0, "end": 2.85, "fade_in": 0, "fade_out": 0.3}]`. El clip reemplaza la pared y la persona queda al frente; los títulos van entre el fondo y la persona. Úsalo en el hook en vez de una toma de Google Earth.
+- **Barra de búsqueda que se escribe sola:** en "lines", `{"search": "is it expensive to live in the Poconos?", "width": 1000, "height": 150, "size": 50, "type_time": 1.3}`. Es genérica, sin logo de Google. Usa `overlap` ~40 para que la cabeza toque solo el borde de abajo y la pregunta se lea.
+- **Clips de stock con cortes bruscos:** usa una sola toma en cámara lenta suavizada (`setpts=2*PTS,minterpolate=fps=30:mi_mode=mci`), sin cortes dentro del hook.

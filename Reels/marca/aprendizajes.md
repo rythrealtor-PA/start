@@ -16,3 +16,5 @@
 - 2026-11-11: Video "Airbnb / rental license": el usuario pidió NO cortar el video y NO poner subtítulos; solo hook text (títulos detrás de la cabeza) + 1 behind con la foto que manda.
 - 2026-11-11: Video "brokerage de 10 días" (Ashwood, Heather y Emily): hook text SOLO en los primeros 8 s, sin títulos después, sin subtítulos y sin cortes. 3 behind cuando habla de los Poconos; 1 behind (foto de casa) cuando habla de la experiencia de Emily.
 - 2026-11-11: 3 behind: las tarjetas van bajas (overlap ~260) y la del medio va centrada sobre la cabeza, que no siempre está al centro del cuadro, para que de verdad queden detrás. Si el video original ya trae gráficos (como la foto de las agentes), no los tapes.
+- 2026-11-21: Videos de la carpeta "Google Earth" ya traen subtítulos quemados del usuario: NO tocarlos (él los revisa). Se les aplica corrección de color suave (eq brightness 0.04, contrast 1.06, saturation 1.08 + colorbalance cálido) porque salen oscuros.
+- 2026-11-21: Video 3 (preguntas de Google): títulos en todo el video (el usuario aprobó el plan completo), fondo de drone en el hook y barras de búsqueda en cada pregunta.

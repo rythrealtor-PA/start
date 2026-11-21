@@ -93,10 +93,42 @@ def render_image(item, base_dir):
     return out, pad
 
 
+def render_search(item, fonts):
+    """Barra de búsqueda genérica (sin logos de marcas). Devuelve una lista de cuadros: uno por cada
+    letra escrita (con cursor) y uno final sin cursor, para el parpadeo."""
+    text = item["search"]; w = int(item.get("width", 960)); h = int(item.get("height", 132)); pad = 40
+    f = ImageFont.truetype(item.get("font_path", "/usr/share/fonts/opentype/inter/Inter-Medium.otf"), int(item.get("size", 44)))
+    while f.getlength(text) > w - 170 and f.size > 24:
+        f = ImageFont.truetype(f.path, f.size - 2)
+    base = Image.new("RGBA", (w + 2 * pad, h + 2 * pad), (0, 0, 0, 0))
+    m = Image.new("L", base.size, 0); ImageDraw.Draw(m).rounded_rectangle((pad, pad + 10, pad + w, pad + h + 10), h // 2, fill=90)
+    sh = Image.new("RGBA", base.size, (0, 0, 0, 0)); sh.putalpha(m.filter(ImageFilter.GaussianBlur(16)))
+    base.alpha_composite(sh)
+    d = ImageDraw.Draw(base)
+    d.rounded_rectangle((pad, pad, pad + w, pad + h), h // 2, fill=(255, 255, 255, 255), outline=(220, 220, 220, 255), width=2)
+    cx, cy, r = pad + 62, pad + h // 2 - 4, 18  # lupa
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=(110, 110, 110, 255), width=5)
+    d.line((cx + 13, cy + 13, cx + 28, cy + 28), fill=(110, 110, 110, 255), width=6)
+    tx, ty = pad + 110, pad + h // 2
+    frames = []
+    for n in range(len(text) + 1):
+        im = base.copy(); dd = ImageDraw.Draw(im); sub = text[:n]
+        dd.text((tx, ty), sub, font=f, fill=(32, 33, 36, 255), anchor="lm")
+        x = tx + f.getlength(sub) + 4
+        dd.line((x, ty - f.size * 0.55, x, ty + f.size * 0.55), fill=(26, 115, 232, 255), width=4)
+        frames.append(im)
+    im = base.copy(); ImageDraw.Draw(im).text((tx, ty), text, font=f, fill=(32, 33, 36, 255), anchor="lm")
+    frames.append(im)
+    return frames, pad
+
+
 def build(ov, fonts, max_w, head_top=None, base_dir="."):
-    imgs = [render_image(l, base_dir) if "image" in l else render_line(l, fonts, max_w) for l in ov["lines"]]
+    imgs = [render_image(l, base_dir) if "image" in l else render_search(l, fonts) if "search" in l
+            else render_line(l, fonts, max_w) for l in ov["lines"]]
+    _sz = lambda im: (im[0] if isinstance(im, list) else im).size
+    imgs_sz = [(_sz(im), pad) for im, pad in imgs]
     gap = ov.get("gap", -50)  # negativo: líneas pegadas, estilo editorial
-    heights = [im.size[1] + (gap if i < len(imgs) - 1 else 0) for i, (im, _) in enumerate(imgs)]
+    heights = [sz[1] + (gap if i < len(imgs) - 1 else 0) for i, (sz, _) in enumerate(imgs_sz)]
     total = sum(heights)
     if ov.get("y", "auto") == "auto" and head_top is not None:
         # la cabeza tapa solo la parte de abajo del bloque ("overlap" px, contando el margen de la última línea)
@@ -114,7 +146,7 @@ def build(ov, fonts, max_w, head_top=None, base_dir="."):
         for i, ((im, pad), item) in enumerate(zip(imgs, ov["lines"])):
             cx = item.get("x", 1080 * (i + 0.5) / n)
             bottom = base + pad + item.get("dy", 0)
-            placed.append((im, max(ov.get("min_top", 150) - pad, bottom - im.size[1]), cx))
+            placed.append((im, max(ov.get("min_top", 150) - pad, bottom - _sz(im)[1]), cx))
         return placed
     placed = []
     for (im, pad), h in zip(imgs, heights):
@@ -133,6 +165,10 @@ def frame_layer(ov, placed, t, W, H):
     for i, (im, top, cx) in enumerate(placed):
         ls = s + i * stagger
         if t < ls: continue
+        if isinstance(im, list):  # barra de búsqueda: escribe y luego parpadea el cursor
+            item = ov["lines"][i]; tt = t - ls - item.get("type_delay", 0.25); L = len(im) - 2
+            n = int(L * min(1.0, max(0.0, tt / item.get("type_time", 1.2))))
+            im = im[n] if (n < L or int(tt * 2) % 2 == 0) else im[-1]
         k_in = min(1.0, (t - ls) / in_d); k_out = min(1.0, max(0.0, (e - t) / out_d))
         a = ease_out(k_in) * k_out
         if a <= 0.01: continue
@@ -207,6 +243,23 @@ def main():
                             "-r", str(fps), "-i", "-", "-i", a.input, "-map", "0:v", "-map", "1:a?", "-c:v", "libx264",
                             "-crf", a.crf, "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "copy", "-shortest",
                             a.output], stdin=subprocess.PIPE)
+    bgs = []
+    for b in spec.get("backgrounds", []):
+        path = b["video"] if os.path.isabs(b["video"]) else os.path.join(os.path.dirname(os.path.abspath(a.spec)), b["video"])
+        bgs.append(dict(b, path=path, pipe=None))
+
+    def bg_frame(b, t):
+        if b["pipe"] is None:
+            vf = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={fps}"
+            if b.get("grade"): vf += "," + b["grade"]
+            b["pipe"] = subprocess.Popen(["ffmpeg", "-v", "error", "-ss", str(b.get("src_start", 0)), "-i", b["path"],
+                                          "-t", str(b["end"] - b["start"] + 1), "-vf", vf, "-f", "rawvideo",
+                                          "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+            b["last"] = None
+        raw = b["pipe"].stdout.read(W * H * 3)
+        if len(raw) == W * H * 3: b["last"] = np.frombuffer(raw, np.uint8).reshape(H, W, 3)
+        return b["last"]
+
     prev = None; i = 0; fsz = W * H * 3
     while True:
         buf = dec.stdout.read(fsz)
@@ -214,16 +267,26 @@ def main():
         t = i / fps; i += 1
         frame = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
         layers = [l for l in (frame_layer(o, p, t, W, H) for o, p in ovs) if l is not None]
-        if not layers:
+        active_bg = [b for b in bgs if b["start"] <= t < b["end"]]
+        if not layers and not active_bg:
             prev = None; enc.stdin.write(buf); continue
         m = matter(frame)
         if prev is not None and prev.shape == m.shape: m = 0.65 * m + 0.35 * prev  # menos parpadeo
         prev = m
-        text = layers[0]
-        for l in layers[1:]: text.alpha_composite(l)
-        tx = np.asarray(text, np.float32)
-        at = (tx[..., 3:4] / 255.0) * (1.0 - m[..., None])
-        out = frame.astype(np.float32) * (1 - at) + tx[..., :3] * at
+        back = frame.astype(np.float32)
+        for b in active_bg:
+            bf = bg_frame(b, t)
+            if bf is None: continue
+            fi, fo = b.get("fade_in", b.get("fade", 0.25)), b.get("fade_out", b.get("fade", 0.25))
+            k = min(1.0, (t - b["start"]) / fi if fi > 0 else 1.0, (b["end"] - t) / fo if fo > 0 else 1.0)
+            back = back * (1 - k) + bf.astype(np.float32) * k
+        if layers:
+            text = layers[0]
+            for l in layers[1:]: text.alpha_composite(l)
+            tx = np.asarray(text, np.float32); at = tx[..., 3:4] / 255.0
+            back = back * (1 - at) + tx[..., :3] * at
+        mm = m[..., None]
+        out = frame.astype(np.float32) * mm + back * (1 - mm)
         enc.stdin.write(out.clip(0, 255).astype(np.uint8).tobytes())
         if i % 60 == 0: print(f"  {t:5.1f}s", flush=True)
     enc.stdin.close(); enc.wait(); dec.wait()
