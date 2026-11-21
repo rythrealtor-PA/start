@@ -28,7 +28,7 @@
    "style": "2-texto-grande",
    "start": 3.05,
    "end": 4.15,
-   "overlap": 10,
+   "overlap": -40,
    "lines": [
     {
      "t": "that's exactly why",
@@ -120,7 +120,7 @@
    "style": "2-texto-grande",
    "start": 19.9,
    "end": 22.6,
-   "overlap": 10,
+   "overlap": -40,
    "lines": [
     {
      "t": "if you love it now, you'll",

@@ -161,29 +161,6 @@
      "max_size": 320
     }
    ]
-  },
-  {
-   "style": "2-texto-grande",
-   "start": 32.8,
-   "end": 35.5,
-   "overlap": 40,
-   "lines": [
-    {
-     "t": "comment the word",
-     "font": "serif",
-     "color": "#FFFFFF",
-     "shadow": 0.85,
-     "fit": true,
-     "max_size": 140
-    },
-    {
-     "t": "\"COST\"",
-     "font": "heavy",
-     "color": "#161616",
-     "fit": true,
-     "max_size": 320
-    }
-   ]
   }
  ]
 }
