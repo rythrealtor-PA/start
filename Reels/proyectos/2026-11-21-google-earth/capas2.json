@@ -1,0 +1,143 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "4-hook-text",
+   "start": 0.0,
+   "end": 3.0,
+   "overlap": 40,
+   "lines": [
+    {
+     "t": "everyone waits for",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "SPRING",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 3.05,
+   "end": 4.15,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "that's exactly why",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "YOU SHOULDN'T",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 4.2,
+   "end": 5.6,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "less",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "COMPETITION",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 5.7,
+   "end": 8.9,
+   "overlap": 20,
+   "lines": [
+    {
+     "t": "more room to",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "NEGOTIATE",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 12.5,
+   "end": 15.9,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "winter sellers are",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "MORE MOTIVATED",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 19.9,
+   "end": 22.6,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "if you love it now, you'll",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 110
+    },
+    {
+     "t": "LOVE IT IN JULY",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  }
+ ]
+}

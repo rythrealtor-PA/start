@@ -1,0 +1,189 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "4-hook-text",
+   "start": 0.0,
+   "end": 3.0,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "the down payment is not the only",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 100
+    },
+    {
+     "t": "CHECK YOU WRITE",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 6.4,
+   "end": 7.6,
+   "overlap": 20,
+   "lines": [
+    {
+     "t": "#1",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "LENDER FEES",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 7.7,
+   "end": 9.6,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "#2",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "TITLE INSURANCE",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 12.6,
+   "end": 17.4,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "the other one",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "TRANSFER TAX",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 17.5,
+   "end": 20.3,
+   "overlap": 40,
+   "lines": [
+    {
+     "t": "buyer + seller",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "1% + 1%",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 23.3,
+   "end": 26.6,
+   "overlap": 10,
+   "lines": [
+    {
+     "t": "the last one",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "HOME INSPECTIONS",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 26.7,
+   "end": 30.1,
+   "overlap": 40,
+   "lines": [
+    {
+     "t": "septic & well: each one is its",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 110
+    },
+    {
+     "t": "OWN BILL",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 32.8,
+   "end": 35.5,
+   "overlap": 40,
+   "lines": [
+    {
+     "t": "comment the word",
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 140
+    },
+    {
+     "t": "\"COST\"",
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 320
+    }
+   ]
+  }
+ ]
+}
