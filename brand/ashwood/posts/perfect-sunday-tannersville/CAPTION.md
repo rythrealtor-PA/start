@@ -5,15 +5,25 @@
 Built in Canva from your Mount Pocono carousel, so it's the same style: 65% / 37% / 70% black overlays, black photo frames, serif labels and your contact slide.
 
 **Files**
-- `slide-1..6.png`: the Canva export.
-- `backgrounds/`: the photos. `tann-3-afternoon-aerial.jpg` and `tann-4-night-toned.jpg` are the ones used in Canva for slides 3 and 4.
-- `frames/`: the free-license photo used in a frame.
+- `slide-1..6.png`: your edited version from Canva.
+- `video/perfect-sunday-tannersville.mp4`: the slideshow video (see "Video" below).
+- `backgrounds/`: the background photos. `tann-3-afternoon-aerial.jpg` and `tann-4-night-toned.jpg` are the ones used in Canva for slides 3 and 4.
 - `preview-slide-*.png`: the older mock-up, kept for reference.
 
-**Your photos:** the frames that say "Your photo" are waiting for your own pictures. There are no free-license photos of Barley Creek or the Tannersville Inn. In Canva, drag your photo onto the frame to replace it.
-- Slide 2 (brunch): 2 frames.
-- Slide 3: 1 frame. The other one shows Camelback snowmaking.
-- Slide 4 (Tannersville Inn): 2 frames.
+All the photo frames now have your own photos.
+
+## Video
+
+32 seconds, 1080x1350, straight cuts, no music (add chill audio in Instagram). Each slide's time follows how much there is to read and look at:
+
+| Slide | Seconds | Why |
+|---|---|---|
+| 1 Cover | 4 | Title only |
+| 2 Sun Morning | 6 | 2 photos + the longest labels (the fun fact) |
+| 3 Sun Afternoon | 6 | 2 photos + 2 labels |
+| 4 Sun Night | 5 | 2 photos, but the shortest labels |
+| 5 Why Locals Love | 6 | The most text |
+| 6 Contact | 5 | 1 photo; time to read your number |
 
 ## The plan (every stop within 10 minutes of the next)
 
@@ -51,10 +61,9 @@ The backgrounds are real photos of the area, but not of the restaurants themselv
 | 1 cover, 5 | Camelback ski slopes | Public domain (Ekem / Andrew Rodland, Wikimedia Commons) |
 | 2 | View south from Camelback Mountain, Big Pocono State Park | Dough4872, CC BY-SA 3.0 |
 | 3 background | Camelback Ski Area from the air, Feb 2014 | Jkarps, CC BY-SA 4.0 |
-| 3 frame | Snowmaking at Camelback ("SuperCrystal@Camelback") | Meanmachine.mdp, CC BY-SA 3.0 |
 | 4 (night-toned) | Summit of Camelback Mountain, Big Pocono State Park | Famartin, CC BY-SA 4.0 |
 
-Paste this in the caption or first comment (required by CC BY-SA): "Photos via Wikimedia Commons: Dough4872, Meanmachine.mdp (CC BY-SA 3.0); Famartin, Jkarps (CC BY-SA 4.0); cropped and darkened."
+Paste this in the caption or first comment (required by CC BY-SA): "Background photos via Wikimedia Commons: Dough4872 (CC BY-SA 3.0); Famartin, Jkarps (CC BY-SA 4.0); cropped and darkened."
 
 ## Caption (EN)
 
