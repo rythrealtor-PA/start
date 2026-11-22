@@ -122,9 +122,29 @@ def render_search(item, fonts):
     return frames, pad
 
 
+def render_count(item, fonts, max_w):
+    """Número que cuenta hacia arriba: {"count": 300, "fmt": "${}K", ...}. Devuelve un cuadro por paso."""
+    final = item["fmt"].format(item["count"])
+    probe_img, pad = render_line(dict(item, t=final), fonts, max_w)
+    size = int(item.get("max_size", 300))
+    if item.get("fit"):
+        path = fonts[item.get("font", "heavy")]
+        while size > 40:
+            f = ImageFont.truetype(path, size); b = f.getbbox(final)
+            if b[2] - b[0] <= max_w: break
+            size -= 4
+    steps = int(item.get("steps", 40)); frames = []; last = None
+    for k in range(steps + 1):
+        v = round(item["count"] * k / steps); s_ = item["fmt"].format(v)
+        if s_ != last or k == steps:
+            frames.append(render_line(dict(item, t=s_, fit=False, size=size), fonts, max_w)[0]); last = s_
+    frames.append(frames[-1])  # cuadro final repetido (la misma convención que la barra de búsqueda)
+    return frames, pad
+
+
 def build(ov, fonts, max_w, head_top=None, base_dir="."):
     imgs = [render_image(l, base_dir) if "image" in l else render_search(l, fonts) if "search" in l
-            else render_line(l, fonts, max_w) for l in ov["lines"]]
+            else render_count(l, fonts, max_w) if "count" in l else render_line(l, fonts, max_w) for l in ov["lines"]]
     _sz = lambda im: (im[0] if isinstance(im, list) else im).size
     imgs_sz = [(_sz(im), pad) for im, pad in imgs]
     gap = ov.get("gap", -50)  # negativo: líneas pegadas, estilo editorial
@@ -165,7 +185,10 @@ def frame_layer(ov, placed, t, W, H):
     for i, (im, top, cx) in enumerate(placed):
         ls = s + i * stagger
         if t < ls: continue
-        if isinstance(im, list):  # barra de búsqueda: escribe y luego parpadea el cursor
+        if isinstance(im, list) and "count" in ov["lines"][i]:  # número que cuenta hacia arriba
+            item = ov["lines"][i]; tt = t - ls - item.get("count_delay", 0.1); L = len(im) - 2
+            im = im[int(round(L * ease_out(min(1.0, max(0.0, tt / item.get("count_time", 0.9))))))]
+        elif isinstance(im, list):  # barra de búsqueda: escribe y luego parpadea el cursor
             item = ov["lines"][i]; tt = t - ls - item.get("type_delay", 0.25); L = len(im) - 2
             n = int(L * min(1.0, max(0.0, tt / item.get("type_time", 1.2))))
             im = im[n] if (n < L or int(tt * 2) % 2 == 0) else im[-1]
@@ -266,9 +289,10 @@ def main():
         if len(buf) < fsz: break
         t = i / fps; i += 1
         frame = np.frombuffer(buf, np.uint8).reshape(H, W, 3)
-        layers = [l for l in (frame_layer(o, p, t, W, H) for o, p in ovs) if l is not None]
+        layers = [l for l in (frame_layer(o, p, t, W, H) for o, p in ovs if not o.get("front")) if l is not None]
+        front = [l for l in (frame_layer(o, p, t, W, H) for o, p in ovs if o.get("front")) if l is not None]
         active_bg = [b for b in bgs if b["start"] <= t < b["end"]]
-        if not layers and not active_bg:
+        if not layers and not active_bg and not front:
             prev = None; enc.stdin.write(buf); continue
         m = matter(frame)
         if prev is not None and prev.shape == m.shape: m = 0.65 * m + 0.35 * prev  # menos parpadeo
@@ -287,6 +311,9 @@ def main():
             back = back * (1 - at) + tx[..., :3] * at
         mm = m[..., None]
         out = frame.astype(np.float32) * mm + back * (1 - mm)
+        for l in front:  # capas "front": encima de la persona (cuando la cara está muy cerca y taparía todo)
+            fx = np.asarray(l, np.float32); af = fx[..., 3:4] / 255.0
+            out = out * (1 - af) + fx[..., :3] * af
         enc.stdin.write(out.clip(0, 255).astype(np.uint8).tobytes())
         if i % 60 == 0: print(f"  {t:5.1f}s", flush=True)
     enc.stdin.close(); enc.wait(); dec.wait()
