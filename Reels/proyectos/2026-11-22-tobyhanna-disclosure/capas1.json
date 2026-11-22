@@ -1,0 +1,152 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "4-hook-text",
+   "start": 0.0,
+   "end": 3.15,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "sold as-is doesn't mean"
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 260,
+     "t": "WHAT YOU THINK"
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 3.2,
+   "end": 5.38,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "a home for sale"
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 260,
+     "t": "\"AS-IS\""
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 5.99,
+   "end": 7.6,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "the seller makes"
+    },
+    {
+     "font": "heavy",
+     "color": "#FFFFFF",
+     "fit": true,
+     "max_size": 260,
+     "t": "NO REPAIRS",
+     "shadow": 0.9
+    }
+   ],
+   "front": true,
+   "y": 330
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 7.66,
+   "end": 12.1,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "they still must disclose"
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 260,
+     "t": "KNOWN PROBLEMS"
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 17.8,
+   "end": 21.2,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "you can still get a"
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 260,
+     "t": "HOME INSPECTION"
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 27.32,
+   "end": 29.3,
+   "overlap": 20,
+   "min_top": 140,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "max_size": 125,
+     "t": "follow for more"
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "max_size": 260,
+     "t": "BUYER TIPS"
+    }
+   ]
+  }
+ ]
+}
