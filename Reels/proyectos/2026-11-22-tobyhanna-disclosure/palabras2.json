@@ -1,0 +1,784 @@
+{
+ "source": "tomas/2026-11-22/video2.mp4",
+ "engine": "faster-whisper",
+ "model": "small",
+ "language": "en",
+ "duration": 52.183333,
+ "words": [
+  {
+   "w": "These",
+   "start": 0.0,
+   "end": 0.18
+  },
+  {
+   "w": "two",
+   "start": 0.18,
+   "end": 0.3
+  },
+  {
+   "w": "places",
+   "start": 0.3,
+   "end": 0.56
+  },
+  {
+   "w": "are",
+   "start": 0.56,
+   "end": 0.8
+  },
+  {
+   "w": "on",
+   "start": 0.8,
+   "end": 0.92
+  },
+  {
+   "w": "the",
+   "start": 0.92,
+   "end": 1.04
+  },
+  {
+   "w": "same",
+   "start": 1.04,
+   "end": 1.32
+  },
+  {
+   "w": "county,",
+   "start": 1.32,
+   "end": 1.7
+  },
+  {
+   "w": "but",
+   "start": 1.88,
+   "end": 2.02
+  },
+  {
+   "w": "there",
+   "start": 2.02,
+   "end": 2.24
+  },
+  {
+   "w": "is",
+   "start": 2.24,
+   "end": 2.38
+  },
+  {
+   "w": "a",
+   "start": 2.38,
+   "end": 2.54
+  },
+  {
+   "w": "$200",
+   "start": 2.54,
+   "end": 2.94
+  },
+  {
+   "w": ",000",
+   "start": 2.94,
+   "end": 3.48
+  },
+  {
+   "w": "difference",
+   "start": 3.48,
+   "end": 4.02
+  },
+  {
+   "w": "and",
+   "start": 4.02,
+   "end": 4.7
+  },
+  {
+   "w": "here's",
+   "start": 4.7,
+   "end": 5.0
+  },
+  {
+   "w": "why.",
+   "start": 5.0,
+   "end": 5.22
+  },
+  {
+   "w": "In",
+   "start": 5.44,
+   "end": 5.56
+  },
+  {
+   "w": "Tobihana,",
+   "start": 5.56,
+   "end": 5.94
+  },
+  {
+   "w": "the",
+   "start": 6.06,
+   "end": 6.14
+  },
+  {
+   "w": "median",
+   "start": 6.14,
+   "end": 6.32
+  },
+  {
+   "w": "listing",
+   "start": 6.32,
+   "end": 6.64
+  },
+  {
+   "w": "price",
+   "start": 6.64,
+   "end": 6.98
+  },
+  {
+   "w": "is",
+   "start": 6.98,
+   "end": 7.2
+  },
+  {
+   "w": "around",
+   "start": 7.2,
+   "end": 7.46
+  },
+  {
+   "w": "$300",
+   "start": 7.46,
+   "end": 7.86
+  },
+  {
+   "w": ",000.",
+   "start": 7.86,
+   "end": 8.52
+  },
+  {
+   "w": "Down",
+   "start": 8.58,
+   "end": 8.78
+  },
+  {
+   "w": "the",
+   "start": 8.78,
+   "end": 8.96
+  },
+  {
+   "w": "road",
+   "start": 8.96,
+   "end": 9.16
+  },
+  {
+   "w": "is",
+   "start": 9.16,
+   "end": 9.34
+  },
+  {
+   "w": "Pocono",
+   "start": 9.34,
+   "end": 9.62
+  },
+  {
+   "w": "Pines",
+   "start": 9.62,
+   "end": 9.88
+  },
+  {
+   "w": "where",
+   "start": 9.88,
+   "end": 10.08
+  },
+  {
+   "w": "it's",
+   "start": 10.08,
+   "end": 10.3
+  },
+  {
+   "w": "close",
+   "start": 10.3,
+   "end": 10.56
+  },
+  {
+   "w": "to",
+   "start": 10.56,
+   "end": 10.84
+  },
+  {
+   "w": "$500",
+   "start": 10.84,
+   "end": 11.32
+  },
+  {
+   "w": ",000",
+   "start": 11.32,
+   "end": 11.86
+  },
+  {
+   "w": "USD.",
+   "start": 11.86,
+   "end": 12.22
+  },
+  {
+   "w": "The",
+   "start": 12.54,
+   "end": 12.62
+  },
+  {
+   "w": "first",
+   "start": 12.62,
+   "end": 12.8
+  },
+  {
+   "w": "reason",
+   "start": 12.8,
+   "end": 13.06
+  },
+  {
+   "w": "is",
+   "start": 13.06,
+   "end": 13.26
+  },
+  {
+   "w": "Lake",
+   "start": 13.26,
+   "end": 13.52
+  },
+  {
+   "w": "Naomi.",
+   "start": 13.52,
+   "end": 13.8
+  },
+  {
+   "w": "Although",
+   "start": 14.16,
+   "end": 14.36
+  },
+  {
+   "w": "Tobihana",
+   "start": 14.36,
+   "end": 14.84
+  },
+  {
+   "w": "also",
+   "start": 14.84,
+   "end": 15.24
+  },
+  {
+   "w": "has",
+   "start": 15.24,
+   "end": 15.5
+  },
+  {
+   "w": "lake",
+   "start": 15.5,
+   "end": 15.74
+  },
+  {
+   "w": "communities",
+   "start": 15.74,
+   "end": 16.14
+  },
+  {
+   "w": "like",
+   "start": 16.14,
+   "end": 16.46
+  },
+  {
+   "w": "Pocono",
+   "start": 16.46,
+   "end": 16.8
+  },
+  {
+   "w": "Country",
+   "start": 16.8,
+   "end": 17.16
+  },
+  {
+   "w": "Place,",
+   "start": 17.16,
+   "end": 17.48
+  },
+  {
+   "w": "Lake",
+   "start": 17.6,
+   "end": 17.72
+  },
+  {
+   "w": "Naomi",
+   "start": 17.72,
+   "end": 18.04
+  },
+  {
+   "w": "offers",
+   "start": 18.04,
+   "end": 18.36
+  },
+  {
+   "w": "more",
+   "start": 18.36,
+   "end": 18.64
+  },
+  {
+   "w": "extensive",
+   "start": 18.64,
+   "end": 19.3
+  },
+  {
+   "w": "private",
+   "start": 19.3,
+   "end": 20.16
+  },
+  {
+   "w": "resource",
+   "start": 20.16,
+   "end": 20.66
+  },
+  {
+   "w": "style",
+   "start": 20.66,
+   "end": 21.08
+  },
+  {
+   "w": "experience",
+   "start": 21.08,
+   "end": 21.72
+  },
+  {
+   "w": "with",
+   "start": 21.72,
+   "end": 22.0
+  },
+  {
+   "w": "277",
+   "start": 22.0,
+   "end": 23.34
+  },
+  {
+   "w": "acres",
+   "start": 23.34,
+   "end": 23.68
+  },
+  {
+   "w": "lake,",
+   "start": 23.68,
+   "end": 24.16
+  },
+  {
+   "w": "multiple",
+   "start": 24.16,
+   "end": 25.0
+  },
+  {
+   "w": "lakes,",
+   "start": 25.0,
+   "end": 25.5
+  },
+  {
+   "w": "multiple",
+   "start": 25.88,
+   "end": 26.18
+  },
+  {
+   "w": "indoor",
+   "start": 26.18,
+   "end": 26.62
+  },
+  {
+   "w": "and",
+   "start": 26.62,
+   "end": 26.92
+  },
+  {
+   "w": "outdoor",
+   "start": 26.92,
+   "end": 27.18
+  },
+  {
+   "w": "pools,",
+   "start": 27.18,
+   "end": 27.6
+  },
+  {
+   "w": "golf,",
+   "start": 28.04,
+   "end": 28.48
+  },
+  {
+   "w": "extensive",
+   "start": 28.96,
+   "end": 29.5
+  },
+  {
+   "w": "recreational",
+   "start": 29.5,
+   "end": 30.0
+  },
+  {
+   "w": "facilities,",
+   "start": 30.0,
+   "end": 30.66
+  },
+  {
+   "w": "which",
+   "start": 30.9,
+   "end": 31.1
+  },
+  {
+   "w": "help",
+   "start": 31.1,
+   "end": 31.38
+  },
+  {
+   "w": "support",
+   "start": 31.38,
+   "end": 31.7
+  },
+  {
+   "w": "the",
+   "start": 31.7,
+   "end": 31.96
+  },
+  {
+   "w": "higher",
+   "start": 31.96,
+   "end": 32.32
+  },
+  {
+   "w": "property",
+   "start": 32.32,
+   "end": 32.7
+  },
+  {
+   "w": "value.",
+   "start": 32.7,
+   "end": 33.04
+  },
+  {
+   "w": "The",
+   "start": 33.22,
+   "end": 33.3
+  },
+  {
+   "w": "second",
+   "start": 33.3,
+   "end": 33.54
+  },
+  {
+   "w": "reason",
+   "start": 33.54,
+   "end": 33.9
+  },
+  {
+   "w": "is",
+   "start": 33.9,
+   "end": 34.22
+  },
+  {
+   "w": "the",
+   "start": 34.22,
+   "end": 34.38
+  },
+  {
+   "w": "community.",
+   "start": 34.38,
+   "end": 34.78
+  },
+  {
+   "w": "Amenities,",
+   "start": 35.24,
+   "end": 35.76
+  },
+  {
+   "w": "HOA",
+   "start": 36.12,
+   "end": 36.5
+  },
+  {
+   "w": "dues,",
+   "start": 36.5,
+   "end": 36.78
+  },
+  {
+   "w": "private",
+   "start": 37.1,
+   "end": 37.36
+  },
+  {
+   "w": "roads,",
+   "start": 37.36,
+   "end": 37.82
+  },
+  {
+   "w": "it",
+   "start": 38.24,
+   "end": 38.32
+  },
+  {
+   "w": "all",
+   "start": 38.32,
+   "end": 38.44
+  },
+  {
+   "w": "gets",
+   "start": 38.44,
+   "end": 38.7
+  },
+  {
+   "w": "priced",
+   "start": 38.7,
+   "end": 39.02
+  },
+  {
+   "w": "in.",
+   "start": 39.02,
+   "end": 39.32
+  },
+  {
+   "w": "And",
+   "start": 39.42,
+   "end": 39.5
+  },
+  {
+   "w": "the",
+   "start": 39.5,
+   "end": 39.62
+  },
+  {
+   "w": "third",
+   "start": 39.62,
+   "end": 39.82
+  },
+  {
+   "w": "reason",
+   "start": 39.82,
+   "end": 40.18
+  },
+  {
+   "w": "is",
+   "start": 40.18,
+   "end": 40.42
+  },
+  {
+   "w": "the",
+   "start": 40.42,
+   "end": 40.58
+  },
+  {
+   "w": "house",
+   "start": 40.58,
+   "end": 40.78
+  },
+  {
+   "w": "itself,",
+   "start": 40.78,
+   "end": 41.14
+  },
+  {
+   "w": "the",
+   "start": 41.64,
+   "end": 41.74
+  },
+  {
+   "w": "size,",
+   "start": 41.74,
+   "end": 42.1
+  },
+  {
+   "w": "the",
+   "start": 42.36,
+   "end": 42.42
+  },
+  {
+   "w": "age",
+   "start": 42.42,
+   "end": 42.8
+  },
+  {
+   "w": "and",
+   "start": 42.8,
+   "end": 43.08
+  },
+  {
+   "w": "even",
+   "start": 43.08,
+   "end": 43.28
+  },
+  {
+   "w": "how",
+   "start": 43.28,
+   "end": 43.6
+  },
+  {
+   "w": "close",
+   "start": 43.6,
+   "end": 43.94
+  },
+  {
+   "w": "you",
+   "start": 43.94,
+   "end": 44.12
+  },
+  {
+   "w": "are",
+   "start": 44.12,
+   "end": 44.24
+  },
+  {
+   "w": "to",
+   "start": 44.24,
+   "end": 44.38
+  },
+  {
+   "w": "the",
+   "start": 44.38,
+   "end": 44.54
+  },
+  {
+   "w": "80.",
+   "start": 44.54,
+   "end": 44.74
+  },
+  {
+   "w": "So",
+   "start": 44.9,
+   "end": 45.02
+  },
+  {
+   "w": "between",
+   "start": 45.02,
+   "end": 45.24
+  },
+  {
+   "w": "Tobihana",
+   "start": 45.24,
+   "end": 45.84
+  },
+  {
+   "w": "and",
+   "start": 45.84,
+   "end": 46.1
+  },
+  {
+   "w": "Pocono",
+   "start": 46.1,
+   "end": 46.4
+  },
+  {
+   "w": "Pines,",
+   "start": 46.4,
+   "end": 46.74
+  },
+  {
+   "w": "pick",
+   "start": 46.86,
+   "end": 46.96
+  },
+  {
+   "w": "the",
+   "start": 46.96,
+   "end": 47.12
+  },
+  {
+   "w": "community",
+   "start": 47.12,
+   "end": 47.38
+  },
+  {
+   "w": "you",
+   "start": 47.38,
+   "end": 47.6
+  },
+  {
+   "w": "like",
+   "start": 47.6,
+   "end": 47.78
+  },
+  {
+   "w": "the",
+   "start": 47.78,
+   "end": 47.94
+  },
+  {
+   "w": "most.",
+   "start": 47.94,
+   "end": 48.18
+  },
+  {
+   "w": "If",
+   "start": 48.32,
+   "end": 48.44
+  },
+  {
+   "w": "you",
+   "start": 48.44,
+   "end": 48.54
+  },
+  {
+   "w": "want",
+   "start": 48.54,
+   "end": 48.7
+  },
+  {
+   "w": "to",
+   "start": 48.7,
+   "end": 48.78
+  },
+  {
+   "w": "know",
+   "start": 48.78,
+   "end": 48.92
+  },
+  {
+   "w": "why",
+   "start": 48.92,
+   "end": 49.12
+  },
+  {
+   "w": "homes",
+   "start": 49.12,
+   "end": 49.36
+  },
+  {
+   "w": "in",
+   "start": 49.36,
+   "end": 49.56
+  },
+  {
+   "w": "Pocono",
+   "start": 49.56,
+   "end": 49.78
+  },
+  {
+   "w": "Pines",
+   "start": 49.78,
+   "end": 50.02
+  },
+  {
+   "w": "are",
+   "start": 50.02,
+   "end": 50.2
+  },
+  {
+   "w": "more",
+   "start": 50.2,
+   "end": 50.4
+  },
+  {
+   "w": "valuable,",
+   "start": 50.4,
+   "end": 50.86
+  },
+  {
+   "w": "send",
+   "start": 51.34,
+   "end": 51.6
+  },
+  {
+   "w": "me",
+   "start": 51.6,
+   "end": 51.74
+  },
+  {
+   "w": "a",
+   "start": 51.74,
+   "end": 51.8
+  },
+  {
+   "w": "DM.",
+   "start": 51.8,
+   "end": 51.94
+  }
+ ]
+}
