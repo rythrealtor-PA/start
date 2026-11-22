@@ -1,0 +1,118 @@
+{
+ "max_width": 1000,
+ "overlays": [
+  {
+   "style": "2-behind",
+   "layout": "row",
+   "start": 0.0,
+   "end": 1.88,
+   "overlap": 420,
+   "stagger": 0.18,
+   "in": 0.45,
+   "out": 0.3,
+   "lines": [
+    {
+     "image": "../../broll/tobyhanna-lago-otono.jpg",
+     "width": 500,
+     "height": 640,
+     "border": 8,
+     "rotate": -4,
+     "x": 290,
+     "dy": 0
+    },
+    {
+     "image": "../../broll/lake-naomi-aereo.jpg",
+     "width": 500,
+     "height": 640,
+     "border": 8,
+     "rotate": 4,
+     "x": 790,
+     "dy": 20
+    }
+   ]
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 1.95,
+   "end": 5.42,
+   "overlap": 20,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "t": "same county, a difference of",
+     "max_size": 110
+    },
+    {
+     "font": "heavy",
+     "color": "#FFFFFF",
+     "fit": true,
+     "count": 200,
+     "fmt": "${}K",
+     "max_size": 300,
+     "count_time": 1.0,
+     "steps": 40,
+     "shadow": 0.9
+    }
+   ],
+   "front": true,
+   "y": 330
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 5.5,
+   "end": 8.55,
+   "overlap": -10,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "t": "Tobyhanna",
+     "max_size": 125
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "count": 300,
+     "fmt": "${}K",
+     "max_size": 260,
+     "count_time": 1.0,
+     "steps": 40
+    }
+   ],
+   "min_top": 140
+  },
+  {
+   "style": "2-texto-grande",
+   "start": 8.62,
+   "end": 12.5,
+   "overlap": -10,
+   "lines": [
+    {
+     "font": "serif",
+     "color": "#FFFFFF",
+     "shadow": 0.85,
+     "fit": true,
+     "t": "Pocono Pines",
+     "max_size": 125
+    },
+    {
+     "font": "heavy",
+     "color": "#161616",
+     "fit": true,
+     "count": 500,
+     "fmt": "${}K",
+     "max_size": 260,
+     "count_time": 1.0,
+     "steps": 40
+    }
+   ],
+   "min_top": 140
+  }
+ ]
+}

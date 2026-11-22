@@ -47,13 +47,14 @@
     },
     {
      "font": "heavy",
-     "color": "#161616",
+     "color": "#FFFFFF",
      "fit": true,
      "count": 200,
      "fmt": "${}K",
      "max_size": 300,
      "count_time": 1.0,
-     "steps": 40
+     "steps": 40,
+     "shadow": 0.9
     }
    ],
    "front": true,
@@ -63,7 +64,7 @@
    "style": "2-texto-grande",
    "start": 5.5,
    "end": 8.55,
-   "overlap": -30,
+   "overlap": -10,
    "lines": [
     {
      "font": "serif",
@@ -71,7 +72,7 @@
      "shadow": 0.85,
      "fit": true,
      "t": "Tobyhanna",
-     "max_size": 170
+     "max_size": 125
     },
     {
      "font": "heavy",
@@ -79,17 +80,18 @@
      "fit": true,
      "count": 300,
      "fmt": "${}K",
-     "max_size": 330,
+     "max_size": 260,
      "count_time": 1.0,
      "steps": 40
     }
-   ]
+   ],
+   "min_top": 140
   },
   {
    "style": "2-texto-grande",
    "start": 8.62,
    "end": 12.5,
-   "overlap": -30,
+   "overlap": -10,
    "lines": [
     {
      "font": "serif",
@@ -97,7 +99,7 @@
      "shadow": 0.85,
      "fit": true,
      "t": "Pocono Pines",
-     "max_size": 170
+     "max_size": 125
     },
     {
      "font": "heavy",
@@ -105,11 +107,12 @@
      "fit": true,
      "count": 500,
      "fmt": "${}K",
-     "max_size": 330,
+     "max_size": 260,
      "count_time": 1.0,
      "steps": 40
     }
-   ]
+   ],
+   "min_top": 140
   },
   {
    "style": "4-hook-text",

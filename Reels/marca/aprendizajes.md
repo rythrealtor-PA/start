@@ -22,3 +22,4 @@
 - 2026-11-22: Cuando el usuario quiere que se vean las fotos, no importa que tapen su cara.
 - 2026-11-22: Animaciones: NO desvanecer al final si el usuario pide que dure hasta una frase; terminarla 0.001 s antes del corte (jump cut) del clip. En la animación de discusión, NADA de palabras (ni etiquetas BUYER/SELLER): solo símbolos (!?, #@%!, ✕). Solo se permitió el texto "Earnest money back".
 - 2026-11-22: Video Tobyhanna vs Pocono Pines: el usuario manda las fotos en varios mensajes; NO empezar hasta que diga. Tobyhanna/Pocono Pines con solo texto "TOBYHANNA $300K" / "POCONO PINES $500K" (suave y cool, sin imágenes); Lake Naomi con 3 behind (piscina con tobogán, piscina techada, golf).
+- 2026-11-22: Si el bloque de título es muy alto, la herramienta lo empuja hacia abajo (min_top) y la cabeza lo tapa. Con la cabeza alta (y≈480), usa serif ~125 y número ~260 con "min_top": 140. Texto al frente sobre pelo oscuro: en BLANCO con sombra, no negro.
