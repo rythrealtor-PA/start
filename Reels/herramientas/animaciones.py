@@ -132,8 +132,8 @@ def cross(d, cx, cy, r, col):
 
 
 # ---------- escena 1: "has the roof ever leaked?" -> el vendedor debe decirlo ----------
-def scene_roof(t, T):
-    a_in, a_out = ease(prog(t, 0, 0.3)), 1 - ease(prog(t, T - 0.3, T))
+def scene_roof(t, T, fade_out=False):
+    a_in = ease(prog(t, 0, 0.3)); a_out = 1 - ease(prog(t, T - 0.3, T)) if fade_out else 1.0
     A = a_in * a_out
     base = panel(A)
     fT, fS = font(FONT_B, 30), font(FONT_M, 24)
@@ -206,10 +206,9 @@ def scene_disagree(t, T):
     place_person(L, person_layer(GOLD + (255,)), sx - lean, bottom, f_s)
     put(base, L, A * ease(prog(t, 0.1, 0.45)))
     dl = ImageDraw.Draw(base)
-    text(dl, (bx, 312), "BUYER", fL, BLUE + (int(255 * A),))
-    text(dl, (sx, 312), "SELLER", fL, GOLD + (int(255 * A),))
     # discusión: globos alternados
-    lines = [(0.45, "buyer", "Fix the roof!"), (0.95, "seller", "No way!"), (1.45, "buyer", "Lower the price!"), (1.85, "seller", "No!")]
+    lines = [(0.45, "buyer", "!?"), (0.85, "seller", "#@%!"), (1.25, "buyer", "!!!"), (1.6, "seller", "?!"), (1.9, "buyer", "#@!")]
+    fS = font(FONT_B, 34)
     for k, (st, who, s) in enumerate(lines):
         en = lines[k + 1][0] + 0.25 if k + 1 < len(lines) else 2.15
         p_in, p_out = prog(t, st, st + 0.25), 1 - prog(t, en, en + 0.15)
@@ -230,9 +229,8 @@ def scene_disagree(t, T):
     np_ = prog(t, 2.5, 2.85)
     if np_ > 0:
         N = layer(); dn = ImageDraw.Draw(N); cx, cy = (bx + sx) / 2, 92
-        cross(dn, cx - 118, cy, 24, RED + (255,))
-        text(dn, (cx + 22, cy), "No agreement", fS, RED + (255,))
-        put(base, pop_scale(N, 0.7 + 0.3 * back(np_), cx, cy), A * ease(np_) * (1 - prog(t, 3.3, 3.5)))
+        cross(dn, cx, cy + 40, 46, RED + (255,))
+        put(base, pop_scale(N, 0.6 + 0.4 * back(np_), cx, cy + 40), A * ease(np_) * (1 - prog(t, 3.3, 3.5)))
     # earnest money vuelve al comprador
     mp = prog(t, 3.3, 4.3)
     if mp > 0:
@@ -243,7 +241,7 @@ def scene_disagree(t, T):
         put(base, M, A * ease(prog(t, 3.3, 3.5)))
         lp = prog(t, 3.5, 3.85)
         if lp > 0:
-            Lb = layer(); text(ImageDraw.Draw(Lb), ((bx + sx) / 2, 92), "Earnest money back", fS, GREEN + (255,))
+            Lb = layer(); text(ImageDraw.Draw(Lb), ((bx + sx) / 2, 92), "Earnest money back", font(FONT_B, 28), GREEN + (255,))
             put(base, pop_scale(Lb, 0.8 + 0.2 * back(lp), (bx + sx) / 2, 92), A * ease(lp))
     return base
 
