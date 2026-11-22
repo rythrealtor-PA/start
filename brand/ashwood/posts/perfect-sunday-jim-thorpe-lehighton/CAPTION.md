@@ -1,14 +1,19 @@
 # The Perfect Sunday in Jim Thorpe & Lehighton (according to residents)
 
-This carousel uses the aesthetic-background format (see "Style: aesthetic background" in `../../BRAND_KIT.md`).
+**Edit in Canva:** https://www.canva.com/d/qYiAHWbvSGX0cPj
+
+Built in Canva from your Mount Pocono carousel, so it's the same style: 65% / 37% / 70% black overlays, black photo frames, serif labels and your contact slide.
 
 **Files**
-- `preview-slide-1..5.png`: what the slides look like.
-- `backgrounds/*-dark.jpg`: darkened, ready to use.
-- `backgrounds/*-clean.jpg`: undarkened.
-- Slide 6 is your contact slide from your base Canva project.
+- `slide-1..6.png`: the Canva export.
+- `backgrounds/`: the photos. `jt-4-night-toned.jpg` is the one used in Canva for slide 4.
+- `frames/`: the free-license photos used in the frames.
+- `preview-slide-*.png`: the older mock-up, kept for reference.
 
-**Photo boxes:** the empty lower area of slides 2–4 is left free for your framed photos.
+**Your photos:** the frames that say "Your photo" are waiting for your own pictures. In Canva, drag your photo onto the frame to replace it.
+- Slide 2: 1 frame, for Broadway Grille. The other frame shows downtown Jim Thorpe.
+- Slide 4 (Moya and Molly Maguire's): 2 frames.
+- Slide 3 has Wild Creek Falls and Beltzville Lake in its frames already.
 
 ## The plan (every stop within about 20 minutes of the next)
 
@@ -44,8 +49,11 @@ Sources:
 | 3 | Wild Creek Falls, Beltzville State Park | Nicholas A. Tonelli, CC BY 2.0 |
 | 4 (night-toned) | Race Street, with Moya's sign | Hshuvaeva, CC BY-SA 3.0 |
 | 5 | Downtown and St. Mark's from the Asa Packer park | Smallbones, CC0 |
+| 2 frame | Old Mauch Chunk Historic District, downtown and clock tower | Hshuvaeva, CC BY-SA 3.0 |
+| 3 frame | Wild Creek Falls (2) | Nicholas A. Tonelli, CC BY 2.0 |
+| 3 frame | Lake at Beltzville State Park | JohnDziak, CC0 |
 
-Paste this in the caption or first comment (required): "Background photos via Wikimedia Commons: Wild Creek Falls by Nicholas A. Tonelli (CC BY 2.0); Race Street by Hshuvaeva (CC BY-SA 3.0); cropped and darkened."
+Paste this in the caption or first comment (required): "Photos via Wikimedia Commons: Wild Creek Falls by Nicholas A. Tonelli (CC BY 2.0); Race Street and downtown by Hshuvaeva (CC BY-SA 3.0); cropped and darkened."
 
 ## Caption (EN)
 
