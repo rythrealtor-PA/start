@@ -6,3 +6,4 @@ out/
 stills/
 node_modules/
 entrega/
+__pycache__/
