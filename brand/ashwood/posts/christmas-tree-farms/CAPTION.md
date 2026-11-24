@@ -14,7 +14,7 @@ Same style as the Perfect Sunday posts: black overlays, black photo frames and s
 5. Why Locals Love Tree Farm Day
 6. Contact
 
-**Video:** `video/christmas-tree-farms.mp4` (33 s, 1080×1350, hard cuts, silent track so you can add music in Instagram).
+**Video:** `video/christmas-tree-farms.mp4` (33 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music in Instagram or TikTok). Each slide sits in the safe zone: about 300 px clear at the top, 540 px at the bottom (caption) and the right edge clear of the like/follow buttons.
 
 | Slide | Seconds | Why |
 |---|---|---|
