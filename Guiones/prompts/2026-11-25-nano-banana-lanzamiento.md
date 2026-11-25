@@ -43,3 +43,26 @@ Using the logo, place it centered on a deep dark green background with a soft go
 
 ## Extra · Fotos del equipo con el mismo estilo
 Using this photo, keep the person's face, hair, clothes and expression exactly the same. Only change the background to a soft, blurred Pocono forest at golden hour and match the lighting to warm sunrise tones. Professional portrait, vertical 9:16, no text.
+
+---
+
+# Transición logo → montaña real (versión mejorada, a partir de la imagen del logo en 3D)
+Imagen base: logo tallado con marco de piedra, fresno, casa de madera con ventana encendida, lobo translúcido aullando, bosque y amanecer a la derecha.
+
+## Imagen A · Cuadro inicial (editar la imagen base)
+Using this image, keep everything exactly the same: the stone ring frame, the carved ash tree, the wooden house with the glowing window, the translucent howling wolf, the misty pine forest, the light rays and the sunrise on the right. Only move the camera slightly closer, about a 15% push-in, centered on the carved mountain silhouette in the wolf's mane just above the roof peak. Same lighting, same sun position, same colors, same horizon line. Photorealistic, cinematic, vertical 9:16, no new elements, no text.
+
+## Imagen B · Cuadro final (editar la Imagen A)
+Using this image as the reference for composition and light, show what the camera sees after passing through the logo: the carved mountain silhouette has become a real, photorealistic Pocono mountain ridge in exactly the same position, size and shape, covered in pine and hardwood forest, with morning mist in the valleys. Keep the same sunrise in the same spot on the right, the same golden light rays through the trees, the same misty pine forest in the foreground and the same sky colors. Completely remove the stone frame, the carved tree, the house, the wolf and the letters, so only the real landscape remains. Cinematic, photorealistic, like a frame from a nature documentary, vertical 9:16, no text, no watermark.
+
+## Imagen intermedia (opcional, para una transición todavía más suave)
+Using this image, show the halfway moment of the transition: the camera is closer, the carved mountain silhouette is turning into real rock and forest, and the stone frame, the carved tree, the house and the wolf are softening and dissolving into golden mist and light. Keep the same sun, light rays, trees and horizon line. Photorealistic, cinematic, vertical 9:16, no text.
+
+## Prompt para el video (imagen→video: inicio = A, final = B)
+Slow, smooth cinematic dolly-in moving forward through the circular stone frame. As the camera passes through, the carved elements dissolve into golden morning mist, and the carved mountain silhouette seamlessly transforms into the real Pocono mountain ridge. The sun stays in the same place, with soft light rays and floating dust particles. One continuous shot, no cuts, no camera shake, constant speed, realistic, vertical 9:16, 5–8 seconds.
+
+## Si Nano Banana se desvía
+- Mueve el sol: "Keep the sun at exactly the same height and position as the reference image."
+- Cambia la montaña: "The ridgeline must match the carved mountain silhouette exactly."
+- Agrega texto: "No letters, no words, no logo text."
+- Si tienes el video del dron: usa su primer cuadro como Imagen B (o dáselo a Nano Banana como referencia: "Match the ridgeline, lighting and colors of this photo").
