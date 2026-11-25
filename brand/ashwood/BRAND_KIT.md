@@ -109,6 +109,12 @@ Fewer emojis, no hype ("DM me 🔥🔥"). English first; Spanish versions welcom
 | 2026-11-18 | Lead 1: What $200K vs $300K vs $400K vs $500K gets you in the Poconos right now (6 slides: cover, 4 price slides with 2 real active listings each + "Listing courtesy of" line, "Comment HOMES" contact). Photo frames left empty until each listing brokerage gives written permission. Listings, sources, permission template, captions EN/ES in `posts/lead-price-tiers/CAPTION.md` | https://www.canva.com/d/apDxVGWQXig2tZJ |
 | 2026-11-18 | Lead 2: Selling in the Poconos? 7 fixes that pay off before you list (and 3 to skip) (10 slides: cover, 7 fixes, 3 upgrades to skip with Cost vs. Value 2025 numbers, "Comment WORTH" contact). Sources, photo credits, captions EN/ES in `posts/lead-seller-fixes/CAPTION.md` | https://www.canva.com/d/2dEItDAzlkwJMlW |
 | 2026-11-12 | What $600K Buys You: NJ vs Poconos carousel (7 slides: 636 vs 4,056 sq ft cover, Hoboken, Mount Pocono, Nutley, East Stroudsburg receipts, $/sq ft chart, comment 600K). PA slides have 2 photo boxes. Home data, sources, listing-permission note, captions EN/ES in `posts/600k-nj-vs-poconos/CAPTION.md` | https://www.canva.com/d/7RLXEPvyQ2K_BiV |
+| 2026-11-24 | Christmas tree farms in the Poconos: DeHaven's, Yenser's, Heckman Orchards (6 slides + 33 s reel). Files in `posts/christmas-tree-farms/` | https://www.canva.com/d/cjoXaE519eP0IRE |
+| 2026-11-24 | Holiday lights worth the drive: Stroudsburg tree lighting, Nay Aug Park, Lights in the Parkway (6 slides + 33 s reel). Files in `posts/holiday-lights/` | https://www.canva.com/d/3OOjEVNezAlsFQj |
+| 2026-11-24 | The perfect snow day in the Poconos (6 slides + 33 s reel). Files in `posts/snow-day/` | https://www.canva.com/d/FWq225UvvgMWgwt |
+| 2026-11-24 | Things nobody tells you before buying in the Poconos, "Comment TIPS" (10 slides + 50 s reel). Files in `posts/buyer-tips-poconos/` | https://www.canva.com/d/8H5wywqCUwIQ3Q6 |
+| 2026-11-24 | PA first-time buyer help (PHFA programs), "Comment FIRST" (10 slides + 54 s reel). Files in `posts/phfa-first-time-buyers/` | https://www.canva.com/d/xItKdxcmuEstGdV |
+| 2026-11-25 | Moving to the Poconos in 2027? 5 things to do before New Year's, "Comment 2027" (8 slides + 40 s reel). Files in `posts/moving-2027/` | https://www.canva.com/d/ezPZy5xh7c9M8iH |
 
 ### Seasonal palette: autumn (Fact of the Day posts)
 
