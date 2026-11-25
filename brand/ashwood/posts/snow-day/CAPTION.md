@@ -4,24 +4,24 @@
 
 **Post:** the first real snowfall, or any weekend once the ski resorts open. Camelback and Blue Mountain hadn't announced their 2026–27 opening dates as of Nov 24 (Camelback opened Dec 3 last season), so check before posting if you mention a date.
 
-**Slides (6):**
+**Slides (5):**
 1. Cover
 2. Snow Morning: skiing at Camelback or Blue Mountain
 3. Snow Afternoon: snow tubing and hot cocoa
 4. Snow Night: fireplace dinner and falling snow
 5. Why Locals Love Snow Days Here
-6. Contact
 
-**Video:** `video/snow-day.mp4` (33 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music). Each slide sits in the TikTok/IG safe zone, clear of the top bar, the caption and the like/follow buttons.
+**Video:** `video/snow-day.mp4` (25 s, 9:16 1080×1920 reel, hard cuts). Each slide is shown at full width with a blurred copy above and below, clear of the TikTok/IG top bar, caption and buttons. The post ends on the "Comment" / "Why Locals Love" slide (no contact slide), so the brokerage, office phone and Equal Housing Opportunity line is in the caption.
 
 | Slide | Seconds | Why |
 |---|---|---|
-| 1 Cover | 4 | Title only |
-| 2 Morning | 6 | 2 photos and 4 lines of labels |
-| 3 Afternoon | 6 | 2 photos and labels |
-| 4 Night | 6 | 2 photos and labels |
+| 1 Cover | 4 | Title only (hook) |
+| 2 Morning | 5 | 2 photos, 4 short lines |
+| 3 Afternoon | 5 | 2 photos, 4 short lines |
+| 4 Night | 5 | 2 photos, 4 short lines |
 | 5 Why Locals Love | 6 | Most text |
-| 6 Contact | 5 | Contact |
+
+**Sound & motion (built into the video):** sparkle on the first frame, a build-up under the cover, a whoosh + boom on the first cut, whooshes on the other cuts and a soft ding on the last slide. The cover slowly zooms in and each slide settles in with a small zoom. All sounds are made from scratch (no copyright). Add your music in the app and keep the original sound at about 50–70%.
 
 **Audio:** cozy acoustic or lo-fi winter.
 

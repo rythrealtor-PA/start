@@ -6,24 +6,24 @@
 
 Same style as the Perfect Sunday posts: black overlays, black photo frames and serif labels.
 
-**Slides (6):**
+**Slides (5):**
 1. Cover
 2. DeHaven's
 3. Yenser's
 4. Heckman Orchards
 5. Why Locals Love Tree Farm Day
-6. Contact
 
-**Video:** `video/christmas-tree-farms.mp4` (33 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music in Instagram or TikTok). Each slide sits in the safe zone: about 300 px clear at the top, 540 px at the bottom (caption) and the right edge clear of the like/follow buttons.
+**Video:** `video/christmas-tree-farms.mp4` (28 s, 9:16 1080×1920 reel, hard cuts). Each slide is shown at full width with a blurred copy above and below, clear of the TikTok/IG top bar, caption and buttons. The post ends on the "Comment" / "Why Locals Love" slide (no contact slide), so the brokerage, office phone and Equal Housing Opportunity line is in the caption.
 
 | Slide | Seconds | Why |
 |---|---|---|
-| 1 Cover | 4 | Title only |
+| 1 Cover | 4 | Title only (hook) |
 | 2 DeHaven's | 6 | 2 photos and the longest labels (5 lines) |
 | 3 Yenser's | 6 | 2 photos and 4 lines of labels |
 | 4 Heckman Orchards | 6 | 2 photos and 4 lines of labels |
 | 5 Why Locals Love | 6 | Most text |
-| 6 Contact | 5 | Contact |
+
+**Sound & motion (built into the video):** sparkle on the first frame, a build-up under the cover, a whoosh + boom on the first cut, whooshes on the other cuts and a soft ding on the last slide. The cover slowly zooms in and each slide settles in with a small zoom. All sounds are made from scratch (no copyright). Add your music in the app and keep the original sound at about 50–70%.
 
 **Audio:** soft acoustic Christmas or lo-fi holiday. In Instagram, tap Add music and search "acoustic christmas".
 

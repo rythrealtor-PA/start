@@ -4,7 +4,7 @@
 
 Lead post for first-time buyers. CTA: **Comment FIRST**.
 
-**Slides (10):**
+**Slides (9):**
 1. Cover
 2. K-FIT
 3. K-DATE
@@ -14,17 +14,17 @@ Lead post for first-time buyers. CTA: **Comment FIRST**.
 7. First-Time Buyer?
 8. Take the Class
 9. How to Get Started? + "Comment FIRST"
-10. Contact
 
-**Video:** `video/phfa-first-time-buyers.mp4` (54 s, 9:16 1080×1920 reel, hard cuts, silent track). Each slide sits in the TikTok/IG safe zone, clear of the top bar, the caption and the like/follow buttons.
+**Video:** `video/phfa-first-time-buyers.mp4` (49 s, 9:16 1080×1920 reel, hard cuts). Each slide is shown at full width with a blurred copy above and below, clear of the TikTok/IG top bar, caption and buttons. The post ends on the "Comment" / "Why Locals Love" slide (no contact slide), so the brokerage, office phone and Equal Housing Opportunity line is in the caption.
 
 | Slide | Seconds | Why |
 |---|---|---|
-| 1 Cover | 4 | Title only |
+| 1 Cover | 4 | Title only (hook) |
 | 2–5 Programs | 6 each | Numbers, long labels and a source line |
 | 6–8 Rules | 5 each | 1 photo with 4 lines of labels |
-| 9 How to Get Started | 6 | Most text |
-| 10 Contact | 5 | Contact |
+| 9 How to Get Started + "Comment FIRST" | 6 | Most text |
+
+**Sound & motion (built into the video):** a whoosh on the first frame, a build-up under the cover, a whoosh + boom on the first cut, whooshes on the other cuts and a soft ding on the last slide. The cover slowly zooms in and each slide settles in with a small zoom. All sounds are made from scratch (no copyright). Add your music in the app and keep the original sound at about 50–70%.
 
 **Before you post:** PHFA changes rates, limits and funding often. Check phfa.org (or ask your PHFA lender) the week you post. If K-DATE's 8% tier is paused ("subject to availability"), change slide 3 to just "5%".
 
@@ -48,10 +48,12 @@ Lead post for first-time buyers. CTA: **Comment FIRST**.
 
 ## Photos
 
+**Photos you added in Canva (slide 2 background):** I can't see where these came from. Before posting, make sure each one is yours, from Canva's library, or free to use with credit. Don't use photos saved from Google, Pinterest or other people's pages. Add their credits to the table.
+
 | Slide | Photo | Credit / license |
 |---|---|---|
 | 1 background | Victorian homes, Stroudsburg | Doug Kerr, CC BY-SA 2.0 (Wikimedia Commons) |
-| 2 background | Stone Row, Race Street, Jim Thorpe | Smallbones, CC0 (Wikimedia Commons) |
+| 2 background | Family in front of a house (you added) | Source to confirm |
 | 2 frame | Money (jar of dollar bills) | free pictures of money, CC BY 2.0 (Flickr) |
 | 3 background | Kitchen cabinet | Matt Bango, CC0 (StockSnap) |
 | 3 frame | Piggy Bank | free pictures of money, CC BY 2.0 (Flickr) |
@@ -67,7 +69,7 @@ Lead post for first-time buyers. CTA: **Comment FIRST**.
 | 8 frame | Education Calculator on Notebook | nniknak, CC BY 2.0 (Flickr) |
 | 9 background | Aerial view of Stroudsburg | Quintin Soloviev, CC BY 4.0 (Wikimedia Commons) |
 
-Paste this in the first comment: "Photos: Doug Kerr, Smallbones, Mr. Matté, Jerrye & Roy Klotz, Shixart1985, Daniel Case, Nicholas T, Dough4872, Quintin Soloviev (Wikimedia Commons); free pictures of money, Images_of_Money, 401(K) 2013, nniknak (Flickr); Matt Bango (StockSnap). CC BY / CC BY-SA / CC0; cropped and darkened."
+Paste this in the first comment: "Photos: Doug Kerr, Mr. Matté, Jerrye & Roy Klotz, Shixart1985, Daniel Case, Nicholas T, Dough4872, Quintin Soloviev (Wikimedia Commons); free pictures of money, Images_of_Money, 401(K) 2013, nniknak (Flickr); Matt Bango (StockSnap). CC BY / CC BY-SA / CC0; cropped and darkened."
 
 ## Caption (EN)
 

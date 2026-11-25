@@ -4,7 +4,7 @@
 
 **Post on:** Sun Nov 29 or Tue Dec 1, when families are talking about next year's plans. Repost it as a reminder on Mon Dec 28.
 
-**Slides (8):**
+**Slides (7):**
 1. Cover
 2. Get Pre-Approved
 3. Pick 2–3 Towns
@@ -12,20 +12,16 @@
 5. Test the Commute
 6. Budget the Extras
 7. Your 2027 Move Checklist ("Comment 2027")
-8. Contact
 
-**Video:** `video/moving-2027.mp4` (40 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music in Instagram or TikTok). Each slide sits in the TikTok/IG safe zone, clear of the top bar, the caption and the like/follow buttons.
+**Video:** `video/moving-2027.mp4` (35 s, 9:16 1080×1920 reel, hard cuts). Each slide is shown at full width with a blurred copy above and below, clear of the TikTok/IG top bar, caption and buttons. The post ends on the "Comment" / "Why Locals Love" slide (no contact slide), so the brokerage, office phone and Equal Housing Opportunity line is in the caption.
 
 | Slide | Seconds | Why |
 |---|---|---|
-| 1 Cover | 4 | Title only |
-| 2 Get Pre-Approved | 5 | 1 photo and 4 lines of labels |
-| 3 Pick 2–3 Towns | 5 | 1 photo and 4 lines of labels |
-| 4 Visit in Winter | 5 | 1 photo and 4 lines of labels |
-| 5 Test the Commute | 5 | 1 photo and 4 lines of labels |
-| 6 Budget the Extras | 5 | 1 photo and 4 lines of labels |
-| 7 Checklist | 6 | Checklist slide, most text |
-| 8 Contact | 5 | Contact |
+| 1 Cover | 4 | Title only (hook) |
+| 2–6 Steps | 5 each | 1 photo and 4 lines of labels |
+| 7 Checklist + "Comment 2027" | 6 | Checklist slide, most text |
+
+**Sound & motion (built into the video):** a whoosh on the first frame, a build-up under the cover, a whoosh + boom on the first cut, whooshes on the other cuts and a soft ding on the last slide. The cover slowly zooms in and each slide settles in with a small zoom. All sounds are made from scratch (no copyright). Add your music in the app and keep the original sound at about 50–70%.
 
 **Audio:** upbeat acoustic or a "new year, new chapter" trending sound.
 
@@ -42,24 +38,26 @@ This post is general advice with no prices, rates or program numbers.
 
 ## Photos
 
+**Photos you added in Canva (slide 2 background and the slide 5 bus photo):** I can't see where these came from. Before posting, make sure each one is yours, from Canva's library, or free to use with credit. Don't use photos saved from Google, Pinterest or other people's pages. Add their credits to the table.
+
 The slide 4 driveway photo is from Ewing Township, NJ, not the Poconos. Swap in your own winter photos when you have them.
 
 | Slide | Photo | Credit / license |
 |---|---|---|
 | 1 background | Delaware Water Gap from Lookout Rock, Mount Minsi | Dough4872, CC BY-SA 4.0 (Wikimedia Commons) |
-| 2 background | Stone Row, Race Street, Jim Thorpe | Smallbones, CC0 (Wikimedia Commons) |
+| 2 background | Forest stairs and creek (you added) | Source to confirm |
 | 2 frame | Calculator and Money | 401(K) 2013, CC BY-SA 2.0 (Flickr) |
 | 3 background | Aerial view of Stroudsburg | Quintin Soloviev, CC BY 4.0 (Wikimedia Commons) |
 | 3 frame | Monroe County Courthouse, Stroudsburg | Dougtone, CC BY-SA 2.0 (Flickr) |
 | 4, 7 background | Skytop Lodge grounds, Feb 2026 | Mr. Matté, CC BY-SA 4.0 (Wikimedia Commons) |
 | 4 frame | House and freshly shoveled driveway (Ewing Twp, NJ) | Famartin, CC BY-SA 4.0 (Wikimedia Commons) |
 | 5 background | Quiet Valley Farm, Monroe County | Jerrye & Roy Klotz, MD, CC BY-SA 4.0 (Wikimedia Commons) |
-| 5 frame | Wi-Fi logo | Solijon Solayev, CC BY-SA 4.0 (Wikimedia Commons) |
+| 5 frame | Bus at a bus stop (you added) | Source to confirm |
 | 6 background | Hawley, Pennsylvania | Daniel Case, CC BY-SA 3.0 (Wikimedia Commons) |
 | 6 frame | Piggy Bank | "free pictures of money", CC BY 2.0 (Flickr) |
 | 8 | Your photo and house background | From your design |
 
-Paste this in the first comment: "Photos: Dough4872, Smallbones, Quintin Soloviev, Mr. Matté, Famartin, Jerrye & Roy Klotz, Solijon Solayev, Daniel Case (Wikimedia Commons); 401(K) 2013, Dougtone, free pictures of money (Flickr). CC BY / CC BY-SA / CC0; cropped and darkened."
+Paste this in the first comment: "Photos: Dough4872, Quintin Soloviev, Mr. Matté, Famartin, Jerrye & Roy Klotz, Daniel Case (Wikimedia Commons); 401(K) 2013, Dougtone, free pictures of money (Flickr). CC BY / CC BY-SA / CC0; cropped and darkened."
 
 ## Caption (EN)
 

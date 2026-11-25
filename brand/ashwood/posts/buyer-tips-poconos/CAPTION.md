@@ -4,7 +4,7 @@
 
 Lead post for buyers (the buyer version of your seller "7 fixes" post). CTA: **Comment TIPS**.
 
-**Slides (10):**
+**Slides (9):**
 1. Cover
 2. Well & Septic
 3. Private Roads
@@ -14,16 +14,16 @@ Lead post for buyers (the buyer version of your seller "7 fixes" post). CTA: **C
 7. Oil & Propane
 8. Radon
 9. Still Worth It? + "Comment TIPS"
-10. Contact
 
-**Video:** `video/buyer-tips-poconos.mp4` (50 s, 9:16 1080×1920 reel, hard cuts, silent track). Each slide sits in the TikTok/IG safe zone, clear of the top bar, the caption and the like/follow buttons.
+**Video:** `video/buyer-tips-poconos.mp4` (45 s, 9:16 1080×1920 reel, hard cuts). Each slide is shown at full width with a blurred copy above and below, clear of the TikTok/IG top bar, caption and buttons. The post ends on the "Comment" / "Why Locals Love" slide (no contact slide), so the brokerage, office phone and Equal Housing Opportunity line is in the caption.
 
 | Slide | Seconds | Why |
 |---|---|---|
-| 1 Cover | 4 | Title only |
+| 1 Cover | 4 | Title only (hook) |
 | 2–8 Tips | 5 each | 1 photo with 4 lines of labels |
-| 9 Still Worth It | 6 | Most text |
-| 10 Contact | 5 | Contact |
+| 9 Still Worth It + "Comment TIPS" | 6 | Most text |
+
+**Sound & motion (built into the video):** a whoosh on the first frame, a build-up under the cover, a whoosh + boom on the first cut, whooshes on the other cuts and a soft ding on the last slide. The cover slowly zooms in and each slide settles in with a small zoom. All sounds are made from scratch (no copyright). Add your music in the app and keep the original sound at about 50–70%.
 
 **Have your TIPS reply ready:** when someone comments TIPS, DM them the 7 points from the caption below, plus an offer to check a specific address (well, septic, road, HOA and internet).
 
@@ -35,11 +35,13 @@ Lead post for buyers (the buyer version of your seller "7 fixes" post). CTA: **C
 
 ## Photos
 
+**Photos you added in Canva (slide 2 background and photo):** I can't see where these came from. Before posting, make sure each one is yours, from Canva's library, or free to use with credit. Don't use photos saved from Google, Pinterest or other people's pages. Add their credits to the table.
+
 | Slide | Photo | Credit / license |
 |---|---|---|
 | 1 background | Victorian homes, Stroudsburg | Doug Kerr, CC BY-SA 2.0 (Wikimedia Commons) |
-| 2 background | Stone Row, Race Street, Jim Thorpe | Smallbones, CC0 (Wikimedia Commons) |
-| 2 frame | Septic tank lids | Wikideas1, CC0 (Wikimedia Commons) |
+| 2 background | Stone house (you added) | Source to confirm |
+| 2 frame | Septic pipes being installed (you added) | Source to confirm |
 | 3 background | Aerial view of Stroudsburg | Quintin Soloviev, CC BY 4.0 (Wikimedia Commons) |
 | 3 frame | Snow plow on a wooded road (Minnesota) | Tony Webster, CC BY 2.0 (Wikimedia Commons) |
 | 4 background | Skytop Lodge grounds | Mr. Matté, CC BY-SA 4.0 (Wikimedia Commons) |
@@ -54,7 +56,7 @@ Lead post for buyers (the buyer version of your seller "7 fixes" post). CTA: **C
 | 8 frame | Radon warning sign | Came from your seller-fixes design (you swapped it in). Check where it's from before posting, or swap in your own photo. |
 | 9 background | Delaware Water Gap | Dough4872, CC BY-SA 4.0 (Wikimedia Commons) |
 
-Paste this in the first comment: "Photos: Doug Kerr, Smallbones, Wikideas1, Quintin Soloviev, Tony Webster, Mr. Matté, Jerrye & Roy Klotz, Solijon Solayev, Daniel Case, Nicholas T, Dough4872 (Wikimedia Commons); Images_of_Money, scui3asteveo (Flickr). CC BY / CC BY-SA / CC0; cropped and darkened."
+Paste this in the first comment: "Photos: Doug Kerr, Quintin Soloviev, Tony Webster, Mr. Matté, Jerrye & Roy Klotz, Solijon Solayev, Daniel Case, Nicholas T, Dough4872 (Wikimedia Commons); Images_of_Money, scui3asteveo (Flickr). CC BY / CC BY-SA / CC0; cropped and darkened."
 
 ## Caption (EN)
 
