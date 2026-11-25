@@ -12,7 +12,7 @@
 5. Why Locals Love the Holidays Here
 6. Contact
 
-**Video:** `video/holiday-lights.mp4` (33 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music in Instagram or TikTok). Each slide sits in the TikTok/IG safe zone, clear of the top bar, the caption and the like/follow buttons.
+**Video:** `video/holiday-lights.mp4` (33 s, 9:16 1080×1920 reel, hard cuts, silent track so you can add music in Instagram or TikTok). Each slide is shown at full width (not shrunk), with a blurred copy filling the top and bottom. Slides use the reel-safe layout: title lower, bigger photos, and text kept clear of the right-side buttons and the caption area. Draft for your review.
 
 | Slide | Seconds | Why |
 |---|---|---|
