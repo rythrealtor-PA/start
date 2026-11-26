@@ -33,3 +33,23 @@ Negative prompt (sin "speed changes", porque aquí sí queremos que frene):
 camera shake, sudden stop, jerky motion, cuts, flicker, warping, distortion, melting shapes, text, letters, watermark, blurry
 
 Si Kling no frena suave: en el editor aplica una curva de velocidad (speed ramp) en los últimos 1.5–2 s, bajando del 100% a ~40%.
+
+---
+
+# SUPER PROMPT: todo en un solo video (logo → montaña → río)
+Kling: Start frame = logo completo · End frame = imagen del río (picos gemelos abajo) · 9:16 · 10 s · Professional.
+
+Prompt:
+One continuous cinematic shot. The camera flies steadily forward through the Ashwood logo and out into the real Pocono Mountains, as if traveling a long distance.
+0–5 s: Constant dolly-in toward the carved mountain silhouette in the wolf's mane. As the camera gets closer, the logo grows larger and the frame, letters, carved tree and house slide past the edges, as if the camera is passing through the inside of the logo. From the very first second, the carved wolf, tree and house slowly fade away, while the real mountain with the same twin-peak shape gradually becomes clearer behind the silhouette, like a double exposure. The wolf's mane ripples slowly in the wind, keeping the same carved, sculpted texture as the logo, not realistic fur.
+5–8 s: The logo is completely gone. The camera keeps flying forward like a drone at the same steady speed, rising slightly over the twin rocky peaks of the real mountain; the summit passes beneath the camera.
+8–10 s: Beyond the mountain, the wide river winding through the misty valley is revealed. The camera smoothly slows down and gently glides to a near stop, holding on the river view.
+The sun stays low on the right the whole time, with golden light rays, soft morning mist and floating dust particles. Smooth, elegant, photorealistic, epic cinematic movie look, no cuts.
+
+Negative prompt:
+camera shake, jerky motion, sudden stop, cuts, flicker, warping, distortion, melting shapes, realistic animal fur, extra animals, duplicate wolf, text, letters, watermark, blurry
+
+Si no sale bien:
+- Si Kling hace un simple fundido en vez de volar: usa la cadena de 4 clips (arriba) y únelos.
+- Si no se queda 2 s en el río: en el editor alarga el final con speed ramp (100% → 30%) o con un congelado del último cuadro de 1–2 s.
+- Genera 2–3 versiones y quédate con la mejor; con transiciones grandes Kling varía mucho entre intentos.
