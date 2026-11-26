@@ -1,0 +1,9 @@
+.venv/
+src/
+tmp/
+out/
+entrega/
+__pycache__/
+*.npy
+assets/plate4.png
+assets/relight.png
