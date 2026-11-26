@@ -38,6 +38,7 @@ def warp(img, A):       # A: out -> img (3x3)
     return cv2.warpAffine(img, A[:2], (OW, OH), flags=cv2.INTER_LANCZOS4 | cv2.WARP_INVERSE_MAP, borderMode=cv2.BORDER_REFLECT)
 
 FULL = (558.0, 1000.0, FULL_H)
+WOLF_XF = (6.55, 7.05)   # v1 cross-fade into the close-up wolf (render2 turns it off)
 # views in image-1 coords for the tree close-up and the wolf close-up
 INV14, INV1_10 = np.linalg.inv(M14), np.linalg.inv(M1_10)
 TREE_V = xform_view((558, 1000, FULL_H * .97), INV14)   # image 4's frame, a hair tighter (it is rotated 0.76 deg)
@@ -275,10 +276,10 @@ def frame_at(t):
         sk = eio(ramp(t, 5.0, 5.75)) * (1 - eio(ramp(t, 6.35, 6.9)))
         if sk > 0:
             o = Vout @ np.array([905, 862, 1.0]); flare(out, o[0], o[1], .75 * sk)
-        if t > 6.5:
+        if t > WOLF_XF[0] - .05:
             mx, my = wolf_maps(M1_10 @ V, t, 0)
             W10i, c10 = remap_c(IMG[10], mx, my)
-            out = blend(out, W10i, eio(ramp(t, 6.55, 7.05)) * c10)
+            out = blend(out, W10i, eio(ramp(t, *WOLF_XF)) * c10)
         sweep(out, t, 6.3, 7.25)
     else:
         vB = camB(t); V = view_map(vB)
