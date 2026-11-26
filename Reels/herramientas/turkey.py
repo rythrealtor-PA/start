@@ -102,34 +102,83 @@ def ease_out_back(x):
 def ease_in(x): return x ** 3
 
 
+# ---------- turkey a partir de la imagen del usuario (referencias/turkey-referencia.jpg) ----------
+SPRITE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "referencias", "turkey-referencia.jpg")
+WING_POLY = [(372, 405), (390, 390), (410, 383), (440, 385), (462, 392), (480, 388), (500, 395), (518, 410), (532, 428),
+             (526, 452), (505, 475), (475, 492), (440, 500), (400, 498), (378, 488), (368, 465), (366, 435)]
+WING_PIVOT = (378, 448)
+EYES = [((237, 165), 14, 16, 179), ((292, 180), 17, 22, 205)]  # (centro, rx, ry, y máximo del párpado)
+LID = (251, 100, 107, 255)
+_cache = {}
+
+
+def _sprite_parts():
+    if "parts" in _cache: return _cache["parts"]
+    from PIL import ImageFilter
+    im = Image.open(SPRITE).convert("RGB"); W, H = im.size
+    a = np.asarray(im).astype(int)
+    bg, sh = np.array([251, 230, 123]), np.array([221, 189, 104])
+    near = (np.abs(a - bg).sum(2) < 70) | (np.abs(a - sh).sum(2) < 60)
+    # relleno desde las esquinas: solo se borra el fondo conectado (no el pico ni las patas amarillas)
+    mask = np.zeros((H, W), bool); stack = [(0, 0), (W - 1, 0), (0, H - 1), (W - 1, H - 1)]
+    while stack:
+        x, y = stack.pop()
+        if x < 0 or y < 0 or x >= W or y >= H or mask[y, x] or not near[y, x]: continue
+        mask[y, x] = True; stack.extend([(x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)])
+    alpha = Image.fromarray(((~mask) * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(3)).filter(ImageFilter.GaussianBlur(0.8))
+    base = im.convert("RGBA"); base.putalpha(alpha)
+    wmask = Image.new("L", (W, H), 0); ImageDraw.Draw(wmask).polygon(WING_POLY, fill=255)
+    wing = Image.new("RGBA", (W, H), (0, 0, 0, 0)); wing.paste(base, (0, 0), Image.fromarray(np.minimum(np.asarray(wmask), np.asarray(alpha))))
+    ImageDraw.Draw(wing).polygon(WING_POLY, outline=(80, 30, 18, 255), width=4)  # contorno del ala recortada
+    body = base.copy()
+    # hueco del ala: café más oscuro dentro del cuerpo, transparente afuera
+    bodyfill = Image.new("L", (W, H), 0); ImageDraw.Draw(bodyfill).ellipse((170, 345, 515, 545), fill=255)
+    hole = np.asarray(wmask) > 0
+    b = np.asarray(body).copy(); inside = np.asarray(bodyfill) > 0
+    b[hole & inside] = (128, 58, 34, 255); b[hole & ~inside] = (0, 0, 0, 0)
+    body = Image.fromarray(b)
+    ImageDraw.Draw(body).polygon(WING_POLY, outline=(80, 30, 18, 255))
+    _cache["parts"] = (body, wing, base.size)
+    return _cache["parts"]
+
+
 def turkey_frame(t, show, size):
-    """t = segundos desde que empieza a aparecer. Devuelve (imagen RGBA, desplazamiento 0..1 de entrada)."""
+    """t = segundos desde que empieza a aparecer. Devuelve (imagen RGBA mirando a la izquierda, entrada 0..1, rebote)."""
     enter, leave = 0.6, 0.5
     if t < enter: k = ease_out_back(t / enter)
     elif t > show - leave: k = 1 - ease_in((t - (show - leave)) / leave)
     else: k = 1.0
-    # saludo: sube el ala y la mueve
+    body, wing, (W, H) = _sprite_parts()
     up = min(1.0, max(0.0, (t - 0.4) / 0.35))
-    wave = 26 * math.sin(2 * math.pi * 2.0 * (t - 0.4)) if t > 0.4 else 0
-    wing_deg = -35 + up * (75 + 0.8 * wave)
-    # parpadeo cada ~2.6 s
+    ang = up * (22 + 18 * math.sin(2 * math.pi * 2.0 * (t - 0.4)))   # saludo: el ala sube y baja
+    frame = body.copy()
+    frame.alpha_composite(wing.rotate(ang, center=WING_PIVOT, resample=Image.BICUBIC))
     ph = (t + 0.9) % 2.6
-    blink = 1 - abs(ph - 0.08) / 0.08 if ph < 0.16 else 0.0
-    mouth = 0.6 + 0.4 * abs(math.sin(2 * math.pi * 1.0 * t))
-    im = draw_turkey(wing_deg, max(0.0, blink), mouth)
-    tilt = 3 * math.sin(2 * math.pi * 0.8 * t)
-    im = im.rotate(tilt, center=(P(300), P(500)), resample=Image.BICUBIC)
-    bob = 8 * math.sin(2 * math.pi * 1.5 * t)
-    return im.resize((size, size), Image.LANCZOS), k, bob
+    blink = max(0.0, 1 - abs(ph - 0.08) / 0.08) if ph < 0.16 else 0.0
+    if blink > 0:
+        d = ImageDraw.Draw(frame)
+        for (cx, cy), rx, ry, ymax in EYES:
+            top = cy - ry - 2; h = (2 * ry + 4) * blink
+            lid = Image.new("L", frame.size, 0); dl = ImageDraw.Draw(lid)
+            dl.ellipse((cx - rx - 2, cy - ry - 2, cx + rx + 2, cy + ry + 2), fill=255)
+            dl.rectangle((0, min(top + h, ymax), W, H), fill=0)
+            frame.paste(Image.new("RGBA", frame.size, LID), (0, 0), lid)
+            yl = min(top + h, ymax)
+            if blink > 0.8: d.arc((cx - rx, cy - ry * 0.6, cx + rx, cy + ry * 0.5), 20, 160, fill=(70, 20, 14, 255), width=3)
+            else: d.line((cx - rx, yl, cx + rx, yl), fill=(70, 20, 14, 255), width=3)
+    tilt = 2.5 * math.sin(2 * math.pi * 0.8 * t)
+    frame = frame.rotate(tilt, center=(W * 0.45, H * 0.8), resample=Image.BICUBIC)
+    bob = 7 * math.sin(2 * math.pi * 1.5 * t)
+    return frame.resize((size, size), Image.LANCZOS), k, bob
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input"); ap.add_argument("--output"); ap.add_argument("--preview")
     ap.add_argument("--first", type=float, default=6); ap.add_argument("--gap", type=float, default=6)
-    ap.add_argument("--show", type=float, default=8); ap.add_argument("--size", type=int, default=560)
+    ap.add_argument("--show", type=float, default=8); ap.add_argument("--size", type=int, default=640)
     ap.add_argument("--y", type=int, default=1000, help="centro vertical del turkey")
-    ap.add_argument("--peek", type=float, default=0.62, help="fracción del ancho del dibujo que se ve")
+    ap.add_argument("--peek", type=float, default=0.76, help="fracción del ancho del dibujo que se ve")
     ap.add_argument("--crf", default="20")
     a = ap.parse_args()
     if a.preview:
@@ -161,7 +210,7 @@ def main():
         if not act: enc.stdin.write(buf); continue
         s, sd = act[0]
         im, k, bob = turkey_frame(t - s, a.show, a.size)
-        if sd == 1: im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        if sd == 0: im = im.transpose(Image.FLIP_LEFT_RIGHT)
         vis = a.size * a.peek
         x = int(-a.size + vis * k) if sd == 0 else int(W - vis * k)
         y = int(a.y - a.size / 2 + bob)
