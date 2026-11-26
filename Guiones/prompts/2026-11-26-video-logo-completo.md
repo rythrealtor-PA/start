@@ -36,3 +36,18 @@ Edit this image. The black lines are only a guide: use them as the exact outline
 7. Keep everything else the same: framing, colors, stone ring frame and letters.
 
 Photorealistic, cinematic sunrise light, soft mist, vertical 9:16, no black lines, no new text, no watermark.
+
+## Versión 2: con efecto de cámara avanzando (los elementos del logo se ven más grandes)
+Edit this image. The black lines are only a guide: use them as the exact outline of a mountain, then remove the lines completely from the final image.
+
+This image is a frame from a camera slowly moving forward toward the mountain. Because the camera is closer, the logo elements in front look bigger (parallax): the logo is in the foreground, so it grows more than the distant mountain.
+
+1. Mountain: create a realistic Pocono Mountains mountain that follows the black outline exactly: the tall main peak in the center, the smaller second peak just to its right, and the slopes descending to the lower left and lower right corners where the lines end. Show the whole mountain from summit to base, covered in dense pine and hardwood forest with some exposed rock, with soft morning mist at its base. Keep its position and proportions as drawn.
+2. Side trees: replace the pine trees on the left and right with a realistic, dense forest. Use the current trees only to know where the forest starts; the forest continues naturally toward the edges of the image and up the base of the mountain.
+3. Wolf: make the howling wolf about 25% bigger, as if the camera came closer, keeping it centered in the same area of the sky with the same pose. It is also about 10% more transparent than now.
+4. Carved tree (top left): about 25% bigger for the same reason, partly going out of the left edge of the frame, and about 10% more transparent than now.
+5. House: about 25% bigger, partly going out of the bottom of the frame, and faded until it is almost invisible, a very faint ghostly trace with the window glow barely visible.
+6. Stone ring frame and letters: because the camera is closer, they are pushed out of the edges of the frame and are barely visible.
+7. Sun and sky: keep the sun in the same place on the right, shining warm yellow light through the clouds, with golden light rays falling across the mountain and the forest.
+
+Photorealistic, cinematic sunrise light, soft mist, vertical 9:16, no black lines, no new text, no watermark.
