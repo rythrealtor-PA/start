@@ -53,3 +53,34 @@ Si no sale bien:
 - Si Kling hace un simple fundido en vez de volar: usa la cadena de 4 clips (arriba) y únelos.
 - Si no se queda 2 s en el río: en el editor alarga el final con speed ramp (100% → 30%) o con un congelado del último cuadro de 1–2 s.
 - Genera 2–3 versiones y quédate con la mejor; con transiciones grandes Kling varía mucho entre intentos.
+
+---
+
+# Versión Poconos real: montañas redondeadas (no puntiagudas) + final en mirador rocoso con río
+Referencia: foto del Delaware Water Gap (mirador de roca, cresta larga y redondeada con acantilado, río curvo, crestas bajas en capas).
+
+## Bloque "montañas de los Poconos" (pegar en los prompts)
+Pocono Mountains style: low, long, rounded ridges with gentle, broad summits, not pointy and not tall; densely forested slopes of oak, maple and pine, with some exposed gray sandstone cliffs and rocky ledges; layers of ridges fading into blue-gray haze toward an almost flat horizon, like the Pocono Plateau and the Delaware Water Gap.
+
+## Lo que se ve al fondo, debajo del sol
+In the distance, under the low sun, long, flat, low ridgelines stack in soft layers, fading from green to hazy blue-gray, with an almost flat horizon and no peaks.
+
+## Nano Banana · Imagen M (montaña real después del logo) — editar la imagen 3 o 4
+Edit this image. Replace the pointed twin-peak mountain with a real Pocono Mountains ridge in the same position, keeping the same two-summit outline but making it lower, wider and rounded, with gentle forested summits, not pointy and not tall. Densely forested slopes of oak, maple and pine with a few gray sandstone ledges. Behind it, long, flat, low ridgelines stack in soft layers fading into hazy blue-gray toward an almost flat horizon. Keep the sun, the golden light rays, the morning mist and the pine trees in the foreground exactly as they are. Photorealistic, vertical 9:16, no text.
+
+## Nano Banana · Imagen R (final: mirador rocoso + río) — subir la foto de referencia + la Imagen M
+Create a vertical 9:16 aerial drone frame inspired by the first image (the photo), with the same golden sunrise light and colors as the second image. Foreground: large gray sandstone boulders of a rocky overlook with a few pitch pine trees on the right. Middle: a long, rounded forested ridge with a steep rocky cliff face on its left side, and a wide river curving around its base to the right, with a small road along the bank. Background: low layered ridges fading into hazy blue-gray toward an almost flat horizon, with the sun low just above the horizon breaking through soft clouds and golden light rays. Photorealistic, cinematic, no text, no watermark.
+(Si prefieres otoño, cambia a "autumn foliage in orange, gold and green", pero entonces usa otoño también en las imágenes anteriores.)
+
+## Kling · Super prompt v2 (Start = logo · End = Imagen R · 10 s)
+One continuous cinematic shot. The camera flies steadily forward through the Ashwood logo and out over the real Pocono Mountains, traveling a long distance.
+0–4 s: Constant dolly-in toward the carved mountain silhouette in the wolf's mane; the logo grows and slides past the edges, as if passing through it. From the first second, the carved wolf, tree and house slowly fade, and a real, low, rounded Pocono ridge with the same outline becomes clearer behind the silhouette. The wolf's mane ripples slowly, keeping its carved, sculpted texture.
+4–7 s: The logo is gone. The camera flies forward like a drone at the same steady speed over the first rounded, forested ridge; treetops pass beneath the camera.
+7–9 s: The camera glides toward a rocky sandstone overlook; beyond it, a wide river curves around the base of a long, rounded ridge with a rocky cliff face.
+9–10 s: The camera smoothly slows down and settles, holding on the river view.
+The sun stays low on the horizon with golden light rays, soft mist over the valleys and layered blue-gray ridges in the distance. Smooth, elegant, photorealistic, epic cinematic look, no cuts.
+
+Negative: camera shake, jerky motion, sudden stop, cuts, flicker, warping, distortion, pointy peaks, alpine mountains, snow-capped peaks, realistic animal fur, extra animals, text, letters, watermark, blurry
+
+Más seguro (2 clips de 10 s): A = logo → Imagen M (atravesar el logo); B = Imagen M → Imagen R (volar sobre la cresta y llegar al río, frenando al final). O usar "Extend" de Kling para alargar el final.
+Nota: si la foto de referencia no es tuya, úsala solo como referencia, no dentro del video.
