@@ -59,3 +59,7 @@ ffmpeg -i proyectos/X/v3_texto.mp4 -vf "ass=proyectos/X/subs_final.ass:fontsdir=
 - **Clips de stock con cortes bruscos:** usa una sola toma en cámara lenta suavizada (`setpts=2*PTS,minterpolate=fps=30:mi_mode=mci`), sin cortes dentro del hook.
 - **Número que cuenta hacia arriba** (precios, acres): en "lines", `{"count": 300, "fmt": "${}K", "font": "heavy", "max_size": 330, "count_time": 1.0}`. Va de 0 al número con suavidad; se ve "smooth y cool" para precios.
 - **Capa al frente** (`"front": true` + `"y"` fijo): cuando el video original ya trae un zoom a la cara y la cabeza taparía todo el título, ese título va encima de la persona.
+
+## Personaje animado que se asoma (2026-11-26, Thanksgiving)
+- `herramientas/turkey.py`: un turkey dibujado (original, estilo cartoon) se asoma por un costado con medio cuerpo, saluda con el ala y parpadea. Ciclo: 6 s sin turkey, 8 s saludando, se va, y vuelve por el lado contrario. Sin sonido.
+- Opciones: `--first 6 --gap 6 --show 8 --size 560 --y 900 --peek 0.62`. `--y 900` lo deja entre el título de arriba y los subtítulos, y del lado derecho no queda debajo de los botones de Instagram.
