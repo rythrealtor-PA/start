@@ -51,3 +51,20 @@ This image is a frame from a camera slowly moving forward toward the mountain. B
 7. Sun and sky: keep the sun in the same place on the right, shining warm yellow light through the clouds, with golden light rays falling across the mountain and the forest.
 
 Photorealistic, cinematic sunrise light, soft mist, vertical 9:16, no black lines, no new text, no watermark.
+
+---
+
+# Paisaje sin logo: 2 imágenes finales (a partir de la imagen de la montaña real)
+
+## Imagen A · El dron se acerca a la montaña
+Edit this image. Remove every trace of the logo completely: no wolf, no carved leaves, no house, no window, no frame, no letters. Only the real landscape remains.
+The camera is a drone flying forward and slightly higher, now much closer to the mountain: the same mountain with the tall main peak in the center and the smaller rocky peak to its right fills most of the frame, with its forested slopes, exposed rock and trees clearly detailed. The pine forest in the foreground is now lower in the frame, passing under the camera. Behind the mountain, a beautiful wide landscape of layered forested Pocono ridges fades into golden mist. Keep the sun in the same place on the right, low on the horizon, with warm golden light rays shining through light clouds and across the mountain.
+Photorealistic aerial drone shot, cinematic sunrise light, vertical 9:16, no text, no watermark.
+
+## Imagen B · El dron pasa la montaña y aparece el río (editar la Imagen A)
+Edit this image. The drone has just flown over the top of the mountain: the rocky summit and the forested ridge are now right below the camera, visible only at the bottom edge of the frame. Beyond the ridge, a wide, beautiful valley opens up with a calm, wide river winding through it between forested mountains, like the Delaware River and the Delaware Water Gap in Pennsylvania. Soft morning mist floats over the water, and the low sun on the right reflects golden light on the river. Layers of forested ridges continue to the horizon.
+Photorealistic aerial drone shot, cinematic sunrise light, same colors and light as this image, vertical 9:16, no text, no watermark.
+
+## Video (cuadro inicial → cuadro final)
+- Imagen de la montaña con logo → Imagen A: Smooth drone flight forward toward the mountain; the faded logo elements dissolve into the golden mist. Constant speed, no cuts, no shake. The sun stays in place.
+- Imagen A → Imagen B: The drone keeps flying forward and rises over the summit; the ridge passes under the camera and reveals the river valley. Constant speed, no cuts, no shake. The sun stays in place.
