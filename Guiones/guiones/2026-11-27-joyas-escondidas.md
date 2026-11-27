@@ -1,28 +1,30 @@
-# Joyas escondidas de los Poconos (v2, lugares verificados)
+# Joyas escondidas cerca de casa (v3: Monroe County y alrededores, tono cercano)
 | Plataforma | Duración | Objetivo | Audiencia | Formato | Modo |
 |---|---|---|---|---|---|
-| Reels/TikTok | <45 s | Viral + guardados | Locales y visitantes | Lista local | Palabra por palabra |
+| Reels/TikTok | <45 s | Viral + guardados + comunidad | Locales de los Poconos | Lista local, tono amigable | Palabra por palabra (natural) |
 
 ## Texto para grabar (teleprompter)
 [HOOK]
-Pennsylvania's tallest waterfall is in the Poconos, and most people have never heard of it.
+Okay, if you live in the Poconos and you've never been to these four spots… we need to talk.
 
 [PUNTO 1]
-It's Raymondskill Falls, near Milford. Two viewing platforms, and it is stunning.
+First, the Tannersville Cranberry Bog. You walk on a floating boardwalk through a real bog. It's so peaceful, and it's a National Natural Landmark, right here in Tannersville.
 
 [PUNTO 2]
-But that's not even the most hidden spot. The Tannersville Cranberry Bog: a floating boardwalk through a bog that's a National Natural Landmark.
+Second, Lookout Rock on Mount Minsi, right by the Delaware Water Gap. Short hike, and that view of the river? Unreal.
 
 [PUNTO 3]
-Bruce Lake, near Promised Land: a quiet, spring-fed glacial lake you can only reach on foot.
+Third, the top of Big Pocono State Park. Go for sunrise, bring a coffee, and thank me later.
 
 [PUNTO 4]
-And the one with the scariest name: the Shades of Death Trail in Hickory Run. Don't worry, it's one of the prettiest walks around.
+And the one with the scariest name: the Shades of Death Trail in Hickory Run. I promise, it's beautiful. Creek, rocks, total peace.
 
 [CIERRE]
-Save this for your next weekend. Which one are you visiting first?
+Which one have you done? Tell me your favorite spot, and I'll go check it out for part two.
 
 ## Notas
-- Fuentes: NPS (Raymondskill = cascada más alta de PA), The Nature Conservancy (Tannersville Cranberry Bog, National Natural Landmark, boardwalk), DCNR (Bruce Lake: lago glaciar alimentado por manantiales; Shades of Death Trail).
-- Antes de grabar: revisa si cada lugar está abierto y cómo se accede (el Cranberry Bog suele hacer caminatas guiadas; en invierno puede haber hielo).
-- B-roll propio de cada lugar. Texto en pantalla: `4 Poconos spots most people miss 📍`
+- Tono: como hablándole a un amigo; sonríe, mira a cámara, gestos naturales.
+- Lugares cerca de Tannersville / Stroudsburg / Delaware Water Gap; Hickory Run queda ~30 min por la I-80.
+- Antes de grabar: confirmar acceso y horarios (el Cranberry Bog suele tener caminatas guiadas; hielo en invierno).
+- B-roll propio de cada lugar. Texto en pantalla: `4 Poconos spots you NEED to visit 📍`
+- La parte 2 sale de los comentarios (lugares que recomiende la gente).

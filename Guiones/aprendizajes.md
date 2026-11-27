@@ -8,3 +8,4 @@
 - 2026-11-20: No dar razones de precio sin datos. El usuario corrigió que Tobyhanna también tiene comunidades con lago; las explicaciones de diferencias de precio deben salir del MLS (tamaño, año, frente al lago vs acceso).
 - 2026-11-25: Para prompts de imagen/transiciones, el usuario prefiere pocos cuadros y prompts simples; 7 cuadros fue demasiado. Usar 3 cuadros (inicio, transformación, final) y dejar el movimiento al generador de video.
 - 2026-11-27: Solo hablar de los Poconos. No comparar con otros lugares (Florida, Nueva York, etc.); el usuario rechazó los guiones 'Florida vs Poconos' y 'neoyorquinos el primer mes'.
+- 2026-11-27: Lugares: preferir los cercanos (Monroe County: Tannersville, Stroudsburg, Delaware Water Gap, Mount Pocono); evitar lugares lejanos como Milford. Tono: amigable, como hablando con su público.
