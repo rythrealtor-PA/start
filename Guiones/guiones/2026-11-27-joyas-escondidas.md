@@ -8,7 +8,7 @@
 Okay, if you live in the Poconos and you've never been to these four spots… we need to talk.
 
 [PUNTO 1]
-First, the Tannersville Cranberry Bog. You walk on a floating boardwalk through a real bog. It's so peaceful, and it's a National Natural Landmark, right here in Tannersville.
+First, the Tannersville Cranberry Bog. A floating boardwalk through a real bog, and it's a National Natural Landmark.
 
 [PUNTO 2]
 Second, Lookout Rock on Mount Minsi, right by the Delaware Water Gap. Short hike, and that view of the river? Unreal.
@@ -17,10 +17,10 @@ Second, Lookout Rock on Mount Minsi, right by the Delaware Water Gap. Short hike
 Third, the top of Big Pocono State Park. Go for sunrise, bring a coffee, and thank me later.
 
 [PUNTO 4]
-And the one with the scariest name: the Shades of Death Trail in Hickory Run. I promise, it's beautiful. Creek, rocks, total peace.
+And the one with the scariest name: the Shades of Death Trail in Hickory Run. I promise, it's beautiful.
 
 [CIERRE]
-Which one have you done? Tell me your favorite spot, and I'll go check it out for part two.
+Which one have you done? Tell me your favorite, and I'll check it out for part two.
 
 ## Notas
 - Tono: como hablándole a un amigo; sonríe, mira a cámara, gestos naturales.
