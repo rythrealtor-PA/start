@@ -63,3 +63,34 @@ ffmpeg -i proyectos/X/v3_texto.mp4 -vf "ass=proyectos/X/subs_final.ass:fontsdir=
 ## Personaje animado que se asoma (2026-11-26, Thanksgiving)
 - `herramientas/turkey.py`: un turkey dibujado (original, estilo cartoon) se asoma por un costado con medio cuerpo, saluda con el ala y parpadea. Ciclo: 6 s sin turkey, 8 s saludando, se va, y vuelve por el lado contrario. Sin sonido.
 - Opciones: `--first 6 --gap 6 --show 8 --size 640 --y 900 --peek 0.67`. `--y 900` lo deja entre el título de arriba y los subtítulos, y del lado derecho no queda debajo de los botones de Instagram.
+
+---
+
+## 6 · Hook title con "palabra del medio" (guardado el 2026-11-28)
+- **Ref:** `referencias/estilos/6-hook-palabra-del-medio.jpg` ("Don't / listen / to them.")
+- 2 o 3 palabras en líneas **escalonadas** (la primera más a la izquierda, la última más a la derecha), en serif elegante y delgada (Playfair Display Regular).
+- La **palabra del medio** es la protagonista: más grande, con **degradado vino → naranja oscuro** (`#6E1E3A → #E36A3F`) y un poco transparente, para que el color **se adapte al fondo** (sobre el pelo o la ropa cambia de tono). Las otras palabras van en blanco.
+- Va **delante** de la persona (capa `front`), a la altura del pecho, sin tapar la cara.
+- Receta (capas.json):
+```json
+{"start": 0, "end": 3, "front": true, "y": 900, "gap": -70, "lines": [
+  {"t": "Don't",    "font": "didone", "color": "#FFFFFF", "size": 250, "shadow": 0.35, "dx": -150},
+  {"t": "listen",   "font": "didone", "gradient": ["#6E1E3A", "#E36A3F"], "size": 270, "opacity": 0.86, "shadow": 0, "dx": 20},
+  {"t": "to them.", "font": "didone", "color": "#FFFFFF", "size": 150, "shadow": 0.35, "dx": 170}]}
+```
+
+## 7 · "Atrás y adelante" (guardado el 2026-11-28)
+- **Ref:** `referencias/estilos/7-atras-y-adelante.jpg` ("will rise **questions** … for *buyers,*")
+- **Atrás** (detrás de la cabeza): la **idea principal**, que tiene que resaltar. Palabra grande en serif **itálica** con el degradado vino → naranja ("questions"), y encima, pegada, una frase corta en sans **bold blanca** ("will rise").
+- **Adelante** (delante de la persona, a la altura del pecho): lo **secundario** o lo que va diciendo, como subtítulo grande: sans bold blanca + serif itálica blanca ("for / buyers,").
+- Se arma con **dos capas al mismo tiempo**: una normal (detrás) y otra con `front: true` (adelante).
+```json
+{"start": 5, "end": 8, "overlap": 110, "gap": -150, "lines": [
+  {"t": "will rise", "font": "sans_bold", "color": "#FFFFFF", "size": 110, "shadow": 0.45, "dx": -120},
+  {"t": "questions", "font": "didone_italic", "gradient": ["#6E1E3A", "#E36A3F"], "size": 230, "opacity": 0.9, "shadow": 0}]},
+{"start": 5, "end": 8, "front": true, "y": 1180, "gap": -95, "lines": [
+  {"t": "for", "font": "sans_bold", "color": "#FFFFFF", "size": 100, "shadow": 0.5, "dx": -30},
+  {"t": "buyers,", "font": "didone_italic", "color": "#FFFFFF", "size": 170, "shadow": 0.5, "dx": 40}]}
+```
+- Prueba de cómo salen con la herramienta: `referencias/estilos/6-7-demo-herramienta.jpg`.
+- Opciones nuevas de línea: `"gradient": [color1, color2]`, `"opacity"` (0–1), `"dx"` (desplazamiento horizontal en px). Fuentes nuevas: `didone`, `didone_italic`, `sans_bold`.

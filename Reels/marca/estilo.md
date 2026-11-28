@@ -37,7 +37,7 @@ plataforma: instagram
 - Cierre de 2–3 segundos con el logo sobre fondo oscurecido.
 
 ## Estilos de edición propios
-- Ver `marca/estilos-edicion.md` (5 estilos: 3 behind, texto grande detrás, 1 behind, hook text, título detrás).
+- Ver `marca/estilos-edicion.md` (7 estilos: 3 behind, texto grande detrás, 1 behind, hook text, título detrás, hook con palabra del medio, atrás y adelante).
 
 ## Tono
 - Hooks con **pregunta + problema** en los primeros 3 segundos.

@@ -35,6 +35,9 @@ DEFAULT_FONTS = {
     "bold": "/usr/share/fonts/opentype/inter/Inter-ExtraBold.otf",
     "serif": os.path.join(REELS, "marca/fuentes/PlayfairDisplay-ExtraBoldItalic.ttf"),
     "serif_light": os.path.join(REELS, "marca/fuentes/PlayfairDisplay-SemiBoldItalic.ttf"),
+    "didone": os.path.join(REELS, "marca/fuentes/PlayfairDisplay-Regular.ttf"),          # estilo 6: "Don't"
+    "didone_italic": os.path.join(REELS, "marca/fuentes/PlayfairDisplay-Italic.ttf"),    # estilo 7: "questions"
+    "sans_bold": "/usr/share/fonts/opentype/inter/Inter-Bold.otf",                         # estilo 7: "will rise"
 }
 IN_D, OUT_D, STAGGER = 0.30, 0.22, 0.07
 
@@ -56,7 +59,21 @@ def render_line(line, fonts, max_w):
     x0, y0, x1, y1 = f.getbbox(line["t"])
     pad = 40
     img = Image.new("RGBA", (x1 - x0 + 2 * pad, y1 - y0 + 2 * pad), (0, 0, 0, 0))
-    ImageDraw.Draw(img).text((pad - x0, pad - y0), line["t"], font=f, fill=hex2rgb(line["color"]) + (255,))
+    if line.get("gradient"):  # degradado dentro de las letras (estilos 6 y 7): vino -> naranja oscuro
+        m = Image.new("L", img.size, 0); ImageDraw.Draw(m).text((pad - x0, pad - y0), line["t"], font=f, fill=255)
+        c1, c2 = [np.array(hex2rgb(c), float) for c in line["gradient"]]
+        w = img.size[0]; ramp = np.linspace(0, 1, w)[None, :, None]
+        ang = line.get("gradient_tilt", 0.35)  # un poco diagonal, como en la referencia
+        yy = np.linspace(0, 1, img.size[1])[:, None, None]
+        k = np.clip(ramp * (1 - ang) + yy * ang, 0, 1)
+        rgb = (c1 * (1 - k) + c2 * k).astype(np.uint8)
+        grad = Image.fromarray(np.dstack([rgb[..., 0] * np.ones((img.size[1], 1), np.uint8), rgb[..., 1] * np.ones((img.size[1], 1), np.uint8),
+                                          rgb[..., 2] * np.ones((img.size[1], 1), np.uint8)]), "RGB").convert("RGBA")
+        grad.putalpha(m); img = grad
+    else:
+        ImageDraw.Draw(img).text((pad - x0, pad - y0), line["t"], font=f, fill=hex2rgb(line["color"]) + (255,))
+    if line.get("opacity", 1) < 1:  # deja ver un poco el fondo: el color "se adapta" a lo que hay detrás
+        op = line["opacity"]; img.putalpha(img.split()[3].point(lambda v: int(v * op)))
     # sombra suave para que se lea sobre fondos claros
     sh_op = line.get("shadow", 0.28)
     if sh_op > 0:
@@ -169,8 +186,8 @@ def build(ov, fonts, max_w, head_top=None, base_dir="."):
             placed.append((im, max(ov.get("min_top", 150) - pad, bottom - _sz(im)[1]), cx))
         return placed
     placed = []
-    for (im, pad), h in zip(imgs, heights):
-        placed.append((im, top, None)); top += h
+    for (im, pad), h, item in zip(imgs, heights, ov["lines"]):
+        placed.append((im, top, 540 + item["dx"] if "dx" in item else None)); top += h  # "dx": línea escalonada
     return placed
 
 
